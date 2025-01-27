@@ -1,0 +1,32 @@
+---
+import iconRow from '../assets/flecha.svg?url';
+---
+
+<nav class="hidden lg:block pl-3 pr-16">
+  <ul class="flex space-x-8 w-1/2 justify-between">
+    <li class="relative group">
+      <a href="#" class="flex">Nosotros <img src={iconRow} class="p-1" alt="flecha" /></a>
+      <ul class="absolute hidden bg-gray-50 group-hover:block w-44 -ml-4 font-normal">
+        <li><a href="/aboutus/aboutus" class="block m-4 ml-4">Quienes somos</a></li>
+        <li><a href="/aboutus/headquarters" class="block m-4 ml-4">Nuestras sedes</a></li>
+        <li><a href="/aboutus/agreement" class="block m-4 ml-4">Convenios</a></li>
+        <li><a href="/aboutus/status-financiero" class="block m-4 ml-4">Estados financieros</a></li>
+        <li><a href="/aboutus/sarlaf-sicof" class="block m-4 ml-4">Sarlaf y Sicof</a></li>
+      </ul>
+    </li>
+    <li><a href="/services">Servicios</a></li>
+    <li class="relative group">
+      <a href="#" class="flex">Usuarios <img src={iconRow} class="p-1" alt="flecha" /></a>
+      <ul class="absolute left-0 hidden bg-gray-50 group-hover:block w-48 -ml-4 text-base font-normal">
+        <li><a href="/users/pqrsfd" class="block m-4 ml-4">PQRSFD</a></li>
+        <li><a href="/users/association" class="block m-4 ml-4">Asociación de usuarios</a></li>
+        <li><a href="/users/rights-duties" class="block m-4 ml-4">Derechos y deberes</a></li>
+        <li><a href="/users/blog" class="block m-4 ml-4">Nuestro blog</a></li>
+        <li><a href="/users/laboratorios" class="block m-4 ml-4">Resultado laboratorio</a></li>
+        <li><a href="/users/medical-procedures" class="block m-4 ml-4">Procedimientos Médicos</a></li>
+        <li><a href="/users/seminar" class="block m-4 ml-4">Seminario</a></li>
+      </ul>
+    </li>
+    <li><a href="/contact-us">Contáctenos</a></li>
+  </ul>
+</nav>
