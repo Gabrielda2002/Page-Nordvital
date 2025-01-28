@@ -1,0 +1,39 @@
+---
+const socialLinks = [
+  {
+    href: "https://www.instagram.com/nordvital_ips/",
+    src: "/src/assets/logo_footer/instagram.png",
+    alt: "Instagram",
+    text: "@IPS Nordvital",
+  },
+  {
+    href: "https://www.facebook.com/Nordvitaloficial/?locale=es_LA",
+    src: "/src/assets/logo_footer/facebook.png",
+    alt: "Facebook",
+    text: "@Nordvital1",
+  },
+  {
+    href: "https://www.tiktok.com/@nordvital1",
+    src: "/src/assets/logo_footer/tiktok.png",
+    alt: "TikTok",
+    text: "@nordvital1",
+  },
+  {
+    href: "https://www.youtube.com/@NordvitalIPS",
+    src: "/src/assets/logo_footer/youtube.png",
+    alt: "YouTube",
+    text: "@NordvitalIPS",
+  },
+];
+---
+
+<div class="text-white place-items-center">
+  <h3 class="text-2xl font-bold mb-5 mt-12">Redes sociales</h3>
+  <div>
+    {socialLinks.map(link => (
+      <a href={link.href} target="_blank" class="flex items-center mb-3 hover:underline transition">
+        <img src={link.src} alt={link.alt} height="25px" width="25px" /> {link.text}
+      </a>
+    ))}
+  </div>
+</div>
