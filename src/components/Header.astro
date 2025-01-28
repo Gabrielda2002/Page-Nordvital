@@ -1,78 +1,41 @@
 ---
+const phoneNumber = "+573174309873";
+const whatsappMessage = "Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios.";
 
---- 
-<header class="bg-teal-500 font-sans text-white font-semibold ">
-   <div class="flex justify-between items-center p-3 gap-8">
-     <!-- enlace de whatsapp -->
-        <div class="w-40 flex m-2">
-        <a href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios." target="_blank" class="text-white flex">
-            <img src="/src/assets/Phone.svg">(+57) 3174309873</img> 
-        </a>
-        </div>
+import NavLinks from "./NavLinks.astro";
+import SocialLinks from "./SocialLinks.astro";
+// imgs
+import iconPhone from "/src/assets/Phone.svg?url";
+import iconNordvital from "/src/assets/logo-Nordvital.png?url";
 
-        <div class="flex items-center">
-        <p class="">Bienvenidos a Nordvital IPS</p>
-        </div>
+---
 
-        <!-- links de redes -->
-        <div class="flex justify-around w-48">
-        <a href="https://www.instagram.com/nordvital_ips/" target="_blank">
-            <img src="/src/assets/instagram.svg" alt="" class="w-6 h-6 text-white">
-        </a>
-        <a href="https://www.tiktok.com/@nordvital1" target="_blank">
-            <img src="/src/assets/tiktok.svg" alt="" class="w-6 h-6">
-        </a>
-        <a href="https://www.youtube.com/@NordvitalIPS" target="_blank">
-            <img src="/src/assets/youtube.svg" alt="" class="w-6 h-6">
-        </a>
-        <a href="https://www.facebook.com/Nordvitaloficial/?locale=es_LA" target="_blank">
-            <img src="/src/assets/facebook.svg" alt="" class="w-6 h-6">
-        </a>
-        </div>
-   </div>
+<header class="bg-teal-500 font-sans text-white font-semibold">
+  <div class="flex justify-between items-center p-3 gap-8">
+    <!-- enlace de whatsapp -->
+    <div class="w-40 flex m-2">
+      <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`} target="_blank" class="text-white flex">
+        <img src={iconPhone} alt="Phone" class="w-6 h-6" /> {phoneNumber}
+      </a>
+    </div>
+
+    <div class="flex items-center">
+      <p>Bienvenidos a Nordvital IPS</p>
+    </div>
+
+    <!-- links de redes -->
+    <SocialLinks />
+  </div>
 
   <!-- el navbar -->
-  <div class="bg-gray-100 font-sans text-gray-900 pl-7 pr-7 ">
-      <div class="flex justify-between items-center p-3">
-        <a href="/Pagina-nordvitalips/index.astro" class="flex items-center justify-between w-32 p-2">
-            <img src="/src/assets/logo-Nordvital.png" alt="Logo" class="w-40">
-        </a>
+  <div class="bg-gray-100 font-sans text-gray-900 pl-7 pr-7">
+    <div class="flex justify-between items-center p-3">
+      <a href="/" class="flex items-center justify-between w-32 p-2">
+        <img src={iconNordvital} alt="Logo" class="w-40" />
+      </a>
 
-       <!-- links dentro del navbar -->
-        <nav  class="hidden lg:block pl-3 pr-16">
-            <ul class="flex space-x-8 w-1/2 justify-between">
-            <li class="relative group">
-                <a href="#" class=" flex">Nosotros<img src="/src/assets/flecha.svg" class="p-1"></a>
-                <ul class="absolute hidden bg-gray-50 group-hover:block w-44 -ml-4 font-normal">
-                <li><a href="/Pagina-nordvitalips/html/quienes-somos.php" class="block m-4 ml-4">Quienes somos</a></li>
-                <li><a href="/Pagina-nordvitalips/html/sedes.php" class="block m-4 ml-4">Nuestras sedes</a></li>
-                <li><a href="/Pagina-nordvitalips/html/convenios.php" class="block m-4 ml-4">Convenios</a></li>
-                <li><a href="/Pagina-nordvitalips/html/estados-Financieros.php" class="block m-4 ml-4">Estados financieros</a></li>
-                <li><a href="/Pagina-nordvitalips/html/sarlaf-sicof.php" class="block m-4 ml-4">Sarlaf y Sicof</a></li>
-                <li><a href="https://nordvitalipscucuta.sharepoint.com/sites/NORDVITAL/SitePages/Noticias-NordVital-IPS.aspx" target="_blank" class="block m-4 ml-4">Intranet</a></li>
-                </ul>
-            </li>
-
-            <li><a href="/Pagina-nordvitalips/html/servicios.php">Servicios</a></li>    
-
-            <li class="relative group">
-                <a href="#" class="flex">Usuarios<img src="/src/assets/flecha.svg" class="p-1"></a>
-                <ul class="absolute left-0  hidden bg-gray-50 group-hover:block w-48 -ml-4 text-base font-normal">
-                <li><a href="/Pagina-nordvitalips/html/usuarios.php" class="block m-4 ml-4">PQRSFD</a></li>
-                <li><a href="/Pagina-nordvitalips/html/asociacion-usuarios.php" class="block m-4 ml-4">Asociación de usuarios</a></li>
-                <li><a href="/Pagina-nordvitalips/html/derechos-deberes.php" class="block m-4 ml-4">Derechos y deberes</a></li>
-                <li><a href="/Pagina-nordvitalips/html/blog.php" class="block m-4 ml-4">Nuestro blog</a></li>
-                <li><a href="/Pagina-nordvitalips/html/resultado-laboratorio.php" class="block m-4 ml-4">Resultado laboratorio</a></li>
-                <li><a href="/Pagina-nordvitalips/html/procedimientos-medicos.php" class="block m-4 ml-4">Procedimientos Medicos</a></li>
-                <li><a href="/Pagina-nordvitalips/html/seminario.php" class="block m-4 ml-4">Seminario</a></li>
-                </ul>
-            </li>
-
-            <li><a href="/Pagina-nordvitalips/html/contactenos.php">Contactenos</a></li>
-            </ul>
-        </nav>
-
-        
-      </div>
+      <!-- links dentro del navbar -->
+      <NavLinks/>
+    </div>
   </div>
 </header>
