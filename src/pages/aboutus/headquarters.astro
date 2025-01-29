@@ -1,16 +1,222 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+
 ---
 
-<Layout title="Sedes">
+<Layout title="Nuestras-Sedes">
+  <body>
+    <main class="bg-gray-100">
 
-<div class="container weight-600">
-  <div class="row">
-    <div class=" col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center ">
-      <div class="ips d-flex  align-content-center">
-        <h1 class="text-muted">Nuestras <span class="text-primary">Sedes</span></h1>
+      <section
+        class="bg-cover bg-gray-200 h-[400px] w-full flex items-center mb-12"
+        style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
+      >
+        <section class="text-white w-1/2 m-20">
+          <a
+            href="http://localhost:4321"
+            class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl"
+          >
+            Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
+          </a>
+          <h1 class="text-[43px] font-normal mt-4">Nuestras sedes</h1>
+        </section>
+      </section>
+
+      <div class="pt-5 pb-5">
+        <div class="w-3/4 mx-auto mt-4 bg-transparent border-none">
+          <div class="mb-10 font-bold text-lg">
+            <!-- Pestañas de municipios -->
+            <ul class="flex justify-evenly border-transparent" role="tablist">
+              <li class=""> 
+                <button
+                  id="cucuta-tab"
+                  class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button active"
+                  data-tab="cucuta"
+                >
+                  Cúcuta
+                </button>
+              </li>
+              <li class="nav-item">  
+                <button
+                  id="cundinamarca-tab"
+                  class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button"
+                  data-tab="cundinamarca"
+                >
+                  Cundinamarca
+                </button>
+              </li>
+              <li class="nav-item"> 
+                <button
+                  id="leticia-tab"
+                  class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button"
+                  data-tab="leticia"
+                >
+                  Leticia
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div id="cucuta-content" class="tab-panel active">
+            <!-- SEDES CUCUTA -->
+            <Card
+              title="SEDES 01:"
+              address="Calle 14A # 2E-85"
+              mapLink="https://www.google.com/maps..."
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp",
+              ]}
+            />
+            <Card
+              title="SEDES 03:"
+              address="Calle 13A # 1E-52"
+              mapLink="https://www.google.com/maps/place/Cl.+13a+%231e27,+Los+Caobos,+C%C3%BAcuta,+Norte+de+Santander/@7.8839631,-72.4978305,205m/data=!3m1!1e3!4m6!3m5!1s0x8e66459f7c41e3e3:0x5771d8ad71bd1a1a!8m2!3d7.8842913!4d-72.497095!16s%2Fg%2F11vxxw818w?entry=ttu"
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-3.webp",
+              ]}
+            />
+            <Card
+              title="SEDES 04:"
+              address="Calle 15 # 2E-07"
+              mapLink="https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu"
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-3.webp",
+              ]}
+            />
+            <Card
+              title="SEDES 05:"
+              address="AV. 3A E # 13A-82 CAOBOS"
+              mapLink="https://maps.app.goo.gl/qeYXCAhAt7Kihwps8"
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-3.webp",
+              ]}
+            />
+            <Card
+              title="SEDES 06:"
+              address="SEDE AV2 ESTE # 14A-10 CAOBOS"
+              mapLink="https://maps.app.goo.gl/MsU4raTfftwrrgff7"
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-3.webp",
+              ]}
+            />
+            <Card
+              title="SEDES 07:"
+              address="CALLE 8 # 0-71 BARRIO LATINO"
+              mapLink="https://maps.app.goo.gl/MsU4raTfftwrrgff7"
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg",
+                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp",
+              ]}
+            />
+          </div>
+
+          <!-- SEDES CUNDINAMARCA -->
+          <div id="cundinamarca-content" class="tab-panel">
+            <Card
+              title="Sede Ubaté:"
+              address="CALLE 11 # 5-20 JUAN JOSE NEIRA"
+              mapLink="https://maps.app.goo.gl/CL68fh6z9HDBARhu8"
+              images={[
+                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-1.webp",
+                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-2.webp",
+                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-3.webp",
+              ]}
+            />
+            <Card
+              title="Sede La Mesa:"
+              address="CALLE 8 # 24-67 ALVAREZ DIAZ"
+              mapLink="https://maps.app.goo.gl/Bntm8wxFXDekCtgK8"
+              images={[
+                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-1.webp",
+                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-2.webp",
+                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-3.webp",
+              ]}
+            />
+            <Card
+              title="Sede Cajíca:"
+              address="CARRERA 7 # 2-46"
+              mapLink="https://maps.app.goo.gl/fVRix63tKta678LR6"
+              images={[
+                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-1.webp",
+                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-2.webp",
+                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-3.webp",
+              ]}
+            />
+            <Card
+              title="Sede La Calera:"
+              address="CARRERA 5 # 2A-69"
+              mapLink="https://maps.app.goo.gl/rbHQBipQYNMjoyBD9"
+              images={[
+                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-1.webp",
+                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-2.webp",
+                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-3.webp",
+              ]}
+            />
+          </div>
+
+          <!-- SEDES LETICIA -->
+          <div id="leticia-content" class="tab-panel">
+            <Card
+              title="Sede leticia:"
+              address="CALLE 12 # 8-55 JOSE MARIA HERNANDEZ"
+              mapLink="https://maps.app.goo.gl/U7VrqXBMe2aWVfwg9"
+              images={[
+                "/src/images/Sedes/Amazonas/Leticia/SEDE-1-1.webp",
+                "/src/images/Sedes/Amazonas/Leticia/SEDE-1-2.webp",
+                "/src/images/Sedes/Amazonas/Leticia/SEDE-1-3.webp",
+              ]}
+            />
+          </div>
+        </div>
       </div>
-    </div>
-</div>
+    </main>
 
+    <style>
+      .tab-panel {
+        display: none;
+      }
+      .tab-panel.active {
+        display: block;
+      }
+      .tab-button.active {
+        @apply bg-sky-500 text-white;
+      }
+    </style>
+
+    <script>
+      // Get all tab buttons and panels
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanels = document.querySelectorAll(".tab-panel");
+
+      // Add click event listeners to all tab buttons
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons and panels
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Show corresponding panel
+          const tabId = button.getAttribute("data-tab");
+          const panel = document.getElementById(`${tabId}-content`);
+          if (panel) {
+            panel.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
 </Layout>
