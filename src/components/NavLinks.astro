@@ -11,21 +11,34 @@ import resultIcon from "../assets/icons_header/report-analytics.svg?url";
 import blogIcon from "../assets/icons_header/article.svg?url";
 import educativeIcon from "../assets/icons_header/school.svg?url";
 import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
+import closeIcon from "../assets/icons_header/menu-2.svg?url";
 ---
 
-<nav class="hidden lg:block pl-3 pr-16">
-  <ul class="flex space-x-8 w-1/2 justify-between">
+<nav class="relative h-full">
+  <!-- boton de cerrado -->
+  <button
+    id="close_menu"
+    class="lg:hidden absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-md transition-colors">
+    <img src={closeIcon} alt="Menu" class="w-6 h-6" />
+  </button>
+
+  <ul
+    class="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
+  >
     <li class="relative group">
-      <button class="flex hover:text-teal-500 transition-colors"
-        >Nosotros <img src={iconRow} class="p-1" alt="flecha" /></button
-      >
+      <button
+        class="submenu-btn flex w-full justify-between items-center hover:text-teal-500 transition-colors" 
+        data-submenu="nosotros">
+        Nosotros <img src={iconRow} class="p-1" alt="flecha" />
+        </button>
       <ul
-        class="absolute invisible bg-gray-50 group-hover:visible w-[500px] ml-4 font-normal z-50 grid grid-cols-2 p-4 rounded-md shadow-lg"
+        class="submenu visible lg:group-hover:visible lg:invisible bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg"
+        id="nosotros"
       >
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/aboutus" class="block p-3">
+          <a href="/aboutus/aboutus" class="flex items-center gap-2 p-3">
             <img src={aboutusIcon} alt="aboutus Icon" class="w-5 h-5" />
             Quienes somos
           </a>
@@ -33,7 +46,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/headquarters" class="block p-3">
+          <a href="/aboutus/headquarters" class="flex items-center gap-2 p-3">
             <img src={headquartersIcon} alt="aboutus Icon" class="w-5 h-5" />
             Nuestras sedes
           </a>
@@ -41,7 +54,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/agreement" class="block p-3">
+          <a href="/aboutus/agreement" class="flex items-center gap-2 p-3">
             <img src={contractsIcon} alt="aboutus Icon" class="w-5 h-5" />
             Convenios
           </a>
@@ -49,7 +62,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/status-financiero" class="block p-3">
+          <a href="/aboutus/status-financiero" class="flex items-center gap-2 p-3">
             <img src={statusIcon} alt="aboutus Icon" class="w-5 h-5" />
             Estados financieros
           </a>
@@ -57,7 +70,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/sarlaf-sicof" class="block p-3">
+          <a href="/aboutus/sarlaf-sicof" class="flex items-center gap-2 p-3">
             <img src={helpIcon} alt="aboutus Icon" class="w-5 h-5" />
             Sarlaf y Sicof
           </a>
@@ -72,11 +85,16 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
     </li>
 
     <li class="relative group">
-      <button class="flex hover:text-teal-500 transition-colors"
-        >Usuarios <img src={iconRow} class="p-1" alt="flecha" /></button
+      <button 
+      class="submenu-btn flex w-full justify-between items-start hover:text-teal-500 transition-colors"
+      data-submenu="usuarios"
+      >
+        Usuarios <img src={iconRow} class="p-1" alt="flecha" />
+        </button
       >
       <ul
-        class="absolute invisible right-0 bg-gray-50 group-hover:visible w-[500px] -ml-4 text-base font-normal z-50 grid grid-cols-2 p-4 rounded-md shadow-lg"
+        id="usuarios"
+        class="submenu lg:absolute static lg:invisible lg:group-hover:visible bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 gird grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg"
       >
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -92,7 +110,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
           <a href="/users/association" class="block m-4 ml-4">
             <img src={aboutusIcon} alt="users Icon" class="w-5 h-5" />
             Asociación de usuarios
-            </a>
+          </a>
         </li>
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -103,7 +121,8 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
           </a>
         </li>
         <li
-          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors">
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
           <a href="/users/blog" class="block m-4 ml-4">
             <img src={blogIcon} alt="blog Icon" class="w-5 h-5" />
             Nuestro blog
@@ -115,7 +134,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
           <a href="/users/laboratorios" class="block m-4 ml-4">
             <img src={resultIcon} alt="result Icon" class="w-5 h-5" />
             Resultado laboratorio
-            </a>
+          </a>
         </li>
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -123,7 +142,7 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
           <a href="/users/medical-procedures" class="block m-4 ml-4">
             <img src={medicalIcon} alt="medical Icon" class="w-5 h-5" />
             Procedimientos Médicos
-            </a>
+          </a>
         </li>
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -138,8 +157,56 @@ import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
 
     <li>
       <a href="/contact-us" class="hover:text-teal-500 transition-colors"
-        >Contáctenos</a>
+        >Contáctenos</a
+      >
     </li>
-
   </ul>
 </nav>
+<script>
+  const closeButton = document.getElementById("close_menu");
+  const menuMovil = document.getElementById("menu_movil");
+  const submenuBtn = document.querySelectorAll(".submenu-btn");
+  const body = document.body;
+
+  submenuBtn.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      if (window.innerWidth < 1024) {
+        const submenuId = btn.getAttribute("data-submenu");
+        const submenu = document.getElementById(submenuId as string);
+        const arrow = btn.querySelector("img");
+
+        submenu?.classList.toggle("hidden");
+        
+        arrow?.style.setProperty("transform", submenu?.classList.contains("hidden") ? "rotate(0deg)" : "rotate(180deg)");
+
+        document.querySelectorAll(".submenu").forEach(menu => {
+          if (menu.id !== submenuId) {
+            menu.classList.add("hidden");
+            const otherArrow = document.querySelector(`[data-submenu="${menu.id}"] img`) as HTMLImageElement | null;
+            otherArrow?.style.setProperty("transform", "rotate(0deg)");
+          }
+        })
+      }
+    })
+  })
+
+  // Asegurar que los submenús estén cerrados al abrir el menú móvil
+  const resetSubmenus = () => {
+    document.querySelectorAll('.submenu').forEach(submenu => {
+      submenu.classList.add('hidden');
+    });
+    document.querySelectorAll('.submenu-btn img').forEach(arrow => {
+      if (arrow instanceof HTMLImageElement) {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    });
+  };
+
+  // Reiniciar submenús cuando se abre el menú móvil
+  document.addEventListener('DOMContentLoaded', resetSubmenus);
+
+  closeButton?.addEventListener("click", () => {
+    menuMovil?.classList.add("hidden");
+    body.style.overflow = "auto";
+  });
+</script>
