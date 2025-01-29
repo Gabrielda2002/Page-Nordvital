@@ -3,11 +3,163 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Convenios">
+  <main class="bg-gray-100 min-h-screen">
+    <section
+      class="bg-cover bg-gray-200 h-[400px] w-full flex items-center mb-12"
+      style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
+    >
+      <section class="text-white w-1/2 m-20">
+        <a
+          href="http://localhost:4321"
+          class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl"
+        >
+          Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
+        </a>
+        <h1 class="text-[43px] font-normal mt-4">Convenios</h1>
+      </section>
+    </section>
 
-    <div class="">
-        <h1 class="text-4xl text-center font-bold text-gray-800">
-            Convenios
-        </h1>
-    </div>
+    <section class="container mx-auto px-4 my-16">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-teal-600 font-bold text-4xl mb-6">En NordVital IPS</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Nos enorgullece ofrecer una amplia gama de servicios médicos de alta
+          calidad a nuestros pacientes. Para garantizar un acceso integral a la
+          atención médica, hemos establecido convenios con varias Entidades
+          promotoras de salud (EPS) líderes en el país.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Nuestros convenios con EPS nos permiten brindar atención médica
+          especializada a los afiliados de estas entidades, garantizando un
+          proceso de atención eficiente y sin contratiempos. Trabajamos en
+          estrecha colaboración con nuestras EPS asociadas para ofrecer
+          servicios médicos de primera calidad.
+        </p>
+      </div>
+    </section>
 
+    <section class="container mx-auto">
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button
+            class="accordion-button w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out flex justify-between items-center"
+            id="accordion-button-1"
+            aria-expanded="false"
+          >
+            <div class="flex items-center justify-between w-full">
+              <img
+                src="/src/images//Convenios/LOGO-COMPENSAR.png"
+                alt="Logo Convenio 1"
+                class="w-40 h-auto"
+              />
+              <svg
+                class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </button>
+          <div
+            class="accordion-content p-6 border-t border-gray-200 overflow-hidden"
+            id="accordion-content-1"
+          >
+            <h5 class="text-lg font-semibold text-teal-700 mb-2">
+              Línea de atención:
+            </h5>
+            <p class="text-gray-600">
+              607-5880120
+              <br />
+              607-5880130
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="accordion-item bg-white rounded-lg shadow-md overflow-hidden"
+        >
+          <button
+            class="accordion-button w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out flex justify-between items-center"
+            id="accordion-button-2"
+            aria-expanded="false"
+          >
+            <div class="flex items-center justify-between w-full">
+              <img
+                src="/src/images//Convenios/LOGO-NUEVA-EPS.png"
+                alt="Logo Nueva EPS"
+                class="w-40 h-auto"
+              />
+              <svg
+                class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </button>
+          <div
+            class="accordion-content hidden p-6 border-t border-gray-200"
+            id="accordion-content-2"
+          >
+            <h5 class="text-lg font-semibold text-teal-700 mb-2">
+              Línea de atención fija:
+            </h5>
+            <p class="text-gray-600 mb-4">300-9135168</p>
+            <h5 class="text-lg font-semibold text-teal-700 mb-2">
+              Línea de atención WhatsApp:
+            </h5>
+            <p class="text-gray-600">317-5141175</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>+  .shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+</style>
+
+<script>
+  function setupAccordion() {
+    const accordionButtons = document.querySelectorAll(".accordion-button");
+
+    accordionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = document.getElementById(
+          `accordion-content-${button.id.split("-").pop()}`
+        );
+        const icon = button.querySelector("svg");
+
+        if (content) {
+          content.classList.toggle("hidden");
+          if (icon) {
+            icon.classList.toggle("rotate-180");
+          }
+          button.setAttribute(
+            "aria-expanded",
+            content.classList.contains("flex") ? "false" : "true"
+          );
+        }
+      });
+    });
+  }
+
+  // Run the setup when the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", setupAccordion);
+</script>
