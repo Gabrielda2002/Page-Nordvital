@@ -1,11 +1,296 @@
 ---
-import AboutUs from "../../components/aboutus/AboutUs.astro"
-import Layout from "../../layouts/Layout.astro"
+import AboutUs from "../../components/aboutus/AboutUs.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
-<Layout title="About Us">
-    <div class="h-full w-full">
-        <h1 class="text-4xl text-center font-bold text-gray-800">
-            Sobre nosotros
-        </h1>
+
+<Layout title="Quiénes-Somos">
+  <head>
+    <!-- Agrega aquí el enlace a tus estilos de Font Awesome si lo necesitas -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main>
+    <!-- QUIENES SOMOS -->
+    <section
+      class="bg-cover bg-gray-200 h-[400px] w-full flex items-center mb-12"
+      style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
+    >
+      <section class="text-white w-1/2 m-20">
+        <a
+          href="/Pagina-nordvitalips/index.php"
+          class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl"
+        >
+          Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
+        </a>
+        <h1 class="text-[43px] font-normal mt-4">Quienes somos</h1>
+      </section>
+    </section>
+
+    <!-- Misión y visión -->
+    <div
+      class="card mv__container mt-5 mb-5 w-4/5 h-[220px] mx-auto bg-cover bg-no-repeat rounded-[40px]"
+      style="background-image: url('/src/images/AboutUs/MISION_Y_VISION.jpg')"
+    >
+      <div class="card-body flex align-items-center justify-between p-14">
+        <div class="mv__titulo">
+          <h5 class="text-white text-[38px] font-bold">
+            Nuestra misión y visión
+          </h5>
+          <p class="text-white w-2/3">
+            Reflejan nuestro compromiso con la excelencia en la atención médica
+            y nuestra aspiración de ser líderes en el sector de la salud.
+          </p>
+        </div>
+        <div class="mv__icono">
+          <!-- Botón para abrir el modal (activará checkbox) -->
+          <label for="openModal" class="cursor-pointer p-14">
+            <img
+              src="/src/images/AboutUs/Recurso_2.svg"
+              alt="Icono Misión y Visión"
+            />
+          </label>
+        </div>
+      </div>
     </div>
+
+    <!-- Modal -->
+    <input type="checkbox" id="openModal" class="hidden" />
+    <div
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-700 modal-overlay opacity-0 pointer-events-none"
+      id="modalOverlay"
+    >
+      <div
+        class="bg-white m-auto p-5 rounded-lg min-w-[40%] mx-[100%] animate-fadeIn"
+      >
+        <div class="flex justify-end">
+          <label for="openModal" class="cursor-pointer text-xl p-3">X</label>
+        </div>
+        <div class="modal-body mv__contenido">
+          <h3 class="font-semibold text-teal-500 text-2xl mb-3">
+            <em>Misión: </em>
+          </h3>
+          <p class="text-justify">
+            En NORDVITAL IPS S.A.S,. somos una institución prestadora de
+            servicios de salud ambulatorios de baja y mediana complejidad con
+            presencia a nivel nacional, con capital humano integral y
+            comprometido, espacios confortables y tecnología de punta que ofrece
+            atención con altos estándares de calidad y el propósito de
+            garantizar la satisfacción a nuestros usuarios y sus familias.
+          </p><br />
+
+          <h3 class="font-semibold text-teal-500 text-2xl mb-3">
+            <em>Visión: </em>
+          </h3>
+          <p class="text-justify mb-5">
+            Posicionar NORDVITAL IPS en el 2029 como una organización líder en
+            innovación, servicios de alta calidad y excelencia en la atención,
+            fortaleciendo nuestra capacidad operativa a nivel nacional, siendo
+            reconocidos por nuestros usuarios, clientes, profesionales y entorno
+            social.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    /* Mostrar el modal cuando el checkbox esté marcado */
+    #openModal:checked ~ #modalOverlay {
+      opacity: 100%;
+      pointer-events: all;
+    }
+    /* Clase para deshabilitar el scroll */
+    .no-scroll {
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    // Get the modal checkbox and overlay
+    const modalCheckbox = document.getElementById(
+      "openModal"
+    ) as HTMLInputElement;
+    const modalOverlay = document.getElementById("modalOverlay");
+
+    // Add event listener to the modal checkbox
+    if (modalCheckbox) {
+      modalCheckbox.addEventListener("change", () => {
+        if (modalCheckbox.checked) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      });
+    }
+  </script>
+
+  <!-- ¿QUÉ QUINES SOMOS? -->
+  <div class="quienes__somos flex justify-center items-center space-x-8">
+    <div class="quienes__somos__item-uno p-5 w-2/6">
+      <h1 class="text-primary text-4xl font-normal text-[#0d6efd]">
+        <strong>¿Quiénes somos?</strong>
+      </h1><br />
+      <p class="text-muted text-lg">
+        <strong> NordVital IPS S.A.S.</strong> es una IPS de carácter privado que
+        ofrece servicios de atención primaria y de complejidad media a sus usuarios,
+        ya sea a través de las EPS o de manera particular.
+      </p><br />
+      <p class="text-muted text-lg">
+        NordVital IPS S.A.S. En concordancia con las nuevas orientaciones y
+        políticas de atención integral que se promueven a nivel nacional, cuenta
+        con una política de atención basada en el <strong>compromiso</strong> con
+        el mejoramiento continuo de la calidad de la atención en salud para todos
+        los usuarios.
+      </p>
+      <br />
+      <h2 class="text-4xl font-normal text-teal-500">
+        <strong>Excelencia en Atención</strong>
+      </h2><br />
+      <p class="text-muted text-lg">
+        Los servicios ofertados y su modalidad de atención, están basados en
+        estándares de <strong>efectividad y eficiencia</strong> como respuesta a
+        las necesidades de la población, para lo cual se cuenta con el mejor recurso
+        humano, la mejor infraestructura, y tecnología de punta, propendiendo por
+        una atención integral.
+      </p>
+    </div>
+
+    <div class="quienes__somos__item-img w-2/5">
+      <img
+        src="/src/images/AboutUs/NOSOTROS_1.webp"
+        alt="Imagen Quiénes Somos"
+      />
+    </div>
+  </div>
+
+  <div class="quienes__somos flex justify-center items-center space-x-8">
+    <div class="quienes__somos__item-img w-2/5">
+      <img
+        src="/src/images/AboutUs/DOCTOR_NOSOTROS_3.webp"
+        alt="Imagen Doctor"
+      />
+    </div>
+
+    <div class="quienes__somos__item-uno p-4 w-2/5">
+      <h1 class="text-4xl font-semibold text-teal-500">
+        <stron><em>Nuestros valores:</em></stron>
+      </h1><br />
+
+      <ul class="list-disc pl-5">
+        <li class="text-muted text-lg">
+          <strong>Lealtad:</strong> Estamos siempre presentes y comprometidos, apoyando
+          y defendiendo los intereses de aquellos a quienes servimos y con quienes
+          trabajamos.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Empatía:</strong> En NordVital IPS, valoramos y cultivamos un espíritu
+          de gratitud en cada interacción. Reconocemos y apreciamos sinceramente
+          las contribuciones y sacrificios de nuestros colegas, pacientes y socios.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Gratitud:</strong> Nos esforzamos por comprender las experiencias,
+          emociones y necesidades de los demás, y actuamos con compasión y sensibilidad
+          para brindar apoyo y cuidado genuino.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Respeto:</strong> El respeto es fundamental en NordVital IPS, tanto
+          hacia las personas como hacia las diferencias que nos hace únicos.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quienes__somos flex justify-center items-center space-x-8">
+    <div class="quienes__somos__item-uno p-4 w-2/5">
+      <h1 class="text-4xl font-normal text-teal-500">
+        <strong><em>Nuestros principios:</em> </strong>
+      </h1><br />
+      <ul class="list-disc pl-5">
+        <li class="text-muted text-lg">
+          <strong>Amabilidad:</strong> Nos esforzamos por crear un ambiente acogedor
+          y solidario donde cada persona se sienta valorada y respetada
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Trabajo en equipo:</strong> Valoramos la colaboración, la comunicación
+          abierta y el apoyo mutuo entre colegas, reconociendo que juntos podemos
+          lograr más de lo que podríamos individualmente.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Liderazgo:</strong> Fomentamos el liderazgo tanto en la toma de
+          decisiones como en la acción, inspirando a otros a alcanzar su máximo potencial.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Confianza:</strong> Nos comprometemos a actuar con integridad,
+          transparencia y consistencia, ganando y manteniendo la confianza de nuestros
+          pacientes.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Responsabilidad:</strong> Nos esforzamos por cumplir nuestras obligaciones
+          con diligencia y ética, asumiendo la responsabilidad de corregir nuestros
+          errores y aprender de ellos.
+        </li><br />
+        <li class="text-muted text-lg">
+          <strong>Solidaridad:</strong> En NordVital IPS, la solidaridad implica
+          un compromiso activo con el bienestar de los demás y la comunidad en general
+        </li>
+      </ul>
+    </div>
+
+    <div class="quienes__somos__item-img w-2/5">
+      <img
+        src="/src/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg"
+        alt="Imagen Enfermeras"
+      />
+    </div>
+  </div>
+
+  <div class="text-center h-auto m-auto p-5 w-[72%]">
+    <h1 class="text-[42px] font-bold text-teal-500">Reseña histórica</h1><br />
+    <p class="text-lg">
+      <span class="text-blue-500">NordVital</span>, anteriormente conocido como
+      Centro de Especialistas de la Visión, fue creado en Barranquilla ante la
+      necesidad de ofrecer servicios de oftalmología en la ciudad de Cúcuta por
+      parte de una importante EPS local, que nos contactó debido a nuestras
+      excelentes referencias en el manejo de estos servicios.
+    </p><br />
+    <p>
+      Así comenzó <span class="text-blue-500">NordVital IPS</span> en Cúcuta, iniciando
+      sus operaciones el 2014. Tras un corto período de funcionamiento, <span
+        class="text-blue-500">NordVital</span
+      > suspendió sus actividades para transformarse en lo que es hoy: la mejor IPS
+      de atención primaria en Cúcuta.
+    </p><br />
+    <p>
+      Preparándonos para ofrecer servicios a Nueva EPS, comenzamos inicialmente
+      con Salud Vida, pocos meses antes de su liquidación, para luego prestar
+      servicios a Nueva EPS en Cúcuta. Continuamos demostrando nuestra capacidad
+      y, tras una gestión destacada, logramos establecer una colaboración con
+      COMPENSAR EPS, abriendo sedes importantes en el centro del país y los
+      alrededores de Bogotá.
+    </p><br />
+    <p>
+      Durante la apertura de la sede de Compensar en La Mesa, recibimos una
+      propuesta de SANITAS EPS para ofrecer servicios en Leticia, lo que nos
+      llevó a abrir una sede en 2021.
+    </p><br />
+    <p>
+      Hoy, <span class="text-blue-500">NordVital</span> se proyecta como una de las
+      IPS más reconocidas y fuertes de la región, habiendo crecido y evolucionado
+      desde su origen en Cúcuta.
+    </p>
+  </div>
 </Layout>

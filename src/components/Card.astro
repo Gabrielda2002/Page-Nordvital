@@ -1,0 +1,43 @@
+---
+interface CardProps {
+  title: string;
+  address: string;
+  mapLink: string;
+  images: string[];
+}
+
+const props = Astro.props as CardProps;
+const { title = "", address = "", mapLink = "", images = [] } = props;
+---
+
+<div class="w-3/4 mx-auto p-3">
+  <div class="grid grid-cols-2 gap-4 justify-center w-full mx-auto">
+    <div class="w-auto h-full">
+      <img src={images[0]} class="rounded-xl w-full h-full auto" alt="" />
+    </div>
+
+    <div class="">
+      <div class="bg-white p-4 rounded-xl flex flex-col gap-2.5 h-[138px]">
+        <h4 class="text-teal-700 font-bold text-2xl">{title}</h4>
+        <p class="text-gray-700 font-normal">{address}</p>
+        <a
+          href={mapLink}
+          target="_blank"
+          class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center"
+        >
+          Como llegar
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-x-2.5 mt-4 h-32">
+        {
+          images
+            .slice(1)
+            .map((image) => (
+              <img src={image} class="rounded-xl w-full h-full" alt="" />
+            ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
