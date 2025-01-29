@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" width="43.816" height="43.816" viewBox="0 0 70 70">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #0079c4;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g id="Grupo_786" data-name="Grupo 786">
+      <g id="Elipse_41-2" data-name="Elipse 41-2">
+        <circle class="cls-3" cx="35" cy="35" r="35"/>
+        <circle class="cls-1" cx="35" cy="35" r="33"/>
+      </g>
+      <line id="Línea_83" data-name="Línea 83" class="cls-2" x1="15.5" y1="35.5" x2="55.5" y2="35.5"/>
+      <line id="Línea_84" data-name="Línea 84" class="cls-2" x1="35.5" y1="17.5" x2="35.5" y2="52.5"/>
+    </g>
+  </g>
+</svg>
