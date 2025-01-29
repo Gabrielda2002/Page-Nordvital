@@ -1,0 +1,44 @@
+---
+const contactLinks = [
+  {
+    href: "https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios.",
+    icon: "whatsapp",
+    text: "(+57) 317-4309873",
+  },
+  {
+    href: "mailto:contacto@nordvitalips.com",
+    icon: "envelope",
+    text: "Nordvital@gmail.com",
+  },
+  {
+    href: "https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu",
+    icon: "map-marker-alt",
+    text: "Sede administrativa",
+  },
+];
+---
+
+<div class="text-gray-100 place-items-center">
+  <h3 class="text-2xl text-white font-bold mb-5 mt-12 text-center">Contáctanos</h3>
+  <div class="items-center text-sm">
+    {
+      contactLinks.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          class="flex items-center mb-3 hover:underline transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="15"
+            width="15"
+            viewBox="0 0 512 512"
+          >
+            <path fill="#ffffff" d={`M${link.icon}`} />
+          </svg>{" "}
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+</div>
