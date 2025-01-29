@@ -1,32 +1,145 @@
 ---
-import iconRow from '../assets/flecha.svg?url';
+import iconRow from "../assets/flecha.svg?url";
+
+import aboutusIcon from "../assets/icons_header/users.svg?url";
+import headquartersIcon from "../assets/icons_header/building-community.svg?url";
+import contractsIcon from "../assets/icons_header/contract.svg?url";
+import statusIcon from "../assets/icons_header/coins.svg?url";
+import helpIcon from "../assets/icons_header/help-octagon.svg?url";
+import rightIcon from "../assets/icons_header/gavel.svg?url";
+import resultIcon from "../assets/icons_header/report-analytics.svg?url";
+import blogIcon from "../assets/icons_header/article.svg?url";
+import educativeIcon from "../assets/icons_header/school.svg?url";
+import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
 ---
 
 <nav class="hidden lg:block pl-3 pr-16">
   <ul class="flex space-x-8 w-1/2 justify-between">
     <li class="relative group">
-      <a href="#" class="flex">Nosotros <img src={iconRow} class="p-1" alt="flecha" /></a>
-      <ul class="absolute hidden bg-gray-50 group-hover:block w-44 -ml-4 font-normal z-50">
-        <li><a href="/aboutus/aboutus" class="block m-4 ml-4">Quienes somos</a></li>
-        <li><a href="/aboutus/headquarters" class="block m-4 ml-4">Nuestras sedes</a></li>
-        <li><a href="/aboutus/agreement" class="block m-4 ml-4">Convenios</a></li>
-        <li><a href="/aboutus/status-financiero" class="block m-4 ml-4">Estados financieros</a></li>
-        <li><a href="/aboutus/sarlaf-sicof" class="block m-4 ml-4">Sarlaf y Sicof</a></li>
+      <button class="flex hover:text-teal-500 transition-colors"
+        >Nosotros <img src={iconRow} class="p-1" alt="flecha" /></button
+      >
+      <ul
+        class="absolute invisible bg-gray-50 group-hover:visible w-[500px] ml-4 font-normal z-50 grid grid-cols-2 p-4 rounded-md shadow-lg"
+      >
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/aboutus/aboutus" class="block p-3">
+            <img src={aboutusIcon} alt="aboutus Icon" class="w-5 h-5" />
+            Quienes somos
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/aboutus/headquarters" class="block p-3">
+            <img src={headquartersIcon} alt="aboutus Icon" class="w-5 h-5" />
+            Nuestras sedes
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/aboutus/agreement" class="block p-3">
+            <img src={contractsIcon} alt="aboutus Icon" class="w-5 h-5" />
+            Convenios
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/aboutus/status-financiero" class="block p-3">
+            <img src={statusIcon} alt="aboutus Icon" class="w-5 h-5" />
+            Estados financieros
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/aboutus/sarlaf-sicof" class="block p-3">
+            <img src={helpIcon} alt="aboutus Icon" class="w-5 h-5" />
+            Sarlaf y Sicof
+          </a>
+        </li>
       </ul>
     </li>
-    <li><a href="/services">Servicios</a></li>
+
+    <li>
+      <a href="/services" class="hover:text-teal-500 transition-colors"
+        >Servicios
+      </a>
+    </li>
+
     <li class="relative group">
-      <a href="#" class="flex">Usuarios <img src={iconRow} class="p-1" alt="flecha" /></a>
-      <ul class="absolute left-0 hidden bg-gray-50 group-hover:block w-48 -ml-4 text-base font-normal z-50">
-        <li><a href="/users/pqrsfd" class="block m-4 ml-4">PQRSFD</a></li>
-        <li><a href="/users/association" class="block m-4 ml-4">Asociación de usuarios</a></li>
-        <li><a href="/users/rights-duties" class="block m-4 ml-4">Derechos y deberes</a></li>
-        <li><a href="/users/blog" class="block m-4 ml-4">Nuestro blog</a></li>
-        <li><a href="/users/laboratorios" class="block m-4 ml-4">Resultado laboratorio</a></li>
-        <li><a href="/users/medical-procedures" class="block m-4 ml-4">Procedimientos Médicos</a></li>
-        <li><a href="/users/seminar" class="block m-4 ml-4">Seminario</a></li>
+      <button class="flex hover:text-teal-500 transition-colors"
+        >Usuarios <img src={iconRow} class="p-1" alt="flecha" /></button
+      >
+      <ul
+        class="absolute invisible right-0 bg-gray-50 group-hover:visible w-[500px] -ml-4 text-base font-normal z-50 grid grid-cols-2 p-4 rounded-md shadow-lg"
+      >
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/pqrsfd" class="block m-4 ml-4">
+            <img src={helpIcon} alt="help Icon" class="w-5 h-5" />
+            PQRSFD
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/association" class="block m-4 ml-4">
+            <img src={aboutusIcon} alt="users Icon" class="w-5 h-5" />
+            Asociación de usuarios
+            </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/rights-duties" class="block m-4 ml-4">
+            <img src={rightIcon} alt="right Icon" class="w-5 h-5" />
+            Derechos y deberes
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors">
+          <a href="/users/blog" class="block m-4 ml-4">
+            <img src={blogIcon} alt="blog Icon" class="w-5 h-5" />
+            Nuestro blog
+          </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/laboratorios" class="block m-4 ml-4">
+            <img src={resultIcon} alt="result Icon" class="w-5 h-5" />
+            Resultado laboratorio
+            </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/medical-procedures" class="block m-4 ml-4">
+            <img src={medicalIcon} alt="medical Icon" class="w-5 h-5" />
+            Procedimientos Médicos
+            </a>
+        </li>
+        <li
+          class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+        >
+          <a href="/users/seminar" class="block m-4 ml-4">
+            <img src={educativeIcon} alt="educative Icon" class="w-5 h-5" />
+            Seminario
+          </a>
+        </li>
       </ul>
     </li>
-    <li><a href="/contact-us">Contáctenos</a></li>
+
+    <li>
+      <a href="/contact-us" class="hover:text-teal-500 transition-colors"
+        >Contáctenos</a>
+    </li>
+
   </ul>
 </nav>
