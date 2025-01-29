@@ -16,11 +16,13 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
 
 <nav class="relative h-full">
   <!-- boton de cerrado -->
-  <button
-    id="close_menu"
-    class="lg:hidden absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-md transition-colors">
-    <img src={closeIcon} alt="Menu" class="w-6 h-6" />
-  </button>
+   <div class="w-full">
+     <button
+       id="close_menu"
+       class="lg:hidden absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-md transition-colors">
+       <img src={closeIcon} alt="Menu" class="w-6 h-6" />
+     </button>
+   </div>
 
   <ul
     class="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
@@ -32,7 +34,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         Nosotros <img src={iconRow} class="p-1" alt="flecha" />
         </button>
       <ul
-        class="submenu visible lg:group-hover:visible lg:invisible bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg"
+        class="submenu opacity-0 pointer-events-none  lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg lg:absolute transition-opacity duration-200"
         id="nosotros"
       >
         <li
@@ -94,7 +96,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
       >
       <ul
         id="usuarios"
-        class="submenu lg:absolute static lg:invisible lg:group-hover:visible bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 gird grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg"
+        class="submenu opacity-0 pointer-events-none  lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg lg:absolute transition-opacity duration-200"
       >
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -163,50 +165,45 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
   </ul>
 </nav>
 <script>
-  const closeButton = document.getElementById("close_menu");
-  const menuMovil = document.getElementById("menu_movil");
   const submenuBtn = document.querySelectorAll(".submenu-btn");
-  const body = document.body;
 
   submenuBtn.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      if (window.innerWidth < 1024) {
-        const submenuId = btn.getAttribute("data-submenu");
-        const submenu = document.getElementById(submenuId as string);
-        const arrow = btn.querySelector("img");
+    btn.addEventListener("click", () => {
+      const submenuId = btn.getAttribute("data-submenu");
+      const submenu = document.getElementById(submenuId);
+      const arrow = btn.querySelector("img");
+      const parentLi = btn.closest('li');
 
-        submenu?.classList.toggle("hidden");
-        
-        arrow?.style.setProperty("transform", submenu?.classList.contains("hidden") ? "rotate(0deg)" : "rotate(180deg)");
-
-        document.querySelectorAll(".submenu").forEach(menu => {
-          if (menu.id !== submenuId) {
-            menu.classList.add("hidden");
-            const otherArrow = document.querySelector(`[data-submenu="${menu.id}"] img`) as HTMLImageElement | null;
-            otherArrow?.style.setProperty("transform", "rotate(0deg)");
-          }
-        })
+      if (submenu?.classList.contains("opacity-0")) {
+        // Desactivar hover al abrir
+        parentLi?.classList.remove('hover-enabled');
+        submenu.classList.remove("opacity-0", "pointer-events-none");
+        submenu.classList.add("opacity-100", "pointer-events-auto");
+        arrow?.style.setProperty("transform", "rotate(180deg)");
+      } else {
+        // Reactivar hover al cerrar
+        parentLi?.classList.add('hover-enabled');
+        submenu?.classList.add("opacity-0", "pointer-events-none");
+        submenu?.classList.remove("opacity-100", "pointer-events-auto");
+        arrow?.style.setProperty("transform", "rotate(0deg)");
       }
-    })
-  })
 
-  // Asegurar que los submenús estén cerrados al abrir el menú móvil
-  const resetSubmenus = () => {
-    document.querySelectorAll('.submenu').forEach(submenu => {
-      submenu.classList.add('hidden');
+      // Cerrar otros submenús
+      document.querySelectorAll(".submenu").forEach(menu => {
+        if (menu.id !== submenuId) {
+          const otherLi = menu.closest('li');
+          otherLi?.classList.add('hover-enabled');
+          menu.classList.add("opacity-0", "pointer-events-none");
+          menu.classList.remove("opacity-100", "pointer-events-auto");
+          const otherArrow = document.querySelector(`[data-submenu="${menu.id}"] img`);
+          otherArrow?.style.setProperty("transform", "rotate(0deg)");
+        }
+      });
     });
-    document.querySelectorAll('.submenu-btn img').forEach(arrow => {
-      if (arrow instanceof HTMLImageElement) {
-        arrow.style.transform = 'rotate(0deg)';
-      }
-    });
-  };
+  });
 
-  // Reiniciar submenús cuando se abre el menú móvil
-  document.addEventListener('DOMContentLoaded', resetSubmenus);
-
-  closeButton?.addEventListener("click", () => {
-    menuMovil?.classList.add("hidden");
-    body.style.overflow = "auto";
+  // Inicializar todos los items con hover habilitado
+  document.querySelectorAll('.group').forEach(item => {
+    item.classList.add('hover-enabled');
   });
 </script>
