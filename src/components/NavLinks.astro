@@ -34,7 +34,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         Nosotros <img src={iconRow} class="p-1" alt="flecha" />
         </button>
       <ul
-        class="submenu opacity-0 pointer-events-none  lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg lg:absolute transition-opacity duration-200"
+        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:group-hover:opacity-100 pointer-events-none lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0 lg:p-4 rounded-md shadow-lg top-full transition-all duration-300"
         id="nosotros"
       >
         <li
@@ -96,12 +96,12 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
       >
       <ul
         id="usuarios"
-        class="submenu opacity-0 pointer-events-none  lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 rounded-md shadow-lg lg:absolute transition-opacity duration-200"
+        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:group-hover:opacity-100 pointer-events-none lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0  rounded-md shadow-lg top-full transition-all duration-300"
       >
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/pqrsfd" class="block m-4 ml-4">
+          <a href="/users/pqrsfd" class="flex items-center gap-2 p-3">
             <img src={helpIcon} alt="help Icon" class="w-5 h-5" />
             PQRSFD
           </a>
@@ -109,7 +109,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/association" class="block m-4 ml-4">
+          <a href="/users/association" class="flex items-center gap-2 p-3">
             <img src={aboutusIcon} alt="users Icon" class="w-5 h-5" />
             Asociación de usuarios
           </a>
@@ -117,7 +117,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/rights-duties" class="block m-4 ml-4">
+          <a href="/users/rights-duties" class="flex items-center gap-2 p-3">
             <img src={rightIcon} alt="right Icon" class="w-5 h-5" />
             Derechos y deberes
           </a>
@@ -125,7 +125,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/blog" class="block m-4 ml-4">
+          <a href="/users/blog" class="flex items-center gap-2 p-3">
             <img src={blogIcon} alt="blog Icon" class="w-5 h-5" />
             Nuestro blog
           </a>
@@ -133,7 +133,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/laboratorios" class="block m-4 ml-4">
+          <a href="/users/laboratorios" class="flex items-center gap-2 p-3">
             <img src={resultIcon} alt="result Icon" class="w-5 h-5" />
             Resultado laboratorio
           </a>
@@ -141,7 +141,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/medical-procedures" class="block m-4 ml-4">
+          <a href="/users/medical-procedures" class="flex items-center gap-2 p-3">
             <img src={medicalIcon} alt="medical Icon" class="w-5 h-5" />
             Procedimientos Médicos
           </a>
@@ -149,7 +149,7 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/seminar" class="block m-4 ml-4">
+          <a href="/users/seminar" class="flex items-center gap-2 p-3">
             <img src={educativeIcon} alt="educative Icon" class="w-5 h-5" />
             Seminario
           </a>
@@ -167,43 +167,39 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
 <script>
   const submenuBtn = document.querySelectorAll(".submenu-btn");
 
-  submenuBtn.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const submenuId = btn.getAttribute("data-submenu");
-      const submenu = document.getElementById(submenuId as string);
-      const arrow = btn.querySelector("img");
-      const parentLi = btn.closest('li');
-
-      if (submenu?.classList.contains("opacity-0")) {
-        // Desactivar hover al abrir
-        parentLi?.classList.remove('hover-enabled');
-        submenu.classList.remove("opacity-0", "pointer-events-none");
-        submenu.classList.add("opacity-100", "pointer-events-auto");
+submenuBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const submenuId = btn.getAttribute("data-submenu");
+    const submenu = document.getElementById(submenuId as string);
+    const arrow = btn.querySelector("img");
+    
+    if (window.innerWidth < 1024) {  // Solo ejecutar en móvil
+      if (submenu?.classList.contains("max-h-0")) {
+        submenu.classList.remove("max-h-0", "opacity-0");
+        submenu.classList.add("max-h-[500px]", "p-4", "opacity-100");
         arrow?.style.setProperty("transform", "rotate(180deg)");
       } else {
-        // Reactivar hover al cerrar
-        parentLi?.classList.add('hover-enabled');
-        submenu?.classList.add("opacity-0", "pointer-events-none");
-        submenu?.classList.remove("opacity-100", "pointer-events-auto");
+        submenu?.classList.add("max-h-0", "opacity-0");
+        submenu?.classList.remove("max-h-[500px]", "p-4", "opacity-100");
         arrow?.style.setProperty("transform", "rotate(0deg)");
       }
 
       // Cerrar otros submenús
       document.querySelectorAll(".submenu").forEach(menu => {
         if (menu.id !== submenuId) {
-          const otherLi = menu.closest('li');
-          otherLi?.classList.add('hover-enabled');
-          menu.classList.add("opacity-0", "pointer-events-none");
-          menu.classList.remove("opacity-100", "pointer-events-auto");
+          menu.classList.add("max-h-0", "opacity-0");
+          menu.classList.remove("max-h-[500px]", "p-4", "opacity-100");
           const otherArrow = document.querySelector(`[data-submenu="${menu.id}"] img`) as HTMLImageElement | null;
           otherArrow?.style.setProperty("transform", "rotate(0deg)");
         }
       });
-    });
+    }
   });
+});
 
   // Inicializar todos los items con hover habilitado
   document.querySelectorAll('.group').forEach(item => {
     item.classList.add('hover-enabled');
   });
 </script>
+
