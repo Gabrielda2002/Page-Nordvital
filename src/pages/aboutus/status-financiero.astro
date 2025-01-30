@@ -2,19 +2,178 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout>
-  <div class="container weight-600">
-    <div class="row">
-      <div
-        class="col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center"
-      >
-        <div class="ips d-flex align-content-center">
-          <h1 class="text-muted">
-            Nuestro <span class="text-primary">Estado Financiero</span>
-          </h1>
-          Estado financiero
-        </div>
+<Layout title="Estado-Financiero">
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main class="overflow-x-hidden">
+    <section
+      class="bg-cover bg-gray-200 min-h-[300px] md:h-[400px] w-full flex items-center mb-8 md:mb-12"
+      style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
+    >
+      <section class="text-white w-full md:w-1/2 px-6 md:m-20">
+        <a
+          href="http://localhost:4321"
+          class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl inline-block"
+        >
+          Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
+        </a>
+        <h1 class="text-3xl md:text-[43px] font-normal mt-4">
+          Estado Financiero
+        </h1>
+      </section>
+    </section>
+
+    <section class="estados__container container mx-auto px-4 py-8">
+      <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">
+        <!-- Sección 2023 -->
+        <section class="estados__item bg-white p-6 rounded-lg shadow-lg">
+          <nav class="nav__estado">
+            <h1 class="text-3xl font-semibold text-gray-700 mb-4">2023</h1>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="/src//pdf/2023/ESTADO-DE-SITUACION-FINANCIERA-A-31-DE-DIC-2023.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estado de situación financiera.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2023/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS-2023.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Certificado de los estados financieros.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2023/ESTADO-DE-GANANCIAS-Y-PERDIDAS-A-31-DE-DIC-2023.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados de ganancias y pérdidas.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2023/1-Dictamen-Revisor-Fiscal-Nordvital-AG-2023-1.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Dictamen del revisor fiscal.</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+
+        <!-- Sección 2022 -->
+        <section class="estados__item bg-white p-6 rounded-lg shadow-lg">
+          <nav class="nav__estado">
+            <h1 class="text-3xl font-semibold text-gray-700 mb-4">2022</h1>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="/src//pdf/2022/ESTADO-DE-SITUACION-FINANCIERA-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estado de situación financiera.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2022/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2022-NORDVITAL-IPS-SAS.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Notas a los Estados de situación financiera.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2022/ESTADOS-FLUJO-DE-EFECTIVO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados del flujo de efectivo de enero a diciembre.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2022/ESTADO-DE-RESULTADO-DE-ENERO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados de resultados de enero a diciembre.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2022/ESTADO-DE-CAMBIOS-EN-EL-PATRIMONIO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados de cambios en el patrimonio a diciembre.</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+
+        <!-- Sección 2021 -->
+        <section class="estados__item bg-white p-6 rounded-lg shadow-lg">
+          <nav class="nav__estado">
+            <h1 class="text-3xl font-semibold text-gray-700 mb-4">2021</h1>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="/src//pdf/2021/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2021-NORDVITAL-IPS-SAS-2.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Notas a los estados financieros.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2021/CERTIFICACI%C3%93N-DE-ESTADOS-FINANCIEROS-2021-1.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Certificado de los estados financieros.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2021/DICTAMEN-REVISOR-FISCAL-Nordvital-2021-1.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Dictamen del revisor fiscal.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2021/ESTADO-DE-GANANCIAS-Y-PERDIDAS-2021-1.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados de ganancias y perdidas.</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+
+        <!-- Sección 2020 -->
+        <section class="estados__item bg-white p-6 rounded-lg shadow-lg">
+          <nav class="nav__estado">
+            <h1 class="text-3xl font-semibold text-gray-700 mb-4">2020</h1>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="/src//pdf/2020/ESTADO-SITUACION-FINANCIERA.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estado de situación financiera</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2020/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Certificado de los estados financieros.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2020/DICTAMEN-DEL-REVISOR-FISCAL.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Dictamen del revisor fiscal.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2020/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2020.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Notas a los estados financieros.</a>
+              </li>
+              <li>
+                <a
+                  href="/src//pdf/2020/ESTADO-GANANCIAS-PERDIDAS-2020.pdf"
+                  class="text-blue-500 hover:text-blue-700"
+                  >Estados de ganancias y perdidas.</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
       </div>
-    </div>
-  </div></Layout
->
+    </section>
+  </main>
+</Layout>
