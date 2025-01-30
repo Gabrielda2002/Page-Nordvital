@@ -11,28 +11,29 @@ import resultIcon from "../assets/icons_header/report-analytics.svg?url";
 import blogIcon from "../assets/icons_header/article.svg?url";
 import educativeIcon from "../assets/icons_header/school.svg?url";
 import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
-import closeIcon from "../assets/icons_header/menu-2.svg?url";
+import closeIcon from "../assets/icons_header/x.svg?url";
 ---
 
 <nav class="relative h-full">
   <!-- boton de cerrado -->
-   <div class="w-full flex justify-end">
-     <button
-       id="close_menu"
-       class="lg:hidden p-2 absolute top-4 right-4 hover:bg-gray-200 rounded-md transition-colors">
-       <img src={closeIcon} alt="Menu" class="w-6 h-6" />
-     </button>
-   </div>
-
+  
   <ul
-    class="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
+  class="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
   >
+  <button
+    id="close_menu"
+    class="lg:hidden p-2 absolute top-4 right-4 hover:bg-gray-200 rounded-md transition-colors "
+  >
+    <img src={closeIcon} alt="Menu" class="w-6 h-6" />
+  </button>
     <li class="relative group">
       <button
-        class="submenu-btn flex w-full justify-between items-center hover:text-teal-500 transition-colors" 
-        data-submenu="nosotros">
+        class="submenu-btn flex w-full justify-between items-center hover:text-teal-500 transition-colors"
+        data-submenu="nosotros"
+      >
         Nosotros <img src={iconRow} class="p-1" alt="flecha" />
-        </button>
+      </button>
+
       <ul
         class="submenu absolute max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:group-hover:opacity-100 pointer-events-none lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0 lg:p-4 rounded-md shadow-lg top-full transition-all duration-300"
         id="nosotros"
@@ -64,7 +65,10 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/aboutus/status-financiero" class="flex items-center gap-2 p-3">
+          <a
+            href="/aboutus/status-financiero"
+            class="flex items-center gap-2 p-3"
+          >
             <img src={statusIcon} alt="aboutus Icon" class="w-5 h-5" />
             Estados financieros
           </a>
@@ -87,16 +91,15 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
     </li>
 
     <li class="relative group">
-      <button 
-      class="submenu-btn flex w-full justify-between items-start hover:text-teal-500 transition-colors"
-      data-submenu="usuarios"
+      <button
+        class="submenu-btn flex w-full justify-between items-start hover:text-teal-500 transition-colors"
+        data-submenu="usuarios"
       >
         Usuarios <img src={iconRow} class="p-1" alt="flecha" />
-        </button
-      >
+      </button>
       <ul
         id="usuarios"
-        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:group-hover:opacity-100 pointer-events-none lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0  rounded-md shadow-lg top-full transition-all duration-300"
+        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:group-hover:opacity-100 pointer-events-none lg:group-hover:pointer-events-auto bg-gray-50 w-full lg:w-[500px] mt-2 lg:ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0 rounded-md shadow-lg top-full transition-all duration-300"
       >
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
@@ -141,7 +144,10 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
         <li
           class="border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
-          <a href="/users/medical-procedures" class="flex items-center gap-2 p-3">
+          <a
+            href="/users/medical-procedures"
+            class="flex items-center gap-2 p-3"
+          >
             <img src={medicalIcon} alt="medical Icon" class="w-5 h-5" />
             Procedimientos Médicos
           </a>
@@ -165,41 +171,54 @@ import closeIcon from "../assets/icons_header/menu-2.svg?url";
   </ul>
 </nav>
 <script>
+
+  // cerrar el menu movil
+  const closeMenu = document.getElementById("close_menu");
+  const menuMovil = document.getElementById("menu_movil");
+  const body = document.body;
+
+  closeMenu?.addEventListener("click", () => {
+    menuMovil?.classList.add("hidden");
+    body.style.overflow = "auto";
+  });
+
   const submenuBtn = document.querySelectorAll(".submenu-btn");
 
-submenuBtn.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const submenuId = btn.getAttribute("data-submenu");
-    const submenu = document.getElementById(submenuId as string);
-    const arrow = btn.querySelector("img");
-    
-    if (window.innerWidth < 1024) {  // Solo ejecutar en móvil
-      if (submenu?.classList.contains("max-h-0")) {
-        submenu.classList.remove("max-h-0", "opacity-0");
-        submenu.classList.add("max-h-[500px]", "p-4", "opacity-100");
-        arrow?.style.setProperty("transform", "rotate(180deg)");
-      } else {
-        submenu?.classList.add("max-h-0", "opacity-0");
-        submenu?.classList.remove("max-h-[500px]", "p-4", "opacity-100");
-        arrow?.style.setProperty("transform", "rotate(0deg)");
-      }
+  submenuBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const submenuId = btn.getAttribute("data-submenu");
+      const submenu = document.getElementById(submenuId as string);
+      const arrow = btn.querySelector("img");
 
-      // Cerrar otros submenús
-      document.querySelectorAll(".submenu").forEach(menu => {
-        if (menu.id !== submenuId) {
-          menu.classList.add("max-h-0", "opacity-0");
-          menu.classList.remove("max-h-[500px]", "p-4", "opacity-100");
-          const otherArrow = document.querySelector(`[data-submenu="${menu.id}"] img`) as HTMLImageElement | null;
-          otherArrow?.style.setProperty("transform", "rotate(0deg)");
+      if (window.innerWidth < 1024) {
+        // Solo ejecutar en móvil
+        if (submenu?.classList.contains("max-h-0")) {
+          submenu.classList.remove("max-h-0", "opacity-0");
+          submenu.classList.add("max-h-[500px]", "p-4", "opacity-100");
+          arrow?.style.setProperty("transform", "rotate(180deg)");
+        } else {
+          submenu?.classList.add("max-h-0", "opacity-0");
+          submenu?.classList.remove("max-h-[500px]", "p-4", "opacity-100");
+          arrow?.style.setProperty("transform", "rotate(0deg)");
         }
-      });
-    }
+
+        // Cerrar otros submenús
+        document.querySelectorAll(".submenu").forEach((menu) => {
+          if (menu.id !== submenuId) {
+            menu.classList.add("max-h-0", "opacity-0");
+            menu.classList.remove("max-h-[500px]", "p-4", "opacity-100");
+            const otherArrow = document.querySelector(
+              `[data-submenu="${menu.id}"] img`
+            ) as HTMLImageElement | null;
+            otherArrow?.style.setProperty("transform", "rotate(0deg)");
+          }
+        });
+      }
+    });
   });
-});
 
   // Inicializar todos los items con hover habilitado
-  document.querySelectorAll('.group').forEach(item => {
-    item.classList.add('hover-enabled');
+  document.querySelectorAll(".group").forEach((item) => {
+    item.classList.add("hover-enabled");
   });
 </script>
-
