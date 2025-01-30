@@ -10,32 +10,46 @@ const props = Astro.props as CardProps;
 const { title = "", address = "", mapLink = "", images = [] } = props;
 ---
 
-<div class="w-3/4 mx-auto p-3">
-  <div class="grid grid-cols-2 gap-4 justify-center w-full mx-auto">
-    <div class="w-auto h-full">
-      <img src={images[0]} class="rounded-xl w-full h-full auto" alt="" />
+<div class="w-full md:w-3/4 mx-auto p-3">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center w-full mx-auto"
+  >
+    <div class="w-full h-[200px] md:h-full">
+      <img
+        src={images[0]}
+        class="rounded-xl w-full h-full object-cover"
+        alt={`Imagen principal de ${title}`}
+      />
     </div>
 
-    <div class="">
-      <div class="bg-white p-4 rounded-xl flex flex-col gap-2.5 h-[138px]">
-        <h4 class="text-teal-700 font-bold text-2xl">{title}</h4>
-        <p class="text-gray-700 font-normal">{address}</p>
+   
+    <div class="flex flex-col gap-4">
+      <!-- Info card -->
+      <div
+        class="bg-white p-4 rounded-xl flex flex-col gap-2.5 h-auto md:h-[138px]"
+      >
+        <h4 class="text-teal-700 font-bold text-xl md:text-2xl">{title}</h4>
+        <p class="text-gray-700 font-normal text-sm md:text-base">{address}</p>
         <a
           href={mapLink}
           target="_blank"
-          class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center"
+          class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
         >
-          Como llegar
+          Cómo llegar
         </a>
       </div>
 
-      <div class="grid grid-cols-2 gap-x-2.5 mt-4 h-32">
+      <div class="grid grid-cols-2 gap-2.5 h-24 md:h-32">
         {
-          images
-            .slice(1)
-            .map((image) => (
-              <img src={image} class="rounded-xl w-full h-full" alt="" />
-            ))
+          images.slice(1).map((image) => (
+            <div class="w-full h-full">
+              <img
+                src={image}
+                class="rounded-xl w-full h-full object-cover"
+                alt={`Imagen adicional de ${title}`}
+              />
+            </div>
+          ))
         }
       </div>
     </div>
