@@ -7,11 +7,12 @@ import SocialLinks from "./SocialLinks.astro";
 // imgs
 import iconPhone from "/src/assets/Phone.svg?url";
 import iconNordvital from "/src/assets/logo-Nordvital.png?url";
+import menuIcon from "@/assets/icons_header/menu-2.svg?url";
 
 ---
 
 <header class="bg-teal-500 font-sans text-white font-semibold">
-  <div class="flex justify-between items-center p-3 gap-8">
+  <div class="container mx-auto px-4 flex flex-col  lg:flex-row justify-between items-center p-3 gap-8">
     <!-- enlace de whatsapp -->
     <div class="w-40 flex m-2">
       <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`} target="_blank" class="text-white flex">
@@ -24,18 +25,64 @@ import iconNordvital from "/src/assets/logo-Nordvital.png?url";
     </div>
 
     <!-- links de redes -->
-    <SocialLinks />
+
+    <div class="hidden lg:block">
+      <SocialLinks />
+    </div>
   </div>
 
   <!-- el navbar -->
   <div class="bg-gray-100 font-sans text-gray-900 pl-7 pr-7">
-    <div class="flex justify-between items-center p-3">
-      <a href="/" class="flex items-center justify-between w-32 p-2">
-        <img src={iconNordvital} alt="Logo" class="w-40" />
-      </a>
-
-      <!-- links dentro del navbar -->
-      <NavLinks/>
+    <div class="container mx-auto px-7">
+      <div class="flex  items-center p-3 gap-8">
+        <a href="/" class="flex items-center" aria-label="Inicio">
+          <img src={iconNordvital} alt="Logo" class="w-32 lg:w-40 shrink-0" />
+        </a>
+  
+        <!-- boton movil menu -->
+         <button
+          id="button_movil"
+          class="lg:hidden p-2 hover:bg-gray-200 rounded-md transition-colors ml-auto"
+          aria-label="Abrir menu"
+         >
+          <img src={menuIcon} alt="Menu" class="w-6 h-6" />
+         </button>
+  
+        <!-- links dentro del navbar -->
+         <div id="menu_movil" class="hidden lg:block fixed lg:relative top-0 right-0 h-screen lg:h-auto w-full lg:w-auto bg-white lg:bg-transparent z-50">
+           <NavLinks/>
+        </div>
+      </div>
     </div>
   </div>
-</header>
+</header> 
+
+<script>
+  const menuButton = document.getElementById("button_movil");
+  const menuMovil = document.getElementById("menu_movil");
+  const body = document.body;
+
+  menuButton?.addEventListener("click", () => {
+    menuMovil?.classList.toggle("hidden");
+    body.style.overflow = menuMovil?.classList.contains("hidden") ? "auto" : "hidden";
+  })
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) {
+      menuMovil?.classList.add("hidden");
+      body.style.overflow = "auto";
+    }
+  });
+</script>
+
+<style>
+  #menu_movil {
+    transition: transform 0.3s ease-in-out;
+  }
+  #menu_movil.hidden {
+    transform: translateX(100%);
+  }
+  #menu_movil:not(.hidden) {
+    transform: translateX(0);
+  }
+</style>
