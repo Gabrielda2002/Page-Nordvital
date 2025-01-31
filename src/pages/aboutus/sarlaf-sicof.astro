@@ -1,5 +1,7 @@
 ---
+import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.png";
 ---
 
 <Layout title="SARLAF - SICOF">
@@ -11,22 +13,8 @@ import Layout from "../../layouts/Layout.astro";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <section
-      class="bg-cover bg-gray-200 min-h-[300px] md:h-[400px] w-full flex items-center mb-8 md:mb-12"
-      style="background-image: url('/src/images///Sarlaf-Sicof/BANNER-SARLAF-SICOF.png');"
-    >
-      <section class="text-white w-full md:w-1/2 px-6 md:m-20">
-        <a
-          href="http://localhost:4321"
-          class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl inline-block"
-        >
-          Inicio <span class="text-teal-500 font-semibold">> Políticas</span>
-        </a>
-        <h1 class="text-3xl md:text-[43px] font-normal mt-4">
-          Nuestras Políticas
-        </h1>
-      </section>
-    </section>
+    
+    <HeroSection title="SARLAF - SICOF" backgroundImage={img.src} />
 
     <section
       class="font-sans md:px-20 mx-auto w-[60%] text-center text-lg text-gray-600"
