@@ -1,19 +1,144 @@
 ---
+import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Asociación">
-  <div class="container weight-600">
-    <div class="row">
-      <div
-        class="col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center"
-      >
-        <div class="ips d-flex align-content-center">
-          <h1 class="text-muted">
-            Nuestra <span class="text-primary">Asociación</span>
-          </h1>
-        </div>
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection title="Quiénes Somos" backgroundImage={"/src/images/Header/USUARIOS.png"}/>
+
+    <div
+      class="container mx-auto px-8 py-8 h-auto w-full flex flex-col xl:flex-row items-center"
+    >
+      <div class="rounded-3xl p-8 mb-8 w-full lg:w-1/2 text-xl">
+        <h1 class="text-4xl font-bold text-teal-500 mb-4">
+          La asociación de usuarios
+        </h1>
+        <h3><em class="text-2xl">¿Qué es?</em></h3><br />
+        <p class="text-gray-600 mb-4">
+          La Junta de Usuarios en <span>NordVital IPS</span> es un órgano fundamental
+          para asegurar que los servicios de salud prestados por la institución se
+          ajusten a las necesidades y expectativas de sus usuarios.
+        </p>
+        <p class="text-gray-600">
+          Este cuerpo consultivo y veedor está compuesto por representantes
+          elegidos democráticamente entre la comunidad de usuarios, y su
+          principal función es actuar como enlace entre los usuarios y la
+          administración de la IPS.
+        </p>
+        <p class="text-gray-600">
+          La Asociación de Usuarios tiene un papel clave en la representación de
+          las inquietudes, quejas y sugerencias de los usuarios, garantizando
+          así que sus voces sean escuchadas y tenidas en cuenta en la toma de
+          decisiones relacionadas con la prestación de servicios de salud.
+        </p>
+      </div>
+
+      <div class="asociacion__container__item">
+        <img
+          src="/src/images/Asociacion-Usuaris/asociacion-usuarios.png"
+          alt=""
+        />
       </div>
     </div>
-  </div></Layout
->
+
+    <div
+      class="mx-auto text-center text-teal-500 text-[34px] font-semibold w-2/3 leading-8"
+    >
+      <h1>
+        Principales funciones de una junta de usuarios en <em>NordVital IPS</em>
+      </h1>
+    </div>
+
+    <div class="py-16">
+      <section
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl mx-auto"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f1.svg"
+            alt="Participación"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Participación en la Planificación y Evaluación
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f2.svg"
+            alt="Representación"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Representación de los Usuarios
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f3.svg"
+            alt="Mediación"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Mediación de Conflictos
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f4.svg"
+            alt="Educación"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Educación y Sensibilización
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f5.svg"
+            alt="Control"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Control Social
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+        >
+          <img
+            src="/src/images/Asociacion-Usuaris/ico-f6.svg"
+            alt="Promoción"
+            class="w-16 h-16 mb-4"
+          />
+          <p class="text-center text-xl font-semibold text-gray-800">
+            Promoción de Derechos y Deberes
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
