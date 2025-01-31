@@ -2,15 +2,17 @@
 import ContactLinks from './ContactUsFooter.astro';
 import SocialLinks from './SocialLinksFooter.astro';
 import FooterInfo from './FooterInfo.astro';
+
+import logoNordvital from '../assets/logo_footer/LOGO-BLANCO-NORVITAL.png?url';
 ---
 
 <footer>
-  <div class="bg-[#049ae7] text-white grid grid-cols-4 gap-5">
-    <div class="m-12 h-44 w-48">
+  <div class="bg-[#049ae7] text-white grid grid-cols-1  lg:grid-cols-4 lg:gap-5">
+    <div class="flex justify-center lg:m-12 lg:h-44 lg:w-48">
       <img
-        src="/src/assets/logo_footer/LOGO-BLANCO-NORVITAL.png"
+        src={logoNordvital}
         alt="Logo Nordvital"
-        class="mx-auto"
+        class="w-48 h-44"
       />
     </div>
 
