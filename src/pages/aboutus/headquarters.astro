@@ -1,34 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
-
+import BreadCrumps from "@/components/common/HeroSection.astro";
+import img from "@/images/AboutUs/NOSOTROS.webp";
 ---
 
 <Layout title="Nuestras-Sedes">
   <body>
     <main class="bg-gray-100">
 
-      <section
-        class="bg-cover bg-gray-200 h-[400px] w-full flex items-center mb-12"
-        style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
-      >
-        <section class="text-white w-1/2 m-20">
-          <a
-            href="http://localhost:4321"
-            class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl"
-          >
-            Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
-          </a>
-          <h1 class="text-[43px] font-normal mt-4">Nuestras sedes</h1>
-        </section>
-      </section>
+      <BreadCrumps
+        title="Nuestras sedes"
+        backgroundImage={img.src}
+      />
 
       <div class="pt-5 pb-5">
         <div class="w-3/4 mx-auto mt-4 bg-transparent border-none">
           <div class="mb-10 font-bold text-lg">
             <!-- Pestañas de municipios -->
             <ul class="flex justify-evenly border-transparent" role="tablist">
-              <li class=""> 
+              <li class="">
                 <button
                   id="cucuta-tab"
                   class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button active"
@@ -37,7 +28,7 @@ import Card from "../../components/Card.astro";
                   Cúcuta
                 </button>
               </li>
-              <li class="nav-item">  
+              <li class="nav-item">
                 <button
                   id="cundinamarca-tab"
                   class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button"
@@ -46,7 +37,7 @@ import Card from "../../components/Card.astro";
                   Cundinamarca
                 </button>
               </li>
-              <li class="nav-item"> 
+              <li class="nav-item">
                 <button
                   id="leticia-tab"
                   class="p-4 text-black font-semibold border-b-0 hover:bg-sky-100 rounded-3xl tab-button"

@@ -1,24 +1,13 @@
 ---
+import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import img from "@/images/AboutUs/NOSOTROS.webp";
 ---
 
 <Layout title="Convenios">
   <main class="bg-gray-100 min-h-screen">
     <!-- Hero Section -->
-    <section
-      class="bg-cover bg-gray-200 min-h-[300px] md:h-[400px] w-full flex items-center mb-6 md:mb-12"
-      style="background-image: url('/src/images/AboutUs/NOSOTROS.webp');"
-    >
-      <section class="text-white w-full md:w-1/2 px-6 md:m-20">
-        <a
-          href="http://localhost:4321"
-          class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl inline-block"
-        >
-          Inicio <span class="text-teal-500 font-semibold">> Nosotros</span>
-        </a>
-        <h1 class="text-3xl md:text-[43px] font-normal mt-4">Convenios</h1>
-      </section>
-    </section>
+    <HeroSection title="Convenios" backgroundImage={img.src} />
 
     <!-- Descripción -->
     <section class="container mx-auto px-4 my-8 md:my-16">
@@ -45,111 +34,106 @@ import Layout from "../../layouts/Layout.astro";
     </section>
 
     <!-- Acordeón de Convenios -->
-    
-      <div class="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-        <!-- Compensar -->
-         <div>
 
-             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-               <button
-                 class="accordion-button w-full p-4 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 ease-in-out"
-                 id="accordion-button-1"
-                 aria-expanded="false"
-                 aria-controls="accordion-content-1"
-               >
-                 <div class="flex items-center justify-between w-full">
-                   <img
-                     src="/src/images/Convenios/LOGO-COMPENSAR.png"
-                     alt="Logo Compensar"
-                     class="w-32 md:w-40 h-auto"
-                   />
-                   <svg
-                     class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                   >
-                     <path
-                       stroke-linecap="round"
-                       stroke-linejoin="round"
-                       stroke-width="2"
-                       d="M19 9l-7 7-7-7"></path>
-                   </svg>
-                 </div>
-               </button>
-               <div
-                 id="accordion-content-1"
-                 class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                 role="region"
-                 aria-labelledby="accordion-button-1"
-               >
-                 <div class="p-4 md:p-6 border-t border-gray-200">
-                   <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
-                     Línea de atención:
-                   </h5>
-                   <p class="text-gray-600">
-                     607-5880120
-                     <br />
-                     607-5880130
-                   </p>
-                 </div>
-               </div>
-             </div>
-
-         </div>
-
-         <div>
-
-             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-               <button
-                 class="accordion-button w-full p-4 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 ease-in-out"
-                 id="accordion-button-2"
-                 aria-expanded="false"
-                 aria-controls="accordion-content-2"
-               >
-                 <div class="flex items-center justify-between w-full">
-                   <img
-                     src="/src/images/Convenios/LOGO-NUEVA-EPS.png"
-                     alt="Logo Nueva EPS"
-                     class="w-32 md:w-40 h-auto"
-                   />
-                   <svg
-                     class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                   >
-                     <path
-                       stroke-linecap="round"
-                       stroke-linejoin="round"
-                       stroke-width="2"
-                       d="M19 9l-7 7-7-7"></path>
-                   </svg>
-                 </div>
-               </button>
-               <div
-                 id="accordion-content-2"
-                 class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                 role="region"
-                 aria-labelledby="accordion-button-2"
-               >
-                 <div class="p-4 md:p-6 border-t border-gray-200">
-                   <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
-                     Línea de atención fija:
-                   </h5>
-                   <p class="text-gray-600 mb-4">300-9135168</p>
-                   <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
-                     Línea de atención WhatsApp:
-                   </h5>
-                   <p class="text-gray-600">317-5141175</p>
-                 </div>
-               </div>
-             </div>
-
-         </div>
-        <!-- Nueva EPS -->
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+      <!-- Compensar -->
+      <div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button
+            class="accordion-button w-full p-4 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 ease-in-out"
+            id="accordion-button-1"
+            aria-expanded="false"
+            aria-controls="accordion-content-1"
+          >
+            <div class="flex items-center justify-between w-full">
+              <img
+                src="/src/images/Convenios/LOGO-COMPENSAR.png"
+                alt="Logo Compensar"
+                class="w-32 md:w-40 h-auto"
+              />
+              <svg
+                class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </button>
+          <div
+            id="accordion-content-1"
+            class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            role="region"
+            aria-labelledby="accordion-button-1"
+          >
+            <div class="p-4 md:p-6 border-t border-gray-200">
+              <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
+                Línea de atención:
+              </h5>
+              <p class="text-gray-600">
+                607-5880120
+                <br />
+                607-5880130
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
+      <div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button
+            class="accordion-button w-full p-4 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 ease-in-out"
+            id="accordion-button-2"
+            aria-expanded="false"
+            aria-controls="accordion-content-2"
+          >
+            <div class="flex items-center justify-between w-full">
+              <img
+                src="/src/images/Convenios/LOGO-NUEVA-EPS.png"
+                alt="Logo Nueva EPS"
+                class="w-32 md:w-40 h-auto"
+              />
+              <svg
+                class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </button>
+          <div
+            id="accordion-content-2"
+            class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            role="region"
+            aria-labelledby="accordion-button-2"
+          >
+            <div class="p-4 md:p-6 border-t border-gray-200">
+              <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
+                Línea de atención fija:
+              </h5>
+              <p class="text-gray-600 mb-4">300-9135168</p>
+              <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
+                Línea de atención WhatsApp:
+              </h5>
+              <p class="text-gray-600">317-5141175</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Nueva EPS -->
+    </div>
   </main>
 </Layout>
 
