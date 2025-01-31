@@ -1,20 +1,51 @@
 ---
+import Pqr from "@/components/Pqr.astro";
+import Form from "@/components/Formulario.astro";
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import HeroSection from "@/components/common/HeroSection.astro";
 ---
 
 <Layout title="PQRSFD">
-  <div class="container weight-600">
-    <div class="row">
-      <div
-        class="col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center"
-      >
-        <div class="ips d-flex align-content-center">
-          <h1 class="text-muted">
-            Nuestro <span class="text-primary">PQRSDF</span>
-          </h1>
-          Estado financiero
-        </div>
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection
+      title="Quiénes Somos"
+      backgroundImage={"/src/images/Header/USUARIOS.png"}
+    />
+    <div
+      class="container mx-auto px-4 py-8 h-auto w-[80%] flex flex-col xl:flex-row items-center"
+    >
+      <div class="rounded-3xl p-8 mb-8 w-full lg:w-1/2 text-xl">
+        <h1 class="text-3xl font-bold text-teal-600 mb-4">PQRSFD</h1>
+        <p class="text-gray-600 mb-4">
+          Valoramos su opinión y estamos comprometidos en ofrecer el mejor
+          servicio a nuestros usuarios. En NordVital IPS, nos esforzamos cada
+          día por mejorar y brindar la atención que usted merece.
+        </p>
+        <p class="text-gray-600">
+          Por favor, comparta sus peticiones, quejas, reclamos, sugerencias y
+          felicitaciones con nosotros. Su voz es fundamental para ayudarnos a
+          crecer y adaptarnos a sus necesidades.
+        </p>
+      </div>
+      <div class="w-full lg:w-1/2 h-2/3">
+        <img
+          src="/src/images/Header/2147900168.png"
+          alt=""
+          class="h-auto w-full object-cover"
+        />
       </div>
     </div>
-  </div></Layout
->
+
+    <Pqr />
+    <slot />
+    <Form />
+  </main>
+</Layout>

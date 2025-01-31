@@ -1,0 +1,122 @@
+---
+const tabs = [
+  {
+    id: "peticion",
+    label: "Petición",
+    content:
+      "Una petición es una solicitud que haces en nombre de ti mismo, de otra persona o de un grupo.",
+    content2:
+      "Las personas usan las peticiones para solicitar cosas como derechos, servicios, información o documentos. El objetivo es obtener una respuesta oportuna y significativa.",
+  },
+  {
+    id: "queja",
+    label: "Queja",
+    content:
+      "¿Sabías que una 'queja' es un término en español que se refiere a una forma de proporcionar retroalimentación acerca del servicio de un trabajador gubernamental? Es una herramienta útil que da a todos nuestros usuarios la oportunidad de expresar cualquier inconveniente que hayan tenido con respecto a la calidad de nuestro servicio, el trato o el respeto recibido.",
+    content2:
+      "Con tu ayuda, las autoridades competentes pueden abordar estas preocupaciones y trabajar para mejorar sus servicios. Así que, si has tenido una mala experiencia, no dudes en presentar una 'queja'. ¡Tus comentarios podrían ser el catalizador del cambio positivo!",
+  },
+  {
+    id: "reclamo",
+    label: "Reclamo",
+    content:
+      "Permítame ofrecerle claridad sobre lo que implica un “reclamo”. Es una solicitud o queja formal hecha en relación a un servicio que no cumplió con las expectativas o acuerdos previos",
+    content2:
+      "Esto puede incluir un servicio no cumplido o una atención inadecuada a una solicitud. Es un medio de expresar los propios requisitos y asegurar que se proporcione el servicio al cliente adecuado. En caso de experimentar una situación así, le agradecemos que aproveche la oportunidad para hacer valer sus derechos sin dudarlo.",
+  },
+  {
+    id: "sugerencia",
+    label: "Sugerencia",
+    content:
+      "Es una propuesta constructiva presentada con el objetivo de mejorar la calidad de un servicio, transacción o proceso. Es una herramienta efectiva que nos ayuda a identificar áreas de mejora y optimizar la experiencia general para evitar la repetición de mejorar de nuestros usuarios. Por lo tanto, su opinión es muy importante para la nosotros.",
+    content2:
+      "Le animo a compartir sus valiosas sugerencias, para que podamos trabajar juntos hacia nuestro objetivo común de brindar un servicio ejemplar a todos nuestros usuarios.",
+  },
+  {
+    id: "felicitaciones",
+    label: "Felicitaciones",
+    content:
+      "Las felicitaciones son expresiones de reconocimiento y satisfacción por parte de los usuarios respecto a los servicios prestados por NordVital IPS.",
+    content2:
+      "Pueden destacar la buena atención recibida, el profesionalismo del personal o cualquier aspecto positivo de la experiencia del usuario. Las felicitaciones no solo motivan al equipo, sino que también resaltan las buenas prácticas que deben mantenerse.",
+  },
+];
+---
+
+<div class="py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-2 mb-4">
+      {
+        tabs.map((tab) => (
+          <button
+            data-tab={tab.id}
+            class="w-full text-center px-6 py-4 bg-slate-200 
+                text-gray-700 font-medium last:mb-0
+                hover:bg-slate-100 hover:text-teal-600 
+                data-[active=true]:bg-teal-500 data-[active=true]:text-white data-[active=true]:shadow-md
+                 border border-gray-200 hover:border-teal-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+          >
+            {tab.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Contenido de las Pestañas -->
+    <div
+      class="flex-1 bg-white rounded-2xl shadow-xl p-8 mx-auto w-full lg:w-auto animate-fadeIn"
+    >
+      {
+        tabs.map((tab) => (
+          <div
+            id={`content-${tab.id}`}
+            class="hidden data-[active=true]:block space-y-6 animate-fadeIn"
+          >
+            <h2 class="text-3xl font-bold text-teal-600 mb-4">{tab.label}</h2>
+            <div class="text-gray-700 space-y-6 leading-relaxed">
+              <p>{tab.content}</p>
+              {tab.content2 && <p>{tab.content2}</p>}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+</style>
+<script>
+  // Lógica para el cambio de pestañas en el cliente
+  const buttons = document.querySelectorAll("button[data-tab]");
+  const panels = document.querySelectorAll('div[id^="content-"]');
+
+  // Establecer la pestaña activa inicial
+  buttons[0].setAttribute("data-active", "true");
+  panels[0].setAttribute("data-active", "true");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Eliminar el estado activo
+      buttons.forEach((b) => b.removeAttribute("data-active"));
+      panels.forEach((p) => p.removeAttribute("data-active"));
+
+      // Establecer el nuevo estado activo
+      const tabId = button.getAttribute("data-tab");
+      button.setAttribute("data-active", "true");
+      document
+        .querySelector(`#content-${tabId}`)
+        ?.setAttribute("data-active", "true");
+    });
+  });
+</script>
