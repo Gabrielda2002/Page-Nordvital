@@ -1,9 +1,88 @@
 ---
+import Corousel from "@/components/common/CarouselServices.astro";
 import Layout from "../layouts/Layout.astro";
+
+import checkedIcon from "@/assets/index_icons/checked.svg?url";
 ---
 
 <Layout title="Inicio">
   <main class="bg-gray-100">
-    
+    <!-- carrusel -->
+
+    <div class="grid grid-cols-1 p-4 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 lg:p-2">
+      <div
+        class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
+      >
+        <h1 class="text-3xl font-bold">
+          Una
+          <span class="text-[#049ae7] font-bold">IPS</span>
+          comprometida con sus usuarios
+        </h1>
+      </div>
+      <div>
+        <span class="text-xl font-bold">Nordvital IPS</span>
+        <p class="text-xl">
+          se destaca garantizando una atención médica de calidad, accesible y
+          disponible para todos.
+        </p>
+      </div>
+    </div>
+
+    <!-- video -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto gap-3 p-2">
+      <div class="flex items-center justify-center h-full bg-gray-200">
+        <div class="w-full">
+          <iframe
+            class="w-full h-[400px] rounded-3xl"
+            src="https://www.youtube.com/embed/46G-4lTJoyk"
+            frameborder="0"
+            title="Video institucional Nordvital IPS"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center">
+        <h2 class="text-5xl font-bold mb-3">
+          Sobre <span
+            class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl"
+            >Nosotros</span
+          >
+        </h2>
+        <p class="mb-3 text-xl">
+          <span class="font-bold">Nordvital IPS S.A.S</span>
+          es una IPS de carácter privado que ofrece servicios de atención primaria
+          y de complejidad media a sus usuarios a través de las EPS o de manera particular
+        </p>
+        <p class="mb-3">
+          Nos destacamos siempre por
+          <span class="text-[#049ae7] font-semibold">nuestros valores.</span>
+        </p>
+
+        <div class="grid grid-cols-4 w-fit gap-3">
+          <div class="w-fit">
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Lealtad </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Empatía </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Gratitud </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Respeto </span>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+    <div>
+      <Corousel />
+    </div>
   </main>
 </Layout>

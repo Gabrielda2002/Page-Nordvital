@@ -1,0 +1,106 @@
+---
+// Importa las imágenes que vas a usar
+
+import imgLaboratorio from '@/assets/Imgs_carousel/carousel_infinito/LABORATORIO.jpg?url';
+import imgMediGeneral from '@/assets/Imgs_carousel/carousel_infinito/medicinaGeneral.jpg?url';
+import imgApoyoTera from '@/assets/Imgs_carousel/carousel_infinito/terapiasFisicas1.jpg?url';
+import imgOdonto from '@/assets/Imgs_carousel/carousel_infinito/odontologia2.jpg?url';
+import imgMtnmSalud from '@/assets/Imgs_carousel/carousel_infinito/prevencionSalud1.jpg?url';
+import imgMdEpecializada from '@/assets/Imgs_carousel/carousel_infinito/medicinaEspecializada.jpg?url';
+
+const images = [
+  {
+    src: `${imgMediGeneral}`,
+    title: "Medicina General",
+    description: "Explora nuestra atención completa en medicina general. Nuestro equipo médico altamente capacitado está comprometido a brindarte cuidado personalizado.",
+    link: "/services"
+  },
+  {
+    src: `${imgOdonto}`,
+    title: "Odontología",
+    description: "Encuentra soluciones a tus necesidades médicas únicas con nuestro servicio de Medicina Especializada. Dianosticos precisos y tratamientos avanzados.",
+    link: "/services"
+  },
+  {
+    src: `${imgApoyoTera}`,
+    title: "Apoyo terapéutico",
+    description: "Recibe el apoyo necesario para tu recuperación con nuestro servicio de Apoyo Terapéutico. Terapias físicas, ocupacionales y emocionales disponibles.",
+    link: "/services"
+  },
+  {
+    src: `${imgMtnmSalud}`,
+    title: "Mantenimiento de la salud",
+    description: "Prioriza tu bienestar con nuestro servicio de Mantenimiento de Salud. Ofrecemos chequeos médicos completos y asesoramiento en hábitos saludables.",
+    link: "/services"
+  },
+  {
+    src: `${imgMdEpecializada}`,
+    title: "Medicina especializada",
+    description: "Encuentra soluciones a tus necesidades médicas únicas con nuestro servicio de Medicina Especializada. Dianosticos precisos y tratamientos avanzados.",
+    link: "/services"
+  },
+  {
+    src: `${imgLaboratorio}`,
+    title: "Laboratorio",
+    description: "Resultados precisos y confiables con nuestro servicio de Laboratorio. Amplia gama de pruebas médicas para diagnostico y seguimiento.",
+    link: "/services"
+  },
+];
+---
+
+<div class="owl-carousel owl-theme">
+  {
+    images.map(({src, title, description, link}) => (
+      <div class="relative overflow-hidden">
+        <img src={src} alt={title} />
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-l from-[#6fbda7] to-[#017bdedf]  opacity-0 hover:opacity-60 transition-opacity duration-300">
+          <div class="overlay-hijo">
+            <div>
+              <h3>{title}</h3>
+            </div>
+            <div class="over__p">
+              <p class="ov-p">{description}</p>
+            </div>
+            <div>
+              <button class="btn btn-color">
+                <a href={link}>Ver Más</a>
+              </button>
+              <button class="btn btn-color-1 mx-4">
+                <a 
+                  href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios." 
+                  target="_blank" 
+                  class="text-white"
+                >
+                  Agendar cita
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // Inicializar Owl Carousel cuando el documento esté listo
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1400: {
+          items: 3
+        }
+      }
+    });
+  });
+</script>
