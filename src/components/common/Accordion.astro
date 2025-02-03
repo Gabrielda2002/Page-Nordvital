@@ -1,7 +1,6 @@
 ---
 // src/components/common/Accordion.astro
 
-import { marked } from "marked";
 interface Props {
   title: string;
   // content: string;
@@ -19,12 +18,12 @@ const { title, id } = Astro.props;
 >
   <div class="mb-4 w-full">
     <button
-      class="w-full flex justify-between items-center p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-t-lg focus:outline-none"
+      class="w-full flex justify-between items-center p-4 rounded-t-lg focus:outline-none"
       id={`accordion-button-${id}`}
       aria-expanded="false"
       aria-controls={`accordion-content-${id}`}
     >
-      <span class="font-medium text-gray-800">{title}</span>
+      <span class="font-bold text-white">{title}</span>
       <svg
         class="w-5 h-5 transition-transform duration-300"
         fill="none"
