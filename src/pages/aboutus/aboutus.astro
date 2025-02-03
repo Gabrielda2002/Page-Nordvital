@@ -14,8 +14,11 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
   </head>
 
   <main class="overflow-x-hidden">
-    <!-- QUIENES SOMOS Hero Section -->
-    <HeroSection title="Quiénes Somos" backgroundImage={img.src} />
+    <!-- Hero Section -->
+    <HeroSection
+      title="Quiénes Somos"
+      backgroundImage={"/src/images/Header/NOSOTROS.webp"}
+    />
 
     <!-- Misión y visión -->
     <div
@@ -35,7 +38,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
           </p>
         </div>
         <div class="mv__icono mt-4 md:mt-0">
-          <label for="openModal" class="cursor-pointer p-4 md:p-14 block">
+          <label for="openModal" class="cursor-pointer p-4 md:p-14">
             <img
               src="/src/images/AboutUs/Recurso_2.svg"
               alt="Icono Misión y Visión"
@@ -47,44 +50,44 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
     </div>
 
     <!-- Modal (sin cambios) -->
-    <input type="checkbox" id="openModal" class="hidden" />
-    <div
-      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-700 modal-overlay opacity-0 pointer-events-none z-50"
-      id="modalOverlay"
-    >
-      <div
-        class="bg-white m-4 md:m-auto p-5 rounded-lg w-[90%] md:min-w-[40%] md:mx-[100%] animate-fadeIn max-h-[90vh] overflow-y-auto"
-      >
-        <div class="flex justify-end">
-          <label for="openModal" class="cursor-pointer text-xl p-3">X</label>
-        </div>
-        <div class="modal-body mv__contenido">
-          <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-3">
-            <em>Misión: </em>
-          </h3>
-          <p class="text-justify">
-            En NORDVITAL IPS S.A.S,. somos una institución prestadora de
-            servicios de salud ambulatorios de baja y mediana complejidad con
-            presencia a nivel nacional, con capital humano integral y
-            comprometido, espacios confortables y tecnología de punta que ofrece
-            atención con altos estándares de calidad y el propósito de
-            garantizar la satisfacción a nuestros usuarios y sus familias.
-          </p><br />
+    <div id="misionVisionModal" class="hidden fixed inset-0 z-50">
+      <div class="fixed inset-0 bg-black bg-opacity-50">
+        <div class="min-h-screen px-4 flex items-center justify-center">
+          <div
+            class="bg-white rounded-lg w-[90%] md:w-2/4 max-h-[70vh] overflow-y-auto"
+          >
+            <div class="flex justify-end p-2">
+              <button id="closeModalBtn" class="text-3xl">&times;</button>
+            </div>
+            <div class="modal-body mv__contenido p-8">
+              <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-3">
+                <em>Misión: </em>
+              </h3>
+              <p class="text-justify">
+                En NORDVITAL IPS S.A.S,. somos una institución prestadora de
+                servicios de salud ambulatorios de baja y mediana complejidad
+                con presencia a nivel nacional, con capital humano integral y
+                comprometido, espacios confortables y tecnología de punta que
+                ofrece atención con altos estándares de calidad y el propósito
+                de garantizar la satisfacción a nuestros usuarios y sus
+                familias.
+              </p><br />
 
-          <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-3">
-            <em>Visión: </em>
-          </h3>
-          <p class="text-justify mb-5">
-            Posicionar NORDVITAL IPS en el 2029 como una organización líder en
-            innovación, servicios de alta calidad y excelencia en la atención,
-            fortaleciendo nuestra capacidad operativa a nivel nacional, siendo
-            reconocidos por nuestros usuarios, clientes, profesionales y entorno
-            social.
-          </p>
+              <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-3">
+                <em>Visión: </em>
+              </h3>
+              <p class="text-justify mb-5">
+                Posicionar NORDVITAL IPS en el 2029 como una organización líder
+                en innovación, servicios de alta calidad y excelencia en la
+                atención, fortaleciendo nuestra capacidad operativa a nivel
+                nacional, siendo reconocidos por nuestros usuarios, clientes,
+                profesionales y entorno social.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Secciones de contenido -->
     <div class="px-4 md:px-0">
       <!-- Primera sección -->
@@ -246,45 +249,38 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
           Hoy, <span class="text-blue-500">NordVital</span> se proyecta como una
           de las IPS más reconocidas y fuertes de la región, habiendo crecido y evolucionado
           desde su origen en Cúcuta.
-        </p>><br />
-        <div class="text-base md:text-lg space-y-4">
-          <!-- Contenido de la reseña histórica (sin cambios) -->
-        </div>
+        </p><br />
+        <div class="text-base md:text-lg space-y-4"></div>
       </div>
     </div>
   </main>
 
-  <style>
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    .animate-fadeIn {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    #openModal:checked ~ #modalOverlay {
-      opacity: 100%;
-      pointer-events: all;
-    }
-    .no-scroll {
-      overflow: hidden;
-    }
-  </style>
-
   <script>
-    const modalCheckbox = document.getElementById(
-      "openModal"
-    ) as HTMLInputElement;
-    if (modalCheckbox) {
-      modalCheckbox.addEventListener("change", () => {
-        document.body.style.overflow = modalCheckbox.checked
-          ? "hidden"
-          : "auto";
-      });
+    // Cambiar 'formModal' a 'misionVisionModal' para que coincida con el ID del modal
+    const modal = document.getElementById("misionVisionModal");
+    const openButton = document.querySelector("label[for='openModal']"); // Cambiar por el selector del botón
+    const closeButton = document.getElementById("closeModalBtn");
+
+    const toggleModal = (event: boolean) => {
+      if (modal) {
+        if (event) {
+          modal.classList.remove("hidden");
+          document.documentElement.style.overflow = "hidden";
+          document.body.style.overflow = "hidden";
+        } else {
+          modal.classList.add("hidden");
+          document.documentElement.style.overflow = "auto";
+          document.body.style.overflow = "auto";
+        }
+      }
+    };
+
+    if (openButton) {
+      openButton.addEventListener("click", () => toggleModal(true));
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener("click", () => toggleModal(false));
     }
   </script>
 </Layout>
