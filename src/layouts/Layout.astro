@@ -1,40 +1,56 @@
 ---
-interface Props{
-	title: string;
+interface Props {
+  title: string;
+  description?: string;
 }
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-const {
-	title
-} = Astro.props;
+const { title, description = "Servicios de salud de alta calidad" } =
+  Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="overflow-x-hidden">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-
-	</head>
-	<body class="overflow-x-hidden">
-		<Header />
-		<main class="w-full">	
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nordvitalips.com" />
+    <title>{title}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <script is:inline src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    ></script>
+  </head>
 </html>
+<body class="overflow-x-hidden">
+  <Header />
+  <main class="w-full">
+    <slot />
+  </main>
+  <Footer />
+</body>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		padding: 0;
-		min-height: 100vh;
-		overscroll-behavior: none;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
+    overscroll-behavior: none;
+  }
 </style>

@@ -1,9 +1,192 @@
 ---
+import CorouselServices from "@/components/common/CarouselServices.astro";
 import Layout from "../layouts/Layout.astro";
+
+import dateBanner from "@/assets/index_icons/banner_agendar.jpg?url";
+import checkedIcon from "@/assets/index_icons/checked.svg?url";
+import Card from "@/components/Card.astro";
+import Corousel from "@/components/common/Corousel.astro";
 ---
 
 <Layout title="Inicio">
   <main class="bg-gray-100">
-    
+    <div class="mb-10">
+      <Corousel>
+    </div>
+
+    <!-- ? text start -->
+    <div
+      class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10"
+    >
+      <div
+        class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
+      >
+        <h1 class="text-3xl font-bold">
+          Una
+          <span class="text-[#049ae7] font-bold">IPS</span>
+          comprometida con sus usuarios
+        </h1>
+      </div>
+      <div>
+        <span class="text-xl font-bold">Nordvital IPS</span>
+        <p class="text-xl">
+          se destaca garantizando una atención médica de calidad, accesible y
+          disponible para todos.
+        </p>
+      </div>
+    </div>
+
+    <!-- ? section video -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto gap-3 p-2 mb-10"
+    >
+      <div class="flex items-center justify-center h-full bg-gray-200">
+        <div class="w-full">
+          <iframe
+            class="w-full h-[400px] rounded-3xl"
+            src="https://www.youtube.com/embed/46G-4lTJoyk"
+            frameborder="0"
+            title="Video institucional Nordvital IPS"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center">
+        <h2 class="text-5xl font-bold mb-3">
+          Sobre <span
+            class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl"
+            >Nosotros</span
+          >
+        </h2>
+        <p class="mb-3 text-xl">
+          <span class="font-bold">Nordvital IPS S.A.S</span>
+          es una IPS de carácter privado que ofrece servicios de atención primaria
+          y de complejidad media a sus usuarios a través de las EPS o de manera particular
+        </p>
+        <p class="mb-3">
+          Nos destacamos siempre por
+          <span class="text-[#049ae7] font-semibold">nuestros valores.</span>
+        </p>
+
+        <div class="grid grid-cols-4 w-fit gap-3">
+          <div class="w-fit">
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Lealtad </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Empatía </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Gratitud </span>
+          </div>
+          <div>
+            <img src={checkedIcon} alt="checked icon" />
+            <span> Respeto </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ? carousel services -->
+    <div class="w-11/12 mx-auto mb-10">
+      <div class="text-center">
+        <h3 class="text-5xl font-bold mb-3">
+          Nuestros <span
+            class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl"
+            >Servicios</span
+          >
+        </h3>
+      </div>
+      <CorouselServices />
+    </div>
+
+    <!-- ? date banner -->
+    <div class="relative w-full h-[400px] mb-10">
+      <div
+        class="w-full h-full bg-cover bg-center"
+        style={`background-image: url(${dateBanner})`}
+      >
+        <div
+          class="absolute inset-0 flex flex-col justify-center p-10 text-white"
+        >
+          <h4 class="text-4xl font-bold mb-4">
+            ¿Ya agendaste tu cita particular?
+          </h4>
+          <p class="text-xl max-w-xl pb-3">
+            Tú bienestar es nuestra prioridad. En Nordvital IPS, ofrecemos
+            atención médica personalizada que se adapta a tus necesidades
+            individuales.
+          </p>
+          <button
+            class="w-[120px] px-2 py-1 bg-white text-[#049ae7] rounded-xl hover:bg-teal-500 hover:text-white transition-all duration-300"
+          >
+            <a href=""> Agendar cita </a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ? headquarters section -->
+    <div class="mb-10">
+      <div class="text-center">
+        <h5 class="text-5xl font-bold mb-3">
+          Nuestras <span
+            class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl"
+          >
+            Sedes
+          </span>
+        </h5>
+        <p class="text-xl mb-3">
+          Contamos actualmente con 11 sedes habilitadas, donde nos destacamos
+          por nuestra excelente atención y cuidado hacia nuestros usuarios.
+          <a
+            href="/aboutus/headquarters"
+            class="text-[#049ae7] font-bold hover:text-teal-500 hover:underline"
+            >¡Conoce tu sede más cercana!</a
+          >
+        </p>
+      </div>
+      <div>
+        <Card
+          title="SEDES 01:"
+          address="Calle 14A # 2E-85"
+          mapLink="https://www.google.com/maps..."
+          images={[
+            "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp",
+            "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp",
+            "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp",
+          ]}
+        />
+      </div>
+    </div>
+
+    <!-- ? blog -->
+    <div class="mb-10">
+      <div class="text-center">
+        <h6 class="text-5xl font-bold mb-3">
+          Nuestro <span
+            class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl"
+          >
+            Blog
+          </span>
+        </h6>
+        <p class="text-xl mb-3">
+          ¡Bienvenido al blog de <span class="font-bold"> Nordvital IPS</span>!
+          Encuentra consejos sobre salud, bienestar y eventos. Únete para vivir
+          de manera más saludable y equilibrada.
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <script src="https://static.elfsight.com/platform/platform.js" async
+        ></script>
+        <div
+          class="elfsight-app-1638870b-e6e4-4d40-9105-548fdcbad3ba"
+          data-elfsight-app-lazy
+        >
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>

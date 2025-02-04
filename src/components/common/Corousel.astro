@@ -1,0 +1,91 @@
+---
+import imgGeneral from "@/assets/Imgs_carousel/slider2.webp?url";
+import imgGeneral2 from "@/assets/Imgs_carousel/slider1.webp?url";
+import imgGeneral3 from "@/assets/Imgs_carousel/slider3.webp?url";
+import imgGeneral4 from "@/assets/Imgs_carousel/slider4.webp?url";
+---
+
+<div class="relative w-full h-full overflow-hidden">
+  <div class="relative overflow-hidden">
+    <div id="slides-container" class="flex transition-transform duration-500">
+      <div class="w-full flex-shrink-0">
+        <img
+          src={imgGeneral}
+          alt="Agenda tu Cita"
+          class="w-full h-full bg-cover bg-center"
+        />
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img
+          src={imgGeneral2}
+          alt="Atención Dental"
+          class="w-full h-full bg-cover bg-center"
+        />
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img
+          src={imgGeneral3}
+          alt="Laboratorio"
+          class="w-full h-full bg-cover bg-center"
+        />
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img
+          src={imgGeneral4}
+          alt="Perfil Lípido"
+          class="w-full h-full bg-cover bg-center"
+        />
+      </div>
+    </div>
+  </div>
+
+  <button
+    id="prev"
+    class="absolute h-full left-0 top-1/2 -translate-y-1/2 p-2 group"
+  >
+    <span class="text-2xl text-white">←</span>
+    <span
+      class="absolute left-0 top-0 bottom-0 w-full bg-gradient-to-r from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+    ></span>
+  </button>
+
+  <button
+    id="next"
+    class="absolute h-full right-0 top-1/2 -translate-y-1/2 group"
+  >
+    <span class="text-2xl text-white">→</span>
+    <span
+      class="absolute right-0 top-0 bottom-0 w-full bg-gradient-to-l from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+    ></span>
+  </button>
+</div>
+
+<script>
+  const slidesContainer = document.getElementById("slides-container");
+  const prevButton = document.getElementById("prev");
+  const nextButton = document.getElementById("next");
+  let currentSlide = 0;
+  const totalSlides = 4;
+
+  function updateSlide() {
+    if (slidesContainer) {
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  }
+
+  prevButton?.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  });
+
+  nextButton?.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlide();
+  });
+
+  // Auto-play
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlide();
+  }, 5000);
+</script>
