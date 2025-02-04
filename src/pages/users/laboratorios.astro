@@ -1,10 +1,92 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HeroSection from "@/components/common/HeroSection.astro";
 ---
 
 <Layout title="Laboratorios">
-  <div class="container weight-600">
-    <div class="row">
-      <h1 class="text-4xl text-center font-bold text-gray-800">Laboratorios</h1>
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection
+      title="Resultados Laboratorio"
+      backgroundImage={"/src/images/Header/USUARIOS.png"}
+    />
+
+    <div
+      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600"
+    >
+      <div class="conttres">
+        <div class="flex items-center cont-medicina contCuatro">
+          <img
+            src="/src/images//Usuarios/Resultados-laboratorio/iconLabo.svg"
+            alt=""
+            class="h-11"
+          />
+
+          <h6 class="text-2xl ml-2"><em>Resultados Laboratorio</em></h6>
+        </div>
+
+        <div class="medicina mt-6 mb-10">
+          <h2 class="text-3xl font-semibold mb-2">
+            Guía para Descargar Resultados de Laboratorio
+          </h2>
+          <p>
+            Para facilitar el acceso a sus resultados de laboratorio, hemos
+            creado una guía que explica detalladamente cómo utilizar la
+            plataforma.
+          </p><br />
+          <p>
+            Para visualizar el documento siga el paso a paso descrito a
+            continuación.
+          </p><br />
+          <p>
+            <h5 class="text-xl font-semibold">Pasos para visualizar el PDF:</h5>
+            <ul class="p-2">
+              <li>1. Haga clic en el enlace que se encuentra a continuación.</li>
+              <li>
+                 2. Enlace: 
+                <a
+                  href="/src/pdf/Laboratorio/Resultados2.pdf"
+                  target="_blank"
+                  class="text-blue-500">
+                  Ver instructivo
+                </a
+                >
+              </li>
+              <li>
+                 3. Lea y visualice detenidamente todos los pasos para que haga uso
+                de la pagina correctamente.
+              </li>
+              <li>
+                 4. Para ingresar a la plataforma THARSIS-IT haga clic: 
+                <a
+                  href="https://hemonet.com/lisnordvital/paciente"
+                  target="_blank"
+                  class="text-blue-500">
+                  AQUI
+              </a>
+                
+              </li>
+            </ul>
+            <br />
+            <p>
+              Si tiene alguna pregunta o necesita asistencia adicional, por
+              favor no duden en contactarnos. Estamos 
+              <a
+                href="/Pagina-nordvitalips/html/contactenos.php"
+                class="text-blue-500">
+                aquí
+              </a
+              > para ayudarles en todo lo que necesiten.
+            </p>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
+</Layout>
