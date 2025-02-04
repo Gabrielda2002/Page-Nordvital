@@ -1,13 +1,317 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HeroSection from "@/components/common/HeroSection.astro";
 ---
 
 <Layout title="Procedimientos Médicos">
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-    <div>
-        <h1 class="text-4xl text-center font-bold text-gray-800">
-            Procedimientos Médicos
-        </h1>
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection
+      title="Resultados Laboratorio"
+      backgroundImage={"/src/images/Header/USUARIOS.png"}
+    />
+
+    <div
+      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600"
+    >
+      <div class="conttres">
+        <div class="flex items-center cont-medicina contCuatro">
+          <img
+            src="/src/images//Usuarios/Modales/icon.svg"
+            alt=""
+            class="h-11"
+          />
+
+          <h6 class="text-2xl ml-2"><em>Procedimientos Médicos</em></h6>
+        </div>
+
+        <div class="medicina mt-6 mb-2">
+          <h2 class="text-3xl font-semibold mb-2">
+            Guía para Realizar Procedimientos médicos según su tratamiento
+          </h2>
+          <p>
+            Para facilitar el correcto procedimiento a los diferentes exámenes,
+            hemos creado una guía que explica detalladamente cómo realizar los
+            distintos exámenes de laboratorio. Para visualizar el documento siga
+            el paso a paso descrito a continuación.
+          </p><br />
+          <p>
+            <h5 class="text-xl font-semibold">
+              Pasos para visualizar las imagenes:
+            </h5>
+            <ul class="p-2">
+              <li>
+                1. Haga clic en el enlace que se encuentra a continuación.
+              </li>
+              <li>
+                2. Lea y visualice detenidamente todos los pasos para que haga
+                uso del correcto procedimiento.
+              </li>
+              <li>
+                3. Cada imagen tiene la opción de poder salir de la misma por
+                fuera de esta.
+              </li>
+            </ul>
+            <br />
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+          <div class="space-y-4">
+            <h5 class="text-xl font-semibold">Ecografías:</h5>
+            <ul class="space-y-2 m-5 list-disc">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia de seno.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Mama o de Seno</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia de transrectal.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Próstata Transrectal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia de prostata transabdominal.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Próstata Transabdominal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia de abdomen superior.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Abdomen Superior y Ecografía Hepatobiliar</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia vias urinarias.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Vías Urinarias</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia Pelvica.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía Pélvica Trasabdominal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia abdomen total.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografía de Abdomen Total</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Ecografia obstreticas.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecografías Obstétricas y Ginecológicas</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h5 class="text-xl font-semibold">Tomografías:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/tomografias.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Tomografía y Urografía excretora</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">Imagenología:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/imagenologia.jpeg"
+                  class="text-blue-600 hover:underline">Imagenología</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">Toma de Citología:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/citologia.jpeg"
+                  class="text-blue-600 hover:underline">Imagenología</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">Lavado de Oidos:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/lavado oidos.jpeg"
+                  class="text-blue-600 hover:underline">Lavado de Oidos</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h5 class="text-xl font-semibold">Prueba de Esfuerzo:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/prueba esfuerzo.jpeg"
+                  class="text-blue-600 hover:underline">Prueba de Esfuerzo</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">
+              Ecocardiograma Estrés con Ejercicio:
+            </h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/ecocardiograma.jpeg"
+                  class="text-blue-600 hover:underline"
+                  >Ecocardiograma Estrés con Ejercicio</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">Holter del Ritmo:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/holter.jpeg"
+                  class="text-blue-600 hover:underline">Holter del Ritmo</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h5 class="text-xl font-semibold">Colposcopia:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/colposcopia.jpeg"
+                  class="text-blue-600 hover:underline">Colposcopia</a
+                >
+              </li>
+            </ul>
+
+            <h5 class="text-xl font-semibold">Electrocardiograma:</h5>
+            <ul class="space-y-2 list-disc m-5">
+              <li>
+                <a
+                  href="/src/images//Usuarios//Modales/Electrocardiograma.jpeg"
+                  class="text-blue-600 hover:underline">Electrocardiograma</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-span-full mb-8 text-start">
+            <p class="text-lg">
+              Si tiene alguna pregunta o necesita asistencia adicional, por
+              favor no duden en contactarnos Estamos <a
+                href="/Pagina-nordvitalips/html/contactenos.php"
+                class="text-blue-600 hover:underline">aquí</a
+              > para ayudarles en todo lo que necesitan.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </main>
 
+  <!-- Abrir detalles imagenes -->
+  <div
+    id="openModal"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+  >
+    <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] w-[90%] relative">
+      <div class="flex justify-between items-center p-4 border-b">
+        <h2 id="modalTitle" class="text-xl font-semibold"></h2>
+        <button
+          id="modalCloseBtn"
+          class="text-gray-600 hover:text-gray-900 text-3xl"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="p-4 flex justify-center items-center">
+        <img
+          id="modalImage"
+          src=""
+          alt="Imagen detallada"
+          class="max-w-full max-h-[70vh] object-contain"
+        />
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("openModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+
+    function openModal(imageSrc, imageTitle) {
+      modalImage.src = imageSrc;
+      modalTitle.textContent = imageTitle || "Imagen Detallada";
+      modal.classList.remove("hidden");
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+
+      document.documentElement.style.overflow = "auto";
+      document.body.style.overflow = "auto";
+    }
+
+    const imagenes = document.querySelectorAll(
+      'a[href$=".jpeg"], a[href$=".jpg"], a[href$=".png"]'
+    );
+
+    imagenes.forEach((imagen) => {
+      imagen.addEventListener("click", function (e) {
+        e.preventDefault();
+        const imagenSrc = this.getAttribute("href");
+        const imageTitle = this.textContent.trim();
+        openModal(imagenSrc, imageTitle);
+      });
+    });
+
+    document
+      .getElementById("modalCloseBtn")
+      .addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  });
+</script>
