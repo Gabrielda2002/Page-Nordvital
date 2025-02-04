@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 import dateBanner from '@/assets/index_icons/banner_agendar.jpg?url';
 import checkedIcon from "@/assets/index_icons/checked.svg?url";
+import Card from "@/components/Card.astro";
 ---
 
 <Layout title="Inicio">
@@ -12,7 +13,7 @@ import checkedIcon from "@/assets/index_icons/checked.svg?url";
 
 
     <!-- ? text start -->
-    <div class="grid grid-cols-1 p-4 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 lg:p-2 mb-10">
+    <div class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10">
       <div
         class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
       >
@@ -111,6 +112,33 @@ import checkedIcon from "@/assets/index_icons/checked.svg?url";
             </a>
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- ? headquarters section -->
+    <div class="">
+      <div class="text-center">
+        <h5 class="text-5xl font-bold  mb-3">
+          Nuestras <span class="text-white bg-gradient-to-l from-[#6fbda7] to-[#017bdedf] rounded-3xl">
+            Sedes
+          </span>
+        </h5>
+        <p class="text-xl mb-3">
+          Contamos actualmente con 11 sedes habilitadas, donde nos destacamos por nuestra excelente atención y cuidado hacia nuestros usuarios.
+          <a href="/aboutus/headquarters" class="text-[#049ae7] font-bold hover:text-teal-500 hover:underline" >¡Conoce tu sede más cercana!</a>
+        </p>
+      </div>
+      <div>
+        <Card
+              title="SEDES 01:"
+              address="Calle 14A # 2E-85"
+              mapLink="https://www.google.com/maps..."
+              images={[
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp",
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp",
+                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp",
+              ]}
+            />
       </div>
     </div>
 
