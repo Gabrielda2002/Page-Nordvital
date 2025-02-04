@@ -1,0 +1,56 @@
+ <svg
+              id="Grupo_473"
+              class="icono"
+              data-name="Grupo 473"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="59.049"
+              height="59.049"
+              viewBox="0 0 59.049 59.049"
+            >
+              <defs>
+                <clipPath id="clip-path">
+                  <rect
+                    id="Rectángulo_238"
+                    data-name="Rectángulo 238"
+                    width="59.049"
+                    height="59.049"></rect>
+                </clipPath>
+                <linearGradient
+                  id="myGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color:#049ae7;stop-opacity:1"
+                  ></stop>
+                  <stop offset="100%" style="stop-color:#007e79;stop-opacity:1"
+                  ></stop>
+                </linearGradient>
+              </defs>
+              <g
+                id="Grupo_473-2"
+                data-name="Grupo 473"
+                clip-path="url(#clip-path)"
+              >
+                <path
+                  id="Trazado_134"
+                  data-name="Trazado 134"
+                  d="M136.286,505.9h20.667a2.952,2.952,0,1,0,0-5.9H136.286a2.952,2.952,0,0,0,0,5.9"
+                  transform="translate(-121.524 -455.714)"
+                  fill="url(#myGradient)"></path>
+                <path
+                  id="Trazado_135"
+                  data-name="Trazado 135"
+                  d="M211.811,405.9a2.952,2.952,0,0,0,0-5.9h-8.857a2.952,2.952,0,0,0,0,5.9Z"
+                  transform="translate(-182.286 -364.571)"
+                  fill="url(#myGradient)"></path>
+                <path
+                  id="Trazado_136"
+                  data-name="Trazado 136"
+                  d="M56.1,53.145H50.915a23.62,23.62,0,0,0-15.485-38.2V8.858a2.952,2.952,0,0,0-2.952-2.952H31.83l-.917-3.669A2.952,2.952,0,0,0,28.049,0h-5.9A2.952,2.952,0,0,0,19.28,2.237l2.864.716L19.28,2.237l-.917,3.669h-.647a2.952,2.952,0,0,0-2.952,2.952V29.525a2.952,2.952,0,0,0,2.952,2.952H32.478a2.952,2.952,0,0,0,2.952-2.952V20.914a17.717,17.717,0,0,1,6.843,32.23H2.953a2.952,2.952,0,0,0,0,5.9H56.1a2.952,2.952,0,1,0,0-5.9M20.668,11.811a2.952,2.952,0,0,0,2.864-2.236l.917-3.669h1.295l.917,3.669a2.952,2.952,0,0,0,2.864,2.236V26.573H20.668Z"
+                  transform="translate(-0.001 -0.001)"
+                  fill="url(#myGradient)"></path>
+              </g>
+            </svg>
