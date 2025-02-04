@@ -1,15 +1,18 @@
 ---
-import Corousel from "@/components/common/CarouselServices.astro";
+import CorouselServices from "@/components/common/CarouselServices.astro";
 import Layout from "../layouts/Layout.astro";
 
 import dateBanner from "@/assets/index_icons/banner_agendar.jpg?url";
 import checkedIcon from "@/assets/index_icons/checked.svg?url";
 import Card from "@/components/Card.astro";
+import Corousel from "@/components/common/Corousel.astro";
 ---
 
 <Layout title="Inicio">
   <main class="bg-gray-100">
-    <!-- carrusel -->
+    <div class="mb-10">
+      <Corousel>
+    </div>
 
     <!-- ? text start -->
     <div
@@ -96,7 +99,7 @@ import Card from "@/components/Card.astro";
           >
         </h3>
       </div>
-      <Corousel />
+      <CorouselServices />
     </div>
 
     <!-- ? date banner -->
