@@ -1,19 +1,277 @@
 ---
+import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout titel="derechos y deberes">
-  <div class="container weight-600">
-    <div class="row">
-      <div
-        class="col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center"
-      >
-        <div class="ips d-flex align-content-center">
-          <h1 class="text-muted text-center">
-            Derechos y Deberes de los Usuarios
-          </h1>
+<Layout title="derechos y deberes">
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection
+      title="Derechos y deberes"
+      backgroundImage={"/src/images/Header/USUARIOS.png"}
+    />
+    <div
+      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-center flex-col md:flex-row"
+    >
+      <img
+        src="/src/images//Usuarios/Derechos-Deberes/db-1.png"
+        alt=""
+        class="w-1/2 sm:w-auto md:max-w-xs"
+      />
+
+      <div class="text-start w-full md:w-2/3 mt-4 md:mt-0 md:pl-4">
+        <h1 class="text-3xl text-teal-500">
+          <strong>Conozca sus deberes y derechos</strong>
+        </h1>
+        <br />
+
+        <p>
+          En <span class="text-sky-600">NordVital IPS</span>, nos comprometemos
+          a ofrecer una atención de salud integral y de alta calidad, respetando
+          siempre los derechos fundamentales de nuestros usuarios.
+        </p>
+        <br />
+        <p>
+          Consideramos esencial que cada persona conozca sus derechos y deberes
+          como usuario de nuestros servicios para garantizar una relación basada
+          en la confianza, el respeto mutuo y la transparencia.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-4xl w-[90%] mx-auto p-12 bg-slate-200 border border-teal-500 rounded-lg shadow-lg mb-10 mt-8">
+      <div class="mb-4">
+        <div class="flex border-b border-gray-200">
+          <button
+            class="py-2 px-4 font-medium text-lg focus:outline-none"
+            id="deberesTab"
+          >
+            Deberes del paciente
+          </button>
+          <button
+            class="py-2 px-4 font-medium text-lg focus:outline-none"
+            id="derechosTab"
+          >
+            Derechos del paciente
+          </button>
+        </div>
+      </div>
+
+      <div id="deberesContent" class="space-y-4">
+        {/* Contenido de Deberes */}
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-1.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Actualizar constantemente sus datos de contacto para facilitar una
+              comunicación efectiva.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-6.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Utilizar adecuadamente y de manera racional las prestaciones
+              ofrecidas, así como los recursos del sistema.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-2.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Cumplir con las normas y actuar de buena fe en relación con los
+              servicios de salud.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-4.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Cuidar de su salud, la de su familia y la de la comunidad.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-3.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Cumplir de manera responsable con las recomendaciones dadas por
+              los profesionales de la salud.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-5.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Aportar información clara y veraz sobre su estado de salud y el de
+              su familia.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-7.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Tratar con dignidad y respeto a todo el personal de la institución
+              y a los demás usuarios, contribuyendo a una buena convivencia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="derechosContent" class="hidden space-y-4">
+        {/* Contenido de Derechos */}
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-14.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">Recibir una atención oportuna y segura.</p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-13.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">Recibir una segunda opinión.</p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-15.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Recibir un trato digno sin discriminación alguna.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-10.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Manejo confidencial de su diagnóstico y su estado de salud.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-8.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Elegir libremente la IPS y el profesional de salud que desea que
+              lo trate, dentro de las posibilidades que le ofrece su EPS.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-11.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Recibir toda la información acerca de trámites administrativos
+              para acceder a los servicios ofrecidos por su IPS.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-12.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Recibir información sobre presentación de PQRDF.
+            </p>
+          </div>
+          <div class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500">
+            <img
+              src="/src/images/Usuarios/Derechos-Deberes/ico-db-9.svg"
+              alt=""
+              class="w-6 h-6 mt-1"
+            />
+            <p class="text-lg">
+              Participar activamente y ser elegido como representante de los
+              usuarios.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div></Layout
->
+
+    <script>
+      const deberesTab = document.getElementById("deberesTab");
+      const derechosTab = document.getElementById("derechosTab");
+      const deberesContent = document.getElementById("deberesContent");
+      const derechosContent = document.getElementById("derechosContent");
+
+      function setActiveTab(tab: HTMLElement, content: HTMLElement) {
+        [deberesTab, derechosTab].forEach((t) => {
+          if (t) {
+            t.classList.remove(
+              "text-teal-600",
+              "border-b-2",
+              "border-teal-600",
+              "bg-gray-300"
+            );
+          }
+        });
+        [deberesContent, derechosContent].forEach((c) => {
+          if (c) {
+            c.classList.add("hidden");
+          }
+        });
+
+        tab.classList.add("text-teal-600", "border-b-2", "border-teal-600", "bg-gray-300");
+        content.classList.remove("hidden");
+      }
+
+      deberesTab?.addEventListener("click", () => {
+        if (deberesTab && deberesContent) {
+          setActiveTab(deberesTab, deberesContent);
+        }
+      });
+      derechosTab?.addEventListener("click", () => {
+        if (derechosTab && derechosContent) {
+          setActiveTab(derechosTab, derechosContent);
+        }
+      });
+
+      if (deberesTab && deberesContent) {
+        setActiveTab(deberesTab, deberesContent);
+      }
+    </script>
+  </main>
+</Layout>
