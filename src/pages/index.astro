@@ -16,6 +16,7 @@ import Corousel from "@/components/common/Corousel.astro";
 
     <!-- ? text start -->
     <div
+      aria-label="Introduccion"
       class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10"
     >
       <div
@@ -38,6 +39,7 @@ import Corousel from "@/components/common/Corousel.astro";
 
     <!-- ? section video -->
     <div
+    aria-label="Video institucional"
       class="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto gap-3 p-2 mb-10"
     >
       <div class="flex items-center justify-center h-full bg-gray-200">
@@ -90,7 +92,7 @@ import Corousel from "@/components/common/Corousel.astro";
     </div>
 
     <!-- ? carousel services -->
-    <div class="w-11/12 mx-auto mb-10">
+    <div aria-label="Nuestros servicios" class="w-11/12 mx-auto mb-10">
       <div class="text-center">
         <h3 class="text-5xl font-bold mb-3">
           Nuestros <span
@@ -103,7 +105,7 @@ import Corousel from "@/components/common/Corousel.astro";
     </div>
 
     <!-- ? date banner -->
-    <div class="relative w-full h-[400px] mb-10">
+    <div aria-label="date" class="relative w-full h-[400px] mb-10">
       <div
         class="w-full h-full bg-cover bg-center"
         style={`background-image: url(${dateBanner})`}
@@ -129,7 +131,7 @@ import Corousel from "@/components/common/Corousel.astro";
     </div>
 
     <!-- ? headquarters section -->
-    <div class="mb-10">
+    <div aria-label="headquarters" class="mb-10">
       <div class="text-center">
         <h5 class="text-5xl font-bold mb-3">
           Nuestras <span
@@ -163,7 +165,7 @@ import Corousel from "@/components/common/Corousel.astro";
     </div>
 
     <!-- ? blog -->
-    <div class="mb-10">
+    <div aria-label="Blog" class="mb-10">
       <div class="text-center">
         <h6 class="text-5xl font-bold mb-3">
           Nuestro <span
