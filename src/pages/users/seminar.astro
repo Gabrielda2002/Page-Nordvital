@@ -1,13 +1,111 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HeroSection from "@/components/common/HeroSection.astro";
+import img from "@/images/Header/USUARIOS.png";
 ---
 
 <Layout title="Seminario">
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-    <div>
-        <h1 class="text-4xl text-center font-bold text-gray-800">
-            Seminarios
-        </h1>
+  <main class="overflow-x-hidden bg-gray-100">
+    <HeroSection
+      title="2DO Seminario Generando Conciencia"
+      backgroundImage={img.src}
+    />
+
+    <div
+      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600 m-5"
+    >
+      <div class="conttres">
+        <div class="flex items-center cont-medicina contCuatro">
+          <img
+            src="/src/images//Usuarios//Seminario/webinar.svg"
+            alt=""
+            class="h-11"
+          />
+
+          <h6 class="text-2xl ml-2">
+            <em>Seminario | Generando Conciencia</em>
+          </h6>
+        </div>
+        <div class="medicina mt-3">
+          <h2 class="font-semibold text-3xl">
+            Guía para Realizar la descarga del Certificado
+          </h2>
+          <p>
+            Para facilitar la correcta descarga del certificado, hemos creado
+            una guía que explica detalladamente cómo realizarla.
+          </p>
+          <br />
+          <h5 class="font-medium text-xl">
+            Pasos para descargar el Certificado:
+          </h5>
+          <ol class="p-2">
+            <li>
+              1. Ingrese su número de identificación en el campo <b>Buscar</b>.
+            </li>
+            <li>
+              2. Luego de presionar <b>Enter</b> o hacer click en el icono de búsqueda.
+            </li>
+            <li>
+              3. Finalmente haga click en el botón verde que dice <b
+                >Descargar</b
+              > para visualizar su certificado.
+            </li>
+          </ol>
+
+          <div class="col-12 col-md-8 col-lg-6 mx-auto w-full mb-8 mt-5">
+            <form id="form__certificado-seminario">
+              <div
+                class="w-full md:w-[70%] flex mx-auto items-center justify-center"
+              >
+                <input
+                  type="text"
+                  class="form-control w-2/3 h-12 rounded-md"
+                  id="dni__participante"
+                  placeholder="Buscar número de identificación..."
+                  aria-label="Buscar archivos"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn bg-black text-white rounded-md h-12 w-16 hover:scale-105 hover:shadow-md"
+                  type="submit"
+                  id="button-addon2">Buscar</button
+                >
+              </div>
+            </form>
+          </div>
+
+          <div id="tablaResultados" style="display: none;">
+            <table class="table table-striped mt-4">
+              <thead>
+                <tr>
+                  <th>Formato</th>
+                  <th>Nombre</th>
+                  <th>Tamaño</th>
+                  <th>Fecha Agregada</th>
+                  <th>Descargar</th>
+                </tr>
+              </thead>
+              <tbody id="table__response"> </tbody>
+            </table>
+          </div>
+
+          <br />
+          <p>
+            Si tiene alguna pregunta o necesita asistencia adicional, por favor
+            no dude en contactarnos. Estamos <a
+              class="text-blue-500"
+              href="/Pagina-nordvitalips/html/contactenos.php">aquí</a
+            > para ayudarles en todo lo que necesiten.
+          </p>
+        </div>
+      </div>
     </div>
-
+  </main>
 </Layout>
