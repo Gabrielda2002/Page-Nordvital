@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" width="60.951" height="50.147"  viewBox="0 0 45.53 56.42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #049ae7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g id="Grupo_1267" data-name="Grupo 1267">
+      <path id="Trazado_43" data-name="Trazado 43" class="cls-1" d="m30.42,23.08c0,4.51-3.65,8.16-8.16,8.16s-8.16-3.65-8.16-8.16,3.65-8.16,8.16-8.16,8.16,3.65,8.16,8.16h0Z"/>
+      <path id="Trazado_44" data-name="Trazado 44" class="cls-1" d="m22.77,1c-12.02,0-21.77,9.74-21.77,21.77,0,0,0,0,0,0,0,5.15,1.09,8.52,4.08,12.24l17.69,20.41,17.69-20.41c2.99-3.73,4.08-7.1,4.08-12.24,0-12.02-9.74-21.77-21.77-21.77,0,0,0,0,0,0Z"/>
+    </g>
+  </g>
+</svg>
