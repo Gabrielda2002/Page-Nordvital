@@ -2,7 +2,7 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import Accordion from "@/components/common/Accordion.astro";
-import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.png";
+import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.png?url";
 ---
 
 <Layout title="SARLAF - SICOF">
@@ -14,7 +14,7 @@ import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.png";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="SARLAF - SICOF" backgroundImage={img.src} />
+    <HeroSection title="SARLAF - SICOF" backgroundImage={img} />
 
     <section
       class="font-sans md:px-20 mx-auto w-[60%] text-center text-lg text-gray-600"
