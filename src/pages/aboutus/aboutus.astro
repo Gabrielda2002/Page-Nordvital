@@ -3,6 +3,9 @@ import HeroSection from "@/components/common/HeroSection.astro";
 import AboutUs from "../../components/aboutus/AboutUs.astro";
 import Layout from "../../layouts/Layout.astro";
 import img from "@/images/AboutUs/NOSOTROS.webp";
+import Image from "@/images/AboutUs/NOSOTROS_1.webp";
+import Image2 from "@/images/AboutUs/DOCTOR_NOSOTROS_3.webp";
+import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
 ---
 
 <Layout title="Quiénes Somos">
@@ -15,10 +18,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
 
   <main class="overflow-x-hidden">
     <!-- Hero Section -->
-    <HeroSection
-      title="Quiénes Somos"
-      backgroundImage={"/src/images/Header/NOSOTROS.webp"}
-    />
+    <HeroSection title="Quiénes Somos" backgroundImage={img.src} />
 
     <!-- Misión y visión -->
     <div
@@ -119,17 +119,17 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
             </h1>
             <p>
               Los servicios ofertados y su modalidad de atención, están basados
-              en estándares de <strong>efectividad y eficiencia</strong> como respuesta a las
-              necesidades de la población, para lo cual se cuenta con el mejor
-              recurso humano, la mejor infraestructura, y tecnología de punta,
-              propendiendo por una atención integral.
-              </p>
+              en estándares de <strong>efectividad y eficiencia</strong> como respuesta
+              a las necesidades de la población, para lo cual se cuenta con el mejor
+              recurso humano, la mejor infraestructura, y tecnología de punta, propendiendo
+              por una atención integral.
+            </p>
           </div>
         </div>
 
         <div class="quienes__somos__item-img w-full md:w-2/5">
           <img
-            src="/src/images/AboutUs/NOSOTROS_1.webp"
+            src={Image.src}
             alt="Imagen Quiénes Somos"
             class="w-full rounded-lg"
           />
@@ -141,11 +141,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
         class="quienes__somos flex flex-col-reverse md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0 mb-8"
       >
         <div class="quienes__somos__item-img w-full md:w-2/5">
-          <img
-            src="/src/images/AboutUs/DOCTOR_NOSOTROS_3.webp"
-            alt="Imagen Doctor"
-            class="w-full rounded-lg"
-          />
+          <img src={Image2.src} alt="Imagen Doctor" class="w-full rounded-lg" />
         </div>
 
         <div class="quienes__somos__item-uno p-4 w-full md:w-2/5">
@@ -219,7 +215,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
 
         <div class="quienes__somos__item-img w-full md:w-2/5">
           <img
-            src="/src/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg"
+            src={Image3.src}
             alt="Imagen Enfermeras"
             class="w-full rounded-lg"
           />
@@ -227,7 +223,9 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
       </div>
 
       <!-- Reseña histórica -->
-      <div class="text-center h-auto m-auto p-5 w-full md:w-[72%] text-gray-600">
+      <div
+        class="text-center h-auto m-auto p-5 w-full md:w-[72%] text-gray-600"
+      >
         <h1 class="text-[42px] font-bold text-teal-500">Reseña histórica</h1><br
         />
         <p class="text-lg">

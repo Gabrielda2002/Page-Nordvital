@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
+import img from "@/images/Header/USUARIOS.png";
 ---
 
 <Layout title="Procedimientos Médicos">
@@ -12,10 +13,7 @@ import HeroSection from "@/components/common/HeroSection.astro";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection
-      title="Resultados Laboratorio"
-      backgroundImage={"/src/images/Header/USUARIOS.png"}
-    />
+    <HeroSection title="Resultados Laboratorio" backgroundImage={img.src} />
 
     <div
       class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600"

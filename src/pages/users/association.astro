@@ -1,6 +1,7 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import img from "@/images/Header/USUARIOS.png";
 ---
 
 <Layout title="Asociación">
@@ -12,7 +13,7 @@ import Layout from "../../layouts/Layout.astro";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Asociación de usuarios" backgroundImage={"/src/images/Header/USUARIOS.png"}/>
+    <HeroSection title="Asociación de usuarios" backgroundImage={img.src} />
 
     <div
       class="container mx-auto px-8 py-8 h-auto w-full flex flex-col xl:flex-row items-center"
