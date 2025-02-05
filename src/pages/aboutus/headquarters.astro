@@ -2,16 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import BreadCrumps from "@/components/common/HeroSection.astro";
-import img from "@/images/AboutUs/NOSOTROS.webp";
+import img from "@/images/AboutUs/NOSOTROS.webp?url";
 ---
 
 <Layout title="Nuestras Sedes">
   <body>
     <main class="bg-gray-100">
-      <BreadCrumps
-        title="Nuestras sedes"
-        backgroundImage={img.src}
-      />
+      <BreadCrumps title="Nuestras sedes" backgroundImage={img} />
 
       <div class="pt-5 pb-5">
         <div class="w-3/4 mx-auto mt-4 bg-transparent border-none">

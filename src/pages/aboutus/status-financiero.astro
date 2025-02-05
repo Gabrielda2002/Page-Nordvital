@@ -1,7 +1,7 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
-import img from "@/images/AboutUs/NOSOTROS.webp";
+import img from "@/images/AboutUs/NOSOTROS.webp?url";
 ---
 
 <Layout title="Estado Financiero">
@@ -13,10 +13,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
   </head>
 
   <main class="overflow-x-hidden">
-    <HeroSection
-      title="Estado Financiero"
-      backgroundImage={img.src}
-    />
+    <HeroSection title="Estado Financiero" backgroundImage={img} />
 
     <section class="estados__container container mx-auto px-4 py-8">
       <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">

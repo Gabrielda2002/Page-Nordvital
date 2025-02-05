@@ -1,7 +1,7 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
-import img from "@/images/Header/USUARIOS.png";
+import img from "@/images/Header/USUARIOS.png?url";
 ---
 
 <Layout title="Blog">
@@ -13,13 +13,13 @@ import img from "@/images/Header/USUARIOS.png";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Nuestro Blog" backgroundImage={img.src} />
+    <HeroSection title="Nuestro Blog" backgroundImage={img} />
 
-    <div
-      class="container mx-auto h-auto md:w-[45%] items-center text-center"
-    >
-      <h1 class="text-4xl font-semibold text-teal-500 mb-4"><em>Bienvenidos a nuestro blog</em></h1>
-      <hr /> 
+    <div class="container mx-auto h-auto md:w-[45%] items-center text-center">
+      <h1 class="text-4xl font-semibold text-teal-500 mb-4">
+        <em>Bienvenidos a nuestro blog</em>
+      </h1>
+      <hr />
       <p class="mt-4 mb-8 w-[90%] mx-auto">
         Aquí encontrarás información valiosa sobre salud y bienestar, consejos
         prácticos y novedades de <span>NordVital IPS</span>. Nuestro objetivo es
@@ -27,7 +27,6 @@ import img from "@/images/Header/USUARIOS.png";
         visitarnos!
       </p>
     </div>
-   
 
     <section></section>
     <div class="w-[95%] mx-auto">

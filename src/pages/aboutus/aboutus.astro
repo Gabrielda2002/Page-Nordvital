@@ -2,7 +2,7 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import AboutUs from "../../components/aboutus/AboutUs.astro";
 import Layout from "../../layouts/Layout.astro";
-import img from "@/images/AboutUs/NOSOTROS.webp";
+import img from "@/images/AboutUs/NOSOTROS.webp?url";
 import Image from "@/images/AboutUs/NOSOTROS_1.webp";
 import Image2 from "@/images/AboutUs/DOCTOR_NOSOTROS_3.webp";
 import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
@@ -18,7 +18,7 @@ import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
 
   <main class="overflow-x-hidden">
     <!-- Hero Section -->
-    <HeroSection title="Quiénes Somos" backgroundImage={img.src} />
+    <HeroSection title="Quiénes Somos" backgroundImage={img} />
 
     <!-- Misión y visión -->
     <div
