@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
-import img from "@/images/Header/USUARIOS.png";
+import img from "@/images/Header/CONTACTO.png?url";
 ---
 
 <Layout title="Contáctanos">
@@ -13,88 +13,201 @@ import img from "@/images/Header/USUARIOS.png";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="PQRSFD" backgroundImage={img.src} />
+    <HeroSection title="Contáctenos" backgroundImage={img} />
 
-    <div
-      class="flex flex-wrap gap-4 w-[90%] mx-auto h-auto items-center justify-center mt-16 mb-16 text-gray-600"
-    >
-      <div class="grid grid-cols-1 sm:grid-cols-2 w-[45%]">
-        <div
-          class="p-7 m-3 h-auto shadow-lg border border-slate-200 bg-gray-100 rounded-lg w-[95%] mx-auto hover:border-sky-300 hover:shadow-xl"
-        >
-          <img src="/src/images//Contactanos/sede.svg" alt="" class="mb-2" />
-          <h5 class="font-bold text-lg">Sede Administrativa</h5>
-          <p>
-            <a
-              href="https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu"
-              target="_blank"
-              class="text-blue-500 hover:text-blue-700">Ubicación</a
+    <div class="container mx-auto px-4 py-2">
+      <div class="flex flex-col lg:flex-row gap-8">
+        {/* Info Cards Section */}
+        <div class="w-full lg:w-1/2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-          </p>
-        </div>
-        <div
-          class="p-7 m-3 h-auto shadow-lg border border-slate-200 bg-gray-100 rounded-lg hover:border-sky-300 hover:shadow-xl"
-        >
-          <img src="/src/images//Contactanos/correo.svg" alt="" class="mb-2" />
-          <h5 class="font-bold text-lg">Correo Electrónico</h5>
-          <p>
-            <a
-              href="mailto:contacto@nordvitalips.com"
-              class="text-blue-500 hover:text-blue-700"
-              >nordvitalips@gmail.com</a
+              <img
+                src="/src/images/Contactanos/sede.svg"
+                alt=""
+                class="mb-4 h-12"
+              />
+              <h5 class="font-bold text-lg mb-2">Sede Administrativa</h5>
+              <a
+                href="https://www.google.com/maps/"
+                target="_blank"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                Ubicación
+              </a>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-          </p>
-        </div>
-        <div
-          class="p-5 m-3 h-auto shadow-lg border border-slate-200 bg-gray-100 rounded-lg hover:border-sky-300 hover:shadow-xl"
-        >
-          <img
-            src="/src/images//Contactanos/contacto.svg"
-            alt=""
-            class="mb-2"
-          />
-          <h5 class="font-bold text-lg">Contacto</h5>
-          <p>(+57) 3174309873</p>
-        </div>
-        <div
-          class="p-5 m-3 h-auto shadow-lg border border-slate-200 bg-gray-100 rounded-lg hover:border-sky-300 hover:shadow-xl"
-        >
-          <img src="/src/images//Contactanos/horario.svg" alt="" class="mb-2" />
-          <h5 class="font-bold text-lg">Horarios De Atención</h5>
-          <h6 class="font-semibold">Lunes a viernes</h6>
-          <p>6:00 am - 6:30 pm</p>
-          <h6 class="font-semibold">Sábados</h6>
-          <p>8:00 am - 12:00 pm</p>
-        </div>
-      </div>
+              <img
+                src="/src/images/Contactanos/correo.svg"
+                alt=""
+                class="mb-4 h-12"
+              />
+              <h5 class="font-bold text-lg mb-2">Correo Electrónico</h5>
+              <a
+                href="mailto:nordvitalips@gmail.com"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                nordvitalips@gmail.com
+              </a>
+            </div>
 
-      <div
-        class="w-[45%] m-7 border border-slate-200 shadow-lg bg-white rounded-xl"
-      >
-        <div class="w-full p-5 px-9 border border-gray-100">
-          <!-- Botones para alternar formularios -->
-          <button
-            id="contactanos-btn"
-            class="p-2 rounded-xl text-white bg-gray-500"
-            >Escribe un mensaje</button
-          >
-          <button
-            id="escribe-mensaje-btn"
-            class="p-2 rounded-xl text-white bg-gray-500"
-            >Trabaje con Nosotros</button
-          >
+            <div
+              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+            >
+              <img
+                src="/src/images/Contactanos/contacto.svg"
+                alt=""
+                class="mb-4 h-12"
+              />
+              <h5 class="font-bold text-lg mb-2">Contacto</h5>
+              <p>(+57) 3174309873</p>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+            >
+              <img
+                src="/src/images/Contactanos/horario.svg"
+                alt=""
+                class="mb-4 h-12"
+              />
+              <h5 class="font-bold text-lg mb-2">Horarios De Atención</h5>
+              <h6 class="font-semibold">Lunes a viernes</h6>
+              <p class="mb-2">6:00 am - 6:30 pm</p>
+              <h6 class="font-semibold">Sábados</h6>
+              <p>8:00 am - 12:00 pm</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Formulario inicial (mostrado por defecto) -->
-        <div id="form-contacto" class="px-10 gap-6">
-          <form
-            class="row g-3 needs-validation"
-            method="post"
-            action="\Pagina-nordvitalips\sendEmail.php"
+        {/* Forms Section */}
+        <div
+          class="w-full lg:w-1/2 bg-white rounded-xl shadow-lg border border-slate-200 mb-20"
+        >
+          <div class="p-6 border-b">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="w-full sm:w-auto px-4 py-2 rounded-xl text-white bg-gray-500 hover:bg-gray-600 transition-colors"
+                id="contactanos-btn"
+              >
+                Escribe un mensaje
+              </button>
+              <button
+                class="w-full sm:w-auto px-4 py-2 rounded-xl text-white bg-gray-500 hover:bg-gray-600 transition-colors"
+                id="escribe-mensaje-btn"
+              >
+                Trabaje con Nosotros
+              </button>
+            </div>
+          </div>
+
+          <div id="form-contacto" class="p-6">
+            <form class="space-y-4" method="post" action="/sendEmail.php">
+              <div class="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="text"
+                  id="validationCustom03"
+                  class="w-full bg-gray-100 rounded-lg p-3"
+                  placeholder="Nombres"
+                  name="nombre"
+                  required
+                />
+                <input
+                  type="text"
+                  id="validationCustom03"
+                  class="w-full bg-gray-100 rounded-lg p-3"
+                  placeholder="Apellidos"
+                  name="apellidos"
+                  required
+                />
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="email"
+                  id="correo"
+                  class="w-full bg-gray-100 rounded-lg p-3"
+                  placeholder="Correo Electrónico"
+                  name="correo"
+                  required
+                />
+                <input
+                  type="tel"
+                  id="validationCustom03"
+                  class="w-full bg-gray-100 rounded-lg p-3"
+                  placeholder="Teléfono"
+                  name="celular"
+                  required
+                />
+              </div>
+
+              <input
+                type="text"
+                id="validationCustom03"
+                class="w-full bg-gray-100 rounded-lg p-3"
+                placeholder="Asunto"
+                name="asunto"
+                required
+              />
+
+              <textarea
+                class="w-full bg-gray-100 rounded-lg p-3 min-h-32"
+                id="validationCustom03"
+                placeholder="Escriba una descripción..."
+                name="descripcion"
+                required></textarea>
+
+              <div class="flex items-start gap-2">
+                <input
+                  type="checkbox"
+                  class="mt-1"
+                  id="invalidCheck"
+                  required
+                />
+                <label class="text-sm">
+                  Al hacer clic en el botón Enviar, usted acepta la remisión de
+                  la PQRD a
+                  <a
+                    href="/nuestras-politicas"
+                    class="text-blue-500 hover:text-blue-700 ml-1"
+                  >
+                    Nordvital IPS
+                  </a>. Autorizo expresamente a Nordvital IPS para que mis datos
+                  puedan ser utilizados de acuerdo con la ley de protección de
+                  datos personales, con el fin de gestionar y dar respuesta a mi
+                  solicitud.
+                </label>
+              </div>
+
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
+                  name="enviado"
+                >
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Formulario de información para un puesto de trabajo -->
+          <div
+            id="form-puesto-trabajo"
+            class="form-container hidden px-10 gap-6"
           >
-            <div class="mt-4">
-              <!-- Formulario de contacto (lo que se muestra inicialmente) -->
-              <div class="w-full flex mb-4">
+            <form
+              class="row g-3 needs-validation"
+              method="post"
+              action="\Pagina-nordvitalips\sendEmail.php"
+              enctype="multipart/form-data"
+            >
+              <!-- Formulario de aplicación para un puesto de trabajo -->
+              <div class="w-full flex mb-4 mt-4">
                 <div
                   class=""
                   style="width: 50% !important;margin: 0px 5px 0px 0px;"
@@ -102,12 +215,12 @@ import img from "@/images/Header/USUARIOS.png";
                   <input
                     type="text"
                     class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom03"
+                    id="validationCustom01"
                     required
                     placeholder="Nombres"
                     name="nombre"
                   />
-                  <!-- <div class="invalid-feedback">Ingrese un nombre</div> -->
+                  <!-- <div class="invalid-feedback">Ingrese su nombre</div> -->
                 </div>
                 <div
                   class=""
@@ -116,15 +229,14 @@ import img from "@/images/Header/USUARIOS.png";
                   <input
                     type="text"
                     class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom03"
+                    id="validationCustom02"
                     required
                     placeholder="Apellidos"
                     name="apellidos"
                   />
-                  <!-- <div class="invalid-feedback">Ingrese un apellido</div> -->
+                  <!-- <div class="invalid-feedback">Ingrese sus apellidos</div> -->
                 </div>
               </div>
-
               <div class="w-full flex mb-4">
                 <div
                   class=""
@@ -133,18 +245,14 @@ import img from "@/images/Header/USUARIOS.png";
                   <input
                     type="email"
                     class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="correo"
+                    id="validationCustom03"
                     required
                     placeholder="Correo Electrónico"
                     name="correo"
                   />
-                  <!-- <div
-                        id="correo-error"
-                        class="invalid-feedback"
-                        style="display: none;"
-                    >
-                        Ingrese un correo electrónico válido
-                    </div> -->
+                  <!-- <div class="invalid-feedback"> -->
+                  <!-- Ingrese un correo electrónico válido -->
+                  <!-- </div> -->
                 </div>
                 <div
                   class=""
@@ -153,221 +261,99 @@ import img from "@/images/Header/USUARIOS.png";
                   <input
                     type="text"
                     class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom03"
+                    id="validationCustom04"
                     required
                     placeholder="Teléfono"
                     name="celular"
                   />
                   <!-- <div class="invalid-feedback">
-                        Ingrese un número de teléfono
-                    </div> -->
+                  Ingrese un número de teléfono
+                </div> -->
                 </div>
-              </div>
-              <div class="w-full flex mb-4">
-                <input
-                  type="text"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom03"
-                  required
-                  placeholder="Asunto"
-                  name="asunto"
-                />
-                <!-- <div class="invalid-feedback">Ingrese un asunto</div> -->
               </div>
               <div class="">
                 <textarea
                   class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom03"
+                  id="validationCustom05"
                   placeholder="Escriba una descripción..."
                   required
-                  name="descripcion"></textarea>
-                <!-- <div class="invalid-feedback">Ingrese una descripción</div> -->
+                  name="mensaje"></textarea>
+                <!-- <div class="invalid-feedback">Ingrese un mensaje</div> -->
               </div>
-              <div class="w-full flex mb-4">
+              <div class="form-group">
+                <label for="file">Adjuntar Hoja de Vida:</label>
                 <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="invalidCheck"
-                  required
-                  style="margin: 0px 7px 0px 0px;"
+                  type="file"
+                  class="bg-gray-100 rounded-lg p-2 w-full"
+                  id="file"
+                  name="cv"
                 />
-                <label class="form-check-label" for="invalidCheck">
-                  Al hacer clic en el botón Enviar, usted acepta la remisión de
-                  la PQRD a <a
-                    href="nuestras-politicas.php"
-                    class="text-blue-500">Nordvital IPS</a
-                  >. Autorizo expresamente a Nordvital IPS para que mis datos
-                  puedan ser utilizados de acuerdo con la ley de protección de
-                  datos personales, con el fin de gestionar y dar respuesta a mi
-                  solicitud.
-                </label>
               </div>
-              <div class="text-center mb-4">
+              <div class="text-center mb-4 mt-5">
                 <a href="#">
                   <button
-                    class="bg-sky-500 p-2 rounded-lg w-20 text-white shadow-md hover:scale-105"
+                    class="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
                     name="enviado"
-                    type="submit">Enviar</button
+                    type="submit">Enviar Solicitud</button
                   >
                 </a>
               </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- Formulario de información para un puesto de trabajo -->
-        <div id="form-puesto-trabajo" class="form-container hidden px-10 gap-6">
-          <form
-            class="row g-3 needs-validation"
-            method="post"
-            action="\Pagina-nordvitalips\sendEmail.php"
-            enctype="multipart/form-data"
-          >
-            <!-- Formulario de aplicación para un puesto de trabajo -->
-            <div class="w-full flex mb-4 mt-4">
-              <div
-                class=""
-                style="width: 50% !important;margin: 0px 5px 0px 0px;"
-              >
-                <input
-                  type="text"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom01"
-                  required
-                  placeholder="Nombres"
-                  name="nombre"
-                />
-                <!-- <div class="invalid-feedback">Ingrese su nombre</div> -->
-              </div>
-              <div
-                class=""
-                style="width: 50% !important;margin: 0px 0px 0px 5px;"
-              >
-                <input
-                  type="text"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom02"
-                  required
-                  placeholder="Apellidos"
-                  name="apellidos"
-                />
-                <!-- <div class="invalid-feedback">Ingrese sus apellidos</div> -->
-              </div>
-            </div>
-            <div class="w-full flex mb-4">
-              <div
-                class=""
-                style="width: 60% !important;margin: 0px 5px 0px 0px;"
-              >
-                <input
-                  type="email"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom03"
-                  required
-                  placeholder="Correo Electrónico"
-                  name="correo"
-                />
-                <!-- <div class="invalid-feedback"> -->
-                <!-- Ingrese un correo electrónico válido -->
-                <!-- </div> -->
-              </div>
-              <div
-                class=""
-                style="width: 40% !important;margin: 0px 0px 0px 5px;"
-              >
-                <input
-                  type="text"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom04"
-                  required
-                  placeholder="Teléfono"
-                  name="celular"
-                />
-                <!-- <div class="invalid-feedback">
-                  Ingrese un número de teléfono
-                </div> -->
-              </div>
-            </div>
-            <div class="">
-              <textarea
-                class="bg-gray-100 rounded-lg p-2 w-full"
-                id="validationCustom05"
-                placeholder="Escriba una descripción..."
-                required
-                name="mensaje"></textarea>
-              <!-- <div class="invalid-feedback">Ingrese un mensaje</div> -->
-            </div>
-            <div class="form-group">
-              <label for="file">Adjuntar Hoja de Vida:</label>
-              <input
-                type="file"
-                class="bg-gray-100 rounded-lg p-2 w-full"
-                id="file"
-                name="cv"
-              />
-            </div>
-            <div class="text-center mb-4 mt-5">
-              <a href="#">
-                <button
-                  class="bg-sky-500 p-2 rounded-lg w-32 text-white shadow-md hover:scale-105"
-                  name="enviado"
-                  type="submit">Enviar Solicitud</button
-                >
-              </a>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </main>
-</Layout>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const contactanosBtn = document.getElementById("contactanos-btn");
+      const escribeMensajeBtn = document.getElementById("escribe-mensaje-btn");
 
-<script>
+      const formContacto = document.getElementById("form-contacto");
+      const formPuestoTrabajo = document.getElementById("form-puesto-trabajo");
 
-  document.addEventListener("DOMContentLoaded", function () {
-  
-    const contactanosBtn = document.getElementById("contactanos-btn");
-    const escribeMensajeBtn = document.getElementById("escribe-mensaje-btn");
+      // button
+      const updateButtonStyles = (
+        activeBtn: HTMLElement,
+        inactiveBtn: HTMLElement
+      ) => {
+        // Activar
+        activeBtn.classList.remove("bg-gray-500");
+        activeBtn.classList.add("bg-sky-500");
+        // Inactivar styles button
+        inactiveBtn.classList.remove("bg-sky-500");
+        inactiveBtn.classList.add("bg-gray-500");
+      };
 
-  
-    const formContacto = document.getElementById("form-contacto");
-    const formPuestoTrabajo = document.getElementById("form-puesto-trabajo");
-
-    // button
-    const updateButtonStyles = (activeBtn: HTMLElement, inactiveBtn: HTMLElement) => {
-      // Activar 
-      activeBtn.classList.remove("bg-gray-500");
-      activeBtn.classList.add("bg-sky-500");
-
-      // Inactivar styles button
-      inactiveBtn.classList.remove("bg-sky-500");
-      inactiveBtn.classList.add("bg-gray-500");
-    };
-
-    // inicial
-    if (formContacto && formPuestoTrabajo && contactanosBtn && escribeMensajeBtn) {
-      formContacto.style.display = "block";
-      formPuestoTrabajo.style.display = "none";
-      updateButtonStyles(contactanosBtn, escribeMensajeBtn);
-
-      // "Escribe un mensaje" button
-      contactanosBtn.addEventListener("click", function () {
-        formContacto.style.display = "block";
-        formPuestoTrabajo.style.display = "none";
-        updateButtonStyles(contactanosBtn, escribeMensajeBtn);
-      });
-
-      // "Trabaje con Nosotros" button
-      escribeMensajeBtn.addEventListener("click", function () {
+      // inicial
+      if (
+        formContacto &&
+        formPuestoTrabajo &&
+        contactanosBtn &&
+        escribeMensajeBtn
+      ) {
         formContacto.style.display = "none";
         formPuestoTrabajo.style.display = "block";
-        updateButtonStyles(escribeMensajeBtn, contactanosBtn);
-      });
-    }
+        updateButtonStyles(contactanosBtn, escribeMensajeBtn);
+
+        // "Escribe un mensaje" button
+        contactanosBtn.addEventListener("click", function () {
+          formContacto.style.display = "block";
+          formPuestoTrabajo.style.display = "none";
+          updateButtonStyles(contactanosBtn, escribeMensajeBtn);
+        });
+
+        // "Trabaje con Nosotros" button
+        escribeMensajeBtn.addEventListener("click", function () {
+          formContacto.style.display = "none";
+          formPuestoTrabajo.style.display = "block";
+          updateButtonStyles(escribeMensajeBtn, contactanosBtn);
+        });
+      }
       if (escribeMensajeBtn && contactanosBtn) {
         updateButtonStyles(escribeMensajeBtn, contactanosBtn);
       }
     });
-</script>
+  </script>
+</Layout>
