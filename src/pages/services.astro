@@ -1,80 +1,161 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../layouts/Layout.astro";
-import img from "@/images/Services/SERVICIOS.jpg?url"
-import ContactServices from '@/components/content/ContactServices.astro'
-
-import icon1 from '@/assets/services_icons/ico-se-3.svg?url'
-import icon2 from '@/assets/services_icons/ico-se-3.svg?url'
-import medGeneralIcon from '@/assets/services_icons/ico-se1.svg?url'
+import ContactServices from "@/components/content/ContactServices.astro";
 import TapsContent from "@/components/common/TapsContent.astro";
+import CardServOdonto from "@/components/common/CardServOdonto.astro";
+// svg icons
+import img from "@/images/Services/SERVICIOS.jpg?url";
+import odonIcon from "@/assets/services_icons/ico-se-6.svg?url";
+import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?url";
+import odontoIcon1 from '@/assets/services_icons/odontologia/odo-1.svg?url';
+import odontoIcon2 from '@/assets/services_icons/odontologia/odo-2.svg?url';
+import odontoIcon3 from '@/assets/services_icons/odontologia/odo-3.svg?url';
+import odontoIcon4 from '@/assets/services_icons/odontologia/odo-4.svg?url';
+import odontoIcon5 from '@/assets/services_icons/odontologia/odo-5.svg?url';
+import odontoIcon6 from '@/assets/services_icons/odontologia/odo-6.svg?url';
 
 const serviceTabs = [
   {
     id: "medicina-general",
     title: "Medicina General",
-    icon: icon1
+    icon: medGeneralIcon,
   },
   {
-    id: "odontologia", 
+    id: "odontologia",
     title: "Odontología",
-    icon: icon2
+    icon: odonIcon,
   },
   // ... más tabs
 ];
-
 ---
 
 <Layout title="Servicios">
-
   <div>
     <div>
-      <HeroSection
-        title="Servicios"
-        backgroundImage={img}
-      />
+      <HeroSection title="Servicios" backgroundImage={img} />
     </div>
 
     <div>
       <TapsContent tabs={serviceTabs}>
-        
+        <!-- ? medicina general -->
         <div data-tab-content="medicina-general">
           <div class="servicio__item-container">
             <div class="servicio__item-dscpn grid grid-cols-[70%_30%] gap-5">
-
               <div>
-
                 <div class="flex items-center w-fit">
-                  <img src={medGeneralIcon} alt="medicina general icon" class="w-[20px] h-[20px] mx-2" />
+                  <img
+                    src={medGeneralIcon}
+                    alt="medicina general icon"
+                    class="w-[20px] h-[20px] mx-2"
+                  />
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
 
                 <h4 class="font-bold text-2xl mb-3">Medicina General</h4>
-                <p class="mb-3">La medicina general representa el primer nivel de atención médica.</p>
-                <p>Los médicos y médicas generales son profesionales con preparación académica para la prevención, detección, tratamiento y seguimiento de enfermedades agudas y crónicas. Tienen la capacidad de resolver problemas de salud de forma transversal y de decidir la derivación a especialistas cuando una patología se descompensa o lo requiere.</p>
-
+                <p class="mb-3">
+                  La medicina general representa el primer nivel de atención
+                  médica.
+                </p>
+                <p>
+                  Los médicos y médicas generales son profesionales con
+                  preparación académica para la prevención, detección,
+                  tratamiento y seguimiento de enfermedades agudas y crónicas.
+                  Tienen la capacidad de resolver problemas de salud de forma
+                  transversal y de decidir la derivación a especialistas cuando
+                  una patología se descompensa o lo requiere.
+                </p>
               </div>
 
               <div>
                 <ContactServices />
               </div>
-              
             </div>
           </div>
         </div>
-    
+
+        <!-- ? Odontologia -->
         <div data-tab-content="odontologia">
           <div class="servicio__item-container">
-            <h1>Odontología</h1>
-            <p>Contenido Odontologia</p>
-            <!-- Contenido del tab de odontología -->
+            <div class="grid grid-cols-[70%_30%] gap-5">
+              <div>
+                <div class="flex items-center">
+                  <img
+                    src={medGeneralIcon}
+                    alt="medicina general icon"
+                    class="w-[20px] h-[20px] mx-2"
+                  />
+                  <p class="text-2xl text-teal-500">Servicio</p>
+                </div>
+                <h4 class="text-xl font-bold mb-3">Odontología</h4>
+
+                <p class="mb-3">La atención de consulta externa en odontología general, incluye consultas iniciales y de control, esta enfocada en la atención preventiva y curativa, realizando el tratamiento clínicos bucales a pacientes con el fin de preservar su salud bucal y brindando bienestar.</p>
+                
+                <p>
+                  La atención por odontología general, comienza con la fase de higiene oral, en el cual se realiza el tratamiento preventivo incluyendo educación en salud oral y según los hallazgos se realiza tratamiento integral con la participación de especialistas si el caso lo requiere.
+                </p>
+              </div>
+              <div>
+                <ContactServices />
+              </div>
+
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-center mb-3">
+                Te Ofrecemos:
+              </h3>
+              <div class="grid grid-cols-3">
+                <div>
+                  <CardServOdonto
+                  title="Cirugía maxilofacial"
+                  icon={odontoIcon1}
+                  content="Es una especialidad quirúrgica que se enfoca en el diagnóstico y tratamiento de infecciones relacionadas con la boca, mandíbula y estructuras faciales."
+                  />
+                </div>
+                <div>
+                  <CardServOdonto
+                  title="Cirugía oral"
+                  icon={odontoIcon2}
+                  content="Hace referencia a cualquier procedimiento quirúrgico en la boca y la mandíbula o en las áreas circundantes."
+                  />
+                </div>
+                <div>
+                  <CardServOdonto
+                  title="Rehabilitación oral"
+                  icon={odontoIcon3}
+                  content="Se encarga de restaurar la función y la estética de la boca mediante tratamientos como prótesis dentales, implantes y otros procedimientos."
+                  />
+                </div>
+                <div>
+                  <CardServOdonto
+                  title="Periodoncia"
+                  icon={odontoIcon4}
+                  content="Es el diagnóstico, tratamiento y prevención de enfermedades que afectan las encías y las estructuras de soporte de los dientes."
+                  />
+                </div>
+                <div>
+                  <CardServOdonto
+                  title="Odontología General"
+                  icon={odontoIcon5}
+                  content="Abarca el diagnóstico, tratamiento y prevención de enfermedades bucales comunes."
+                  />
+                </div>
+                <div>
+                  <CardServOdonto
+                  title="Endodoncia"
+                  icon={odontoIcon6}
+                  content="Es la especialidad de la odontología que se centra en el tratamiento de los conductos radiculares."
+                  />
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-    
+
         <!-- Más contenidos de tabs -->
       </TapsContent>
     </div>
-
   </div>
-
 </Layout>
