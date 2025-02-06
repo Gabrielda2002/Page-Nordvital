@@ -6,7 +6,7 @@ import ContactServices from '@/components/content/ContactServices.astro'
 
 import icon1 from '@/assets/services_icons/ico-se-3.svg?url'
 import icon2 from '@/assets/services_icons/ico-se-3.svg?url'
-import icon3 from '@/assets/services_icons/ico-se-3.svg?url'
+import medGeneralIcon from '@/assets/services_icons/ico-se1.svg?url'
 import TapsContent from "@/components/common/TapsContent.astro";
 
 const serviceTabs = [
@@ -40,11 +40,25 @@ const serviceTabs = [
         
         <div data-tab-content="medicina-general">
           <div class="servicio__item-container">
-            <div class="servicio__item-dscpn">
-              <h1>Medicina General</h1>
-              <p>La medicina general representa el primer nivel de atención médica...</p>
-              <ContactServices />
-              <!-- Resto del contenido del tab -->
+            <div class="servicio__item-dscpn grid grid-cols-[70%_30%] gap-5">
+
+              <div>
+
+                <div class="flex items-center w-fit">
+                  <img src={medGeneralIcon} alt="medicina general icon" class="w-[20px] h-[20px] mx-2" />
+                  <p class="text-xl text-teal-500">Servicio</p>
+                </div>
+
+                <h4 class="font-bold text-2xl mb-3">Medicina General</h4>
+                <p class="mb-3">La medicina general representa el primer nivel de atención médica.</p>
+                <p>Los médicos y médicas generales son profesionales con preparación académica para la prevención, detección, tratamiento y seguimiento de enfermedades agudas y crónicas. Tienen la capacidad de resolver problemas de salud de forma transversal y de decidir la derivación a especialistas cuando una patología se descompensa o lo requiere.</p>
+
+              </div>
+
+              <div>
+                <ContactServices />
+              </div>
+              
             </div>
           </div>
         </div>
@@ -63,5 +77,4 @@ const serviceTabs = [
 
   </div>
 
-</Layout
->
+</Layout>
