@@ -1,19 +1,67 @@
 ---
+import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../layouts/Layout.astro";
+import img from "@/images/Services/SERVICIOS.jpg?url"
+import ContactServices from '@/components/content/ContactServices.astro'
+
+import icon1 from '@/assets/services_icons/ico-se-3.svg?url'
+import icon2 from '@/assets/services_icons/ico-se-3.svg?url'
+import icon3 from '@/assets/services_icons/ico-se-3.svg?url'
+import TapsContent from "@/components/common/TapsContent.astro";
+
+const serviceTabs = [
+  {
+    id: "medicina-general",
+    title: "Medicina General",
+    icon: icon1
+  },
+  {
+    id: "odontologia", 
+    title: "Odontología",
+    icon: icon2
+  },
+  // ... más tabs
+];
+
 ---
 
 <Layout title="Servicios">
-  <div class="container weight-600">
-    <div class="row">
-      <div
-        class="col-12 col-sm-12 col-lg-12 col-xl-6 d-flex align-content-center"
-      >
-        <div class="d-flex align-content-center">
-          <h1 class="text-muted">
-            Nuestros <span class="text-primary">Servicios</span>
-          </h1>
-        </div>
-      </div>
+
+  <div>
+    <div>
+      <HeroSection
+        title="Servicios"
+        backgroundImage={img}
+      />
     </div>
-  </div></Layout
+
+    <div>
+      <TapsContent tabs={serviceTabs}>
+        
+        <div data-tab-content="medicina-general">
+          <div class="servicio__item-container">
+            <div class="servicio__item-dscpn">
+              <h1>Medicina General</h1>
+              <p>La medicina general representa el primer nivel de atención médica...</p>
+              <ContactServices />
+              <!-- Resto del contenido del tab -->
+            </div>
+          </div>
+        </div>
+    
+        <div data-tab-content="odontologia">
+          <div class="servicio__item-container">
+            <h1>Odontología</h1>
+            <p>Contenido Odontologia</p>
+            <!-- Contenido del tab de odontología -->
+          </div>
+        </div>
+    
+        <!-- Más contenidos de tabs -->
+      </TapsContent>
+    </div>
+
+  </div>
+
+</Layout
 >
