@@ -1,7 +1,11 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+
+//Images
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
+import compensar from "@/images/Convenios/LOGO-COMPENSAR.png";
+import NuevaEps from "@/images/Convenios/LOGO-NUEVA-EPS.png";
 ---
 
 <Layout title="Convenios">
@@ -47,7 +51,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
           >
             <div class="flex items-center justify-between w-full">
               <img
-                src="/src/images/Convenios/LOGO-COMPENSAR.png"
+                src={compensar.src}
                 alt="Logo Compensar"
                 class="w-32 md:w-40 h-auto"
               />
@@ -95,7 +99,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
           >
             <div class="flex items-center justify-between w-full">
               <img
-                src="/src/images/Convenios/LOGO-NUEVA-EPS.png"
+                src={NuevaEps.src}
                 alt="Logo Nueva EPS"
                 class="w-32 md:w-40 h-auto"
               />

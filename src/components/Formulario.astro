@@ -1,5 +1,8 @@
 ---
+import modal from "@/images/AboutUs/MISION_Y_VISION.jpg?url";
 
+//icons
+import icon from "@/images/AboutUs/Recurso_2.svg"
 ---
 
 <section
@@ -17,10 +20,9 @@
   </p>
 </section>
 
-
 <div
   class="card mv__container mx-4 md:mx-auto mb-10 md:w-2/3 h-auto md:h-[165px] bg-cover bg-no-repeat rounded-[40px]"
-  style="background-image: url('/src/images/AboutUs/MISION_Y_VISION.jpg')"
+  style={{ backgroundImage: `url(${modal})` }}
 >
   <div class="card-body flex flex-col md:flex-row justify-between p-6 md:p-10">
     <div class="mv__titulo text-center md:text-left">
@@ -33,7 +35,7 @@
     <div class="mv__icono mt-4 md:mt-0">
       <label for="openModal" class="cursor-pointer p-4 md:p-14" id="openModal">
         <img
-          src="/src/images/AboutUs/Recurso_2.svg"
+          src={icon.src}
           alt="Icono Misión y Visión"
           class="mx-auto"
         />

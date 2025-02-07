@@ -4,7 +4,10 @@ import Form from "@/components/Formulario.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import HeroSection from "@/components/common/HeroSection.astro";
+
+// images
 import img from "@/images/Header/USUARIOS.png?url";
+import Images from "@/images/Header/2147900168.png"
 ---
 
 <Layout title="PQRSFD">
@@ -35,7 +38,7 @@ import img from "@/images/Header/USUARIOS.png?url";
       </div>
       <div class="w-full lg:w-1/2 h-2/3">
         <img
-          src="/src/images/Header/2147900168.png"
+          src={Images.src}
           alt=""
           class="h-auto w-full object-cover"
         />

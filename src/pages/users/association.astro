@@ -1,7 +1,18 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+
+//images
 import img from "@/images/Header/USUARIOS.png?url";
+import img2 from "@/images/Usuarios/Asociacion-Usuaris/asociacion-usuarios.png";
+
+//icons
+import ico1 from "@/images/Usuarios/Asociacion-Usuaris/ico-f1.svg";
+import ico2 from "@/images/Usuarios/Asociacion-Usuaris/ico-f2.svg";
+import ico3 from "@/images/Usuarios/Asociacion-Usuaris/ico-f3.svg";
+import ico4 from "@/images/Usuarios/Asociacion-Usuaris/ico-f4.svg";
+import ico5 from "@/images/Usuarios/Asociacion-Usuaris/ico-f5.svg";
+import ico6 from "@/images/Usuarios/Asociacion-Usuaris/ico-f6.svg";
 ---
 
 <Layout title="Asociación">
@@ -43,10 +54,7 @@ import img from "@/images/Header/USUARIOS.png?url";
       </div>
 
       <div class="asociacion__container__item">
-        <img
-          src="/src/images//Usuarios/Asociacion-Usuaris/asociacion-usuarios.png"
-          alt=""
-        />
+        <img src={img2.src} alt="" />
       </div>
     </div>
 
@@ -65,11 +73,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f1.svg"
-            alt="Participación"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico1.src} alt="Participación" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Participación en la Planificación y Evaluación
           </p>
@@ -78,11 +82,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f2.svg"
-            alt="Representación"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico2.src} alt="Representación" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Representación de los Usuarios
           </p>
@@ -91,11 +91,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f3.svg"
-            alt="Mediación"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico3.src} alt="Mediación" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Mediación de Conflictos
           </p>
@@ -104,11 +100,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f4.svg"
-            alt="Educación"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico4.src} alt="Educación" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Educación y Sensibilización
           </p>
@@ -117,11 +109,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f5.svg"
-            alt="Control"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico5.src} alt="Control" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Control Social
           </p>
@@ -130,11 +118,7 @@ import img from "@/images/Header/USUARIOS.png?url";
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
-          <img
-            src="/src/images//Usuarios/Asociacion-Usuaris/ico-f6.svg"
-            alt="Promoción"
-            class="w-16 h-16 mb-4"
-          />
+          <img src={ico6.src} alt="Promoción" class="w-16 h-16 mb-4" />
           <p class="text-center text-xl font-semibold text-gray-800">
             Promoción de Derechos y Deberes
           </p>

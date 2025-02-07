@@ -2,10 +2,15 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import AboutUs from "../../components/aboutus/AboutUs.astro";
 import Layout from "../../layouts/Layout.astro";
+
+//Images
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
 import Image from "@/images/AboutUs/NOSOTROS_1.webp";
 import Image2 from "@/images/AboutUs/DOCTOR_NOSOTROS_3.webp";
 import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
+
+//Icons
+import icon from "@/images/AboutUs/Recurso_2.svg";
 ---
 
 <Layout title="Quiénes Somos">
@@ -40,9 +45,7 @@ import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
         <div class="mv__icono mt-4 md:mt-0">
           <label for="openModal" class="cursor-pointer p-4 md:p-14">
             <img
-              src="/src/images/AboutUs/Recurso_2.svg"
-              alt="Icono Misión y Visión"
-              class="mx-auto"
+              src={icon.src}
             />
           </label>
         </div>
