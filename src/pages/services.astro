@@ -4,12 +4,17 @@ import Layout from "../layouts/Layout.astro";
 import ContactServices from "@/components/content/ContactServices.astro";
 import TapsContent from "@/components/common/TapsContent.astro";
 import CardServOdonto from "@/components/common/CardServOdonto.astro";
+
+// content 
+import {servicesMdEsp} from '@/content/services-md-esp'
+
 // svg icons
 import img from "@/images/Services/SERVICIOS.jpg?url";
 import odonIcon from "@/assets/services_icons/ico-se-6.svg?url";
 import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?url";
 import labIcon from '@/assets/services_icons/ico-se-3.svg?url';
 import imgCardLab from '@/assets/services_icons/laboratorio/servicio__enfermeras.png?url';
+import medEspIcon from '@/assets/services_icons/icos-se-8.svg?url';
 // odontologia icons
 import odontoIcon1 from '@/assets/services_icons/odontologia/odo-1.svg?url';
 import odontoIcon2 from '@/assets/services_icons/odontologia/odo-2.svg?url';
@@ -34,6 +39,11 @@ const serviceTabs = [
     id: "laboratorio-clinico",
     title: "Laboratorio Clínico",
     icon: labIcon,
+  },
+  {
+    id: "medicina-especializada",
+    title: "Medicina Especializada",
+    icon: medEspIcon,
   }
 ];
 ---
@@ -257,6 +267,58 @@ const serviceTabs = [
 
           </div>
         </div>
+
+        <!-- ? Medicina Especializada -->
+        <div data-tab-content="medicina-especializada">
+          <div class="servicio__item-container">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
+
+              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+                <div class="flex items-center">
+                  <img
+                    src={medGeneralIcon}
+                    alt="medicina general icon"
+                    class="w-[20px] h-[20px] mx-2"
+                  />
+                  <p class="text-xl text-teal-500">Servicio</p>
+                </div>
+                <h4 class="font-bold text-2xl mb-3">Medicina Especializada</h4>
+                <p class="mb-3">
+                  Nordvital IPS tiene un modelo de atención basado en la medicina familiar fundamentado en el abordaje integral del paciente desde los aspectos biológicos, psicológicos y sociales para modificar los factores de riesgo y creando una cultura de compromiso para la promoción de la salud y prevención de la enfermedad. Este enfoque hace eficiente el proceso de atención y asegura la pertinencia de las remisiones a otros niveles de atención.
+                </p>
+                <p class="mb-3">
+                  En este espacio encontrarás nuestras especialidades y subespecialidades médicas enfocadas en la alta complejidad. Nuestro enfoque integral involucra a un equipo multidisciplinario de profesionales en áreas de la salud, apoyados por la más avanzada tecnología.
+                </p>
+              </div>
+
+              <div class="mb-3 lg:mb-0">
+                <ContactServices />
+              </div>
+
+            </div>
+
+            <div class="mt-3 mb-3 lg:mb-0 lg:mt-0">
+              <h4 class="text-2xl font-bold text-center mb-3">Te ofrecemos</h4>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3">
+              {servicesMdEsp.map(s => (
+                <div>
+                  <CardServOdonto
+                    title={s.title}
+                    content={s.content}
+                    icon={s.icon}
+                    showIcon={true} />
+                </div>
+              ))}
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
 
         <!-- Más contenidos de tabs -->
       </TapsContent>
