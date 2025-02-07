@@ -439,10 +439,8 @@
 
       
       const form = document.getElementById("pqrsfd-form") as HTMLFormElement;
-      console.log(form )
 
       form?.addEventListener('submit', async  (e) => {
-        console.log("entra al event")
         e.preventDefault();
 
         const formData = new FormData(form);
@@ -468,7 +466,7 @@
         "EU9Av1Gcbfi0qIVJC"
       );
 
-          console.log('enviado')
+          alert('Informacion enviada exitosamente.')
 
 
         } catch (error) {

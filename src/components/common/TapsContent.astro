@@ -1,0 +1,71 @@
+<!-- TapsContent.astro -->
+---
+interface Props {
+  tabs: {
+    id: string;  
+    title: string;
+    icon?: string;
+  }[];
+}
+
+const { tabs } = Astro.props;
+---
+
+<div class="tabs-container w-10/12 mx-auto my-4 p-5">
+  <div class="flex flex-col lg:flex-row justify-center gap-4 border-b">
+    {tabs.map((tab, index) => (
+      <button
+        data-tab={tab.id}
+        class="tab-button flex items-center gap-2 p-4 cursor-pointer hover:bg-gray-100 rounded-t-lg transition-colors"
+        class:list={[{ 'active': index === 0 }]}
+      >
+        {tab.icon && <img src={tab.icon} alt="" class="w-6 h-6" />}
+        <span>{tab.title}</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="tab-content mt-4">
+    <slot />
+  </div>
+</div>
+
+<script>
+     
+  const initTabs = () => {
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('[data-tab-content]');
+  
+    tabs[0].classList.add('active');
+    contents[0].classList.add('active');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = (tab as HTMLElement).dataset.tab;
+  
+        // Remove active class from all tabs/contents
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab and matching content
+        tab.classList.add('active');
+        document.querySelector(`[data-tab-content="${target}"]`)?.classList.add('active');
+      });
+    });
+
+  }
+
+  document.addEventListener('DOMContentLoaded', initTabs);
+</script>
+
+<style>
+  .tab-button.active {
+    @apply bg-teal-500 text-white;
+  }
+  :global([data-tab-content]) {
+    display: none;
+  }
+  :global([data-tab-content].active) {
+    display: block;
+  }
+</style>

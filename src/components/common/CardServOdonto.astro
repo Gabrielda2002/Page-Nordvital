@@ -1,0 +1,27 @@
+---
+interface Props {
+    title: string;
+    content: string;
+    icon?: string;
+    showIcon?: boolean;
+}
+
+const { title, content, icon, showIcon = true } = Astro.props;
+---
+
+
+<div class={`grid ${showIcon ? 'grid-cols-2' : 'grid-cols-1'}`}>
+    {showIcon && (
+    <div class="flex items-center justify-center">
+      <img src={icon} alt={`Icon ${title}`}  class="w-[110px] h-[237px]" />
+    </div>
+    )}
+    <div>
+        <h5 class="text-xl font-bold text-teal-500 mb-3 ">
+          {title}
+        </h5>
+        <p>
+            {content}
+        </p>
+    </div>
+  </div>
