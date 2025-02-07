@@ -1,0 +1,58 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  uniqueId: string;
+}
+
+const { title, description, image, uniqueId } = Astro.props;
+---
+
+<div>
+  <div class="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-4">
+    <div class="flex justify-center items-center">
+      <img src={image} alt={`img ${title}`} class="w-[210px] h-[210px]" />
+    </div>
+    <div>
+      <h4 class="text-2xl font-bold text-start mb-3">
+        {title}
+      </h4>
+      <p>
+        {description}
+        <div class="flex justify-center items-center mt-5">
+            <button
+                data-target=`content-${uniqueId}`
+                class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
+            >
+                Ver más
+            </button>
+          </div>
+      </p>
+    </div>
+  </div>
+  <div class='max-h-0 overflow-hidden transition-all duration-500 ease-out opacity-0' id=`content-${uniqueId}`>
+    <slot />
+  </div>
+  
+</div>
+
+<script>
+    const buttons = document.querySelectorAll('.show-more');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        if (targetId) {
+            const content = document.getElementById(targetId);
+            // content?.classList.toggle('hidden');
+            content?.classList.toggle('max-h-0');
+            content?.classList.toggle('opacity-0');
+            content?.classList.toggle('max-h-96');
+            content?.classList.toggle('opacity-100');
+        }
+    });
+});
+</script>
