@@ -12,7 +12,7 @@ const { tabs } = Astro.props;
 ---
 
 <div class="tabs-container w-10/12 mx-auto my-4 p-5">
-  <div class="flex justify-center gap-4 border-b">
+  <div class="flex flex-col lg:flex-row justify-center gap-4 border-b">
     {tabs.map((tab, index) => (
       <button
         data-tab={tab.id}
