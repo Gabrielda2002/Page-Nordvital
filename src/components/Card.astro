@@ -1,4 +1,6 @@
 ---
+import Button from "./common/Button.astro";
+
 interface CardProps {
   title: string;
   address: string;
@@ -30,13 +32,7 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
       >
         <h4 class="text-teal-700 font-bold text-xl md:text-2xl">{title}</h4>
         <p class="text-gray-700 font-normal text-sm md:text-base">{address}</p>
-        <a
-          href={mapLink}
-          target="_blank"
-          class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
-        >
-          Cómo llegar
-        </a>
+       <Button title="Ver en mapa" url={mapLink} />
       </div>
 
       <div class="grid grid-cols-2 gap-2.5 h-24 md:h-32">

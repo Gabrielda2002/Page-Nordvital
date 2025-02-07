@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  url?: string;
+}
+
+const { title, url = "#" } = Astro.props;
+---
+
+<button
+  type="button"
+  class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
+>
+  <a href={url} target="_blank">
+    {title}
+  </a>
+</button>
