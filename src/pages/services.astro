@@ -149,8 +149,10 @@ const serviceTabs = [
             </div>
 
             <div>
-              <h3 class="text-2xl font-bold text-center mb-3">Te Ofrecemos:</h3>
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-10">
+              <h3 class="text-3xl font-bold text-center mb-8">
+                Te Ofrecemos:
+              </h3>
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 <div>
                   <CardServOdonto
                     title="Cirugía maxilofacial"
@@ -236,38 +238,38 @@ const serviceTabs = [
             </div>
 
             <div class="mt-3 mb-3 lg:mb-0 lg:mt-0">
-              <h4 class="text-2xl font-bold text-center mb-3">Te ofrecemos</h4>
+              <h4 class="text-3xl font-bold text-center mb-8">Te ofrecemos</h4>
 
               <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
-                <div>
+                <div class="hover:scale-105 transition-all">
                   <CardServOdonto
                     title="Inmunoquímica"
                     content="Detectamos y medimos sustancias en la sangre para ayudar en el diagnóstico y monitoreo de diversas enfermedades."
                     showIcon={false}
                   />
                 </div>
-                <div>
+                <div class="hover:scale-105 transition-all">
                   <CardServOdonto
                     title="Inmunoserología"
                     content="Evaluamos la respuesta inmunológica del cuerpo frente a infecciones y enfermedades a través del análisis de sueros."
                     showIcon={false}
                   />
                 </div>
-                <div>
+                <div class="hover:scale-105 transition-all">
                   <CardServOdonto
                     title="Hematología"
                     content="Analizamos la sangre y sus componentes para diagnosticar condiciones como anemia, infecciones y trastornos hematológicos."
                     showIcon={false}
                   />
                 </div>
-                <div>
+                <div class="hover:scale-105 transition-all">
                   <CardServOdonto
                     title="Coagulación"
                     content="Examinamos los procesos de coagulación sanguínea para identificar trastornos que afectan la hemostasia."
                     showIcon={false}
                   />
                 </div>
-                <div>
+                <div class="hover:scale-105 transition-all">
                   <CardServOdonto
                     title="Microbiología"
                     content="Utilizamos técnicas microscópicas avanzadas para observar células y tejidos, proporcionando diagnósticos precisos y detallados."
@@ -308,7 +310,7 @@ const serviceTabs = [
 
         <!-- ? Medicina Especializada -->
         <div data-tab-content="medicina-especializada">
-          <div class="servicio__item-container">
+          <div class="servicio__item-containe r">
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center">
@@ -345,9 +347,9 @@ const serviceTabs = [
             </div>
 
             <div class="mt-3 mb-3 lg:mb-0 lg:mt-0">
-              <h4 class="text-2xl font-bold text-center mb-3">Te ofrecemos</h4>
+              <h4 class="text-3xl font-bold text-center mb-8">Te ofrecemos</h4>
 
-              <div class="grid grid-cols-1 lg:grid-cols-3">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
                 {
                   servicesMdEsp.map((s) => (
                     <div>
@@ -400,7 +402,7 @@ const serviceTabs = [
             </div>
 
             <div>
-              <h4 class="text-2xl font-bold text-center mb-3">Te ofrecemos:</h4>
+              <h4 class="text-3xl font-bold text-center mt-7 mb-8">Te ofrecemos:</h4>
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {
                   servicesImgDiag.map((s) => (
@@ -463,10 +465,10 @@ const serviceTabs = [
                 </div>
 
                 <div>
-                  <h4 class="text-2xl font-bold text-center mb-5">
+                  <h4 class="text-3xl font-bold text-center mb-8">
                     Te ofrecemos:
                   </h4>
-                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 h-full">
                     <div>
                       <CardManteSalud
                         uniqueId="1"
