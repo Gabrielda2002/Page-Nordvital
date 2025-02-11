@@ -9,6 +9,7 @@ import iconPhone from "/src/assets/Phone.svg?url";
 import iconNordvital from "/src/assets/logo-Nordvital.png?url";
 import menuIcon from "@/assets/icons_header/menu-2.svg?url";
 
+
 ---
 
 <header class="bg-teal-500 font-sans text-white font-semibold">
@@ -50,7 +51,7 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
   
         <!-- links dentro del navbar -->
          <div id="menu_movil" class="hidden lg:block fixed lg:relative top-0 right-0 h-screen lg:h-auto w-full lg:w-auto bg-white lg:bg-transparent z-50">
-           <NavLinks/>
+          <NavLinks/>
         </div>
       </div>
     </div>
@@ -65,13 +66,66 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
   menuButton?.addEventListener("click", () => {
     menuMovil?.classList.toggle("hidden");
     body.style.overflow = menuMovil?.classList.contains("hidden") ? "auto" : "hidden";
-  })
+  });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 1024) {
       menuMovil?.classList.add("hidden");
       body.style.overflow = "auto";
     }
+  });
+  // cerrar el menu movil
+  const closeMenu = document.getElementById("close_menu");
+  closeMenu?.addEventListener("click", () => {
+    menuMovil?.classList.add("hidden");
+    body.style.overflow = "auto";
+  });
+
+  const submenuBtn = document.querySelectorAll(".submenu-btn");
+
+  submenuBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation(); // Evitar que el evento de clic se propague a los enlaces
+      const submenuId = btn.getAttribute("data-submenu");
+      const submenu = document.getElementById(submenuId as string);
+      const arrow = btn.querySelector("img");
+
+      if (window.innerWidth < 1024) {
+        // Solo ejecutar en móvil
+        if (submenu?.classList.contains("max-h-0")) {
+          submenu.classList.remove("max-h-0", "opacity-0");
+          submenu.classList.add("expanded");
+          arrow?.style.setProperty("transform", "rotate(180deg)");
+        } else {
+          submenu?.classList.add("max-h-0", "opacity-0");
+          submenu?.classList.remove("expanded");
+          arrow?.style.setProperty("transform", "rotate(0deg)");
+        }
+
+        // Cerrar otros submenús
+        document.querySelectorAll(".submenu").forEach((menu) => {
+          if (menu.id !== submenuId) {
+            menu.classList.add("max-h-0", "opacity-0");
+            menu.classList.remove("expanded");
+            const otherArrow = document.querySelector(
+              `[data-submenu="${menu.id}"] img`
+            ) as HTMLImageElement;
+            otherArrow?.style.setProperty("transform", "rotate(0deg)");
+          }
+        });
+      } else {
+        // Solo ejecutar en escritorio
+        submenu?.classList.toggle("max-h-0");
+        submenu?.classList.toggle("opacity-0");
+        submenu?.classList.toggle("expanded");
+        arrow?.style.setProperty("transform", submenu?.classList.contains("max-h-0") ? "rotate(0deg)" : "rotate(180deg)");
+      }
+    });
+  });
+
+  // Inicializar todos los items con hover habilitado
+  document.querySelectorAll(".group").forEach((item) => {
+    item.classList.add("hover-enabled");
   });
 </script>
 
