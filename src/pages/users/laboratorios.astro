@@ -2,6 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Header/USUARIOS.png?url";
+
+//icons
+import icon from "@/images/Usuarios/Resultados-laboratorio/iconLabo.svg";
 ---
 
 <Layout title="Laboratorios">
@@ -21,7 +24,7 @@ import img from "@/images/Header/USUARIOS.png?url";
       <div class="conttres">
         <div class="flex items-center cont-medicina contCuatro">
           <img
-            src="/src/images//Usuarios/Resultados-laboratorio/iconLabo.svg"
+            src={icon.src}
             alt=""
             class="h-11"
           />

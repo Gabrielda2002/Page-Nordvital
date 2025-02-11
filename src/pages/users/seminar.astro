@@ -2,6 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Usuarios/Seminario/banner.jpg?url";
+
+//icons
+import icon from "@/images/Usuarios/Seminario/webinar.svg"
 ---
 
 <Layout title="Seminario">
@@ -24,7 +27,7 @@ import img from "@/images/Usuarios/Seminario/banner.jpg?url";
       <div class="conttres">
         <div class="flex items-center cont-medicina contCuatro">
           <img
-            src="/src/images//Usuarios//Seminario/webinar.svg"
+            src={icon.src}
             alt=""
             class="h-11"
           />

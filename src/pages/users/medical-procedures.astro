@@ -2,6 +2,28 @@
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Header/USUARIOS.png?url";
+
+///images
+import modal1 from "@/images/Usuarios/Modales/Ecografia de seno.jpeg?url";
+import modal2 from "@/images/Usuarios/Modales/Ecografia de transrectal.jpeg?url";
+import modal3 from "@/images/Usuarios/Modales/Ecografia de prostata transabdominal.jpeg?url";
+import modal4 from "@/images/Usuarios/Modales/Ecografia de abdomen superior.jpeg?url";
+import modal5 from "@/images/Usuarios/Modales/Ecografia vias urinarias.jpeg?url";
+import modal6 from "@/images/Usuarios/Modales/Ecografia Pelvica.jpeg?url";
+import modal7 from "@/images/Usuarios/Modales/Ecografia abdomen total.jpeg?url";
+import modal8 from "@/images/Usuarios/Modales/Ecografia obstreticas.jpeg?url";
+import modal9 from "@/images/Usuarios/Modales/tomografias.jpeg?url";
+import modal10 from "@/images/Usuarios/Modales/imagenologia.jpeg?url";
+import modal11 from "@/images/Usuarios/Modales/citologia.jpeg?url";
+import modal12 from "@/images/Usuarios/Modales/lavado oidos.jpeg?url";
+import modal13 from "@/images/Usuarios/Modales/prueba esfuerzo.jpeg?url";
+import modal14 from "@/images/Usuarios/Modales/ecocardiograma.jpeg?url";
+import modal15 from "@/images/Usuarios/Modales/holter.jpeg?url";
+import modal16 from "@/images/Usuarios/Modales/colposcopia.jpeg?url";
+import modal17 from "@/images/Usuarios/Modales/Electrocardiograma.jpeg?url";
+
+///icons
+import icon from "@/images/Usuarios/Modales/icon.svg";
 ---
 
 <Layout title="Procedimientos Médicos">
@@ -20,11 +42,7 @@ import img from "@/images/Header/USUARIOS.png?url";
     >
       <div class="conttres">
         <div class="flex items-center cont-medicina contCuatro">
-          <img
-            src="/src/images//Usuarios/Modales/icon.svg"
-            alt=""
-            class="h-11"
-          />
+          <img src={icon.src} alt="" class="h-11" />
 
           <h6 class="text-2xl ml-2"><em>Procedimientos Médicos</em></h6>
         </div>
@@ -60,76 +78,59 @@ import img from "@/images/Header/USUARIOS.png?url";
           </p>
         </div>
 
+      <div id="misionVisionModal" class="hidden fixed inset-0 z-50">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-          <div class="space-y-4">
+          <div class="modal-body mv__contenido space-y-4">
             <h5 class="text-xl font-semibold">Ecografías:</h5>
             <ul class="space-y-2 m-5 list-disc">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia de seno.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal1} class="text-blue-600 hover:underline"
                   >Ecografía de Mama o de Seno</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia de transrectal.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal2} class="text-blue-600 hover:underline"
                   >Ecografía de Próstata Transrectal</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia de prostata transabdominal.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal3} class="text-blue-600 hover:underline"
                   >Ecografía de Próstata Transabdominal</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia de abdomen superior.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal4} class="text-blue-600 hover:underline"
                   >Ecografía de Abdomen Superior y Ecografía Hepatobiliar</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia vias urinarias.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal5} class="text-blue-600 hover:underline"
                   >Ecografía de Vías Urinarias</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia Pelvica.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal6} class="text-blue-600 hover:underline"
                   >Ecografía Pélvica Trasabdominal</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia abdomen total.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal7} class="text-blue-600 hover:underline"
                   >Ecografía de Abdomen Total</a
                 >
               </li>
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Ecografia obstreticas.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal8} class="text-blue-600 hover:underline"
                   >Ecografías Obstétricas y Ginecológicas</a
                 >
               </li>
             </ul>
           </div>
-
+       </div>
           <div class="space-y-4">
             <h5 class="text-xl font-semibold">Tomografías:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/tomografias.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal9} class="text-blue-600 hover:underline"
                   >Tomografía y Urografía excretora</a
                 >
               </li>
@@ -138,9 +139,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Imagenología:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/imagenologia.jpeg"
-                  class="text-blue-600 hover:underline">Imagenología</a
+                <a href={modal10} class="text-blue-600 hover:underline"
+                  >Imagenología</a
                 >
               </li>
             </ul>
@@ -148,9 +148,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Toma de Citología:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/citologia.jpeg"
-                  class="text-blue-600 hover:underline">Imagenología</a
+                <a href={modal11} class="text-blue-600 hover:underline"
+                  >Imagenología</a
                 >
               </li>
             </ul>
@@ -158,9 +157,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Lavado de Oidos:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/lavado oidos.jpeg"
-                  class="text-blue-600 hover:underline">Lavado de Oidos</a
+                <a href={modal12} class="text-blue-600 hover:underline"
+                  >Lavado de Oidos</a
                 >
               </li>
             </ul>
@@ -170,9 +168,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Prueba de Esfuerzo:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/prueba esfuerzo.jpeg"
-                  class="text-blue-600 hover:underline">Prueba de Esfuerzo</a
+                <a href={modal13} class="text-blue-600 hover:underline"
+                  >Prueba de Esfuerzo</a
                 >
               </li>
             </ul>
@@ -182,9 +179,7 @@ import img from "@/images/Header/USUARIOS.png?url";
             </h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/ecocardiograma.jpeg"
-                  class="text-blue-600 hover:underline"
+                <a href={modal14} class="text-blue-600 hover:underline"
                   >Ecocardiograma Estrés con Ejercicio</a
                 >
               </li>
@@ -193,9 +188,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Holter del Ritmo:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/holter.jpeg"
-                  class="text-blue-600 hover:underline">Holter del Ritmo</a
+                <a href={modal15} class="text-blue-600 hover:underline"
+                  >Holter del Ritmo</a
                 >
               </li>
             </ul>
@@ -205,9 +199,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Colposcopia:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/colposcopia.jpeg"
-                  class="text-blue-600 hover:underline">Colposcopia</a
+                <a href={modal16} class="text-blue-600 hover:underline"
+                  >Colposcopia</a
                 >
               </li>
             </ul>
@@ -215,9 +208,8 @@ import img from "@/images/Header/USUARIOS.png?url";
             <h5 class="text-xl font-semibold">Electrocardiograma:</h5>
             <ul class="space-y-2 list-disc m-5">
               <li>
-                <a
-                  href="/src/images//Usuarios//Modales/Electrocardiograma.jpeg"
-                  class="text-blue-600 hover:underline">Electrocardiograma</a
+                <a href={modal17} class="text-blue-600 hover:underline"
+                  >Electrocardiograma</a
                 >
               </li>
             </ul>
@@ -242,7 +234,7 @@ import img from "@/images/Header/USUARIOS.png?url";
     id="openModal"
     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
   >
-    <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] w-[90%] relative">
+    <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] w-[90%]">
       <div class="flex justify-between items-center p-4 border-b">
         <h2 id="modalTitle" class="text-xl font-semibold"></h2>
         <button
@@ -270,11 +262,11 @@ import img from "@/images/Header/USUARIOS.png?url";
     const modalImage = document.getElementById("modalImage");
     const modalTitle = document.getElementById("modalTitle");
 
-    function openModal(imageSrc, imageTitle) {
-      modalImage.src = imageSrc;
+    function openModal(imageHref, imageTitle) {
+      modalImage.src = imageHref;
       modalTitle.textContent = imageTitle || "Imagen Detallada";
       modal.classList.remove("hidden");
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overflow = "auto";
       document.body.style.overflow = "hidden";
     }
 
@@ -282,7 +274,7 @@ import img from "@/images/Header/USUARIOS.png?url";
       modal.classList.add("hidden");
 
       document.documentElement.style.overflow = "auto";
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "hidden";
     }
 
     const imagenes = document.querySelectorAll(
@@ -307,7 +299,7 @@ import img from "@/images/Header/USUARIOS.png?url";
       }
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      if (e.key === "Escape" && !modal.classList.contains("auto")) {
         closeModal();
       }
     });

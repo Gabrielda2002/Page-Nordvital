@@ -2,6 +2,32 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
+
+//Pdfs 2023
+import pdf from "@/pdf/2023/ESTADO-DE-SITUACION-FINANCIERA-A-31-DE-DIC-2023.pdf";
+import pdf2 from "@/pdf/2023/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS-2023.pdf";
+import pdf3 from "@/pdf/2023/ESTADO-DE-GANANCIAS-Y-PERDIDAS-A-31-DE-DIC-2023.pdf";
+import pdf4 from "@/pdf/2023/1-Dictamen-Revisor-Fiscal-Nordvital-AG-2023-1.pdf";
+
+//Pdfs 2022
+import pdf5 from "@/pdf/2022/ESTADO-DE-SITUACION-FINANCIERA-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf";
+import pdf6 from "@/pdf/2022/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2022-NORDVITAL-IPS-SAS.pdf";
+import pdf7 from "@/pdf/2022/ESTADOS-FLUJO-DE-EFECTIVO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf";
+import pdf8 from "@/pdf/2022/ESTADO-DE-RESULTADO-DE-ENERO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf";
+import pdf9 from "@/pdf/2022/ESTADO-DE-CAMBIOS-EN-EL-PATRIMONIO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf";
+
+//Pdfs 2021
+import pdf10 from "@/pdf/2021/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2021-NORDVITAL-IPS-SAS-2.pdf";
+import pdf11 from "@/pdf/2021/CERTIFICACIÓN-DE-ESTADOS-FINANCIEROS-2021-1.pdf";
+import pdf12 from "@/pdf/2021/DICTAMEN-REVISOR-FISCAL-Nordvital-2021-1.pdf";
+import pdf13 from "@/pdf/2021/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2021-NORDVITAL-IPS-SAS-1.pdf";
+
+//Pdfs 2020
+import pdf14 from "@/pdf/2020/ESTADO-SITUACION-FINANCIERA.pdf";
+import pdf15 from "@/pdf/2020/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS.pdf";
+import pdf16 from "@/pdf/2020/DICTAMEN-DEL-REVISOR-FISCAL.pdf";
+import pdf17 from "@/pdf/2020/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2020.pdf";
+import pdf18 from "@/pdf/2020/ESTADO-GANANCIAS-PERDIDAS-2020.pdf";       
 ---
 
 <Layout title="Estado Financiero">
@@ -24,28 +50,28 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
             <ul class="space-y-3">
               <li>
                 <a
-                  href="/src//pdf/2023/ESTADO-DE-SITUACION-FINANCIERA-A-31-DE-DIC-2023.pdf"
+                  href={pdf}
                   class="text-blue-500 hover:text-blue-700"
                   >Estado de situación financiera.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2023/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS-2023.pdf"
+                  href={pdf2}
                   class="text-blue-500 hover:text-blue-700"
                   >Certificado de los estados financieros.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2023/ESTADO-DE-GANANCIAS-Y-PERDIDAS-A-31-DE-DIC-2023.pdf"
+                  href={pdf3}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados de ganancias y pérdidas.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2023/1-Dictamen-Revisor-Fiscal-Nordvital-AG-2023-1.pdf"
+                  href={pdf4}
                   class="text-blue-500 hover:text-blue-700"
                   >Dictamen del revisor fiscal.</a
                 >
@@ -61,35 +87,35 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
             <ul class="space-y-3">
               <li>
                 <a
-                  href="/src//pdf/2022/ESTADO-DE-SITUACION-FINANCIERA-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  href={pdf5}
                   class="text-blue-500 hover:text-blue-700"
                   >Estado de situación financiera.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2022/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2022-NORDVITAL-IPS-SAS.pdf"
+                  href={pdf6}
                   class="text-blue-500 hover:text-blue-700"
                   >Notas a los Estados de situación financiera.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2022/ESTADOS-FLUJO-DE-EFECTIVO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  href={pdf7}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados del flujo de efectivo de enero a diciembre.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2022/ESTADO-DE-RESULTADO-DE-ENERO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  href={pdf8}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados de resultados de enero a diciembre.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2022/ESTADO-DE-CAMBIOS-EN-EL-PATRIMONIO-A-DICIEMBRE-DEL-2022-NORDVITAL.pdf"
+                  href={pdf9}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados de cambios en el patrimonio a diciembre.</a
                 >
@@ -105,28 +131,28 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
             <ul class="space-y-3">
               <li>
                 <a
-                  href="/src//pdf/2021/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2021-NORDVITAL-IPS-SAS-2.pdf"
+                  href={pdf10}
                   class="text-blue-500 hover:text-blue-700"
                   >Notas a los estados financieros.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2021/CERTIFICACI%C3%93N-DE-ESTADOS-FINANCIEROS-2021-1.pdf"
+                  href={pdf11}
                   class="text-blue-500 hover:text-blue-700"
                   >Certificado de los estados financieros.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2021/DICTAMEN-REVISOR-FISCAL-Nordvital-2021-1.pdf"
+                 href={pdf12}
                   class="text-blue-500 hover:text-blue-700"
                   >Dictamen del revisor fiscal.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2021/ESTADO-DE-GANANCIAS-Y-PERDIDAS-2021-1.pdf"
+                  href={pdf13}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados de ganancias y perdidas.</a
                 >
@@ -142,35 +168,35 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
             <ul class="space-y-3">
               <li>
                 <a
-                  href="/src//pdf/2020/ESTADO-SITUACION-FINANCIERA.pdf"
+                  href={pdf14}
                   class="text-blue-500 hover:text-blue-700"
                   >Estado de situación financiera</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2020/CERTIFICADO-DE-LOS-ESTADOS-FINANCIEROS.pdf"
+                  href={pdf15}
                   class="text-blue-500 hover:text-blue-700"
                   >Certificado de los estados financieros.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2020/DICTAMEN-DEL-REVISOR-FISCAL.pdf"
+                  href={pdf16}
                   class="text-blue-500 hover:text-blue-700"
                   >Dictamen del revisor fiscal.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2020/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2020.pdf"
+                  href={pdf17}
                   class="text-blue-500 hover:text-blue-700"
                   >Notas a los estados financieros.</a
                 >
               </li>
               <li>
                 <a
-                  href="/src//pdf/2020/ESTADO-GANANCIAS-PERDIDAS-2020.pdf"
+                  href={pdf18}
                   class="text-blue-500 hover:text-blue-700"
                   >Estados de ganancias y perdidas.</a
                 >
