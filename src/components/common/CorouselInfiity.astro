@@ -58,13 +58,6 @@ const carouselInfinite = [
     const items = container.innerHTML;
     container.innerHTML = items + items;
 
-    const resetAnimation = () => {
-      container.style.animation = "running";
-      container.offsetHeight;
-    };
-
-    container.addEventListener("animationiteration", resetAnimation);
-
     container.addEventListener("touchstart", () => {
       container.style.animationPlayState = "paused";
     });
