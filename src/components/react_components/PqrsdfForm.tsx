@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import modal from "@/images/AboutUs/MISION_Y_VISION.jpg";
 
@@ -7,6 +7,17 @@ import icon from "@/images/AboutUs/Recurso_2.svg";
 
 const PqrsdfForm = () => {
   const [standOpen, setStandOpen] = useState(false);
+
+  useEffect(() => {
+    if (standOpen) {
+      console.log(document.body.style.overflow);
+      document.body.style.overflow = "hidden";
+    } else {
+      console.log(document.body.style.overflow);
+      document.body.style.overflow = "auto";
+    }
+  }, [standOpen]);
+
   return (
     <>
       <section className="w-[55%] mx-auto items-center text-center text-lg text-gray-500 mb-20 font-medium">
