@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import * as Yup from "yup";
 
 import modal from "@/images/AboutUs/MISION_Y_VISION.jpg";
 
 //icons
 import icon from "@/images/AboutUs/Recurso_2.svg";
+import { useFormik } from "formik";
 
 const PqrsdfForm = () => {
   const [standOpen, setStandOpen] = useState(false);
@@ -17,6 +19,90 @@ const PqrsdfForm = () => {
       document.body.style.overflow = "auto";
     }
   }, [standOpen]);
+
+  const [departamentos, setDepartamentos] = useState<
+    { departamento: string; ciudades: string[] }[]
+  >([]);
+  const [municipios, setMunicipios] = useState<string[]>([]);
+  const [selectedDepartamento, setSelectedDepartamento] = useState("");
+
+  useEffect(() => {
+    // URL de la API que contiene los departamentos y municipios
+    const apiURL =
+      "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.json";
+
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((data) => {
+        setDepartamentos(data); // Guardamos la data en el estado
+      })
+      .catch((error) => console.error("Error al cargar los datos:", error));
+  }, []); // Se ejecuta solo una vez al montar el componente
+
+  // Maneja el cambio del departamento seleccionado
+  const handleDepartamentoChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const departamentoSeleccionado = event.target.value;
+    setSelectedDepartamento(departamentoSeleccionado);
+
+    // Buscar el departamento en la lista de datos y actualizar municipios
+    const departamentoEncontrado = departamentos.find(
+      (dep) => dep.departamento === departamentoSeleccionado
+    );
+
+    if (departamentoEncontrado) {
+      setMunicipios(departamentoEncontrado.ciudades);
+    } else {
+      setMunicipios([]); // Vaciar municipios si no se encuentra
+    }
+  };
+
+  const schemaValidation = Yup.object({
+    nombre: Yup.string().required("El nombre es obligatorio"),
+    apellido: Yup.string().required("El apellido es obligatorio"),
+    tipoIdentificacion: Yup.string().required(
+      "El tipo de identificación es obligatorio"
+    ),
+    numeroIdentificacion: Yup.string().required(
+      "El número de identificación es obligatorio"
+    ),
+    fecha: Yup.date().required("La fecha es obligatoria"),
+    celular: Yup.string().required("El número de celular es obligatorio"),
+    fijo: Yup.string().required("El número fijo es obligatorio"),
+    departamento: Yup.string().required("El departamento es obligatorio"),
+    municipio: Yup.string().required("El municipio es obligatorio"),
+    eps: Yup.string().required("La EPS es obligatoria"),
+    email: Yup.string()
+      .email()
+      .required("El correo electrónico es obligatorio"),
+    tipoSolicitud: Yup.string().required("El tipo de solicitud es obligatorio"),
+    asunto: Yup.string().required("El asunto es obligatorio"),
+    solicitud: Yup.string().required("La solicitud es obligatoria"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      nombre: "",
+      apellido: "",
+      tipoIdentificacion: "",
+      numeroIdentificacion: "",
+      fecha: "",
+      celular: "",
+      fijo: "",
+      departamento: "",
+      municipio: "",
+      eps: "",
+      email: "",
+      tipoSolicitud: "",
+      asunto: "",
+      solicitud: "",
+    },
+    validationSchema: schemaValidation,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <>
@@ -67,332 +153,441 @@ const PqrsdfForm = () => {
       {/* Modal Form */}
       {standOpen && (
         <div
-        id="formModal"
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50`}
-      >
-        <div
-          className={`w-[900px] bg-white overflow-hidden rounded shadow-lg transform transition-transform duration-300 dark:bg-gray-800 ${
-            standOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          id="formModal"
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50`}
         >
-          <div className="relative bg-white rounded-lg w-full max-w-4xl mx-auto">
-            <div className="flex justify-end p-2">
-                  <button
-                    className="text-gray-500 hover:text-red-500 text-5xl"
-                    onClick={() => setStandOpen(false)}
-                  >
-                    &times;
-                  </button>
-                </div>
+          <div
+            className={`w-[900px] bg-white overflow-hidden rounded shadow-lg transform transition-transform duration-300 dark:bg-gray-800 ${
+              standOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+            }`}
+          >
+            <div className="relative bg-white rounded-lg w-full max-w-4xl mx-auto">
+              <div className="flex justify-end p-2">
+                <button
+                  className="text-gray-500 hover:text-red-500 text-5xl"
+                  onClick={() => setStandOpen(false)}
+                >
+                  &times;
+                </button>
+              </div>
 
-                <div className="px-4 py-10 bg-gray-100 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-                  <div className="max-w-3xl mx-auto">
-                    <div className="flex flex-col sm:flex-row items-center space-y-5 sm:space-y-0 sm:space-x-5">
-                      <div className="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
-                        i
-                      </div>
-                      <div className="block pl-2 font-semibold text-xl self-start text-gray-700 flex-1">
-                        <h2 className="leading-relaxed flex">
-                          Formulario PQRSFD
-                        </h2>
-                        <p className="text-sm text-gray-500 font-normal leading-relaxed flex-col text-left">
-                          Por favor, complete todos los campos requeridos.
-                        </p>
-                      </div>
+              <div className="px-4 py-10 bg-gray-100 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                <div className="max-w-3xl mx-auto">
+                  <div className="flex flex-col sm:flex-row items-center space-y-5 sm:space-y-0 sm:space-x-5">
+                    <div className="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
+                      i
+                    </div>
+                    <div className="block pl-2 font-semibold text-xl self-start text-gray-700 flex-1">
+                      <h2 className="leading-relaxed flex">
+                        Formulario PQRSFD
+                      </h2>
+                      <p className="text-sm text-gray-500 font-normal leading-relaxed flex-col text-left">
+                        Por favor, complete todos los campos requeridos.
+                      </p>
                     </div>
                   </div>
+                </div>
 
-                  <div className="overflow-y-auto max-h-[70vh]">
-                    <div className="divide-y divide-gray-200">
-                      <form
-                        id="pqrsfd-form"
-                        method="POST"
-                        className="pt-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
-                      >
-                        <div className="flex flex-col sm:flex-row sm:space-x-4">
-                          <div className="flex-1">
-                            <label
-                              htmlFor="nombre"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Nombre
-                            </label>
-                            <input
-                              type="text"
-                              id="nombre"
-                              name="nombre"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <label
-                              htmlFor="apellido"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Apellido
-                            </label>
-                            <input
-                              type="text"
-                              id="apellido"
-                              name="apellido"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex flex-col sm:flex-row sm:space-x-4">
-                          <div className="flex-1">
-                            <label
-                              htmlFor="tipo-identificacion"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Tipo de identificación
-                            </label>
-                            <select
-                              id="tipo-identificacion"
-                              name="tipo-identificacion"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            >
-                              <option value="">Seleccione</option>
-                              <option value="cc">Cédula de Ciudadanía</option>
-                              <option value="ce">Cédula de Extranjería</option>
-                              <option value="pasaporte">Pasaporte</option>
-                            </select>
-                          </div>
-                          <div className="flex-1">
-                            <label
-                              htmlFor="numero-identificacion"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número de identificación
-                            </label>
-                            <input
-                              type="text"
-                              id="numero-identificacion"
-                              name="numero-identificacion"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex flex-col sm:flex-row sm:space-x-4">
-                          <div className="flex-1">
-                            <label
-                              htmlFor="fecha"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Fecha
-                            </label>
-                            <input
-                              type="date"
-                              id="fecha"
-                              name="fecha"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <label
-                              htmlFor="celular"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número de celular
-                            </label>
-                            <input
-                              type="tel"
-                              id="celular"
-                              name="celular"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row sm:space-x-4">
-                          <div className="flex-1">
-                            <label
-                              htmlFor="celular"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número Fijo
-                            </label>
-                            <input
-                              type="tel"
-                              id="fijo"
-                              name="fijo"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-
-                          <div className="flex-1">
-                            <label
-                              htmlFor="departamento"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Departamento
-                            </label>
-                            <select
-                              id="departamento"
-                              name="departamento"
-                              required
-                              className="departamento mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            >
-                              <option value="">Seleccione</option>
-                            </select>
-                          </div>
-                          <div className="flex-1">
-                            <label
-                              htmlFor="municipio"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Municipios
-                            </label>
-                            <select
-                              id="municipio"
-                              name="municipio"
-                              required
-                              className="municipio mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                              disabled
-                            >
-                              <option value="">Seleccione</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div className="flex flex-col sm:flex-row sm:space-x-4">
-                          <div className="flex-1">
-                            <label
-                              htmlFor="eps"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              EPS
-                            </label>
-                            <select
-                              id="eps"
-                              name="eps"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            >
-                              <option value="">Seleccione</option>
-                              <option value="Nueva EPS">Nueva EPS</option>
-                              <option value="Coosalud">Coosalud</option>
-                              <option value="Compensar">Compensar</option>
-                            </select>
-                          </div>
-                          <div className="flex-1">
-                            <label
-                              htmlFor="email"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Correo electrónico
-                            </label>
-                            <input
-                              type="email"
-                              id="email"
-                              name="email"
-                              required
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                          </div>
-                        </div>
-                        <div>
+                <div className="overflow-y-auto max-h-[70vh]">
+                  <div className="divide-y divide-gray-200">
+                    <form
+                      id="pqrsfd-form"
+                      onSubmit={formik.handleSubmit}
+                      className="pt-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex-1">
                           <label
-                            htmlFor="tipo-solicitud"
+                            htmlFor="nombre"
                             className="block text-sm font-medium text-gray-700"
                           >
-                            Tipo de solicitud
-                          </label>
-                          <select
-                            id="tipo-solicitud"
-                            name="tipo-solicitud"
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                          >
-                            <option value="">Seleccione</option>
-                            <option value="peticion">Petición</option>
-                            <option value="queja">Queja</option>
-                            <option value="reclamo">Reclamo</option>
-                            <option value="sugerencia">Sugerencia</option>
-                            <option value="felicitacion">Felicitación</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="asunto"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            Asunto
+                            Nombre
                           </label>
                           <input
                             type="text"
-                            id="asunto"
-                            name="asunto"
-                            required
+                            id="nombre"
+                            name="nombre"
+                            onChange={formik.handleChange}
+                            value={formik.values.nombre}
+                            onBlur={formik.handleBlur}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                           />
+                          {formik.touched.nombre && formik.errors.nombre && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.nombre}
+                            </div>
+                          )}
                         </div>
-                        <div>
+                        <div className="flex-1">
                           <label
-                            htmlFor="solicitud"
+                            htmlFor="apellido"
                             className="block text-sm font-medium text-gray-700"
                           >
-                            Escriba su solicitud
+                            Apellido
                           </label>
-                          <textarea
-                            id="solicitud"
-                            name="solicitud"
-                            rows={4}
-                            required
+                          <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            value={formik.values.apellido}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                          ></textarea>
+                          />
+                          {formik.touched.apellido && formik.errors.apellido && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.apellido}
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-start">
-                          <div className="flex items-center h-5">
-                            <input
-                              id="terminos"
-                              name="terminos"
-                              type="checkbox"
-                              required
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                            />
-                          </div>
-                          <div className="text-sm">
-                            <label
-                              htmlFor="terminos"
-                              className="font-medium text-gray-700"
-                            >
-                              Acepto los términos y condiciones
-                            </label>
-                            <p className="text-gray-500">
-                              Al hacer clic en Enviar, usted acepta la remisión
-                              de la PQRD a NordVital IPS y autoriza el uso de
-                              sus datos personales de acuerdo con nuestra{" "}
-                              <a
-                                href="/politica-de-privacidad"
-                                className="text-indigo-600 hover:text-indigo-500"
-                              >
-                                Política de protección de datos personales
-                              </a>
-                              .
-                            </p>
-                          </div>
-                        </div>
-                        <div className="pt-4 mb-16">
-                          <button
-                            type="submit"
-                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex-1">
+                          <label
+                            htmlFor="tipo-identificacion"
+                            className="block text-sm font-medium text-gray-700"
                           >
-                            Enviar
-                          </button>
+                            Tipo de identificación
+                          </label>
+                          <select
+                            id="tipo-identificacion"
+                            name="tipoIdentificacion"
+                            value={formik.values.tipoIdentificacion}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          >
+                            <option value="">Seleccione</option>
+                            <option value="cc">Cédula de Ciudadanía</option>
+                            <option value="ce">Cédula de Extranjería</option>
+                            <option value="pasaporte">Pasaporte</option>
+                          </select>
+                          {formik.touched.tipoIdentificacion &&
+                            formik.errors.tipoIdentificacion && (
+                              <div className="text-red-500 text-sm">
+                                {formik.errors.tipoIdentificacion}
+                              </div>
+                            )}
                         </div>
-                      </form>
-                    </div>
+                        <div className="flex-1">
+                          <label
+                            htmlFor="numero-identificacion"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Número de identificación
+                          </label>
+                          <input
+                            type="text"
+                            id="numero-identificacion"
+                            name="numeroIdentificacion"
+                            value={formik.values.numeroIdentificacion}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          />
+                          {formik.touched.numeroIdentificacion &&
+                            formik.errors.numeroIdentificacion && (
+                              <div className="text-red-500 text-sm">
+                                {formik.errors.numeroIdentificacion}
+                              </div>
+                            )}
+                        </div>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex-1">
+                          <label
+                            htmlFor="fecha"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Fecha
+                          </label>
+                          <input
+                            type="date"
+                            id="fecha"
+                            name="fecha"
+                            value={formik.values.fecha}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          />
+                          {formik.touched.fecha && formik.errors.fecha && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.fecha}
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <label
+                            htmlFor="celular"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Número de celular
+                          </label>
+                          <input
+                            type="tel"
+                            id="celular"
+                            name="celular"
+                            value={formik.values.celular}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          />
+                          {formik.touched.celular && formik.errors.celular && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.celular}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex-1">
+                          <label
+                            htmlFor="celular"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Número Fijo
+                          </label>
+                          <input
+                            type="tel"
+                            id="fijo"
+                            name="fijo"
+                            value={formik.values.fijo}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          />
+                          {formik.touched.fijo && formik.errors.fijo && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.fijo}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex-1">
+                          <label
+                            htmlFor="departamento"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Departamento
+                          </label>
+                          <select
+                            id="departamento"
+                            name="departamento"
+                            value={selectedDepartamento}
+                            onChange={handleDepartamentoChange}
+                            onBlur={formik.handleBlur}
+                            className="departamento mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          >
+                            <option value="">Seleccione</option>
+                            {departamentos.map(dep => (
+                              <option key={dep.departamento} value={dep.departamento}>{dep.departamento}</option>
+                            ))}
+                          </select>
+                          {formik.touched.departamento && formik.errors.departamento && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.departamento}
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <label
+                            htmlFor="municipio"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Municipios
+                          </label>
+                          <select
+                            id="municipio"
+                            name="municipio"
+                            value={formik.values.municipio}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="municipio mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            disabled={municipios.length === 0}
+                          >
+                            <option value="">Seleccione</option>
+                            {municipios.map((municipio) => (
+                              <option key={municipio} value={municipio}>
+                                {municipio}
+                              </option>
+                            ))}
+                          </select>
+                          {formik.touched.municipio && formik.errors.municipio && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.municipio}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex-1">
+                          <label
+                            htmlFor="eps"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            EPS
+                          </label>
+                          <select
+                            id="eps"
+                            name="eps"
+                            value={formik.values.eps}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          >
+                            <option value="">Seleccione</option>
+                            <option value="Nueva EPS">Nueva EPS</option>
+                            <option value="Coosalud">Coosalud</option>
+                            <option value="Compensar">Compensar</option>
+                          </select>
+                          {formik.touched.eps && formik.errors.eps && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.eps}
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-gray-700"
+                          >
+                            Correo electrónico
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          />
+                          {formik.touched.email && formik.errors.email && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.email}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="tipo-solicitud"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Tipo de solicitud
+                        </label>
+                        <select
+                          id="tipo-solicitud"
+                          name="tipoSolicitud"
+                          value={formik.values.tipoSolicitud}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        >
+                          <option value="">Seleccione</option>
+                          <option value="peticion">Petición</option>
+                          <option value="queja">Queja</option>
+                          <option value="reclamo">Reclamo</option>
+                          <option value="sugerencia">Sugerencia</option>
+                          <option value="felicitacion">Felicitación</option>
+                        </select>
+                        {formik.touched.tipoSolicitud && formik.errors.tipoSolicitud && (
+                          <div className="text-red-500 text-sm">
+                            {formik.errors.tipoSolicitud}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="asunto"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Asunto
+                        </label>
+                        <input
+                          type="text"
+                          id="asunto"
+                          name="asunto"
+                          value={formik.values.asunto}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        />
+                        {formik.touched.asunto && formik.errors.asunto && (
+                          <div className="text-red-500 text-sm">
+                            {formik.errors.asunto}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="solicitud"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Escriba su solicitud
+                        </label>
+                        <textarea
+                          id="solicitud"
+                          name="solicitud"
+                          rows={4}
+                          value={formik.values.solicitud}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        ></textarea>
+                        {formik.touched.solicitud && formik.errors.solicitud && (
+                          <div className="text-red-500 text-sm">
+                            {formik.errors.solicitud}
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-start">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="terminos"
+                            name="terminos"
+                            type="checkbox"
+                            required
+                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                          />
+                        </div>
+                        <div className="text-sm">
+                          <label
+                            htmlFor="terminos"
+                            className="font-medium text-gray-700"
+                          >
+                            Acepto los términos y condiciones
+                          </label>
+                          <p className="text-gray-500">
+                            Al hacer clic en Enviar, usted acepta la remisión de
+                            la PQRD a NordVital IPS y autoriza el uso de sus
+                            datos personales de acuerdo con nuestra{" "}
+                            <a
+                              href="/politica-de-privacidad"
+                              className="text-indigo-600 hover:text-indigo-500"
+                            >
+                              Política de protección de datos personales
+                            </a>
+                            .
+                          </p>
+                        </div>
+                      </div>
+                      <div className="pt-4 mb-16">
+                        <button
+                          type="submit"
+                          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                          Enviar
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-            
+            </div>
 
             {/* <script>
 
