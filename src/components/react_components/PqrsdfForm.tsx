@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
+import emailJs from '@emailjs/browser'
 
 import modal from "@/images/AboutUs/MISION_Y_VISION.jpg";
 
@@ -97,8 +98,34 @@ const PqrsdfForm = () => {
       solicitud: "",
     },
     validationSchema: schemaValidation,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+        try {
+          await emailJs.send('service_i4i8je4', 'template_df99alq', {
+            t_email: 'info@nordvitalips.com',
+            nombre: values.nombre,
+            apellido: values.apellido,
+            tipo_identificacion: values.tipoIdentificacion,
+            numero_identificacion: values.numeroIdentificacion,
+            fecha: values.fecha,
+            celular: values.celular,
+            fijo: values.fijo,
+            departamento: values.departamento,
+            municipio: values.municipio,
+            eps: values.eps,
+            email: values.email,
+            tipo_solicitud: values.tipoSolicitud,
+            asunto: values.asunto,
+            solicitud: values.solicitud,
+          },
+        "EU9Av1Gcbfi0qIVJC"
+      );
+
+          alert('Informacion enviada exitosamente.')
+          formik.resetForm()
+        } catch (error) {
+          console.log(error)
+        }
+
     },
   });
 

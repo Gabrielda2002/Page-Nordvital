@@ -1,6 +1,5 @@
 ---
-import Pqr from "@/components/Pqr.astro";
-import Form from "@/components/Formulario.astro";
+import Pqr from "@/components/TabPqrsfd.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import HeroSection from "@/components/common/HeroSection.astro";
@@ -47,7 +46,6 @@ import PqrsdfForm from "@/components/react_components/PqrsdfForm";
     </div>
 
     <Pqr />
-    <slot />
     <PqrsdfForm client:load />
   </main>
 </Layout>
