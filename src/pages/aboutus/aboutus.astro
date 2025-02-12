@@ -11,6 +11,7 @@ import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
 
 //Icons
 import icon from "@/images/AboutUs/Recurso_2.svg";
+import Chat from "@/components/common/Chat.astro";
 ---
 
 <Layout title="Quiénes Somos">
@@ -44,9 +45,7 @@ import icon from "@/images/AboutUs/Recurso_2.svg";
         </div>
         <div class="mv__icono mt-4 md:mt-0">
           <label for="openModal" class="cursor-pointer p-4 md:p-14">
-            <img
-              src={icon.src}
-            />
+            <img src={icon.src} />
           </label>
         </div>
       </div>
@@ -296,4 +295,5 @@ import icon from "@/images/AboutUs/Recurso_2.svg";
       closeButton.addEventListener("click", () => toggleModal(false));
     }
   </script>
+  <Chat />
 </Layout>
