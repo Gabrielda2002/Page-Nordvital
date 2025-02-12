@@ -1,0 +1,107 @@
+---
+import wh from "@/images/WhatsApp/Whatsapp.gif"
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<div id="whatsappContainer" class="fixed bottom-6 right-6 z-50">
+
+    <img src={wh.src} class="w-24 h-w-24 transition-all duration-300 transform " alt="" id="whatsappButton">
+  </button>
+</div>
+
+<div
+  id="notificacion"
+  class="fixed bottom-4 right-6 w-80 bg-gradient-to-br from-teal-400 to-sky-500 text-white rounded-lg shadow-xl p-4 hidden transition-all duration-300 transform  opacity-0 mt-20 z-50"
+>
+  <button
+    id="closeButton"
+    class="absolute top-2 right-2 text-white hover:text-red-500"
+  >
+    <i class="fas fa-times-circle text-xl"></i>
+  </button>
+
+  <div class="mb-6">
+    <h3 class="text-2xl font-bold mb-2">¡Agenda tu cita ahora! 🎉</h3>
+    <a
+      href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
+      target="_blank"
+      class="block w-full bg-white hover:bg-slate-100 text-gray-600 text-center py-2 px-4 rounded-full font-bold transition-colors duration-200 transform hover:scale-105"
+    >
+      Agendar cita
+    </a>
+  </div>
+
+  <div>
+    <h3 class="text-2xl font-bold mb-2">¿Buscas tus resultados? 🔍</h3>
+    <a
+      href="https://api.whatsapp.com/send?phone=573160277566&text=Resultados Laboratorio Nordvital IPS"
+      target="_blank"
+      class="block w-full bg-white hover:bg-slate-100 text-gray-600 text-center py-2 px-4 rounded-full font-bold transition-colors duration-200 transform hover:scale-105"
+    >
+      Resultados Laboratorio
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const whatsappButton = document.getElementById(
+      "whatsappButton"
+    ) as HTMLButtonElement;
+    const notificacion = document.getElementById(
+      "notificacion"
+    ) as HTMLDivElement;
+    const closeButton = document.getElementById(
+      "closeButton"
+    ) as HTMLButtonElement;
+
+    if (!whatsappButton || !notificacion || !closeButton) {
+      console.error("Elementos no encontrados");
+      return;
+    }
+
+    let isNotificationOpen = false;
+
+    function openNotification(): void {
+      notificacion.classList.remove("hidden");
+      setTimeout(() => {
+        notificacion.classList.remove("opacity-0", "translate-y-4");
+      }, 10);
+      isNotificationOpen = false;
+    }
+
+    function closeNotification(): void {
+      notificacion.classList.add("opacity-0", "translate-y-4");
+      setTimeout(() => {
+        notificacion.classList.add("hidden");
+      }, 300);
+      isNotificationOpen = false;
+    }
+
+    function toggleNotification(event: Event): void {
+      event.stopPropagation();
+      if (isNotificationOpen) {
+        closeNotification();
+      } else {
+        openNotification();
+      }
+    }
+
+    whatsappButton.addEventListener("click", toggleNotification);
+
+    closeButton.addEventListener("click", (event: Event) => {
+      event.stopPropagation();
+      closeNotification();
+    });
+   
+    // Prevenir que los clics dentro de la notificación la cierren
+    notificacion.addEventListener("click", (event: Event) => {
+      event.stopPropagation();
+    });
+
+  });
+</script>
