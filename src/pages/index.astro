@@ -6,40 +6,46 @@ import dateBanner from "@/assets/index_icons/banner_agendar.jpg?url";
 import checkedIcon from "@/assets/index_icons/checked.svg?url";
 import Card from "@/components/Card.astro";
 import Corousel from "@/components/common/Corousel.astro";
+import CorouselInfinite from "@/components/common/CorouselInfiity.astro";
 ---
 
 <Layout title="Inicio">
   <main class="bg-gray-100">
     <div class="mb-10">
-      <Corousel>
+      <Corousel />
+
+      <!-- ? text start -->
+      <div
+        aria-label="Introduccion"
+        class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10"
+      >
+        <div
+          class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
+        >
+          <h1 class="text-3xl font-bold">
+            Una
+            <span class="text-[#049ae7] font-bold">IPS</span>
+            comprometida con sus usuarios
+          </h1>
+        </div>
+        <div>
+          <span class="text-xl font-bold">Nordvital IPS</span>
+          <p class="text-xl">
+            se destaca garantizando una atención médica de calidad, accesible y
+            disponible para todos.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- ? text start -->
-    <div
-      aria-label="Introduccion"
-      class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10"
-    >
-      <div
-        class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
-      >
-        <h1 class="text-3xl font-bold">
-          Una
-          <span class="text-[#049ae7] font-bold">IPS</span>
-          comprometida con sus usuarios
-        </h1>
-      </div>
-      <div>
-        <span class="text-xl font-bold">Nordvital IPS</span>
-        <p class="text-xl">
-          se destaca garantizando una atención médica de calidad, accesible y
-          disponible para todos.
-        </p>
-      </div>
+    <!-- ? carousel inifinito -->
+    <div class="m-11">
+      <CorouselInfinite />
     </div>
 
     <!-- ? section video -->
     <div
-    aria-label="Video institucional"
+      aria-label="Video institucional"
       class="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto gap-3 p-2 mb-10"
     >
       <div class="flex items-center justify-center h-full bg-gray-200">
