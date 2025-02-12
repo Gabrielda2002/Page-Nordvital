@@ -1,6 +1,5 @@
 ---
-import Pqr from "@/components/Pqr.astro";
-import Form from "@/components/Formulario.astro";
+import Pqr from "@/components/TabPqrsfd.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import HeroSection from "@/components/common/HeroSection.astro";
@@ -8,6 +7,7 @@ import HeroSection from "@/components/common/HeroSection.astro";
 // images
 import img from "@/images/Header/USUARIOS.png?url";
 import Images from "@/images/Header/2147900168.png"
+import PqrsdfForm from "@/components/react_components/PqrsdfForm";
 import Chat from "@/components/common/Chat.astro";
 ---
 
@@ -19,7 +19,7 @@ import Chat from "@/components/common/Chat.astro";
     />
   </head>
 
-  <main class="overflow-x-hidden bg-gray-100">
+  <main class="bg-gray-100">
     <HeroSection title="PQRSFD" backgroundImage={img} />
     <div
       class="container mx-auto px-4 py-8 h-auto w-[80%] flex flex-col xl:flex-row items-center"
@@ -47,8 +47,7 @@ import Chat from "@/components/common/Chat.astro";
     </div>
 
     <Pqr />
-    <slot />
-    <Form />
+    <PqrsdfForm client:load />
   </main>
   <Chat />
 </Layout>
