@@ -12,10 +12,8 @@ const PqrsdfForm = () => {
 
   useEffect(() => {
     if (standOpen) {
-      console.log(document.body.style.overflow);
       document.body.style.overflow = "hidden";
     } else {
-      console.log(document.body.style.overflow);
       document.body.style.overflow = "auto";
     }
   }, [standOpen]);
@@ -24,7 +22,6 @@ const PqrsdfForm = () => {
     { departamento: string; ciudades: string[] }[]
   >([]);
   const [municipios, setMunicipios] = useState<string[]>([]);
-  const [selectedDepartamento, setSelectedDepartamento] = useState("");
 
   useEffect(() => {
     // URL de la API que contiene los departamentos y municipios
@@ -44,7 +41,8 @@ const PqrsdfForm = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const departamentoSeleccionado = event.target.value;
-    setSelectedDepartamento(departamentoSeleccionado);
+
+    formik.setFieldValue('departamento', departamentoSeleccionado);
 
     // Buscar el departamento en la lista de datos y actualizar municipios
     const departamentoEncontrado = departamentos.find(
@@ -376,7 +374,7 @@ const PqrsdfForm = () => {
                           <select
                             id="departamento"
                             name="departamento"
-                            value={selectedDepartamento}
+                            value={formik.values.departamento}
                             onChange={handleDepartamentoChange}
                             onBlur={formik.handleBlur}
                             className="departamento mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
