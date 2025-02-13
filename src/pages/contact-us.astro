@@ -2,8 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Header/CONTACTO.png?url";
+import Nomform from "@/components/react_components/Nomform";
+import WorkUs from "@/components/react_components/WorkUs";
 
-//icons 
+//icons
 import icon1 from "@/images/Contactanos/sede.svg";
 import icon2 from "@/images/Contactanos/correo.svg";
 import icon3 from "@/images/Contactanos/contacto.svg";
@@ -30,11 +32,7 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img
-                src={icon1.src}
-                alt=""
-                class="mb-4 h-12"
-              />
+              <img src={icon1.src} alt="" class="mb-4 h-12" />
               <h5 class="font-bold text-lg mb-2">Sede Administrativa</h5>
               <a
                 href="https://www.google.com/maps/"
@@ -48,11 +46,7 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img
-                src={icon2.src}
-                alt=""
-                class="mb-4 h-12"
-              />
+              <img src={icon2.src} alt="" class="mb-4 h-12" />
               <h5 class="font-bold text-lg mb-2">Correo Electrónico</h5>
               <a
                 href="mailto:nordvitalips@gmail.com"
@@ -65,11 +59,7 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img
-                src={icon3.src}
-                alt=""
-                class="mb-4 h-12"
-              />
+              <img src={icon3.src} alt="" class="mb-4 h-12" />
               <h5 class="font-bold text-lg mb-2">Contacto</h5>
               <p>(+57) 3174309873</p>
             </div>
@@ -77,11 +67,7 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img
-                src={icon4.src}
-                alt=""
-                class="mb-4 h-12"
-              />
+              <img src={icon4.src} alt="" class="mb-4 h-12" />
               <h5 class="font-bold text-lg mb-2">Horarios De Atención</h5>
               <h6 class="font-semibold">Lunes a viernes</h6>
               <p class="mb-2">6:00 am - 6:30 pm</p>
@@ -91,7 +77,6 @@ import Chat from "@/components/common/Chat.astro";
           </div>
         </div>
 
-        {/* Forms Section */}
         <div
           class="w-full lg:w-1/2 bg-white rounded-xl shadow-lg border border-slate-200 mb-20"
         >
@@ -112,201 +97,14 @@ import Chat from "@/components/common/Chat.astro";
             </div>
           </div>
 
-          <div id="form-contacto" class="p-6">
-            <form class="space-y-4" method="post" action="/sendEmail.php">
-              <div class="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="text"
-                  id="validationCustom03"
-                  class="w-full bg-gray-100 rounded-lg p-3"
-                  placeholder="Nombres"
-                  name="nombre"
-                  required
-                />
-                <input
-                  type="text"
-                  id="validationCustom03"
-                  class="w-full bg-gray-100 rounded-lg p-3"
-                  placeholder="Apellidos"
-                  name="apellidos"
-                  required
-                />
-              </div>
+           <div id="form-contacto" class="p-3">
+             <Nomform client:load/>
+           </div>
 
-              <div class="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="email"
-                  id="correo"
-                  class="w-full bg-gray-100 rounded-lg p-3"
-                  placeholder="Correo Electrónico"
-                  name="correo"
-                  required
-                />
-                <input
-                  type="tel"
-                  id="validationCustom03"
-                  class="w-full bg-gray-100 rounded-lg p-3"
-                  placeholder="Teléfono"
-                  name="celular"
-                  required
-                />
-              </div>
+            <div id="form-puesto-trabajo" class="p-3">
+              <WorkUs client:load />
+            </div>  
 
-              <input
-                type="text"
-                id="validationCustom03"
-                class="w-full bg-gray-100 rounded-lg p-3"
-                placeholder="Asunto"
-                name="asunto"
-                required
-              />
-
-              <textarea
-                class="w-full bg-gray-100 rounded-lg p-3 min-h-32"
-                id="validationCustom03"
-                placeholder="Escriba una descripción..."
-                name="descripcion"
-                required></textarea>
-
-              <div class="flex items-start gap-2">
-                <input
-                  type="checkbox"
-                  class="mt-1"
-                  id="invalidCheck"
-                  required
-                />
-                <label class="text-sm">
-                  Al hacer clic en el botón Enviar, usted acepta la remisión de
-                  la PQRD a
-                  <a
-                    href="/nuestras-politicas"
-                    class="text-blue-500 hover:text-blue-700 ml-1"
-                  >
-                    Nordvital IPS
-                  </a>. Autorizo expresamente a Nordvital IPS para que mis datos
-                  puedan ser utilizados de acuerdo con la ley de protección de
-                  datos personales, con el fin de gestionar y dar respuesta a mi
-                  solicitud.
-                </label>
-              </div>
-
-              <div class="text-center">
-                <button
-                  type="submit"
-                  class="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
-                  name="enviado"
-                >
-                  Enviar
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Formulario de información para un puesto de trabajo -->
-          <div
-            id="form-puesto-trabajo"
-            class="form-container hidden px-10 gap-6"
-          >
-            <form
-              class="row g-3 needs-validation"
-              method="post"
-              action="\Pagina-nordvitalips\sendEmail.php"
-              enctype="multipart/form-data"
-            >
-              <!-- Formulario de aplicación para un puesto de trabajo -->
-              <div class="w-full flex mb-4 mt-4">
-                <div
-                  class=""
-                  style="width: 50% !important;margin: 0px 5px 0px 0px;"
-                >
-                  <input
-                    type="text"
-                    class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom01"
-                    required
-                    placeholder="Nombres"
-                    name="nombre"
-                  />
-                  <!-- <div class="invalid-feedback">Ingrese su nombre</div> -->
-                </div>
-                <div
-                  class=""
-                  style="width: 50% !important;margin: 0px 0px 0px 5px;"
-                >
-                  <input
-                    type="text"
-                    class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom02"
-                    required
-                    placeholder="Apellidos"
-                    name="apellidos"
-                  />
-                  <!-- <div class="invalid-feedback">Ingrese sus apellidos</div> -->
-                </div>
-              </div>
-              <div class="w-full flex mb-4">
-                <div
-                  class=""
-                  style="width: 60% !important;margin: 0px 5px 0px 0px;"
-                >
-                  <input
-                    type="email"
-                    class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom03"
-                    required
-                    placeholder="Correo Electrónico"
-                    name="correo"
-                  />
-                  <!-- <div class="invalid-feedback"> -->
-                  <!-- Ingrese un correo electrónico válido -->
-                  <!-- </div> -->
-                </div>
-                <div
-                  class=""
-                  style="width: 40% !important;margin: 0px 0px 0px 5px;"
-                >
-                  <input
-                    type="text"
-                    class="bg-gray-100 rounded-lg p-2 w-full"
-                    id="validationCustom04"
-                    required
-                    placeholder="Teléfono"
-                    name="celular"
-                  />
-                  <!-- <div class="invalid-feedback">
-                  Ingrese un número de teléfono
-                </div> -->
-                </div>
-              </div>
-              <div class="">
-                <textarea
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="validationCustom05"
-                  placeholder="Escriba una descripción..."
-                  required
-                  name="mensaje"></textarea>
-                <!-- <div class="invalid-feedback">Ingrese un mensaje</div> -->
-              </div>
-              <div class="form-group">
-                <label for="file">Adjuntar Hoja de Vida:</label>
-                <input
-                  type="file"
-                  class="bg-gray-100 rounded-lg p-2 w-full"
-                  id="file"
-                  name="cv"
-                />
-              </div>
-              <div class="text-center mb-4 mt-5">
-                <a href="#">
-                  <button
-                    class="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
-                    name="enviado"
-                    type="submit">Enviar Solicitud</button
-                  >
-                </a>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
