@@ -8,17 +8,18 @@ import Card from "@/components/Card.astro";
 import Corousel from "@/components/common/Corousel.astro";
 import CorouselInfinite from "@/components/common/CorouselInfiity.astro";
 import Chat from "@/components/common/Chat.astro";
+import Button from "@/components/common/Button.astro";
 ---
 
 <Layout title="Inicio">
   <main class="bg-gray-100">
-    <div class="mb-10">
+    <div class="">
       <Corousel />
 
       <!-- ? text start -->
       <div
         aria-label="Introduccion"
-        class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] mx-auto gap-3 mb-10"
+        class="grid grid-cols-1 p-2 lg:grid-cols-2 max-w-[920px] my-11 mx-auto gap-3 mb-10"
       >
         <div
           class="flex items-center justify-center h-full bg-gray-200 rounded-full shadow-2xl"
@@ -40,7 +41,7 @@ import Chat from "@/components/common/Chat.astro";
     </div>
 
     <!-- ? carousel inifinito -->
-    <div class="m-11">
+    <div class="my-11">
       <CorouselInfinite />
     </div>
 
@@ -95,6 +96,11 @@ import Chat from "@/components/common/Chat.astro";
             <span> Respeto </span>
           </div>
         </div>
+
+        <Button
+          title="Ver más"
+          url="/aboutus/aboutus"
+        ></Button>
       </div>
     </div>
 
