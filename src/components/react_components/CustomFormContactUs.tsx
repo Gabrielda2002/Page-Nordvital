@@ -4,10 +4,16 @@ import emailJs from "@emailjs/browser";
 import { useFormik } from "formik";
 import axios from "axios";
 
-const CustomForm = ({
-  showAsunto = true,
-  showCV = false,
-  showPrivacyPolicy = true,
+interface CustomFormProps {
+  showAsunto?: boolean;
+  showCV?: boolean;
+  showPrivacyPolicy?: boolean;
+}
+
+const CustomForm: React.FC<CustomFormProps> = ({
+  showAsunto,
+  showCV ,
+  showPrivacyPolicy
 }) => {
   // mensaje alerta obligatorio para formulario
   const formBase = {
@@ -24,7 +30,11 @@ const CustomForm = ({
         schema.required("El asunto es obligatorio"),
         otherwise: (schema) => schema.notRequired(),
     }),
-    cv: Yup.mixed().required("La hoja de vida es obligatoria"),
+    cv: Yup.mixed().when("showCV", {
+      is: (value: boolean) => value,
+      then: (schema) => schema.required("El archivo es obligatorio"),
+      otherwise: (schema) => schema.notRequired(),
+    }),
   };
 
 
@@ -46,24 +56,29 @@ const CustomForm = ({
     onSubmit: async (values) => {
       try {
 
-        const formData = new FormData();
+        let fileUrl = "";
 
-        if (values.cv) {
-          formData.append('cv', values.cv);
-        }
-
-        const response = await axios.post(`${import.meta.env.PUBLIC_BACKEND_URL}/send-email`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
+        if (showCV && values.cv) {
+          const formData = new FormData();
+  
+          if (values.cv) {
+            formData.append('cv', values.cv);
           }
-        })
-
-        if (response.status !== 200) {
-          alert("Hubo un error al enviar el archivo.");
-          return;
+  
+          const response = await axios.post(`${import.meta.env.PUBLIC_BACKEND_URL}/send-email`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
+  
+          if (response.status !== 200) {
+            alert("Hubo un error al enviar el archivo.");
+            return;
+          }
+  
+          fileUrl = response.data;
         }
 
-        const {fileUrl} = response.data;
 
         const emailData = {
           t_email: import.meta.env.PUBLIC_TARGET_EMAIL,
