@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Header/CONTACTO.png?url";
-import Nomform from "@/components/react_components/Nomform";
-import WorkUs from "@/components/react_components/WorkUs";
+import MessageFormCotactUs from "@/components/react_components/MessageFormContactUs";
+import WorkUsForm from "@/components/react_components/WorkUsForm";
 
 //icons
 import icon1 from "@/images/Contactanos/sede.svg";
@@ -98,11 +98,11 @@ import Chat from "@/components/common/Chat.astro";
           </div>
 
            <div id="form-contacto" class="p-3">
-             <Nomform client:load/>
+             <MessageFormCotactUs client:load/>
            </div>
 
             <div id="form-puesto-trabajo" class="p-3">
-              <WorkUs client:load />
+              <WorkUsForm client:load />
             </div>  
 
         </div>

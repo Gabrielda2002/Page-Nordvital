@@ -2,16 +2,18 @@ import React from "react";
 import * as Yup from "yup";
 import emailJs from "@emailjs/browser";
 import { useFormik } from "formik";
+import axios from "axios";
 
-const CustomForm = ({
-  showAsunto = true,
-  showCV = false,
-  emailTemplate = "",
-  serviceId = "",
-  publicKey = "",
-  targetEmail ="",
-  buttonText = "Enviar",
-  showPrivacyPolicy = true,
+interface CustomFormProps {
+  showAsunto?: boolean;
+  showCV?: boolean;
+  showPrivacyPolicy?: boolean;
+}
+
+const CustomForm: React.FC<CustomFormProps> = ({
+  showAsunto,
+  showCV ,
+  showPrivacyPolicy
 }) => {
   // mensaje alerta obligatorio para formulario
   const formBase = {
@@ -22,8 +24,17 @@ const CustomForm = ({
       .required("El correo electrónico es obligatorio"),
     telefono: Yup.string().required("El teléfono es obligatorio"),
     descripcion: Yup.string().required("La descripción es obligatoria"),
-    asunto: Yup.string().required("El asunto es obligatorio"),
-    cv: Yup.string().required("La hoja de vida es obligatoria"),
+    asunto: Yup.string().when("showAsunto", {
+      is: (value: boolean) => value,
+      then: (schema) => 
+        schema.required("El asunto es obligatorio"),
+        otherwise: (schema) => schema.notRequired(),
+    }),
+    cv: Yup.mixed().when("showCV", {
+      is: (value: boolean) => value,
+      then: (schema) => schema.required("El archivo es obligatorio"),
+      otherwise: (schema) => schema.notRequired(),
+    }),
   };
 
 
@@ -36,25 +47,55 @@ const CustomForm = ({
     telefono: "",
     descripcion: "",
     asunto: "",
-    cv: "",
+    cv: null,
   };
-
 
   const formik = useFormik({
     initialValues: baseInitialValues,
     validationSchema: schemaValidation,
     onSubmit: async (values) => {
       try {
+
+        let fileUrl = "";
+
+        if (showCV && values.cv) {
+          const formData = new FormData();
+  
+          if (values.cv) {
+            formData.append('cv', values.cv);
+          }
+  
+          const response = await axios.post(`${import.meta.env.PUBLIC_BACKEND_URL}/send-email`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
+  
+          if (response.status !== 200) {
+            alert("Hubo un error al enviar el archivo.");
+            return;
+          }
+  
+          fileUrl = response.data;
+        }
+
+
         const emailData = {
-          t_email: targetEmail,
-          ...values,
+          t_email: import.meta.env.PUBLIC_TARGET_EMAIL,
+          nombre: values.nombre,
+          apellido: values.apellido,
+          email: values.email,
+          telefono: values.telefono,
+          descripcion: values.descripcion,
+          asunto: values.asunto || "Sin asunto",
+          adjunto: fileUrl,
         };
 
         await emailJs.send(
-          serviceId,
-          emailTemplate,
+          import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
           emailData,
-          publicKey
+          import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
         );
 
         alert("Información enviada exitosamente.");
@@ -187,8 +228,11 @@ const CustomForm = ({
               type="file"
               id="cv"
               name="cv"
-              value={formik.values.asunto}
-              onChange={formik.handleChange}
+              onChange={(event) => {
+                if (event.currentTarget.files) {
+                  formik.setFieldValue("cv", event.currentTarget.files[0]);
+                }
+              }}
               onBlur={formik.handleBlur}
               className="w-full bg-gray-100 rounded-lg p-3"
               placeholder="Hoja de vida"
@@ -230,7 +274,7 @@ const CustomForm = ({
             className="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
             name="enviado"
           >
-            {buttonText}
+            {showAsunto ? "Enviar" : "Enviar Solicitud"}
           </button>
         </div>
       </form>
