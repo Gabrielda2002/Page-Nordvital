@@ -7,11 +7,6 @@ import axios from "axios";
 const CustomForm = ({
   showAsunto = true,
   showCV = false,
-  emailTemplate = "",
-  serviceId = "",
-  publicKey = "",
-  targetEmail ="",
-  buttonText = "Enviar",
   showPrivacyPolicy = true,
 }) => {
   // mensaje alerta obligatorio para formulario
@@ -45,7 +40,6 @@ const CustomForm = ({
     cv: null,
   };
 
-
   const formik = useFormik({
     initialValues: baseInitialValues,
     validationSchema: schemaValidation,
@@ -58,7 +52,7 @@ const CustomForm = ({
           formData.append('cv', values.cv);
         }
 
-        const response = await axios.post('http://localhost:3600/api/v1/send-email', formData, {
+        const response = await axios.post(`${import.meta.env.PUBLIC_BACKEND_URL}/send-email`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -72,21 +66,21 @@ const CustomForm = ({
         const {fileUrl} = response.data;
 
         const emailData = {
-          t_email: targetEmail,
-          nombre: "",
-          apellido: "",
-          email: "",
-          telefono: "",
-          descripcion: "",
-          asunto: "",
+          t_email: import.meta.env.PUBLIC_TARGET_EMAIL,
+          nombre: values.nombre,
+          apellido: values.apellido,
+          email: values.email,
+          telefono: values.telefono,
+          descripcion: values.descripcion,
+          asunto: values.asunto || "Sin asunto",
           adjunto: fileUrl,
         };
 
         await emailJs.send(
-          serviceId,
-          emailTemplate,
+          import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
           emailData,
-          publicKey
+          import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
         );
 
         alert("Información enviada exitosamente.");
@@ -98,7 +92,6 @@ const CustomForm = ({
     },
   });   
   
-  console.log(formik.errors);
   return (
     <div id="form-contacto" className="p-2">
       <form
@@ -266,7 +259,7 @@ const CustomForm = ({
             className="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
             name="enviado"
           >
-            {buttonText}
+            {showAsunto ? "Enviar" : "Enviar Solicitud"}
           </button>
         </div>
       </form>
