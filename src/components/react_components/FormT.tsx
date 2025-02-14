@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import emailJs from "@emailjs/browser";
 import { useFormik } from "formik";
+import axios from "axios";
 
 const CustomForm = ({
   showAsunto = true,
@@ -22,8 +23,13 @@ const CustomForm = ({
       .required("El correo electrónico es obligatorio"),
     telefono: Yup.string().required("El teléfono es obligatorio"),
     descripcion: Yup.string().required("La descripción es obligatoria"),
-    asunto: Yup.string().required("El asunto es obligatorio"),
-    cv: Yup.string().required("La hoja de vida es obligatoria"),
+    asunto: Yup.string().when("showAsunto", {
+      is: (value: boolean) => value,
+      then: (schema) => 
+        schema.required("El asunto es obligatorio"),
+        otherwise: (schema) => schema.notRequired(),
+    }),
+    cv: Yup.mixed().required("La hoja de vida es obligatoria"),
   };
 
 
@@ -36,7 +42,7 @@ const CustomForm = ({
     telefono: "",
     descripcion: "",
     asunto: "",
-    cv: "",
+    cv: null,
   };
 
 
@@ -45,9 +51,35 @@ const CustomForm = ({
     validationSchema: schemaValidation,
     onSubmit: async (values) => {
       try {
+
+        const formData = new FormData();
+
+        if (values.cv) {
+          formData.append('cv', values.cv);
+        }
+
+        const response = await axios.post('http://localhost:3600/api/v1/send-email', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+
+        if (response.status !== 200) {
+          alert("Hubo un error al enviar el archivo.");
+          return;
+        }
+
+        const {fileUrl} = response.data;
+
         const emailData = {
           t_email: targetEmail,
-          ...values,
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: "",
+          descripcion: "",
+          asunto: "",
+          adjunto: fileUrl,
         };
 
         await emailJs.send(
@@ -66,6 +98,7 @@ const CustomForm = ({
     },
   });   
   
+  console.log(formik.errors);
   return (
     <div id="form-contacto" className="p-2">
       <form
@@ -187,8 +220,11 @@ const CustomForm = ({
               type="file"
               id="cv"
               name="cv"
-              value={formik.values.asunto}
-              onChange={formik.handleChange}
+              onChange={(event) => {
+                if (event.currentTarget.files) {
+                  formik.setFieldValue("cv", event.currentTarget.files[0]);
+                }
+              }}
               onBlur={formik.handleBlur}
               className="w-full bg-gray-100 rounded-lg p-3"
               placeholder="Hoja de vida"
