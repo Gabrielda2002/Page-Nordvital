@@ -117,6 +117,7 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
         // Solo ejecutar en escritorio
         submenu?.classList.toggle("max-h-0");
         submenu?.classList.toggle("opacity-0");
+        submenu?.classList.toggle("pointer-events-none");
         submenu?.classList.toggle("expanded");
         arrow?.style.setProperty("transform", submenu?.classList.contains("max-h-0") ? "rotate(0deg)" : "rotate(180deg)");
       }
