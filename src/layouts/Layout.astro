@@ -3,6 +3,7 @@ interface Props {
   title: string;
   description?: string;
 }
+import Chat from "@/components/common/Chat.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 const { title, description = "Servicios de salud de alta calidad" } =
@@ -54,3 +55,4 @@ const { title, description = "Servicios de salud de alta calidad" } =
     /* overscroll-behavior: none; */
   }
 </style>
+<Chat />
