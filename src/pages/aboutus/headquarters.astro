@@ -4,6 +4,56 @@ import Card from "../../components/Card.astro";
 import BreadCrumps from "@/components/common/HeroSection.astro";
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
 import Chat from "@/components/common/Chat.astro";
+
+// * imgs cards
+import S01img1 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp?url'
+import S01img2 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp?url'
+import S01img3 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp?url'
+
+import S03Img1 from "@/images/Sedes/Cucuta/Sede 2/SEDE-2-1.webp?url";
+import S03Img2 from "@/images/Sedes/Cucuta/Sede 2/SEDE-2-2.webp?url";
+import S03Img3 from "@/images/Sedes/Cucuta/Sede 2/SEDE-2-3.webp?url";
+
+import S04Img1 from "@/images/Sedes/Cucuta/Sede 3/SEDE-3-1.webp?url";
+import S04Img2 from "@/images/Sedes/Cucuta/Sede 3/SEDE-3-2.webp?url";
+import S04Img3 from "@/images/Sedes/Cucuta/Sede 3/SEDE-3-3.webp?url";
+
+import S05Img1 from "@/images/Sedes/Cucuta/Sede 4/SEDE-4-1.webp?url";
+import S05Img2 from "@/images/Sedes/Cucuta/Sede 4/SEDE-4-2.webp?url";
+import S05Img3 from "@/images/Sedes/Cucuta/Sede 4/SEDE-4-3.webp?url";
+
+import S06Img1 from "@/images/Sedes/Cucuta/Sede 5/SEDE-5-1.webp?url";
+import S06Img2 from "@/images/Sedes/Cucuta/Sede 5/SEDE-5-2.webp?url";
+import S06Img3 from "@/images/Sedes/Cucuta/Sede 5/SEDE-5-3.webp?url";
+
+import S07Img1 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp?url";
+import S07Img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg?url";
+import S07Img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp?url";
+
+// sede ubate
+import S08Img1 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-1.webp?url";
+import S08Img2 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-2.webp?url";
+import S08Img3 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-3.webp?url";
+
+// sede la mesa
+import S09Img1 from "@/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-1.webp?url";
+import S09Img2 from "@/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-2.webp?url";
+import S09Img3 from "@/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-3.webp?url";
+
+// sede cajica
+import S10Img1 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-1.webp?url";
+import S10Img2 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-2.webp?url";
+import S10Img3 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-3.webp?url";
+
+// sede la calera
+import S11Img1 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-1.webp?url";
+import S11Img2 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-2.webp?url";
+import S11Img3 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-3.webp?url";
+
+// sede leticia
+import S12Img1 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-1.webp?url";
+import S12Img2 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-2.webp?url";
+import S12Img3 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-3.webp?url";
 ---
 
 <Layout title="Nuestras Sedes">
@@ -52,9 +102,9 @@ import Chat from "@/components/common/Chat.astro";
               address="Calle 14A # 2E-85"
               mapLink="https://www.google.com/maps..."
               images={[
-                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp",
-                "/src/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp",
+                `${S01img1}`,
+                `${S01img2}`,
+                `${S01img3}`,
               ]}
             />
             <Card
@@ -62,9 +112,9 @@ import Chat from "@/components/common/Chat.astro";
               address="Calle 13A # 1E-52"
               mapLink="https://www.google.com/maps/place/Cl.+13a+%231e27,+Los+Caobos,+C%C3%BAcuta,+Norte+de+Santander/@7.8839631,-72.4978305,205m/data=!3m1!1e3!4m6!3m5!1s0x8e66459f7c41e3e3:0x5771d8ad71bd1a1a!8m2!3d7.8842913!4d-72.497095!16s%2Fg%2F11vxxw818w?entry=ttu"
               images={[
-                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-2.webp",
-                "/src/images/Sedes/Cucuta/Sede 2/SEDE-2-3.webp",
+                `${S03Img1}`,
+                `${S03Img2}`,
+                `${S03Img3}`,
               ]}
             />
             <Card
@@ -72,9 +122,9 @@ import Chat from "@/components/common/Chat.astro";
               address="Calle 15 # 2E-07"
               mapLink="https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu"
               images={[
-                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-2.webp",
-                "/src/images/Sedes/Cucuta/Sede 3/SEDE-3-3.webp",
+                `${S04Img1}`,
+                `${S04Img2}`,
+                `${S04Img3}`,
               ]}
             />
             <Card
@@ -82,9 +132,9 @@ import Chat from "@/components/common/Chat.astro";
               address="AV. 3A E # 13A-82 CAOBOS"
               mapLink="https://maps.app.goo.gl/qeYXCAhAt7Kihwps8"
               images={[
-                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-2.webp",
-                "/src/images/Sedes/Cucuta/Sede 4/SEDE-4-3.webp",
+                `${S05Img1}`,
+                `${S05Img2}`,
+                `${S05Img3}`,
               ]}
             />
             <Card
@@ -92,9 +142,9 @@ import Chat from "@/components/common/Chat.astro";
               address="SEDE AV2 ESTE # 14A-10 CAOBOS"
               mapLink="https://maps.app.goo.gl/MsU4raTfftwrrgff7"
               images={[
-                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-2.webp",
-                "/src/images/Sedes/Cucuta/Sede 5/SEDE-5-3.webp",
+                `${S06Img1}`,
+                `${S06Img2}`,
+                `${S06Img3}`,
               ]}
             />
             <Card
@@ -102,9 +152,9 @@ import Chat from "@/components/common/Chat.astro";
               address="CALLE 8 # 0-71 BARRIO LATINO"
               mapLink="https://maps.app.goo.gl/MsU4raTfftwrrgff7"
               images={[
-                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp",
-                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg",
-                "/src/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp",
+                `${S07Img1}`,
+                `${S07Img2}`,
+                `${S07Img3}`,
               ]}
             />
           </div>
@@ -116,9 +166,9 @@ import Chat from "@/components/common/Chat.astro";
               address="CALLE 11 # 5-20 JUAN JOSE NEIRA"
               mapLink="https://maps.app.goo.gl/CL68fh6z9HDBARhu8"
               images={[
-                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-1.webp",
-                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-2.webp",
-                "/src/images/Sedes/Cundinamarca/Ubate/SEDE-1-3.webp",
+                `${S08Img1}`,
+                `${S08Img2}`,
+                `${S08Img3}`,
               ]}
             />
             <Card
@@ -126,9 +176,9 @@ import Chat from "@/components/common/Chat.astro";
               address="CALLE 8 # 24-67 ALVAREZ DIAZ"
               mapLink="https://maps.app.goo.gl/Bntm8wxFXDekCtgK8"
               images={[
-                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-1.webp",
-                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-2.webp",
-                "/src/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-3.webp",
+                `${S09Img1}`,
+                `${S09Img2}`,
+                `${S09Img3}`,
               ]}
             />
             <Card
@@ -136,9 +186,9 @@ import Chat from "@/components/common/Chat.astro";
               address="CARRERA 7 # 2-46"
               mapLink="https://maps.app.goo.gl/fVRix63tKta678LR6"
               images={[
-                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-1.webp",
-                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-2.webp",
-                "/src/images/Sedes/Cundinamarca/Cajica/SEDE-3-3.webp",
+                `${S10Img1}`,
+                `${S10Img2}`,
+                `${S10Img3}`,
               ]}
             />
             <Card
@@ -146,9 +196,9 @@ import Chat from "@/components/common/Chat.astro";
               address="CARRERA 5 # 2A-69"
               mapLink="https://maps.app.goo.gl/rbHQBipQYNMjoyBD9"
               images={[
-                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-1.webp",
-                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-2.webp",
-                "/src/images/Sedes/Cundinamarca/La-Calera/SEDE-4-3.webp",
+                `${S11Img1}`,
+                `${S11Img2}`,
+                `${S11Img3}`,
               ]}
             />
           </div>
@@ -160,9 +210,9 @@ import Chat from "@/components/common/Chat.astro";
             address="CALLE 12 # 8-55 JOSE MARIA HERNANDEZ"
             mapLink="https://maps.app.goo.gl/U7VrqXBMe2aWVfwg9"
             images={[
-              "/src/images/Sedes/Amazonas/Leticia/SEDE-1-1.webp",
-              "/src/images/Sedes/Amazonas/Leticia/SEDE-1-2.webp",
-                "/src/images/Sedes/Amazonas/Leticia/SEDE-1-3.webp",
+              `${S12Img1}`,
+              `${S12Img2}`,
+              `${S12Img3}`,
               ]}
             />
           </div>
