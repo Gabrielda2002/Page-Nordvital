@@ -9,7 +9,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
 
 <div id="whatsappContainer" class="fixed bottom-6 right-6 z-50">
 
-    <img src={wh.src} class="w-24 h-w-24 transition-all duration-300 transform " alt="" id="whatsappButton">
+    <img src={wh.src} class="w-24 h-w-24 transition-all duration-300 transform cursor-pointer" alt="" id="whatsappButton">
   </button>
 </div>
 
@@ -71,7 +71,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
       setTimeout(() => {
         notificacion.classList.remove("opacity-0", "translate-y-4");
       }, 10);
-      isNotificationOpen = false;
+      isNotificationOpen = true;
     }
 
     function closeNotification(): void {
