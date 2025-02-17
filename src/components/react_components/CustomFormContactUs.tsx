@@ -76,7 +76,7 @@ const CustomForm: React.FC<CustomFormProps> = ({
             return;
           }
   
-          fileUrl = response.data;
+          fileUrl = response.data.fileUrl;
         }
 
 
