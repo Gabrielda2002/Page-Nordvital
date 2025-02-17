@@ -106,6 +106,19 @@ const CustomForm: React.FC<CustomFormProps> = ({
       }
     },
   });   
+
+  // validar tamano adjunto
+  const validateFile = (file: File) => {
+    if (file.size > 5 * 1024 * 1024) {
+      alert("El archivo no puede ser mayor a 5MB");
+      formik.setFieldValue("cv", null);
+      // limpiar valor del archivo
+      (document.getElementById("cv") as HTMLInputElement).value = "";
+    }else{
+      formik.setFieldValue("cv", file);
+    }
+
+  }
   
   return (
     <div id="form-contacto" className="p-2">
@@ -229,10 +242,12 @@ const CustomForm: React.FC<CustomFormProps> = ({
               id="cv"
               name="cv"
               onChange={(event) => {
-                if (event.currentTarget.files) {
-                  formik.setFieldValue("cv", event.currentTarget.files[0]);
+                const file = event.target.files?.[0];
+                if (file) {
+                  validateFile(file);
                 }
               }}
+              accept=".pdf"
               onBlur={formik.handleBlur}
               className="w-full bg-gray-100 rounded-lg p-3"
               placeholder="Hoja de vida"
