@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import emailJs from "@emailjs/browser";
 
-import modal from "@/images/AboutUs/MISION_Y_VISION.jpg";
+import modal from "@/images/AboutUs/MISION_Y_VISION.jpg?url";
 
 //icons
 import icon from "@/images/AboutUs/Recurso_2.svg";
@@ -149,10 +149,10 @@ const PqrsdfForm = () => {
       </section>
 
       <div
-        className="mx-4 md:mx-auto mb-10 md:w-2/3 h-auto md:h-[165px] bg-cover bg-no-repeat rounded-[40px]"
-        style={{ backgroundImage: `url(${modal.src})` }}
+        className="mx-4 md:mx-auto mt-5 mb-5 md:w-2/3 h-auto md:h-[180px] bg-cover bg-no-repeat rounded-[40px]"
+        style={{ backgroundImage: `url(${modal})` }}
       >
-        <div className="card-body flex flex-col md:flex-row justify-between p-6 md:p-10">
+        <div className="card-body flex flex-col md:flex-row items-center justify-between p-6 md:p-10">
           <div className="mv__titulo text-center md:text-left">
             <h5 className="text-white text-2xl md:text-[38px] font-bold mb-3">
               PQRSFD
@@ -162,18 +162,14 @@ const PqrsdfForm = () => {
               mejorar nuestros servicios.
             </p>
           </div>
-          <div className="mt-4 md:mt-0">
-            <button
+          <div className="m-2">
+            <label
               id="openModal"
               className="cursor-pointer p-4 md:p-14"
               onClick={() => setStandOpen(true)}
             >
-              <img
-                src={icon.src}
-                alt="Icono Misión y Visión"
-                className="mx-auto"
-              />
-            </button>
+              <img src={icon.src} alt="Icono Misión y Visión" />
+            </label>
           </div>
         </div>
       </div>
