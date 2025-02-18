@@ -1,13 +1,13 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
-import AboutUs from "../../components/aboutus/AboutUs.astro";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 
 //Images
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
 import Image from "@/images/AboutUs/NOSOTROS_1.webp";
 import Image2 from "@/images/AboutUs/DOCTOR_NOSOTROS_3.webp";
 import Image3 from "@/images/AboutUs/ENFERMERAS_NOSOTROS_2.jpg";
+import bannerImg from '@/images/AboutUs/MISION_Y_VISION.jpg?url'
 
 //Icons
 import icon from "@/images/AboutUs/Recurso_2.svg";
@@ -29,7 +29,7 @@ import Chat from "@/components/common/Chat.astro";
     <!-- Misión y visión -->
     <div
       class="card mv__container mx-4 md:mx-auto mt-5 mb-5 md:w-4/5 h-auto md:h-[220px] bg-cover bg-no-repeat rounded-[40px]"
-      style="background-image: url('/src/images/AboutUs/MISION_Y_VISION.jpg')"
+      style={`background-image: url(${bannerImg})`}
     >
       <div
         class="card-body flex flex-col md:flex-row items-center justify-between p-6 md:p-14"

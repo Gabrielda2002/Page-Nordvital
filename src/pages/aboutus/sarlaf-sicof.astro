@@ -4,6 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 import Accordion from "@/components/common/Accordion.astro";
 import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.png?url";
 import Chat from "@/components/common/Chat.astro";
+
+import pdf from '@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1.pdf?url';
+
 ---
 
 <Layout title="SARLAF - SICOF">
@@ -307,9 +310,10 @@ import Chat from "@/components/common/Chat.astro";
         id="accordion-body-3"
       >
         <a
-          href="/Pagina-nordvitalips/pdf/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1.pdf"
+          href={pdf}
+          rel="noopener noreferrer"
           class="text-blue-500 underline"
-          target="_blank"
+        target="_blank"
         >
           GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1.</a
         > Ver documento completo

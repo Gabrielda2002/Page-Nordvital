@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
-import emailJs from '@emailjs/browser'
+import emailJs from "@emailjs/browser";
 
 import modal from "@/images/AboutUs/MISION_Y_VISION.jpg";
 
@@ -43,7 +43,7 @@ const PqrsdfForm = () => {
   ) => {
     const departamentoSeleccionado = event.target.value;
 
-    formik.setFieldValue('departamento', departamentoSeleccionado);
+    formik.setFieldValue("departamento", departamentoSeleccionado);
 
     // Buscar el departamento en la lista de datos y actualizar municipios
     const departamentoEncontrado = departamentos.find(
@@ -79,6 +79,7 @@ const PqrsdfForm = () => {
     asunto: Yup.string().required("El asunto es obligatorio"),
     solicitud: Yup.string().required("La solicitud es obligatoria"),
   });
+  console.log(import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_PQRS)
 
   const formik = useFormik({
     initialValues: {
@@ -99,9 +100,12 @@ const PqrsdfForm = () => {
     },
     validationSchema: schemaValidation,
     onSubmit: async (values) => {
-        try {
-          await emailJs.send('service_i4i8je4', 'template_df99alq', {
-            t_email: 'info@nordvitalips.com',
+      try {
+        await emailJs.send(
+          import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_PQRS,
+          {
+            t_email: import.meta.env.PUBLIC_TARGET_EMAIL,
             nombre: values.nombre,
             apellido: values.apellido,
             tipo_identificacion: values.tipoIdentificacion,
@@ -117,15 +121,14 @@ const PqrsdfForm = () => {
             asunto: values.asunto,
             solicitud: values.solicitud,
           },
-        "EU9Av1Gcbfi0qIVJC"
-      );
+          import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
+        );
 
-          alert('Informacion enviada exitosamente.')
-          formik.resetForm()
-        } catch (error) {
-          console.log(error)
-        }
-
+        alert("Informacion enviada exitosamente.");
+        formik.resetForm();
+      } catch (error) {
+        alert(error);
+      }
     },
   });
 
@@ -261,11 +264,12 @@ const PqrsdfForm = () => {
                             onBlur={formik.handleBlur}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                           />
-                          {formik.touched.apellido && formik.errors.apellido && (
-                            <div className="text-red-500 text-sm">
-                              {formik.errors.apellido}
-                            </div>
-                          )}
+                          {formik.touched.apellido &&
+                            formik.errors.apellido && (
+                              <div className="text-red-500 text-sm">
+                                {formik.errors.apellido}
+                              </div>
+                            )}
                         </div>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:space-x-4">
@@ -407,15 +411,21 @@ const PqrsdfForm = () => {
                             className="departamento mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                           >
                             <option value="">Seleccione</option>
-                            {departamentos.map(dep => (
-                              <option key={dep.departamento} value={dep.departamento}>{dep.departamento}</option>
+                            {departamentos.map((dep) => (
+                              <option
+                                key={dep.departamento}
+                                value={dep.departamento}
+                              >
+                                {dep.departamento}
+                              </option>
                             ))}
                           </select>
-                          {formik.touched.departamento && formik.errors.departamento && (
-                            <div className="text-red-500 text-sm">
-                              {formik.errors.departamento}
-                            </div>
-                          )}
+                          {formik.touched.departamento &&
+                            formik.errors.departamento && (
+                              <div className="text-red-500 text-sm">
+                                {formik.errors.departamento}
+                              </div>
+                            )}
                         </div>
                         <div className="flex-1">
                           <label
@@ -440,11 +450,12 @@ const PqrsdfForm = () => {
                               </option>
                             ))}
                           </select>
-                          {formik.touched.municipio && formik.errors.municipio && (
-                            <div className="text-red-500 text-sm">
-                              {formik.errors.municipio}
-                            </div>
-                          )}
+                          {formik.touched.municipio &&
+                            formik.errors.municipio && (
+                              <div className="text-red-500 text-sm">
+                                {formik.errors.municipio}
+                              </div>
+                            )}
                         </div>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:space-x-4">
@@ -519,11 +530,12 @@ const PqrsdfForm = () => {
                           <option value="sugerencia">Sugerencia</option>
                           <option value="felicitacion">Felicitación</option>
                         </select>
-                        {formik.touched.tipoSolicitud && formik.errors.tipoSolicitud && (
-                          <div className="text-red-500 text-sm">
-                            {formik.errors.tipoSolicitud}
-                          </div>
-                        )}
+                        {formik.touched.tipoSolicitud &&
+                          formik.errors.tipoSolicitud && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.tipoSolicitud}
+                            </div>
+                          )}
                       </div>
                       <div>
                         <label
@@ -563,11 +575,12 @@ const PqrsdfForm = () => {
                           onBlur={formik.handleBlur}
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         ></textarea>
-                        {formik.touched.solicitud && formik.errors.solicitud && (
-                          <div className="text-red-500 text-sm">
-                            {formik.errors.solicitud}
-                          </div>
-                        )}
+                        {formik.touched.solicitud &&
+                          formik.errors.solicitud && (
+                            <div className="text-red-500 text-sm">
+                              {formik.errors.solicitud}
+                            </div>
+                          )}
                       </div>
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
