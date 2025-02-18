@@ -24,15 +24,20 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
       />
     </div>
 
-   
     <div class="flex flex-col gap-4">
       <!-- Info card -->
       <div
         class="bg-white p-4 rounded-xl flex flex-col gap-2.5 h-auto md:h-[138px]"
       >
-        <h4 class="text-teal-700 font-bold text-xl md:text-2xl">{title}</h4>
-        <p class="text-gray-700 font-normal text-sm md:text-base">{address}</p>
-       <Button title="Ver en mapa" url={mapLink} />
+        <div>
+          <h4 class="text-teal-700 font-bold text-xl md:text-2xl">{title}</h4>
+          <p class="text-gray-700 font-normal text-sm md:text-base truncate" title={address}>
+            {address}
+          </p>
+        </div>
+        <div class="">
+          <Button title="Ver en mapa" url={mapLink} />
+        </div>
       </div>
 
       <div class="grid grid-cols-2 gap-2.5 h-24 md:h-32">
