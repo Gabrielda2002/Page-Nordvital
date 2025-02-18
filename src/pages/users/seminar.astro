@@ -1,11 +1,8 @@
 ---
-import Chat from "@/components/common/Chat.astro";
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Usuarios/Seminario/banner.jpg?url";
-
-//icons
-import icon from "@/images/Usuarios/Seminario/webinar.svg"
+import icon from "@/images/Usuarios/Seminario/webinar.svg";
 ---
 
 <Layout title="Seminario">
@@ -22,89 +19,101 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg"
       backgroundImage={img}
     />
 
-    <div
-      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600 m-5"
-    >
-      <div class="conttres">
-        <div class="flex items-center cont-medicina contCuatro">
-          <img
-            src={icon.src}
-            alt=""
-            class="h-11"
-          />
-
-          <h6 class="text-2xl ml-2">
+    <div class="px-4 py-8 max-w-7xl mx-auto">
+      <div class="space-y-6">
+        <div class="flex items-center space-x-3">
+          <img src={icon.src} alt="" class="h-8 md:h-11" />
+          <h6 class="text-xl md:text-2xl text-gray-600">
             <em>Seminario | Generando Conciencia</em>
           </h6>
         </div>
-        <div class="medicina mt-3">
-          <h2 class="font-semibold text-3xl">
+
+        <div class="space-y-6 text-gray-600">
+          <h2 class="text-2xl md:text-3xl font-semibold">
             Guía para Realizar la descarga del Certificado
           </h2>
-          <p>
+
+          <p class="text-base md:text-lg">
             Para facilitar la correcta descarga del certificado, hemos creado
             una guía que explica detalladamente cómo realizarla.
           </p>
-          <br />
-          <h5 class="font-medium text-xl">
-            Pasos para descargar el Certificado:
-          </h5>
-          <ol class="p-2">
-            <li>
-              1. Ingrese su número de identificación en el campo <b>Buscar</b>.
-            </li>
-            <li>
-              2. Luego de presionar <b>Enter</b> o hacer click en el icono de búsqueda.
-            </li>
-            <li>
-              3. Finalmente haga click en el botón verde que dice <b
-                >Descargar</b
-              > para visualizar su certificado.
-            </li>
-          </ol>
 
-          <div class="col-12 col-md-8 col-lg-6 mx-auto w-full mb-8 mt-5">
-            <form id="form__certificado-seminario">
-              <div
-                class="w-full md:w-[70%] flex mx-auto items-center justify-center"
-              >
+          <div class="space-y-4">
+            <h5 class="text-lg md:text-xl font-medium">
+              Pasos para descargar el Certificado:
+            </h5>
+            <ol class="space-y-2 pl-4">
+              <li class="text-base md:text-lg">
+                1. Ingrese su número de identificación en el campo <b>Buscar</b
+                >.
+              </li>
+              <li class="text-base md:text-lg">
+                2. Luego de presionar <b>Enter</b> o hacer click en el icono de búsqueda.
+              </li>
+              <li class="text-base md:text-lg">
+                3. Finalmente haga click en el botón verde que dice <b
+                  >Descargar</b
+                >
+                para visualizar su certificado.
+              </li>
+            </ol>
+          </div>
+
+          <div class="w-full max-w-2xl mx-auto mt-8">
+            <form id="form__certificado-seminario" class="space-y-4">
+              <div class="flex flex-col sm:flex-row gap-2 w-full">
                 <input
                   type="text"
-                  class="form-control w-2/3 h-12 rounded-md"
+                  class="flex-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   id="dni__participante"
                   placeholder="Buscar número de identificación..."
                   aria-label="Buscar archivos"
-                  aria-describedby="button-addon2"
                 />
                 <button
-                  class="btn bg-black text-white rounded-md h-12 w-16 hover:scale-105 hover:shadow-md"
+                  class="w-full sm:w-auto px-6 py-2 bg-black text-white rounded-md transition
+                         hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500"
                   type="submit"
-                  id="button-addon2">Buscar</button
+                  id="button-addon2"
                 >
+                  Buscar
+                </button>
               </div>
             </form>
           </div>
 
-          <div id="tablaResultados" style="display: none;">
-            <table class="table table-striped mt-4">
-              <thead>
-                <tr>
-                  <th>Formato</th>
-                  <th>Nombre</th>
-                  <th>Tamaño</th>
-                  <th>Fecha Agregada</th>
-                  <th>Descargar</th>
-                </tr>
-              </thead>
-              <tbody id="table__response"> </tbody>
-            </table>
+          <div id="tablaResultados" class="hidden mt-8">
+            <div class="overflow-x-auto">
+              <table class="w-[62%] mx-auto bg-white shadow-xl rounded-lg">
+                <thead class="bg-gray-300">
+                  <tr>
+                    <th class="px-2 py-4 text-left text-md font-bold"
+                      >Formato</th
+                    >
+                    <th class="px-2 py-4 text-left text-md font-bold"
+                      >Nombre</th
+                    >
+                    <th class="px-2 py-4 text-left text-md font-bold"
+                      >Tamaño</th
+                    >
+                    <th class="px-2 py-4 text-left text-md font-bold"
+                      >Fecha Agregada</th
+                    >
+                    <th class=" py-4 text-left text-md font-bold"
+                      >Descargar</th
+                    >
+                  </tr>
+                </thead>
+                <tbody id="table__response">
+                  <!-- Dynamic content -->
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <br />
-          <p>
+          <p class="text-base md:text-lg mt-8">
             Si tiene alguna pregunta o necesita asistencia adicional, por favor
             no dude en contactarnos. Estamos <a
-              class="text-blue-500"
+              class="text-blue-500 hover:text-blue-600"
               href="/Pagina-nordvitalips/html/contactenos.php">aquí</a
             > para ayudarles en todo lo que necesiten.
           </p>
@@ -112,5 +121,124 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg"
       </div>
     </div>
   </main>
-  <Chat />
 </Layout>
+
+<script type="module">
+  const formCertificado = document.getElementById(
+    "form__certificado-seminario"
+  );
+
+  if (formCertificado) {
+    formCertificado.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const dniValue = document.getElementById("dni__participante").value;
+      const tableResponse = document.getElementById("table__response");
+      const contenedorTabla = document.getElementById("tablaResultados");
+
+      try {
+        const response = await fetch(
+          `https://api.nordvitalips.com/api/v1/certificados/${dniValue}`,
+          { method: "GET" }
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.status}`);
+        }
+
+        const data = await response.json();
+        tableResponse.innerHTML = "";
+
+        if (!Array.isArray(data)) {
+          const tr = document.createElement("tr");
+          tr.className = "hover:bg-gray-50 mx-auto";
+
+          // Icon column
+          const tdIcon = document.createElement("td");
+          tdIcon.className = "px-2 py-3";
+          const imgIcon = document.createElement("img");
+          imgIcon.src = "/src/images/pdf_icon.svg";
+          imgIcon.alt = "pdf-icon";
+          imgIcon.className = "w-5 h-5";
+          tdIcon.appendChild(imgIcon);
+          tr.appendChild(tdIcon);
+
+          // DNI column
+          const tdDni = document.createElement("td");
+          tdDni.className = "px-2 py-3 text-sm text-gray-500";
+          tdDni.textContent = data.dni;
+          tr.appendChild(tdDni);
+
+          // Size column
+          const tdSize = document.createElement("td");
+          tdSize.className = "px-2 py-3 text-sm text-gray-500";
+          tdSize.textContent = data.size;
+          tr.appendChild(tdSize);
+
+          // Date column
+          const tdDate = document.createElement("td");
+          tdDate.className = "px-2 py-3 text-sm text-gray-500";
+          tdDate.textContent = new Date(data.createAt).toLocaleDateString();
+          tr.appendChild(tdDate);
+
+          // Download column
+          const tdDownload = document.createElement("td");
+          const aDownload = document.createElement("a");
+          aDownload.textContent = "Descargar";
+          aDownload.className =
+            "inline-block px-4 py-2 text-sm font-medium text-teal-800 bg-teal-100 rounded-lg " +
+            "hover:bg-teal-200 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500";
+          aDownload.href = "#";
+
+          aDownload.addEventListener("click", async (e) => {
+            e.preventDefault();
+            try {
+              const downloadResponse = await fetch(
+                `https://api.nordvitalips.com/api/v1/certificados-download/${data.dni}`,
+                {
+                  method: "GET",
+                  headers: { "Content-Type": "application/pdf" },
+                }
+              );
+
+              if (!downloadResponse.ok) {
+                throw new Error("Error al descargar el certificado");
+              }
+
+              const blob = await downloadResponse.blob();
+              const downloadUrl = URL.createObjectURL(blob);
+              const tempLink = document.createElement("a");
+              tempLink.href = downloadUrl;
+              tempLink.download = data.nameSaved;
+              document.body.appendChild(tempLink);
+              tempLink.click();
+              document.body.removeChild(tempLink);
+              URL.revokeObjectURL(downloadUrl);
+            } catch (error) {
+              console.error("Error en la descarga del certificado:", error);
+              alert(
+                "Error al descargar el certificado. Por favor, intente nuevamente."
+              );
+            }
+          });
+
+          tdDownload.appendChild(aDownload);
+          tr.appendChild(tdDownload);
+          tableResponse.appendChild(tr);
+          contenedorTabla.style.display = "block";
+        } else if (data.length === 0) {
+          alert("No se encontraron certificados para este DNI.");
+          formCertificado.reset();
+        }
+      } catch (error) {
+        alert(
+          "Ha ocurrido un error al buscar el certificado. Por favor, verifique el número ingresado e intente nuevamente. " +
+            "Si el problema persiste, es posible que el certificado aún no haya sido cargado."
+        );
+        contenedorTabla.style.display = "none";
+        formCertificado.reset();
+        console.error(error);
+      }
+    });
+  }
+</script>
