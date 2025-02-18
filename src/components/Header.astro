@@ -93,7 +93,7 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
       if (window.innerWidth < 1024) {
         // Solo ejecutar en móvil
         if (submenu?.classList.contains("max-h-0")) {
-          submenu.classList.remove("max-h-0", "opacity-0");
+          submenu.classList.remove("max-h-0", "opacity-0", "pointer-events-none");
           submenu.classList.add("expanded");
           arrow?.style.setProperty("transform", "rotate(180deg)");
         } else {
