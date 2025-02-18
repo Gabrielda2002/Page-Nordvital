@@ -123,18 +123,19 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
   </main>
 </Layout>
 
-<script type="module">
+<script>
   const formCertificado = document.getElementById(
     "form__certificado-seminario"
-  );
+  ) as HTMLFormElement;
 
   if (formCertificado) {
     formCertificado.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const dniValue = document.getElementById("dni__participante").value;
+      const dni = document.getElementById("dni__participante") as HTMLInputElement;
+      const dniValue = dni?.value;
       const tableResponse = document.getElementById("table__response");
-      const contenedorTabla = document.getElementById("tablaResultados");
+      const contenedorTabla = document.getElementById("tablaResultados") as HTMLElement;
 
       try {
         const response = await fetch(
@@ -147,7 +148,8 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
         }
 
         const data = await response.json();
-        tableResponse.innerHTML = "";
+
+        tableResponse ?  tableResponse.innerHTML = "" : null;
 
         if (!Array.isArray(data)) {
           const tr = document.createElement("tr");
@@ -183,15 +185,14 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
 
           // Download column
           const tdDownload = document.createElement("td");
-          const aDownload = document.createElement("a");
+          const aDownload = document.createElement("button");
           aDownload.textContent = "Descargar";
           aDownload.className =
             "inline-block px-4 py-2 text-sm font-medium text-teal-800 bg-teal-100 rounded-lg " +
             "hover:bg-teal-200 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500";
-          aDownload.href = "#";
 
           aDownload.addEventListener("click", async (e) => {
-            e.preventDefault();
+
             try {
               const downloadResponse = await fetch(
                 `https://api.nordvitalips.com/api/v1/certificados-download/${data.dni}`,
@@ -214,6 +215,7 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
               tempLink.click();
               document.body.removeChild(tempLink);
               URL.revokeObjectURL(downloadUrl);
+
             } catch (error) {
               console.error("Error en la descarga del certificado:", error);
               alert(
@@ -224,11 +226,13 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
 
           tdDownload.appendChild(aDownload);
           tr.appendChild(tdDownload);
-          tableResponse.appendChild(tr);
+          tableResponse?.appendChild(tr);
           contenedorTabla.style.display = "block";
+
         } else if (data.length === 0) {
-          alert("No se encontraron certificados para este DNI.");
+          alert("No se encontraron certificados para este número de documento.");
           formCertificado.reset();
+          
         }
       } catch (error) {
         alert(
