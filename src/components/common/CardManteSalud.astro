@@ -27,25 +27,20 @@ const { title, description, image, uniqueId } = Astro.props;
             data-target=`content-${uniqueId}`
             class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
           >
-            Ver más
+             <span class="text-show">Ver más</span>
+             <span class="text-hide hidden">Ver Menos</span>
           </button>
         </div>
       </p>
     </div>
   </div>
   <div
-    class="max-h-0 overflow-hidden transition-all duration-500 ease-out opacity-0 p-2 h-full"
+    class="content-expandible grid-rows-[0fr] transition-all duration-300 ease-in-out"
     id=`content-${uniqueId}`
   >
-  <slot />
-      <div class="flex justify-center items-center mt-2">
-        <button
-          data-target=`content-${uniqueId}`
-          class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
-        >
-          Ver menos
-        </button>
-      </div>
+  <div class="overflow-hidden">
+    <slot />
+  </div>
   </div>
 </div>
 <script>
@@ -56,12 +51,21 @@ const { title, description, image, uniqueId } = Astro.props;
       const targetId = button.getAttribute("data-target");
       if (targetId) {
         const content = document.getElementById(targetId);
-        // content?.classList.toggle('hidden');
-        content?.classList.toggle("max-h-0");
-        content?.classList.toggle("opacity-0");
-        content?.classList.toggle("max-h-[125]");
-        content?.classList.toggle("opacity-100");
+        const textShow = button.querySelector(".text-show");
+        const textHide = button.querySelector(".text-hide");
+
+        content?.classList.toggle('grid-rows-[1fr]')
+        content?.classList.toggle('opacity-100')
+
+        textShow?.classList.toggle('hidden')
+        textHide?.classList.toggle('hidden')
       }
     });
   });
 </script>
+<style>
+  .content-expandible {
+    display: grid;
+    transition: grid-template-rows 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+</style>
