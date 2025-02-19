@@ -2,6 +2,8 @@
 const phoneNumber = "+573174309873";
 const whatsappMessage = "Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios.";
 
+import { Image } from 'astro:assets'
+
 import NavLinks from "./NavLinks.astro";
 import SocialLinks from "./SocialLinksHeader.astro";
 // imgs
@@ -37,7 +39,7 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
     <div class="container mx-auto px-7">
       <div class="flex  items-center p-3 gap-8">
         <a href="/" class="flex items-center" aria-label="Inicio">
-          <img src={iconNordvital} alt="Logo" class="w-32 lg:w-40 shrink-0" />
+          <Image src={iconNordvital} alt="Logo Nordvital IPS" width={480} height={227} format='webp' quality={80} class="w-32 lg:w-40 shrink-0" />
         </a>
   
         <!-- boton movil menu -->

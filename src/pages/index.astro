@@ -11,9 +11,10 @@ import Chat from "@/components/common/Chat.astro";
 import Button from "@/components/common/Button.astro";
 
 // img card headquarter
-import img1 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp?url'
-import img2 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp?url'
-import img3 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp?url'
+import img1 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp'
+import img2 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-2.webp'
+import img3 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp'
+
 
 ---
 
@@ -58,13 +59,12 @@ import img3 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp?url'
     >
       <div class="flex items-center justify-center h-full bg-gray-200">
         <div class="w-full">
-          <iframe
-            class="w-full h-[400px] rounded-3xl"
-            src="https://www.youtube.com/embed/46G-4lTJoyk"
-            frameborder="0"
-            title="Video institucional Nordvital IPS"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+          <lite-youtube
+            videoId="46G-4lTJoyk"
+            videotitle="Video institucional Nordvital IPS"
+            videoplay="autoplay"
+            posterquality="maxresdefault"
+          ></lite-youtube>
         </div>
       </div>
       <div class="flex flex-col justify-center">
@@ -175,9 +175,9 @@ import img3 from '@/images/Sedes/Cucuta/Sede 1/SEDE-1-3.webp?url'
           address="Calle 14A # 2E-85"
           mapLink="https://www.google.com/maps..."
           images={[
-            `${img1}`,
-            `${img2}`,
-            `${img3}`,
+            img1,
+            img2,
+            img3,
           ]}
         />
       </div>

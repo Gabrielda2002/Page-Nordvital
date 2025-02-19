@@ -3,16 +3,20 @@ import ContactLinks from './ContactUsFooter.astro';
 import SocialLinks from './SocialLinksFooter.astro';
 import FooterInfo from './FooterInfo.astro';
 
-import logoNordvital from '../assets/logo_footer/LOGO-BLANCO-NORVITAL.png?url';
+import logoNordvital from '../assets/logo_footer/LOGO-BLANCO-NORVITAL.png';
+
+import { Image } from 'astro:assets';
 ---
 
 <footer>
   <div class="bg-[#049ae7] text-white grid grid-cols-1  lg:grid-cols-4 lg:gap-5">
     <div class="flex justify-center lg:m-12 lg:h-44 lg:w-48">
-      <img
+      <Image
         src={logoNordvital}
         alt="Logo Nordvital"
         class="w-48 h-44"
+        widths={[336, 576]}
+        sizes="(max-width: 336px) 100vw,(max-width: 576px) 100vw, 576px"
       />
     </div>
 
