@@ -1,12 +1,12 @@
 ---
-import Button from "./common/Button.astro";
-
 interface CardProps {
   title: string;
   address: string;
   mapLink: string;
-  images: string[];
+  images: ImageMetadata[];
 }
+import Button from "./common/Button.astro";
+import { Image } from "astro:assets";
 
 const props = Astro.props as CardProps;
 const { title = "", address = "", mapLink = "", images = [] } = props;
@@ -17,10 +17,12 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
     class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center w-full mx-auto"
   >
     <div class="w-full h-[200px] md:h-full">
-      <img
+      <Image
         src={images[0]}
         class="rounded-xl w-full h-full object-cover"
         alt={`Imagen principal de ${title}`}
+        widths={[700, 1026, 1449, 1600, 1840, 2048]}
+        sizes={`(max-width: 700px) 100vw, (max-width: 1026px) 100vw, (max-width: 1449px) 100vw, (max-width: 1600px) 100vw, (max-width: 1840px) 100vw, 2048px`}
       />
     </div>
 
@@ -44,10 +46,12 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
         {
           images.slice(1).map((image) => (
             <div class="w-full h-full">
-              <img
+              <Image
                 src={image}
                 class="rounded-xl w-full h-full object-cover"
                 alt={`img ${title}`}
+                widths={[700, 1026, 1449, 1600, 1840, 2048]}
+                sizes={`(max-width: 700px) 100vw, (max-width: 1026px) 100vw, (max-width: 1449px) 100vw, (max-width: 1600px) 100vw, (max-width: 1840px) 100vw, 2048px`}
               />
             </div>
           ))
