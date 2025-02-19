@@ -7,12 +7,12 @@ jobs:
   build-end-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: 22
           
       - name: Install Dependencies
         run: npm install
@@ -21,10 +21,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to Cpanel
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{ secrets.FTP_USERNAME}}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /public_html/
+          server-dir: /test.nordvitalips.com/
