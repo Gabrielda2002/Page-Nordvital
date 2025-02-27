@@ -37,12 +37,6 @@ const CustomForm: React.FC<CustomFormProps> = ({
     }),
   };
 
-  console.log(import.meta.env.PUBLIC_BACKEND_URL);
-  console.log(import.meta.env.PUBLIC_TARGET_EMAIL);
-  console.log(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID);
-  console.log(import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID);
-  console.log(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
-
   const schemaValidation = Yup.object(formBase);
 
   const baseInitialValues = {
