@@ -18,7 +18,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
   <!-- boton de cerrado -->
   
   <ul
-  class="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
+  class="flex flex-col lg:flex-row lg:space-x-4 xl:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
   >
   <button
     id="close_menu"
@@ -185,6 +185,48 @@ import closeIcon from "../assets/icons_header/x.svg?url";
     opacity: 1;
     padding: 1rem;
   }
+  
+  /* Estilos para pantallas intermedias */
+  @media (min-width: 1024px) and (max-width: 1530px) {
+    /* Ajustes para el contenedor principal */
+    nav {
+      width: 100%;
+    }
+    
+    nav > ul {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    /* Ajustes para botones principales */
+    nav > ul > li {
+      position: static;
+      white-space: nowrap;
+    }
+    
+    /* Ajustes para submenús */
+    .submenu {
+      position: absolute;
+      width: auto !important;
+      min-width: 300px;
+      max-width: 450px;
+      grid-template-columns: 1fr !important; /* Una columna para pantallas medianas */
+    }
+    
+    /* Ajustar posición específica para cada submenú */
+    #nosotros {
+      left: 0;
+      right: auto;
+    }
+    
+    #usuarios {
+      left: auto;
+      right: 0;
+    }
+  }
+  
   @media (max-width: 1024px) {
     .submenu {
       position: relative;

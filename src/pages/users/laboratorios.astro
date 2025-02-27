@@ -6,6 +6,8 @@ import img from "@/images/Header/USUARIOS.png?url";
 
 //icons
 import icon from "@/images/Usuarios/Resultados-laboratorio/iconLabo.svg";
+
+import pdfLab from "@/pdf/Laboratorio/Resultados2.pdf";
 ---
 
 <Layout title="Resultados de Laboratorio | Nordvital IPS" 
@@ -56,7 +58,7 @@ description="Accede y descarga tus resultados de laboratorio clínico de Nordvit
               <li>
                 2. Enlace:
                 <a
-                  href="/src/pdf/Laboratorio/Resultados2.pdf"
+                  href={pdfLab}
                   target="_blank"
                   class="text-blue-500"
                 >
@@ -68,13 +70,13 @@ description="Accede y descarga tus resultados de laboratorio clínico de Nordvit
                 uso de la pagina correctamente.
               </li>
               <li>
-                4. para descargar sus resultados, haga clic
+                4. Para descargar sus resultados, haga clic
                 <a
                   href="https://hemonet.com/lisnordvital/paciente"
                   target="_blank"
                   class="text-blue-500"
                 >
-                  AQUI
+                  Aqui
                 </a>
               </li>
             </ul>
