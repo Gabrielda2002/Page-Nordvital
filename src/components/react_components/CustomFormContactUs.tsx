@@ -3,7 +3,6 @@ import * as Yup from "yup";
 import emailJs from "@emailjs/browser";
 import { useFormik } from "formik";
 import axios from "axios";
-import config from 'config'
 
 interface CustomFormProps {
   showAsunto?: boolean;
@@ -38,11 +37,11 @@ const CustomForm: React.FC<CustomFormProps> = ({
     }),
   };
 
-  console.log(config.PUBLIC_BACKEND_URL);
-  console.log(config.PUBLIC_TARGET_EMAIL);
-  console.log(config.PUBLIC_EMAILJS_SERVICE_ID);
-  console.log(config.PUBLIC_EMAILJS_TEMPLATE_ID);
-  console.log(config.PUBLIC_EMAILJS_PUBLIC_KEY);
+  console.log(import.meta.env.PUBLIC_BACKEND_URL);
+  console.log(import.meta.env.PUBLIC_TARGET_EMAIL);
+  console.log(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID);
+  console.log(import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID);
+  console.log(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
 
   const schemaValidation = Yup.object(formBase);
 
