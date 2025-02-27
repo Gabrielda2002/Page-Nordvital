@@ -16,6 +16,16 @@ jobs:
           
       - name: Install Dependencies
         run: npm install
+
+      - name: Configure Environment Variables
+        run: |
+          echo "PUBLIC_EMAILJS_SERVICE_ID=${{secrets.PUBLIC_EMAILJS_SERVICE_ID}}" >> .env
+          echo "PUBLIC_EMAILJS_TEMPLATE_ID=${{secrets.PUBLIC_EMAILJS_TEMPLATE_ID}}" >> .env
+          echo "PUBLIC_EMAILJS_TEMPLATE_ID_PQRS=${{secrets.PUBLIC_EMAILJS_TEMPLATE_ID_PQRS}}" >> .env
+          echo "PUBLIC_TARGET_EMAIL=${{secrets.PUBLIC_TARGET_EMAIL}}" >> .env
+          echo "PUBLIC_EMAILJS_PUBLIC_KEY=${{secrets.PUBLIC_EMAILJS_PUBLIC_KEY}}" >> .env
+          echo "PUBLIC_BACKEND_URL=${{secrets.PUBLIC_BACKEND_URL}}" >> .env
+
       
       - name: Build Project
         run: npm run build
