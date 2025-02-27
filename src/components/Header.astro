@@ -116,7 +116,29 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
           }
         });
       } else {
-        // Solo ejecutar en escritorio
+
+        // ? cerrar menus abiertos
+        document.querySelectorAll(".submenu").forEach((menu) => {
+          if (menu.id !== submenuId) {
+            menu.classList.add("max-h-0", "opacity-0", "pointer-events-none");
+            menu.classList.remove("expanded");
+            const otherArrow = document.querySelector(
+              `[data-submenu="${menu.id}"] img`
+            ) as HTMLImageElement;
+            otherArrow?.style.setProperty("transform", "rotate(0deg)");
+          }
+        });
+
+        // cerrar cuando se haga clic fuera del menu
+        document.addEventListener("click", (event) => {
+          if (!btn.contains(event.target as Node)) {
+            submenu?.classList.add("max-h-0", "opacity-0", "pointer-events-none");
+            submenu?.classList.remove("expanded");
+            arrow?.style.setProperty("transform", "rotate(0deg)");
+          }
+        });
+
+        // alternar el estado del submenu
         submenu?.classList.toggle("max-h-0");
         submenu?.classList.toggle("opacity-0");
         submenu?.classList.toggle("pointer-events-none");
