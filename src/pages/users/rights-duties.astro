@@ -22,7 +22,7 @@ import icon12 from "@/images/Usuarios/Derechos-Deberes/ico-db-12.svg";
 import icon13 from "@/images/Usuarios/Derechos-Deberes/ico-db-13.svg";
 import icon14 from "@/images/Usuarios/Derechos-Deberes/ico-db-14.svg";
 import icon15 from "@/images/Usuarios/Derechos-Deberes/ico-db-15.svg";
-import Chat from "@/components/common/Chat.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="derechos y deberes">
@@ -38,9 +38,11 @@ import Chat from "@/components/common/Chat.astro";
     <div
       class="w-[90%] md:w-2/3 flex mx-auto items-center justify-center flex-col md:flex-row"
     >
-      <img
-        src={img2.src}
+      <Image
+        src={img2}
         alt=""
+        widths={[700, 1026, 1449, 1600, 1840, 2048]}
+        sizes="(min-width: 1420px) 37.53vw, (min-width: 780px) calc(3.55vw + 455px), (min-width: 400px) calc(100vw - 24px), calc(16.25vw + 294px)"
         class="w-1/2 sm:w-auto md:max-w-xs"
       />
 
@@ -90,11 +92,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon1.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon1.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Actualizar constantemente sus datos de contacto para facilitar una
               comunicación efectiva.
@@ -103,11 +101,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon6.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon6.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Utilizar adecuadamente y de manera racional las prestaciones
               ofrecidas, así como los recursos del sistema.
@@ -116,11 +110,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon2.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon2.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Cumplir con las normas y actuar de buena fe en relación con los
               servicios de salud.
@@ -129,11 +119,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon4.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon4.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Cuidar de su salud, la de su familia y la de la comunidad.
             </p>
@@ -141,11 +127,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon3.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon3.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Cumplir de manera responsable con las recomendaciones dadas por
               los profesionales de la salud.
@@ -154,11 +136,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon5.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon5.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Aportar información clara y veraz sobre su estado de salud y el de
               su familia.
@@ -167,11 +145,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon7.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon7.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Tratar con dignidad y respeto a todo el personal de la institución
               y a los demás usuarios, contribuyendo a una buena convivencia.
@@ -186,31 +160,19 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon14.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon14.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">Recibir una atención oportuna y segura.</p>
           </div>
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon13.src} 
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon13.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">Recibir una segunda opinión.</p>
           </div>
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon15.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon15.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Recibir un trato digno sin discriminación alguna.
             </p>
@@ -218,11 +180,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon10.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon10.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Manejo confidencial de su diagnóstico y su estado de salud.
             </p>
@@ -230,11 +188,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon8.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon8.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Elegir libremente la IPS y el profesional de salud que desea que
               lo trate, dentro de las posibilidades que le ofrece su EPS.
@@ -243,11 +197,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon11.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon11.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Recibir toda la información acerca de trámites administrativos
               para acceder a los servicios ofrecidos por su IPS.
@@ -256,11 +206,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon12.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon12.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Recibir información sobre presentación de PQRDF.
             </p>
@@ -268,11 +214,7 @@ import Chat from "@/components/common/Chat.astro";
           <div
             class="flex items-start space-x-3 p-4 bg-teal-500 border border-gray-200 rounded-xl shadow-lg hover:shadow-lg hover:scale-x-105 hover:shadow-gray-50 duration-500"
           >
-            <img
-              src={icon9.src}
-              alt=""
-              class="w-6 h-6 mt-1"
-            />
+            <img src={icon9.src} alt="" class="w-6 h-6 mt-1" />
             <p class="text-lg">
               Participar activamente y ser elegido como representante de los
               usuarios.

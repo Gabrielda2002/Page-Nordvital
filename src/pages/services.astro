@@ -16,7 +16,7 @@ import img from "@/images/Services/SERVICIOS.jpg?url";
 import odonIcon from "@/assets/services_icons/ico-se-6.svg?url";
 import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?url";
 import labIcon from "@/assets/services_icons/ico-se-3.svg?url";
-import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png?url";
+import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png";
 import imgDiagIcon from "@/assets/services_icons/ico-se-5.svg?url";
 import medEspIcon from "@/assets/services_icons/icos-se-8.svg?url";
 import manSaIcon from "@/assets/services_icons/ico-se-4.svg?url";
@@ -31,7 +31,7 @@ import odontoIcon6 from "@/assets/services_icons/odontologia/odo-6.svg?url";
 // img mantenimiento de la salud
 import manIcon1 from "@/assets/services_icons/manteSalud/mant-1.svg?url";
 import manIcon2 from "@/assets/services_icons/manteSalud/mant-2.svg?url";
-import Chat from "@/components/common/Chat.astro";
+import { Image } from "astro:assets";
 
 const serviceTabs = [
   {
@@ -67,8 +67,10 @@ const serviceTabs = [
 ];
 ---
 
-<Layout title="Servicios Médicos | Nordvital IPS - Atención médica integral" 
-description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia.">
+<Layout
+  title="Servicios Médicos | Nordvital IPS - Atención médica integral"
+  description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia."
+>
   <div>
     <div>
       <HeroSection title="Servicios" backgroundImage={img} />
@@ -151,9 +153,7 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
             </div>
 
             <div>
-              <h3 class="text-3xl font-bold text-center mb-8">
-                Te Ofrecemos:
-              </h3>
+              <h3 class="text-3xl font-bold text-center mb-8">Te Ofrecemos:</h3>
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 <div>
                   <CardServOdonto
@@ -300,9 +300,11 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
                 <Button title="Ver más" url="/users/laboratorios" />
               </div>
               <div class="lg:flex hidden justify-center items-center">
-                <img
+                <Image
                   src={imgCardLab}
                   alt="img card laboratorio"
+                  widths={[700, 1026, 1449, 1600, 1840, 2048]}
+                  sizes="(min-width: 1420px) 37.53vw, (min-width: 780px) calc(3.55vw + 455px), (min-width: 400px) calc(100vw - 24px), calc(16.25vw + 294px)"
                   class="w-[438px] h-[424px]"
                 />
               </div>
@@ -404,7 +406,9 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
             </div>
 
             <div>
-              <h4 class="text-3xl font-bold text-center mt-7 mb-8">Te ofrecemos:</h4>
+              <h4 class="text-3xl font-bold text-center mt-7 mb-8">
+                Te ofrecemos:
+              </h4>
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {
                   servicesImgDiag.map((s) => (
