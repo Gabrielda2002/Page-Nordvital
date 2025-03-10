@@ -154,7 +154,7 @@ const serviceTabs = [
 
             <div>
               <h3 class="text-3xl font-bold text-center mb-8">Te Ofrecemos:</h3>
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div class="grid grid-cols-1 lg:grid-cols-[28%_28%_28%] md:w-[90%] w-[110%] gap-6 justify-center mx-auto">
                 <div>
                   <CardServOdonto
                     title="Cirugía maxilofacial"
@@ -353,7 +353,9 @@ const serviceTabs = [
             <div class="mt-3 mb-3 lg:mb-0 lg:mt-0">
               <h4 class="text-3xl font-bold text-center mb-8">Te ofrecemos</h4>
 
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[114%] md:w-[85%] mx-auto"
+              >
                 {
                   servicesMdEsp.map((s) => (
                     <div>
@@ -409,7 +411,7 @@ const serviceTabs = [
               <h4 class="text-3xl font-bold text-center mt-7 mb-8">
                 Te ofrecemos:
               </h4>
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+              <div class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[90%] w-[110%] gap-6 justify-center mx-auto ">
                 {
                   servicesImgDiag.map((s) => (
                     <div>
@@ -482,27 +484,21 @@ const serviceTabs = [
                         description="Conjunto de procedimientos y servicios coordinados y diseñados para garantizar el cuidado integral de las mujeres embarazadas y sus recién nacidos"
                         image={manIcon1}
                       >
+                      <div class="space-y-2 leading-5 m-4">
                         <li>Atención para el cuidado preconcepcional.</li>
                         <li>Interrupción voluntaria del embarazo.</li>
                         <li>Atención para el cuidado prenatal.</li>
-                        <li>
-                          Atención en salud para la valoracion, promocion y
-                          apoyo de la lactancia materna.
-                        </li>
-                        <li>
-                          Curso de preparación para la maternidad y la
-                          paternidad.
-                        </li>
+                        <li>Atención en salud para la valoracion, promocion y apoyo de la lactancia materna.</li>
+                        <li>Curso de preparación para la maternidad y la paternidad.</li>
                         <li>Atención en salud bucal.</li>
-                        <li>
-                          Atención para la promoción de la alimentación y
-                          nutrición.
-                        </li>
+                        <li>Atención para la promoción de la alimentación y nutrición.</li>
                         <li>Atención del puerperio.</li>
                         <li>Atención para el cuidado recién nacido.</li>
                         <li>Atención para el seguimiento al recién nacido.</li>
                         <li>Educación para la salud.</li>
                         <li>Servicio de Vacunación.</li>
+                      </div>
+
                       </CardManteSalud>
                     </div>
                     <div>
@@ -512,37 +508,23 @@ const serviceTabs = [
                         description="Se refiere a las actividades y medidas destinadas prevenir enfermedades, detectar problemas de salud en etapas tempranas y promover una vida saludable."
                         image={manIcon2}
                       >
-                        <li>
-                          Atención en salud por pediatria, medicina general o
-                          familiar, y enfermería para la primera infancia.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general, pediatria o
-                          medicina familiar, y enfermería para la infancia.
-                        </li>
+                     
+                      <div class="space-y-2 leading-5 m-4">
+                        <li>Atención en salud por pediatria, medicina general o familiar, y enfermería para la primera infancia.</li>
+                        <li>Atención en salud por medicina general, pediatria o medicina familiar, y enfermería para la infancia.</li>
                         <li>Servicio de Vacunación.</li>
-                        <li>
-                          Atención en salud por medicina general o familiar y
-                          enfermería para la adolescencia.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general o familiar para
-                          la juventud.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general o familiar para
-                          la vejez.
-                        </li>
+                        <li>Atención en salud por medicina general o familiar y enfermería para la adolescencia.</li>
+                        <li>Atención en salud por medicina general o familiar para la juventud.</li>
+                        <li>Atención en salud por medicina general o familiar para la vejez.</li>
                         <li>Detección temprana de cáncer de cuello uterino.</li>
                         <li>Detección temprana de cáncer de mama.</li>
                         <li>Detección temprana de cancer de prostata.</li>
                         <li>Detección temprana de cáncer de colon y recto.</li>
-                        <li>
-                          Atención para la planificación familiar y la
-                          anticoncepción.
-                        </li>
+                        <li>Atención para la planificación familiar y la anticoncepción.</li>
                         <li>Fortificación con micronutrientes en polvo.</li>
                         <li>Educación y comunicación para la salud.</li>
+                      </div>
+                     
                       </CardManteSalud>
                     </div>
                   </div>

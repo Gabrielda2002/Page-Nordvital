@@ -28,9 +28,9 @@ import { Image } from "astro:assets";
     <HeroSection title="Asociación de usuarios" backgroundImage={img} />
 
     <div
-      class="container mx-auto px-8 h-auto w-full flex flex-col xl:flex-row items-center"
+      class="container items-center mx-auto md:px-[52px] h-auto w-[90%] flex flex-col xl:flex-row"
     >
-      <div class="rounded-3xl p-8 mb-8 w-full lg:w-1/2 text-xl">
+      <div class="rounded-3xl p-4 mb-4 w-full text-xl">
         <h1 class="text-4xl font-bold text-teal-500 mb-4">
           La asociación de usuarios
         </h1>
@@ -54,7 +54,7 @@ import { Image } from "astro:assets";
         </p>
       </div>
 
-      <div class="asociacion__container__item">
+      <div class="w-[90%] md:w-2/3 h-auto">
         <Image
           src={img2}
           alt=""
@@ -65,14 +65,14 @@ import { Image } from "astro:assets";
     </div>
 
     <div
-      class="mx-auto text-center text-teal-500 text-[34px] font-semibold w-2/3 leading-8"
+      class="mx-auto text-center text-teal-500 text-[30px] md:text-4xl font-semibold w-[80%] lg:w-[30%] leading-8 md:leading-10 mt-10"
     >
       <h1>
         Principales funciones de una junta de usuarios en <em>NordVital IPS</em>
       </h1>
     </div>
 
-    <div class="py-16">
+    <div class="py-8">
       <section
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-5xl mx-auto"
       >
