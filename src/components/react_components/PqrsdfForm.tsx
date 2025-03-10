@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import emailJs from "@emailjs/browser";
 
-import modal from "@/images/AboutUs/MISION_Y_VISION.jpg?url";
+import modal from "@/images/AboutUs/MISION_Y_VISION_1.webp?url";
 
 //icons
 import icon from "@/images/AboutUs/Recurso_2.svg";
