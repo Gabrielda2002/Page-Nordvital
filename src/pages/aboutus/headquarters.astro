@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import BreadCrumps from "@/components/common/HeroSection.astro";
 import img from "@/images/AboutUs/NOSOTROS.webp?url";
+import Chat from "@/components/common/Chat.astro";
 
 // * imgs cards
 import S01img1 from "@/images/Sedes/Cucuta/Sede 1/SEDE-1-1.webp";
@@ -77,7 +78,7 @@ description="Accede y descarga tus resultados de laboratorio clínico de Nordvit
     <BreadCrumps title="Nuestras sedes" backgroundImage={img} />
 
     <div class="pt-5 pb-5">
-      <div class="w-4/5 mx-auto mt-4 bg-transparent border-none">
+      <div class="w-3/4 mx-auto mt-4 bg-transparent border-none">
         <TapsContent tabs={CONTENT_TABS}>
           <div data-tab-content="cucuta">
             <Card

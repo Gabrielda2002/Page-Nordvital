@@ -9,13 +9,13 @@ const { title, backgroundImage } = Astro.props;
 
 <section
   class="bg-cover bg-gray-200 h-[400px] w-full flex items-center mb-12"
-  style={`background-image: url(${backgroundImage})`} 
+  style={`background-image: url(${backgroundImage})`}
 >
-  <section class="text-white w-1/2 m-16">
-    <a href="/" class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl inline-block min-w-max">
+  <section class="text-white w-1/2 m-20">
+    <a href="/" class="text-teal-500 font-normal bg-gray-100 p-2 rounded-3xl">
       Inicio <span class="text-teal-500 font-semibold">>{title}</span>
     </a>
-    <h1 class="text-[43px] font-normal mt-4 min-w-80">{title}</h1>
+    <h1 class="text-[43px] font-normal mt-4">{title}</h1>
   </section>
 </section>
  
