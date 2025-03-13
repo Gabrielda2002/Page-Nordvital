@@ -13,7 +13,7 @@ import ico3 from "@/images/Usuarios/Asociacion-Usuaris/ico-f3.svg";
 import ico4 from "@/images/Usuarios/Asociacion-Usuaris/ico-f4.svg";
 import ico5 from "@/images/Usuarios/Asociacion-Usuaris/ico-f5.svg";
 import ico6 from "@/images/Usuarios/Asociacion-Usuaris/ico-f6.svg";
-import Chat from "@/components/common/Chat.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Asociación">
@@ -28,9 +28,9 @@ import Chat from "@/components/common/Chat.astro";
     <HeroSection title="Asociación de usuarios" backgroundImage={img} />
 
     <div
-      class="container mx-auto px-8 py-8 h-auto w-full flex flex-col xl:flex-row items-center"
+      class="container items-center mx-auto md:px-[52px] h-auto w-[90%] flex flex-col xl:flex-row"
     >
-      <div class="rounded-3xl p-8 mb-8 w-full lg:w-1/2 text-xl">
+      <div class="rounded-3xl p-1 mb-4 w-full text-xl">
         <h1 class="text-4xl font-bold text-teal-500 mb-4">
           La asociación de usuarios
         </h1>
@@ -54,22 +54,27 @@ import Chat from "@/components/common/Chat.astro";
         </p>
       </div>
 
-      <div class="asociacion__container__item">
-        <img src={img2.src} alt="" />
+      <div class="w-[90%] md:w-2/3 h-auto">
+        <Image
+          src={img2}
+          alt=""
+          widths={[700, 1026, 1449, 1600, 1840, 2048]}
+          sizes="(min-width: 1420px) 37.53vw, (min-width: 780px) calc(3.55vw + 455px), (min-width: 400px) calc(100vw - 24px), calc(16.25vw + 294px)"
+        />
       </div>
     </div>
 
     <div
-      class="mx-auto text-center text-teal-500 text-[34px] font-semibold w-2/3 leading-8"
+      class="mx-auto text-center text-teal-500 text-[30px] md:text-4xl font-semibold w-[80%] lg:w-[30%] leading-8 md:leading-10 mt-10"
     >
       <h1>
         Principales funciones de una junta de usuarios en <em>NordVital IPS</em>
       </h1>
     </div>
 
-    <div class="py-16">
+    <div class="py-8">
       <section
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl mx-auto"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-5xl mx-auto"
       >
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
