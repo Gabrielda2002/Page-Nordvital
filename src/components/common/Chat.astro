@@ -10,12 +10,11 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
 <div id="whatsappContainer" class="fixed bottom-6 right-6 z-50">
 
     <img src={wh.src} class="w-24 h-w-24 transition-all duration-300 transform cursor-pointer" alt="" id="whatsappButton">
-  </button>
 </div>
 
 <div
   id="notificacion"
-  class="fixed bottom-24 right-6 w-80 bg-gradient-to-br from-teal-400 to-sky-500 text-white rounded-lg shadow-xl p-4 hidden transition-all duration-300 transform opacity-0 mb-4 z-50"
+  class="fixed bottom-24 right-6 w-72 md:w-[335px] bg-gradient-to-br from-teal-400 to-sky-500 text-white rounded-lg shadow-xl p-4 h-56 hidden transition-all duration-300 transform opacity-0 mb-4 z-50"
 >
   <button
     id="closeButton"
@@ -25,7 +24,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
   </button>
 
   <div class="mb-6">
-    <h3 class="text-2xl font-bold mb-2">¡Agenda tu cita ahora! 🎉</h3>
+    <h3 class="text-xl md:text-2xl min-w-max font-bold mb-2">¡Agenda tu cita ahora! 🎉</h3>
     <a
       href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
       target="_blank"
@@ -36,7 +35,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
   </div>
 
   <div>
-    <h3 class="text-2xl font-bold mb-2">¿Buscas tus resultados? 🔍</h3>
+    <h3 class="text-xl md:text-2xl font-bold mb-2">¿Buscas tus resultados? 🔍</h3>
     <a
       href="https://api.whatsapp.com/send?phone=573160277566&text=Resultados Laboratorio Nordvital IPS"
       target="_blank"
