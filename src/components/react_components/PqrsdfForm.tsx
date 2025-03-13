@@ -134,7 +134,7 @@ const PqrsdfForm = () => {
 
   return (
     <>
-      <section className="w-[55%] mx-auto items-center text-center text-lg text-gray-500 mb-10 font-medium">
+      <section className="w-[85%] md:w-[55%] mx-auto items-center text-center text-lg text-gray-500 mb-10 font-medium">
         <p>
           Con el fin de facilitar este proceso,
           <strong>hemos desarrollado un formato</strong> que puede completar
@@ -154,7 +154,7 @@ const PqrsdfForm = () => {
       >
         <div className="card-body flex flex-col md:flex-row items-center justify-between p-3 md:p-6">
           <div className="mv__titulo text-center md:text-left">
-            <h5 className="text-white text-2xl md:text-[38px] font-bold mb-3">
+            <h5 className="text-white text-3xl md:text-[32px] font-bold mb-3">
               PQRSFD
             </h5>
             <p className="text-white w-full md:w-2/3">
