@@ -67,8 +67,10 @@ const serviceTabs = [
 ];
 ---
 
-<Layout title="Servicios Médicos | Nordvital IPS - Atención médica integral" 
-description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia.">
+<Layout
+  title="Servicios Médicos | Nordvital IPS - Atención médica integral"
+  description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia."
+>
   <div>
     <div>
       <HeroSection title="Servicios" backgroundImage={img} />
@@ -151,10 +153,10 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
             </div>
 
             <div>
-              <h3 class="text-3xl font-bold text-center mb-8">
-                Te Ofrecemos:
-              </h3>
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <h3 class="text-3xl font-bold text-center mb-8">Te Ofrecemos:</h3>
+              <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[105%] md:w-[75%] mx-auto"
+              >
                 <div>
                   <CardServOdonto
                     title="Cirugía maxilofacial"
@@ -352,7 +354,7 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
               <h4 class="text-3xl font-bold text-center mb-8">Te ofrecemos</h4>
 
               <div
-                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[114%] md:w-[80%] mx-auto"
+                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[105%] md:w-[75%] mx-auto"
               >
                 {
                   servicesMdEsp.map((s) => (
@@ -409,7 +411,9 @@ description="Nordvital IPS ofrece servicios médicos completos: medicina general
               <h4 class="text-3xl font-bold text-center mt-7 mb-8">
                 Te ofrecemos:
               </h4>
-              <div class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[85%] w-[110%] gap-6 justify-center mx-auto ">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[75%] w-[100%] gap-6 justify-center mx-auto"
+              >
                 {
                   servicesImgDiag.map((s) => (
                     <div>
