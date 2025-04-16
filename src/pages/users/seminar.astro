@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Usuarios/Seminario/seminari_1.webp?url";
 import icon from "@/images/Usuarios/Seminario/webinar.svg";
+
+import icon2 from "@/images/pdf_icon.svg";
 ---
 
 <Layout title="Seminario">
@@ -19,7 +21,7 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
       backgroundImage={img}
     />
 
-    <div class="px-4 py-8 max-w-7xl mx-auto">
+    <div class="px-4 mb-6 max-w-[90%] md:max-w-[80%] mx-auto">
       <div class="space-y-6">
         <div class="flex items-center space-x-3">
           <img src={icon.src} alt="" class="h-8 md:h-11" />
@@ -89,18 +91,14 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
                     <th class="px-2 py-4 text-left text-md font-bold"
                       >Formato</th
                     >
-                    <th class="px-2 py-4 text-left text-md font-bold"
-                      >Nombre</th
+                    <th class="px-2 py-4 text-left text-md font-bold">Nombre</th
                     >
-                    <th class="px-2 py-4 text-left text-md font-bold"
-                      >Tamaño</th
+                    <th class="px-2 py-4 text-left text-md font-bold">Tamaño</th
                     >
                     <th class="px-2 py-4 text-left text-md font-bold"
                       >Fecha Agregada</th
                     >
-                    <th class=" py-4 text-left text-md font-bold"
-                      >Descargar</th
-                    >
+                    <th class="py-4 text-left text-md font-bold">Descargar</th>
                   </tr>
                 </thead>
                 <tbody id="table__response">
@@ -132,10 +130,14 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
     formCertificado.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const dni = document.getElementById("dni__participante") as HTMLInputElement;
+      const dni = document.getElementById(
+        "dni__participante"
+      ) as HTMLInputElement;
       const dniValue = dni?.value;
       const tableResponse = document.getElementById("table__response");
-      const contenedorTabla = document.getElementById("tablaResultados") as HTMLElement;
+      const contenedorTabla = document.getElementById(
+        "tablaResultados"
+      ) as HTMLElement;
 
       try {
         const response = await fetch(
@@ -149,7 +151,7 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
 
         const data = await response.json();
 
-        tableResponse ?  tableResponse.innerHTML = "" : null;
+        tableResponse ? (tableResponse.innerHTML = "") : null;
 
         if (!Array.isArray(data)) {
           const tr = document.createElement("tr");
@@ -159,7 +161,7 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
           const tdIcon = document.createElement("td");
           tdIcon.className = "px-2 py-3";
           const imgIcon = document.createElement("img");
-          imgIcon.src = "/src/images/pdf_icon.svg";
+          imgIcon.src = "${icon2.src}";
           imgIcon.alt = "pdf-icon";
           imgIcon.className = "w-5 h-5";
           tdIcon.appendChild(imgIcon);
@@ -192,7 +194,6 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
             "hover:bg-teal-200 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500";
 
           aDownload.addEventListener("click", async (e) => {
-
             try {
               const downloadResponse = await fetch(
                 `https://api.nordvitalips.com/api/v1/certificados-download/${data.dni}`,
@@ -215,7 +216,6 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
               tempLink.click();
               document.body.removeChild(tempLink);
               URL.revokeObjectURL(downloadUrl);
-
             } catch (error) {
               console.error("Error en la descarga del certificado:", error);
               alert(
@@ -228,11 +228,11 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
           tr.appendChild(tdDownload);
           tableResponse?.appendChild(tr);
           contenedorTabla.style.display = "block";
-
         } else if (data.length === 0) {
-          alert("No se encontraron certificados para este número de documento.");
+          alert(
+            "No se encontraron certificados para este número de documento."
+          );
           formCertificado.reset();
-          
         }
       } catch (error) {
         alert(
