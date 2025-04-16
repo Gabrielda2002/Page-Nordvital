@@ -3,8 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Usuarios/Seminario/seminari_1.webp?url";
 import icon from "@/images/Usuarios/Seminario/webinar.svg";
-
-import icon2 from "@/images/pdf_icon.svg";
 ---
 
 <Layout title="Seminario">
@@ -122,6 +120,9 @@ import icon2 from "@/images/pdf_icon.svg";
 </Layout>
 
 <script>
+
+  const pdfIconUrl = `${import.meta.env.BASE_URL}src/images/pdf_icon.svg`;
+
   const formCertificado = document.getElementById(
     "form__certificado-seminario"
   ) as HTMLFormElement;
@@ -161,7 +162,7 @@ import icon2 from "@/images/pdf_icon.svg";
           const tdIcon = document.createElement("td");
           tdIcon.className = "px-2 py-3";
           const imgIcon = document.createElement("img");
-          imgIcon.src = "${icon2.src}";
+          imgIcon.src = pdfIconUrl; // Usar la URL completa
           imgIcon.alt = "pdf-icon";
           imgIcon.className = "w-5 h-5";
           tdIcon.appendChild(imgIcon);
