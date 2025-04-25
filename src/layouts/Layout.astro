@@ -6,6 +6,7 @@ interface Props {
 import Chat from "@/components/common/Chat.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import LoaderSkeleton from "@/components/react_components/LoaderSkeleton";
 const { title, description = "Servicios de salud de alta calidad" } =
   Astro.props;
 ---
@@ -35,21 +36,36 @@ const { title, description = "Servicios de salud de alta calidad" } =
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     ></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"
+    ></script>
   </head>
 </html>
 <body class="overflow-x-hidden">
+  <LoaderSkeleton client:load />
   <Header />
   <main class="w-full">
     <slot />
     <Chat />
   </main>
   <Footer />
+  <script is:inline>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("global-loader");
+      console.log(loader);
+      if (loader) {
+        loader.style.opacity = "0";
+        setTimeout(() => (loader.style.display = "none"), 500);
+      }
+    });
+  </script>
 </body>
 
 <style>
   html,
-  html, body {
+  html,
+  body {
     margin: 0;
     width: 100%;
     padding: 0;
