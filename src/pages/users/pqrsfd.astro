@@ -8,7 +8,6 @@ import HeroSection from "@/components/common/HeroSection.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp?url";
 import Images from "@/images/Header/2147900168_11zon.webp";
 import PqrsdfForm from "@/components/react_components/PqrsdfForm";
-import Chat from "@/components/common/Chat.astro";
 ---
 
 <Layout title="PQRSFD">
@@ -38,10 +37,12 @@ import Chat from "@/components/common/Chat.astro";
         </p>
       </div>
       <div class="w-full lg:w-1/2 h-2/3">
-        <img
-          src={Images.src}
-          alt=""
-          class="h-auto w-full object-cover"
+        <Image
+          src={Images}
+          alt="PQRSFD"
+          class="rounded-3xl w-full h-full object-cover"
+          width={1920}
+          height={1080}
         />
       </div>
     </div>

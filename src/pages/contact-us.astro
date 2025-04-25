@@ -13,8 +13,10 @@ import icon4 from "@/images/Contactanos/horario.svg";
 import Chat from "@/components/common/Chat.astro";
 ---
 
-<Layout title="Contacto | Nordvital IPS - Atención y Soporte" 
-description="Contáctanos para resolver dudas, agendar citas o unirte a nuestro equipo. Nordvital IPS ofrece atención personalizada a través de nuestras líneas telefónicas, correo y chat de servicio." >
+<Layout
+  title="Contacto | Nordvital IPS - Atención y Soporte"
+  description="Contáctanos para resolver dudas, agendar citas o unirte a nuestro equipo. Nordvital IPS ofrece atención personalizada a través de nuestras líneas telefónicas, correo y chat de servicio."
+>
   <head>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -98,14 +100,13 @@ description="Contáctanos para resolver dudas, agendar citas o unirte a nuestro 
             </div>
           </div>
 
-           <div id="form-contacto" class="p-3">
-             <MessageFormCotactUs client:load/>
-           </div>
+          <div id="form-contacto" class="p-3">
+            <MessageFormCotactUs client:load />
+          </div>
 
-            <div id="form-puesto-trabajo" class="p-3">
-              <WorkUsForm client:load />
-            </div>  
-
+          <div id="form-puesto-trabajo" class="p-3">
+            <WorkUsForm client:load />
+          </div>
         </div>
       </div>
     </div>
