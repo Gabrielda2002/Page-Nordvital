@@ -16,7 +16,7 @@ import img from "@/images/Services/SERVICIOS.jpg?url";
 import odonIcon from "@/assets/services_icons/ico-se-6.svg?url";
 import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?url";
 import labIcon from "@/assets/services_icons/ico-se-3.svg?url";
-import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png";
+import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png?url";
 import imgDiagIcon from "@/assets/services_icons/ico-se-5.svg?url";
 import medEspIcon from "@/assets/services_icons/icos-se-8.svg?url";
 import manSaIcon from "@/assets/services_icons/ico-se-4.svg?url";
@@ -31,7 +31,7 @@ import odontoIcon6 from "@/assets/services_icons/odontologia/odo-6.svg?url";
 // img mantenimiento de la salud
 import manIcon1 from "@/assets/services_icons/manteSalud/mant-1.svg?url";
 import manIcon2 from "@/assets/services_icons/manteSalud/mant-2.svg?url";
-import { Image } from "astro:assets";
+import Chat from "@/components/common/Chat.astro";
 
 const serviceTabs = [
   {
@@ -154,7 +154,9 @@ const serviceTabs = [
 
             <div>
               <h3 class="text-3xl font-bold text-center mb-8">Te Ofrecemos:</h3>
-              <div class="grid grid-cols-1 lg:grid-cols-[28%_28%_28%] md:w-[90%] w-[110%] gap-6 justify-center mx-auto">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[105%] md:w-[75%] mx-auto"
+              >
                 <div>
                   <CardServOdonto
                     title="Cirugía maxilofacial"
@@ -300,11 +302,9 @@ const serviceTabs = [
                 <Button title="Ver más" url="/users/laboratorios" />
               </div>
               <div class="lg:flex hidden justify-center items-center">
-                <Image
+                <img
                   src={imgCardLab}
                   alt="img card laboratorio"
-                  widths={[700, 1026, 1449, 1600, 1840, 2048]}
-                  sizes="(min-width: 1420px) 37.53vw, (min-width: 780px) calc(3.55vw + 455px), (min-width: 400px) calc(100vw - 24px), calc(16.25vw + 294px)"
                   class="w-[438px] h-[424px]"
                 />
               </div>
@@ -354,7 +354,7 @@ const serviceTabs = [
               <h4 class="text-3xl font-bold text-center mb-8">Te ofrecemos</h4>
 
               <div
-                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[114%] md:w-[80%] mx-auto"
+                class="grid grid-cols-1 lg:grid-cols-3 gap-7 w-[105%] md:w-[75%] mx-auto"
               >
                 {
                   servicesMdEsp.map((s) => (
@@ -411,7 +411,9 @@ const serviceTabs = [
               <h4 class="text-3xl font-bold text-center mt-7 mb-8">
                 Te ofrecemos:
               </h4>
-              <div class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[85%] w-[110%] gap-6 justify-center mx-auto ">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[75%] w-[100%] gap-6 justify-center mx-auto"
+              >
                 {
                   servicesImgDiag.map((s) => (
                     <div>
@@ -484,21 +486,27 @@ const serviceTabs = [
                         description="Conjunto de procedimientos y servicios coordinados y diseñados para garantizar el cuidado integral de las mujeres embarazadas y sus recién nacidos"
                         image={manIcon1}
                       >
-                      <div class="space-y-2 leading-5 m-4">
                         <li>Atención para el cuidado preconcepcional.</li>
                         <li>Interrupción voluntaria del embarazo.</li>
                         <li>Atención para el cuidado prenatal.</li>
-                        <li>Atención en salud para la valoracion, promocion y apoyo de la lactancia materna.</li>
-                        <li>Curso de preparación para la maternidad y la paternidad.</li>
+                        <li>
+                          Atención en salud para la valoracion, promocion y
+                          apoyo de la lactancia materna.
+                        </li>
+                        <li>
+                          Curso de preparación para la maternidad y la
+                          paternidad.
+                        </li>
                         <li>Atención en salud bucal.</li>
-                        <li>Atención para la promoción de la alimentación y nutrición.</li>
+                        <li>
+                          Atención para la promoción de la alimentación y
+                          nutrición.
+                        </li>
                         <li>Atención del puerperio.</li>
                         <li>Atención para el cuidado recién nacido.</li>
                         <li>Atención para el seguimiento al recién nacido.</li>
                         <li>Educación para la salud.</li>
                         <li>Servicio de Vacunación.</li>
-                      </div>
-
                       </CardManteSalud>
                     </div>
                     <div>
@@ -508,23 +516,37 @@ const serviceTabs = [
                         description="Se refiere a las actividades y medidas destinadas prevenir enfermedades, detectar problemas de salud en etapas tempranas y promover una vida saludable."
                         image={manIcon2}
                       >
-                     
-                      <div class="space-y-2 leading-5 m-4">
-                        <li>Atención en salud por pediatria, medicina general o familiar, y enfermería para la primera infancia.</li>
-                        <li>Atención en salud por medicina general, pediatria o medicina familiar, y enfermería para la infancia.</li>
+                        <li>
+                          Atención en salud por pediatria, medicina general o
+                          familiar, y enfermería para la primera infancia.
+                        </li>
+                        <li>
+                          Atención en salud por medicina general, pediatria o
+                          medicina familiar, y enfermería para la infancia.
+                        </li>
                         <li>Servicio de Vacunación.</li>
-                        <li>Atención en salud por medicina general o familiar y enfermería para la adolescencia.</li>
-                        <li>Atención en salud por medicina general o familiar para la juventud.</li>
-                        <li>Atención en salud por medicina general o familiar para la vejez.</li>
+                        <li>
+                          Atención en salud por medicina general o familiar y
+                          enfermería para la adolescencia.
+                        </li>
+                        <li>
+                          Atención en salud por medicina general o familiar para
+                          la juventud.
+                        </li>
+                        <li>
+                          Atención en salud por medicina general o familiar para
+                          la vejez.
+                        </li>
                         <li>Detección temprana de cáncer de cuello uterino.</li>
                         <li>Detección temprana de cáncer de mama.</li>
                         <li>Detección temprana de cancer de prostata.</li>
                         <li>Detección temprana de cáncer de colon y recto.</li>
-                        <li>Atención para la planificación familiar y la anticoncepción.</li>
+                        <li>
+                          Atención para la planificación familiar y la
+                          anticoncepción.
+                        </li>
                         <li>Fortificación con micronutrientes en polvo.</li>
                         <li>Educación y comunicación para la salud.</li>
-                      </div>
-                     
                       </CardManteSalud>
                     </div>
                   </div>

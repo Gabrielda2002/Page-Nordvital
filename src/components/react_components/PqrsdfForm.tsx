@@ -149,10 +149,10 @@ const PqrsdfForm = () => {
       </section>
 
       <div
-        className="card md:mx-auto mb-5 md:w-[62%] h-auto md:h-[150px] bg-cover bg-no-repeat rounded-[40px] w-[85%] mx-auto"
+        className="mx-4 md:mx-auto mt-5 mb-5 md:w-2/3 h-auto md:h-[180px] bg-cover bg-no-repeat rounded-[40px]"
         style={{ backgroundImage: `url(${modal})` }}
       >
-        <div className="card-body flex flex-col md:flex-row items-center justify-between p-3 md:p-6">
+        <div className="card-body flex flex-col md:flex-row items-center justify-between p-6 md:p-10">
           <div className="mv__titulo text-center md:text-left">
             <h5 className="text-white text-3xl md:text-[32px] font-bold mb-3">
               PQRSFD
@@ -165,7 +165,7 @@ const PqrsdfForm = () => {
           <div className="m-2">
             <label
               id="openModal"
-              className="cursor-pointer md:p-14"
+              className="cursor-pointer p-4 md:p-14"
               onClick={() => setStandOpen(true)}
             >
               <img src={icon.src} alt="Icono Misión y Visión" />
@@ -622,6 +622,133 @@ const PqrsdfForm = () => {
                 </div>
               </div>
             </div>
+
+            {/* <script>
+
+      import emailJs from '@emailjs/browser'
+
+      const departamentoSelect = document.querySelector(".departamento");
+      const municipioSelect = document.querySelector(".municipio");
+
+      if (departamentoSelect) {
+        // URL de la API que contiene los departamentos y municipios
+        const apiURL =
+          "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.json";
+
+        fetch(apiURL)
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach(
+              (departamento: { departamento: string; ciudades: string[] }) => {
+                const option = document.createElement("option");
+                option.value = departamento.departamento;
+                option.textContent = departamento.departamento;
+                departamentoSelect.appendChild(option);
+              }
+            );
+
+            departamentoSelect.addEventListener(
+              "change",
+              function (this: HTMLSelectElement) {
+                const selectedDepartamento = this.value;
+                if (municipioSelect) {
+                  municipioSelect.innerHTML =
+                    '<option selected disabled value="">Seleccione</option>';
+
+                  const departamento = data.find(
+                    (dep: { departamento: string; ciudades: string[] }) =>
+                      dep.departamento === selectedDepartamento
+                  );
+                  if (departamento && departamento.ciudades) {
+                    // Poblar los municipios
+                    departamento.ciudades.forEach((municipio: string) => {
+                      const option = document.createElement("option");
+                      option.value = municipio;
+                      option.textContent = municipio;
+                      municipioSelect.appendChild(option);
+                    });
+
+                    // Habilitar el select de municipios
+                    municipioSelect.removeAttribute("disabled");
+                  } else {
+                    municipioSelect.setAttribute("disabled", "true");
+                  }
+                }
+              }
+            );
+          })
+          .catch((error) => console.error("Error al cargar los datos:", error));
+      }
+      // modal de formulario
+
+      const modal = document.getElementById("formModal");
+      const openButton = document.getElementById("openModal");
+      const closeButton = document.getElementById("closeModal");
+
+      const toggleModal = (event: boolean) => {
+        if (modal) {
+          if (event) {
+            modal.classList.remove("hidden");
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+          } else {
+            modal.classList.add("hidden");
+            document.documentElement.style.overflow = "auto";
+            document.body.style.overflow = "auto";
+          }
+        }
+      };
+      if (openButton) {
+        openButton.addEventListener("click", () => toggleModal(true));
+      }
+
+      if (closeButton) {
+        closeButton.addEventListener("click", () => toggleModal(false));
+      }
+
+      // envio datos formulario a correo
+
+      
+      const form = document.getElementById("pqrsfd-form") as HTMLFormElement;
+
+      form?.addEventListener('submit', async  (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+          await emailJs.send('service_i4i8je4', 'template_df99alq', {
+            t_email: 'info@nordvitalips.com',
+            nombre: formData.get('nombre'),
+            apellido: formData.get('apellido'),
+            tipo_identificacion: formData.get('tipo-identificacion'),
+            numero_identificacion: formData.get('numero-identificacion'),
+            fecha: formData.get('fecha'),
+            celular: formData.get('celular'),
+            fijo: formData.get('fijo'),
+            departamento: formData.get('departamento'),
+            municipio: formData.get('municipio'),
+            eps: formData.get('eps'),
+            email: formData.get('email'),
+            tipo_solicitud: formData.get('tipo-solicitud'),
+            asunto: formData.get('asunto'),
+            solicitud: formData.get('solicitud')
+          },
+        "EU9Av1Gcbfi0qIVJC"
+      );
+
+          alert('Informacion enviada exitosamente.')
+
+
+        } catch (error) {
+          console.log(error)
+        }
+
+      })
+
+
+      
+    </script> */}
           </div>
         </div>
       )}
