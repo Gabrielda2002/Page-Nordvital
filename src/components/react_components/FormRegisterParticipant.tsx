@@ -46,6 +46,8 @@ const FormRegisterParticipant = () => {
       .required("Document is required")
       .min(5, "Document must be at least 5 digits long")
       .max(20, "Document must be at most 20 digits long"),
+    company: Yup.string().required("Company is required"),
+    address: Yup.string().required("Address is required"),
   });
 
   const formik = useFormik({
@@ -61,6 +63,8 @@ const FormRegisterParticipant = () => {
       profession: "",
       typeDocument: "",
       document: "",
+      company: "",
+      address: "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -73,12 +77,14 @@ const FormRegisterParticipant = () => {
         formData.append("email", values.email);
         formData.append("phone", values.phone);
         formData.append("country", values.pais);
-        formData.append("departamento", values.departamento);
+        formData.append("department", values.departamento);
         formData.append("city", values.ciudad);
         formData.append("typeParticipant", values.typeParticipant);
         formData.append("profession", values.profession);
         formData.append("typeDocument", values.typeDocument);
         formData.append("numberDocument", values.document);
+        formData.append("company", values.company);
+        formData.append("address", values.address);
 
         const response = await createParticipant(formData);
         // Handle success or perform additional actions here if needed
@@ -92,10 +98,9 @@ const FormRegisterParticipant = () => {
           setError(
             "Correo o documento ya registrados o revise el formato de los campos."
           );
-        }else {
-            setError(`Error al registrar el participante ${error.message}`);
+        } else {
+          setError(`Error al registrar el participante ${error.message}`);
         }
-
       } finally {
         setLoading(false);
       }
@@ -172,13 +177,69 @@ const FormRegisterParticipant = () => {
       ) : (
         <form
           onSubmit={formik.handleSubmit}
-          className="w-full max-w-lg mx-auto mt-10"
+          className="w-full mx-auto mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">
             Formulario Registro Seminario 2025
           </h3>
 
-          <div>
+          <div className="grid grid-cols-1 md:grid-cols-4 md:gap-5">
+            <div className="mb-4">
+              <label
+                htmlFor="typeDocument"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Tipo de documento
+                <span className="text-red-500 text-xl">*</span>
+              </label>
+              <select
+                id="typeDocument"
+                name="typeDocument"
+                onChange={formik.handleChange}
+                value={formik.values.typeDocument}
+                onBlur={formik.handleBlur}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  formik.errors.typeDocument ? "border-red-500" : ""
+                }`}
+              >
+                <option value="">Seleccione su tipo de documento</option>
+                <option value="CC">Cédula de Ciudadanía</option>
+                <option value="TI">Tarjeta de Identidad</option>
+              </select>
+              {formik.touched.typeDocument && formik.errors.typeDocument && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.typeDocument}
+                </div>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="document"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Número de documento
+                <span className="text-red-500 text-xl">*</span>
+              </label>
+              <input
+                type="text"
+                id="document"
+                name="document"
+                onChange={formik.handleChange}
+                value={formik.values.document}
+                onBlur={formik.handleBlur}
+                placeholder="Ej: 1234567890"
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  formik.errors.document ? "border-red-500" : ""
+                }`}
+              />
+              {formik.touched.document && formik.errors.document && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.document}
+                </div>
+              )}
+            </div>
+
             <div className="mb-4">
               <label
                 htmlFor="name"
@@ -229,6 +290,61 @@ const FormRegisterParticipant = () => {
                 </div>
               )}
             </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="profession"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Profesión
+                <span className="text-red-500 text-xl">*</span>
+              </label>
+              <input
+                type="text"
+                id="profession"
+                name="profession"
+                onChange={formik.handleChange}
+                value={formik.values.profession}
+                placeholder="Ej: Ingeniero"
+                onBlur={formik.handleBlur}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  formik.errors.profession ? "border-red-500" : ""
+                }`}
+              />
+              {formik.touched.profession && formik.errors.profession && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.profession}
+                </div>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="company"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Empresa
+                <span className="text-red-500 text-xl">*</span>
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                onChange={formik.handleChange}
+                value={formik.values.company}
+                onBlur={formik.handleBlur}
+                placeholder="Ej: Google"
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  formik.errors.company ? "border-red-500" : ""
+                }`}
+              />
+              {formik.touched.company && formik.errors.company && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.company}
+                </div>
+              )}
+            </div>
+
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -260,7 +376,7 @@ const FormRegisterParticipant = () => {
                 htmlFor="phone"
                 className="block text-gray-700 text-sm font-bold mb-2"
               >
-                Telefono
+                Celular
                 <span className="text-red-500 text-xl">*</span>
               </label>
               <input
@@ -281,6 +397,34 @@ const FormRegisterParticipant = () => {
                 </div>
               )}
             </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="address"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Dirección
+                <span className="text-red-500 text-xl">*</span>
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                onChange={formik.handleChange}
+                value={formik.values.address}
+                onBlur={formik.handleBlur}
+                placeholder="Ej: Calle 123 #45-67"
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  formik.errors.address ? "border-red-500" : ""
+                }`}
+              />
+              {formik.touched.address && formik.errors.address && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.address}
+                </div>
+              )}
+            </div>
+
             <div className="mb-4">
               <label
                 htmlFor="pais"
@@ -411,88 +555,6 @@ const FormRegisterParticipant = () => {
                   </div>
                 )}
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="profession"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Profesión
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="profession"
-                name="profession"
-                onChange={formik.handleChange}
-                value={formik.values.profession}
-                placeholder="Ej: Ingeniero"
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.profession ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.profession && formik.errors.profession && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.profession}
-                </div>
-              )}
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="typeDocument"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Tipo de documento
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="typeDocument"
-                name="typeDocument"
-                onChange={formik.handleChange}
-                value={formik.values.typeDocument}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.typeDocument ? "border-red-500" : ""
-                }`}
-              >
-                <option value="">Seleccione su tipo de documento</option>
-                <option value="CC">Cédula de Ciudadanía</option>
-                <option value="TI">Tarjeta de Identidad</option>
-              </select>
-              {formik.touched.typeDocument && formik.errors.typeDocument && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.typeDocument}
-                </div>
-              )}
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="document"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Número de documento
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="document"
-                name="document"
-                onChange={formik.handleChange}
-                value={formik.values.document}
-                onBlur={formik.handleBlur}
-                placeholder="Ej: 1234567890"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.document ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.document && formik.errors.document && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.document}
-                </div>
-              )}
-            </div>
 
             <div>
               {error && (
@@ -504,16 +566,15 @@ const FormRegisterParticipant = () => {
                 </div>
               )}
             </div>
-
-            <div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                disabled={formik.isSubmitting || !formik.isValid}
-              >
-                Registrarme
-              </button>
-            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              disabled={formik.isSubmitting || !formik.isValid}
+            >
+              Registrarme
+            </button>
           </div>
         </form>
       )}
