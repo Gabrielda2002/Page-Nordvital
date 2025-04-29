@@ -88,9 +88,7 @@ const FormRegisterParticipant = () => {
           setError(null);
         }
       } catch (error: any) {
-        console.log("entro al catch")
         if (error.response.status === 400) {
-            console.log("entro aqui")
           setError(
             "Correo o documento ya registrados o revise el formato de los campos."
           );
@@ -304,8 +302,8 @@ const FormRegisterParticipant = () => {
                 <option value="">Seleccione un país</option>
                 {loadingPaises && <option>Cargando...</option>}
                 {errorPaises && <option>{errorPaises}</option>}
-                {paises.map((pais) => (
-                  <option key={pais} value={pais}>
+                {paises.map((pais, index) => (
+                  <option key={index} value={pais}>
                     {pais}
                   </option>
                 ))}
@@ -336,8 +334,8 @@ const FormRegisterParticipant = () => {
                 <option value="">Seleccione un departamento</option>
                 {loadingDepartamentos && <option>Cargando...</option>}
                 {errorDepartamentos && <option>{errorDepartamentos}</option>}
-                {departamentos.map((dep) => (
-                  <option key={dep} value={dep}>
+                {departamentos.map((dep, index) => (
+                  <option key={index} value={dep}>
                     {dep}
                   </option>
                 ))}
@@ -370,8 +368,8 @@ const FormRegisterParticipant = () => {
                 <option value="">Seleccione una ciudad</option>
                 {loadingCiudades && <option>Cargando...</option>}
                 {errorCiudades && <option>{errorCiudades}</option>}
-                {ciudades.map((ciudad) => (
-                  <option key={ciudad} value={ciudad}>
+                {ciudades.map((ciudad, index) => (
+                  <option key={index} value={ciudad}>
                     {ciudad}
                   </option>
                 ))}
@@ -401,8 +399,10 @@ const FormRegisterParticipant = () => {
                 }`}
               >
                 <option value="">Seleccione su tipo de participación</option>
-                <option value="student">Student</option>
-                <option value="professional">Professional</option>
+                <option value="virtual">Virtual</option>
+                <option value="presencial">Presencial</option>
+                <option value="poniente">Poniente</option>
+                <option value="organizador">Organizador</option>
               </select>
               {formik.touched.typeParticipant &&
                 formik.errors.typeParticipant && (
