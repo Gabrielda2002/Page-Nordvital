@@ -79,10 +79,13 @@ const CustomForm: React.FC<CustomFormProps> = ({
           fileUrl = response.data.fileUrl;
         }
 
-
         const emailCustom = showCV === true 
         ? import.meta.env.PUBLIC_TARGET_EMAIL_WORKUS
         : import.meta.env.PUBLIC_TARGET_EMAIL;
+
+        const templateCustom = showCV === true 
+        ? import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS
+        : import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
 
         const emailData = {
           t_email: emailCustom,
@@ -93,11 +96,18 @@ const CustomForm: React.FC<CustomFormProps> = ({
           descripcion: values.descripcion,
           asunto: values.asunto || "Sin asunto",
           adjunto: fileUrl,
+          fecha_aplicacion: new Date().toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+          })
         };
 
         await emailJs.send(
           import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
-          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+          templateCustom,
           emailData,
           import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
         );
@@ -361,7 +371,7 @@ const CustomForm: React.FC<CustomFormProps> = ({
             className="bg-sky-500 px-6 py-2 rounded-lg text-white shadow-md hover:bg-sky-600 hover:scale-105 transition-all"
             name="enviado"
           >
-            {showAsunto ? "Enviar" : "Enviar Solicitud"}
+            {showAsunto ? "Enviar Mensaje" : "Enviar Solicitud"}
           </button>
         </div>
       </form>
