@@ -79,7 +79,7 @@ const PqrsdfForm = () => {
     asunto: Yup.string().required("El asunto es obligatorio"),
     solicitud: Yup.string().required("La solicitud es obligatoria"),
   });
-  console.log(import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_PQRS)
+  console.log(import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_PQRS);
 
   const formik = useFormik({
     initialValues: {
@@ -236,10 +236,14 @@ const PqrsdfForm = () => {
                             onChange={formik.handleChange}
                             value={formik.values.nombre}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.nombre && formik.errors.nombre
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.nombre && formik.errors.nombre && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.nombre}
                             </div>
                           )}
@@ -258,11 +262,15 @@ const PqrsdfForm = () => {
                             value={formik.values.apellido}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.apellido && formik.errors.apellido
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.apellido &&
                             formik.errors.apellido && (
-                              <div className="text-red-500 text-sm">
+                              <div className="text-red-500 text-base">
                                 {formik.errors.apellido}
                               </div>
                             )}
@@ -282,7 +290,12 @@ const PqrsdfForm = () => {
                             value={formik.values.tipoIdentificacion}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.tipoIdentificacion &&
+                              formik.errors.tipoIdentificacion
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           >
                             <option value="">Seleccione</option>
                             <option value="cc">Cédula de Ciudadanía</option>
@@ -291,7 +304,7 @@ const PqrsdfForm = () => {
                           </select>
                           {formik.touched.tipoIdentificacion &&
                             formik.errors.tipoIdentificacion && (
-                              <div className="text-red-500 text-sm">
+                              <div className="text-red-500 text-base">
                                 {formik.errors.tipoIdentificacion}
                               </div>
                             )}
@@ -310,11 +323,16 @@ const PqrsdfForm = () => {
                             value={formik.values.numeroIdentificacion}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.numeroIdentificacion &&
+                              formik.errors.numeroIdentificacion
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.numeroIdentificacion &&
                             formik.errors.numeroIdentificacion && (
-                              <div className="text-red-500 text-sm">
+                              <div className="text-red-500 text-base">
                                 {formik.errors.numeroIdentificacion}
                               </div>
                             )}
@@ -335,10 +353,14 @@ const PqrsdfForm = () => {
                             value={formik.values.fecha}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.fecha && formik.errors.fecha
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.fecha && formik.errors.fecha && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.fecha}
                             </div>
                           )}
@@ -357,10 +379,14 @@ const PqrsdfForm = () => {
                             value={formik.values.celular}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.celular && formik.errors.celular
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.celular && formik.errors.celular && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.celular}
                             </div>
                           )}
@@ -382,10 +408,14 @@ const PqrsdfForm = () => {
                             value={formik.values.fijo}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.fijo && formik.errors.fijo
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.fijo && formik.errors.fijo && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.fijo}
                             </div>
                           )}
@@ -404,7 +434,12 @@ const PqrsdfForm = () => {
                             value={formik.values.departamento}
                             onChange={handleDepartamentoChange}
                             onBlur={formik.handleBlur}
-                            className="departamento mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`departamento mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.departamento &&
+                              formik.errors.departamento
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           >
                             <option value="">Seleccione</option>
                             {departamentos.map((dep) => (
@@ -418,7 +453,7 @@ const PqrsdfForm = () => {
                           </select>
                           {formik.touched.departamento &&
                             formik.errors.departamento && (
-                              <div className="text-red-500 text-sm">
+                              <div className="text-red-500 text-base">
                                 {formik.errors.departamento}
                               </div>
                             )}
@@ -436,7 +471,12 @@ const PqrsdfForm = () => {
                             value={formik.values.municipio}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="municipio mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`municipio mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.municipio &&
+                              formik.errors.municipio
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                             disabled={municipios.length === 0}
                           >
                             <option value="">Seleccione</option>
@@ -448,7 +488,7 @@ const PqrsdfForm = () => {
                           </select>
                           {formik.touched.municipio &&
                             formik.errors.municipio && (
-                              <div className="text-red-500 text-sm">
+                              <div className="text-red-500 text-base">
                                 {formik.errors.municipio}
                               </div>
                             )}
@@ -468,7 +508,11 @@ const PqrsdfForm = () => {
                             value={formik.values.eps}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.eps && formik.errors.eps
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           >
                             <option value="">Seleccione</option>
                             <option value="Nueva EPS">Nueva EPS</option>
@@ -476,7 +520,7 @@ const PqrsdfForm = () => {
                             <option value="Compensar">Compensar</option>
                           </select>
                           {formik.touched.eps && formik.errors.eps && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.eps}
                             </div>
                           )}
@@ -495,10 +539,14 @@ const PqrsdfForm = () => {
                             value={formik.values.email}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                              formik.touched.email && formik.errors.email
+                                ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                                : "border-gray-300"
+                            }`}
                           />
                           {formik.touched.email && formik.errors.email && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.email}
                             </div>
                           )}
@@ -517,7 +565,12 @@ const PqrsdfForm = () => {
                           value={formik.values.tipoSolicitud}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
-                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
+                            formik.touched.tipoSolicitud &&
+                            formik.errors.tipoSolicitud
+                              ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                              : "border-gray-300"
+                          }`}
                         >
                           <option value="">Seleccione</option>
                           <option value="peticion">Petición</option>
@@ -528,7 +581,7 @@ const PqrsdfForm = () => {
                         </select>
                         {formik.touched.tipoSolicitud &&
                           formik.errors.tipoSolicitud && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.tipoSolicitud}
                             </div>
                           )}
@@ -547,10 +600,14 @@ const PqrsdfForm = () => {
                           value={formik.values.asunto}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
-                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  ${
+                            formik.touched.asunto && formik.errors.asunto
+                              ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                              : "border-gray-300"
+                          }`}
                         />
                         {formik.touched.asunto && formik.errors.asunto && (
-                          <div className="text-red-500 text-sm">
+                          <div className="text-red-500 text-base">
                             {formik.errors.asunto}
                           </div>
                         )}
@@ -569,11 +626,11 @@ const PqrsdfForm = () => {
                           value={formik.values.solicitud}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
-                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                          className={`mt-1 block w-full rounded-md border outline-none border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                         ></textarea>
                         {formik.touched.solicitud &&
                           formik.errors.solicitud && (
-                            <div className="text-red-500 text-sm">
+                            <div className="text-red-500 text-base">
                               {formik.errors.solicitud}
                             </div>
                           )}
@@ -622,133 +679,6 @@ const PqrsdfForm = () => {
                 </div>
               </div>
             </div>
-
-            {/* <script>
-
-      import emailJs from '@emailjs/browser'
-
-      const departamentoSelect = document.querySelector(".departamento");
-      const municipioSelect = document.querySelector(".municipio");
-
-      if (departamentoSelect) {
-        // URL de la API que contiene los departamentos y municipios
-        const apiURL =
-          "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.json";
-
-        fetch(apiURL)
-          .then((response) => response.json())
-          .then((data) => {
-            data.forEach(
-              (departamento: { departamento: string; ciudades: string[] }) => {
-                const option = document.createElement("option");
-                option.value = departamento.departamento;
-                option.textContent = departamento.departamento;
-                departamentoSelect.appendChild(option);
-              }
-            );
-
-            departamentoSelect.addEventListener(
-              "change",
-              function (this: HTMLSelectElement) {
-                const selectedDepartamento = this.value;
-                if (municipioSelect) {
-                  municipioSelect.innerHTML =
-                    '<option selected disabled value="">Seleccione</option>';
-
-                  const departamento = data.find(
-                    (dep: { departamento: string; ciudades: string[] }) =>
-                      dep.departamento === selectedDepartamento
-                  );
-                  if (departamento && departamento.ciudades) {
-                    // Poblar los municipios
-                    departamento.ciudades.forEach((municipio: string) => {
-                      const option = document.createElement("option");
-                      option.value = municipio;
-                      option.textContent = municipio;
-                      municipioSelect.appendChild(option);
-                    });
-
-                    // Habilitar el select de municipios
-                    municipioSelect.removeAttribute("disabled");
-                  } else {
-                    municipioSelect.setAttribute("disabled", "true");
-                  }
-                }
-              }
-            );
-          })
-          .catch((error) => console.error("Error al cargar los datos:", error));
-      }
-      // modal de formulario
-
-      const modal = document.getElementById("formModal");
-      const openButton = document.getElementById("openModal");
-      const closeButton = document.getElementById("closeModal");
-
-      const toggleModal = (event: boolean) => {
-        if (modal) {
-          if (event) {
-            modal.classList.remove("hidden");
-            document.documentElement.style.overflow = "hidden";
-            document.body.style.overflow = "hidden";
-          } else {
-            modal.classList.add("hidden");
-            document.documentElement.style.overflow = "auto";
-            document.body.style.overflow = "auto";
-          }
-        }
-      };
-      if (openButton) {
-        openButton.addEventListener("click", () => toggleModal(true));
-      }
-
-      if (closeButton) {
-        closeButton.addEventListener("click", () => toggleModal(false));
-      }
-
-      // envio datos formulario a correo
-
-      
-      const form = document.getElementById("pqrsfd-form") as HTMLFormElement;
-
-      form?.addEventListener('submit', async  (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-
-        try {
-          await emailJs.send('service_i4i8je4', 'template_df99alq', {
-            t_email: 'info@nordvitalips.com',
-            nombre: formData.get('nombre'),
-            apellido: formData.get('apellido'),
-            tipo_identificacion: formData.get('tipo-identificacion'),
-            numero_identificacion: formData.get('numero-identificacion'),
-            fecha: formData.get('fecha'),
-            celular: formData.get('celular'),
-            fijo: formData.get('fijo'),
-            departamento: formData.get('departamento'),
-            municipio: formData.get('municipio'),
-            eps: formData.get('eps'),
-            email: formData.get('email'),
-            tipo_solicitud: formData.get('tipo-solicitud'),
-            asunto: formData.get('asunto'),
-            solicitud: formData.get('solicitud')
-          },
-        "EU9Av1Gcbfi0qIVJC"
-      );
-
-          alert('Informacion enviada exitosamente.')
-
-
-        } catch (error) {
-          console.log(error)
-        }
-
-      })
-
-
-      
-    </script> */}
           </div>
         </div>
       )}
