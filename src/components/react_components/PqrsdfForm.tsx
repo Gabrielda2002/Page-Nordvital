@@ -120,6 +120,13 @@ const PqrsdfForm = () => {
             tipo_solicitud: values.tipoSolicitud,
             asunto: values.asunto,
             solicitud: values.solicitud,
+            fecha_aplicacion: new Date().toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
           },
           import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
         );
@@ -297,10 +304,10 @@ const PqrsdfForm = () => {
                                 : "border-gray-300"
                             }`}
                           >
-                            <option value="">Seleccione</option>
-                            <option value="cc">Cédula de Ciudadanía</option>
-                            <option value="ce">Cédula de Extranjería</option>
-                            <option value="pasaporte">Pasaporte</option>
+                            <option value="" disabled >Seleccione</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                            <option value="CE">Cédula de Extranjería</option>
+                            <option value="PA">Pasaporte</option>
                           </select>
                           {formik.touched.tipoIdentificacion &&
                             formik.errors.tipoIdentificacion && (
@@ -441,7 +448,7 @@ const PqrsdfForm = () => {
                                 : "border-gray-300"
                             }`}
                           >
-                            <option value="">Seleccione</option>
+                            <option value="" disabled>Seleccione</option>
                             {departamentos.map((dep) => (
                               <option
                                 key={dep.departamento}
@@ -479,7 +486,7 @@ const PqrsdfForm = () => {
                             }`}
                             disabled={municipios.length === 0}
                           >
-                            <option value="">Seleccione</option>
+                            <option value="" disabled>Seleccione</option>
                             {municipios.map((municipio) => (
                               <option key={municipio} value={municipio}>
                                 {municipio}
@@ -514,7 +521,7 @@ const PqrsdfForm = () => {
                                 : "border-gray-300"
                             }`}
                           >
-                            <option value="">Seleccione</option>
+                            <option value="" disabled >Seleccione</option>
                             <option value="Nueva EPS">Nueva EPS</option>
                             <option value="Coosalud">Coosalud</option>
                             <option value="Compensar">Compensar</option>
@@ -572,12 +579,12 @@ const PqrsdfForm = () => {
                               : "border-gray-300"
                           }`}
                         >
-                          <option value="">Seleccione</option>
-                          <option value="peticion">Petición</option>
-                          <option value="queja">Queja</option>
-                          <option value="reclamo">Reclamo</option>
-                          <option value="sugerencia">Sugerencia</option>
-                          <option value="felicitacion">Felicitación</option>
+                          <option value="" disabled >Seleccione</option>
+                          <option value="PETICION">Petición</option>
+                          <option value="QUEJA">Queja</option>
+                          <option value="RECLAMO">Reclamo</option>
+                          <option value="SUGERENCIA">Sugerencia</option>
+                          <option value="FELICITACIONES">Felicitación</option>
                         </select>
                         {formik.touched.tipoSolicitud &&
                           formik.errors.tipoSolicitud && (
