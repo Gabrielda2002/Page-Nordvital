@@ -172,411 +172,559 @@ const FormRegisterParticipant = () => {
     <>
       {loadingPaises ? (
         <div className="flex justify-center items-center h-screen">
-          <div className="loader"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
         </div>
       ) : (
-        <form
-          onSubmit={formik.handleSubmit}
-          className="w-full mx-auto mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        >
-          <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">
-            Formulario Registro Seminario 2025
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 md:gap-5">
-            <div className="mb-4">
-              <label
-                htmlFor="typeDocument"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Tipo de documento
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="typeDocument"
-                name="typeDocument"
-                onChange={formik.handleChange}
-                value={formik.values.typeDocument}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.typeDocument ? "border-red-500" : ""
-                }`}
-              >
-                <option value="">Seleccione su tipo de documento</option>
-                <option value="CC">Cédula de Ciudadanía</option>
-                <option value="TI">Tarjeta de Identidad</option>
-              </select>
-              {formik.touched.typeDocument && formik.errors.typeDocument && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.typeDocument}
-                </div>
-              )}
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Header del formulario */}
+            <div className="text-center mb-8">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+                Registro Seminario 2025
+              </h1>
+              <p className="text-lg text-gray-600">
+                Complete el formulario para participar en nuestro seminario
+              </p>
+              <div className="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded"></div>
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="document"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Número de documento
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="document"
-                name="document"
-                onChange={formik.handleChange}
-                value={formik.values.document}
-                onBlur={formik.handleBlur}
-                placeholder="Ej: 1234567890"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.document ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.document && formik.errors.document && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.document}
+            {/* Indicador de progreso visual */}
+            <div className="mb-8">
+              <div className="flex justify-center space-x-4 text-sm">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                    1
+                  </div>
+                  <span className="ml-2 text-gray-600">Información Personal</span>
                 </div>
-              )}
+                <div className="flex items-center">
+                  <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                    2
+                  </div>
+                  <span className="ml-2 text-gray-600">Ubicación</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                    3
+                  </div>
+                  <span className="ml-2 text-gray-600">Detalles del Seminario</span>
+                </div>
+              </div>
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Nombres
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-                onBlur={formik.handleBlur}
-                placeholder="Nombre"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.name ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.name && formik.errors.name && (
-                <div className="text-red-500 text-sm">{formik.errors.name}</div>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="lastName"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Apellidos
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Apellido"
-                onChange={formik.handleChange}
-                value={formik.values.lastName}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.lastName ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.lastName && formik.errors.lastName && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.lastName}
-                </div>
-              )}
-            </div>
+            <form
+              onSubmit={formik.handleSubmit}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="p-6 md:p-8 space-y-8">
+                
+                {/* Sección 1: Información Personal */}
+                <div className="border-b border-gray-200 pb-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      1
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Información Personal
+                    </h2>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="typeDocument" className="block text-sm font-medium text-gray-700">
+                        Tipo de documento
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="typeDocument"
+                        name="typeDocument"
+                        onChange={formik.handleChange}
+                        value={formik.values.typeDocument}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.typeDocument && formik.touched.typeDocument
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="">Seleccione su tipo de documento</option>
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="TI">Tarjeta de Identidad</option>
+                      </select>
+                      {formik.touched.typeDocument && formik.errors.typeDocument && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.typeDocument}
+                        </p>
+                      )}
+                    </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="profession"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Profesión
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="profession"
-                name="profession"
-                onChange={formik.handleChange}
-                value={formik.values.profession}
-                placeholder="Ej: Ingeniero"
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.profession ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.profession && formik.errors.profession && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.profession}
-                </div>
-              )}
-            </div>
+                    <div className="space-y-2">
+                      <label htmlFor="document" className="block text-sm font-medium text-gray-700">
+                        Número de documento
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="document"
+                        name="document"
+                        onChange={formik.handleChange}
+                        value={formik.values.document}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: 1234567890"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.document && formik.touched.document
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.document && formik.errors.document && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.document}
+                        </p>
+                      )}
+                    </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="company"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Empresa
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                onChange={formik.handleChange}
-                value={formik.values.company}
-                onBlur={formik.handleBlur}
-                placeholder="Ej: Google"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.company ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.company && formik.errors.company && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.company}
-                </div>
-              )}
-            </div>
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                        Nombres
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        onChange={formik.handleChange}
+                        value={formik.values.name}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ingrese sus nombres"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.name && formik.touched.name
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.name && formik.errors.name && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.name}
+                        </p>
+                      )}
+                    </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Email
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                onBlur={formik.handleBlur}
-                placeholder="ejemplo@gmail.com"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.email ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.email && formik.errors.email && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.email}
-                </div>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="phone"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Celular
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="phone"
-                name="phone"
-                onChange={formik.handleChange}
-                value={formik.values.phone}
-                onBlur={formik.handleBlur}
-                placeholder="Ej: 3001234567"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.phone ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.phone && formik.errors.phone && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.phone}
-                </div>
-              )}
-            </div>
+                    <div className="space-y-2">
+                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                        Apellidos
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Ingrese sus apellidos"
+                        onChange={formik.handleChange}
+                        value={formik.values.lastName}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.lastName && formik.touched.lastName
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.lastName && formik.errors.lastName && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.lastName}
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="address"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Dirección
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                onChange={formik.handleChange}
-                value={formik.values.address}
-                onBlur={formik.handleBlur}
-                placeholder="Ej: Calle 123 #45-67"
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.address ? "border-red-500" : ""
-                }`}
-              />
-              {formik.touched.address && formik.errors.address && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.address}
-                </div>
-              )}
-            </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                        Correo electrónico
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                        onBlur={formik.handleBlur}
+                        placeholder="ejemplo@correo.com"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.email && formik.touched.email
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.email && formik.errors.email && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.email}
+                        </p>
+                      )}
+                    </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="pais"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                País
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="pais"
-                name="pais"
-                onChange={formik.handleChange}
-                value={formik.values.pais}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.pais ? "border-red-500" : ""
-                }`}
-              >
-                <option value="">Seleccione un país</option>
-                {loadingPaises && <option>Cargando...</option>}
-                {errorPaises && <option>{errorPaises}</option>}
-                {paises.map((pais, index) => (
-                  <option key={index} value={pais}>
-                    {pais}
-                  </option>
-                ))}
-              </select>
-              {formik.touched.pais && formik.errors.pais && (
-                <div className="text-red-500 text-sm">{formik.errors.pais}</div>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="departamento"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Departamento
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="departamento"
-                name="departamento"
-                onChange={formik.handleChange}
-                value={formik.values.departamento}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.departamento ? "border-red-500" : ""
-                }`}
-                disabled={!formik.values.pais || loadingDepartamentos}
-              >
-                <option value="">Seleccione un departamento</option>
-                {loadingDepartamentos && <option>Cargando...</option>}
-                {errorDepartamentos && <option>{errorDepartamentos}</option>}
-                {departamentos.map((dep, index) => (
-                  <option key={index} value={dep}>
-                    {dep}
-                  </option>
-                ))}
-              </select>
-              {formik.touched.departamento && formik.errors.departamento && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.departamento}
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                        Número de celular
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        onChange={formik.handleChange}
+                        value={formik.values.phone}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: 3001234567"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.phone && formik.touched.phone
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.phone && formik.errors.phone && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.phone}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="ciudad"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Ciudad
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="ciudad"
-                name="ciudad"
-                onChange={formik.handleChange}
-                value={formik.values.ciudad}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.ciudad ? "border-red-500" : ""
-                }`}
-                disabled={!formik.values.departamento || loadingCiudades}
-              >
-                <option value="">Seleccione una ciudad</option>
-                {loadingCiudades && <option>Cargando...</option>}
-                {errorCiudades && <option>{errorCiudades}</option>}
-                {ciudades.map((ciudad, index) => (
-                  <option key={index} value={ciudad}>
-                    {ciudad}
-                  </option>
-                ))}
-              </select>
-              {formik.touched.ciudad && formik.errors.ciudad && (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.ciudad}
+
+                {/* Sección 2: Información Profesional y Ubicación */}
+                <div className="border-b border-gray-200 pb-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      2
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Información Profesional y Ubicación
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="profession" className="block text-sm font-medium text-gray-700">
+                        Profesión
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="profession"
+                        name="profession"
+                        onChange={formik.handleChange}
+                        value={formik.values.profession}
+                        placeholder="Ej: Médico, Ingeniero, etc."
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.profession && formik.touched.profession
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.profession && formik.errors.profession && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.profession}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-700">
+                        Empresa u organización
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        onChange={formik.handleChange}
+                        value={formik.values.company}
+                        onBlur={formik.handleBlur}
+                        placeholder="Nombre de su empresa"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.company && formik.touched.company
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.company && formik.errors.company && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.company}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <div className="space-y-2">
+                      <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                        Dirección completa
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        onChange={formik.handleChange}
+                        value={formik.values.address}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: Calle 123 #45-67, Barrio Centro"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.address && formik.touched.address
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.address && formik.errors.address && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.address}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label htmlFor="pais" className="block text-sm font-medium text-gray-700">
+                        País
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="pais"
+                        name="pais"
+                        onChange={formik.handleChange}
+                        value={formik.values.pais}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.pais && formik.touched.pais
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="">Seleccione un país</option>
+                        {loadingPaises && <option>Cargando...</option>}
+                        {errorPaises && <option>{errorPaises}</option>}
+                        {paises.map((pais, index) => (
+                          <option key={index} value={pais}>
+                            {pais}
+                          </option>
+                        ))}
+                      </select>
+                      {formik.touched.pais && formik.errors.pais && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.pais}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="departamento" className="block text-sm font-medium text-gray-700">
+                        Departamento/Estado
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="departamento"
+                        name="departamento"
+                        onChange={formik.handleChange}
+                        value={formik.values.departamento}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.departamento && formik.touched.departamento
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                        disabled={!formik.values.pais || loadingDepartamentos}
+                      >
+                        <option value="">Seleccione un departamento</option>
+                        {loadingDepartamentos && <option>Cargando...</option>}
+                        {errorDepartamentos && <option>{errorDepartamentos}</option>}
+                        {departamentos.map((dep, index) => (
+                          <option key={index} value={dep}>
+                            {dep}
+                          </option>
+                        ))}
+                      </select>
+                      {formik.touched.departamento && formik.errors.departamento && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.departamento}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="ciudad" className="block text-sm font-medium text-gray-700">
+                        Ciudad
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="ciudad"
+                        name="ciudad"
+                        onChange={formik.handleChange}
+                        value={formik.values.ciudad}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.ciudad && formik.touched.ciudad
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                        disabled={!formik.values.departamento || loadingCiudades}
+                      >
+                        <option value="">Seleccione una ciudad</option>
+                        {loadingCiudades && <option>Cargando...</option>}
+                        {errorCiudades && <option>{errorCiudades}</option>}
+                        {ciudades.map((ciudad, index) => (
+                          <option key={index} value={ciudad}>
+                            {ciudad}
+                          </option>
+                        ))}
+                      </select>
+                      {formik.touched.ciudad && formik.errors.ciudad && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.ciudad}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="typeParticipant"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Tipo de participante
-                <span className="text-red-500 text-xl">*</span>
-              </label>
-              <select
-                id="typeParticipant"
-                name="typeParticipant"
-                onChange={formik.handleChange}
-                value={formik.values.typeParticipant}
-                onBlur={formik.handleBlur}
-                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  formik.errors.typeParticipant ? "border-red-500" : ""
-                }`}
-              >
-                <option value="">Seleccione su tipo de participación</option>
-                <option value="virtual">Virtual</option>
-                <option value="presencial">Presencial</option>
-                <option value="poniente">Poniente</option>
-                <option value="organizador">Organizador</option>
-              </select>
-              {formik.touched.typeParticipant &&
-                formik.errors.typeParticipant && (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.typeParticipant}
+
+                {/* Sección 3: Detalles del Seminario */}
+                <div className="pb-6">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      3
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Detalles del Seminario
+                    </h2>
+                  </div>
+
+                  <div className="max-w-md mx-auto">
+                    <div className="space-y-2">
+                      <label htmlFor="typeParticipant" className="block text-sm font-medium text-gray-700">
+                        Tipo de participación
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="typeParticipant"
+                        name="typeParticipant"
+                        onChange={formik.handleChange}
+                        value={formik.values.typeParticipant}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                          formik.errors.typeParticipant && formik.touched.typeParticipant
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="">Seleccione su tipo de participación</option>
+                        <option value="virtual">🌐 Virtual</option>
+                        <option value="presencial">🏢 Presencial</option>
+                        <option value="poniente">🎤 Ponente</option>
+                        <option value="organizador">🎯 Organizador</option>
+                      </select>
+                      {formik.touched.typeParticipant && formik.errors.typeParticipant && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {formik.errors.typeParticipant}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mensajes de estado */}
+                {(error || success) && (
+                  <div className="border-t border-gray-200 pt-6">
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center">
+                        <svg className="w-5 h-5 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-red-700">{error}</span>
+                      </div>
+                    )}
+                    {success && (
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
+                        <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-green-700">¡Registro exitoso! Nos comunicaremos contigo pronto.</span>
+                      </div>
+                    )}
                   </div>
                 )}
-            </div>
+              </div>
 
-            <div>
-              {error && (
-                <div className="text-red-500 text-sm mb-4">{error}</div>
-              )}
-              {success && (
-                <div className="text-green-500 text-sm mb-4">
-                  Registro exitoso.
+              {/* Footer del formulario con botón de envío */}
+              <div className="bg-gray-50 px-6 md:px-8 py-6">
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    disabled={formik.isSubmitting || loading}
+                    className="bg-nordvital-primary hover:bg-nordvital-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-blue-300 focus:outline-none shadow-lg"
+                  >
+                    {loading ? (
+                      <div className="flex items-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Registrando...
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Completar Registro
+                      </div>
+                    )}
+                  </button>
                 </div>
-              )}
-            </div>
+                <p className="text-center text-sm text-gray-500 mt-3">
+                  Al registrarte aceptas participar en el Seminario 2025
+                </p>
+              </div>
+            </form>
           </div>
-          <div className="flex items-center justify-center">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              disabled={formik.isSubmitting || !formik.isValid}
-            >
-              Registrarme
-            </button>
-          </div>
-        </form>
+        </div>
       )}
     </>
   );
