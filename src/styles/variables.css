@@ -1,0 +1,13 @@
+:root {
+  /* Colores principales */
+  --nordvital-primary: #049ae7;
+  --nordvital-secondary: #6fbda7;
+  --nordvital-teal-500: #14b8a6;
+  --nordvital-teal-600: #0d9488;
+  
+  /* Gradientes */
+  --nordvital-gradient-primary: linear-gradient(to left, #6fbda7, #017bdedf);
+  
+  /* Sombras */
+  --nordvital-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
