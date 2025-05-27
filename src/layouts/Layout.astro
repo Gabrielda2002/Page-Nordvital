@@ -26,6 +26,7 @@ const { title, description = "Servicios de salud de alta calidad" } =
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
     />
+    <link rel="stylesheet" href="/src/styles/variables.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
@@ -47,19 +48,9 @@ const { title, description = "Servicios de salud de alta calidad" } =
   <Header />
   <main class="w-full">
     <slot />
-    <Chat />
+    <Chat client:load />
   </main>
   <Footer />
-  <script is:inline>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("global-loader");
-      console.log(loader);
-      if (loader) {
-        loader.style.opacity = "0";
-        setTimeout(() => (loader.style.display = "none"), 500);
-      }
-    });
-  </script>
 </body>
 
 <style>

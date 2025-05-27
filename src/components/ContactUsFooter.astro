@@ -2,17 +2,17 @@
 const contactLinks = [
   {
     href: "https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios.",
-    icon: "whatsapp",
+    icon: "fab fa-whatsapp",
     text: "(+57) 317-4309873",
   },
   {
-    href: "mailto:contacto@nordvitalips.com",
-    icon: "envelope",
-    text: "Nordvital@gmail.com",
+    href: "mailto:recursoshumanos@nordvitalips.com",
+    icon: "fas fa-envelope",
+    text: "recursoshumanos@nordvitalips.com",
   },
   {
     href: "https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu",
-    icon: "map-marker-alt",
+    icon: "fas fa-map-marker-alt",
     text: "Sede administrativa",
   },
 ];
@@ -28,14 +28,7 @@ const contactLinks = [
           target="_blank"
           class="flex items-center mb-3 hover:underline transition"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="15"
-            width="15"
-            viewBox="0 0 512 512"
-          >
-            <path fill="#ffffff" d={`M${link.icon}`} />
-          </svg>{" "}
+          <i class={`${link.icon} mr-2`} style="color: #ffffff; width: 15px; height: 15px;"></i>
           {link.text}
         </a>
       ))

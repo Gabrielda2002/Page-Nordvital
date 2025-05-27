@@ -1,0 +1,116 @@
+---
+// Props: year (número), documents (array de objetos { name, file })
+import pdfIcon from '@/images/pdf_icon.svg';
+
+interface Props {
+  year: number;
+  documents: Array<{
+    name: string;
+    file: string;
+  }>;
+}
+
+import { Image } from "astro:assets";
+
+const { year, documents } = Astro.props;
+const hasMoreDocs = documents.length > 4;
+---
+
+<section class="estados__item bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+  <div class="nav__estado">
+    <div class="flex items-center mb-6">
+      <h1 class="text-3xl font-bold text-blue-800 relative px-4 py-2 rounded-md bg-gray-50">
+        {year}
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
+      </h1>
+    </div>
+    
+    <ul class="space-y-4 doc-list">
+      {documents.slice(0, 4).map(doc => (
+        <li class="transition-all duration-300 hover:translate-x-1">
+          <a
+            href={doc.file}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center p-2 hover:bg-blue-50 rounded-lg group"
+          >
+            <Image src={pdfIcon} alt="PDF" class="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
+            <span class="text-gray-700 group-hover:text-blue-600 transition-colors duration-200">{doc.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    
+    {hasMoreDocs && (
+      <>
+        <ul class="space-y-4 hidden-docs max-h-0 overflow-hidden transition-all duration-500">
+          {documents.slice(4).map(doc => (
+            <li class="transition-all duration-300 hover:translate-x-1">
+              <a
+                href={doc.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center p-2 hover:bg-blue-50 rounded-lg group"
+              >
+                <Image src={pdfIcon} alt="PDF" class="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
+                <span class="text-gray-700 group-hover:text-blue-600 transition-colors duration-200">{doc.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <button 
+          id={`ver-mas-${year}`} 
+          class="mt-6 px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-600 transition-all duration-300 flex items-center justify-center w-32 mx-auto shadow-sm hover:shadow-md"
+        >
+          <span class="mr-2">Ver más</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </>
+    )}
+  </div>
+</section>
+
+<style>
+  .hidden-docs {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.5s ease;
+  }
+  
+  .hidden-docs.show {
+    max-height: 1000px; /* Alto suficiente para mostrar todos los elementos */
+    opacity: 1;
+    margin-top: 1rem;
+  }
+  
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow-icon.rotate {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script define:vars={{ year, hasMoreDocs }}>
+  // Solo ejecutar el script si hay más de 4 documentos
+  if (hasMoreDocs) {
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById(`ver-mas-${year}`);
+      const hiddenDocs = button.previousElementSibling;
+      const arrowIcon = button.querySelector('.arrow-icon');
+      
+      button.addEventListener('click', () => {
+        hiddenDocs.classList.toggle('show');
+        arrowIcon.classList.toggle('rotate');
+        
+        const isVisible = hiddenDocs.classList.contains('show');
+        button.querySelector('span').textContent = isVisible ? 'Ver menos' : 'Ver más';
+      });
+    });
+  }
+</script>
