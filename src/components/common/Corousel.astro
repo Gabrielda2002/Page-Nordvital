@@ -1,52 +1,85 @@
 ---
 // filepath: /c:/Users/PROGRAMACION/Desktop/app-nordvital/remake-web-page/tasty-telescope/src/components/common/Corousel.astro
-import imgGeneral from "@/assets/Imgs_carousel/slider2.webp";
-import imgGeneral2 from "@/assets/Imgs_carousel/slider1.webp";
-import imgGeneral3 from "@/assets/Imgs_carousel/slider3.webp";
-import imgGeneral4 from "@/assets/Imgs_carousel/slider4.webp";
+import slider1 from "@/assets/Imgs_carousel/slider2.webp";
+import slider2 from "@/assets/Imgs_carousel/slider1.webp";
+import slider3 from "@/assets/Imgs_carousel/slider3.webp";
+import slider4 from "@/assets/Imgs_carousel/slider4.webp";
+import slider6 from "@/assets/Imgs_carousel/slider6.webp";
+import slider7 from "@/assets/Imgs_carousel/slider7.webp";
+import slider8 from "@/assets/Imgs_carousel/slider8.webp";
+import slider9 from "@/assets/Imgs_carousel/slider9.webp";
+import slider10 from "@/assets/Imgs_carousel/slider10.webp";
 
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
+
+const images = [
+  {
+    src: slider10,
+    alt: "Rayos X",
+    telefono: "3174309873",
+  },
+  {
+    src: slider6,
+    alt: "Rayos X",
+    telefono: "3174309873",
+  },
+  {
+    src: slider3,
+    alt: "Blanqueamiento dental",
+    telefono: "3174309873",
+  },
+  {
+    src: slider2,
+    alt: "Consulta pediatrica",
+    telefono: "3174309873",
+  },
+  {
+    src: slider9,
+    alt: "Medicina general",
+    telefono: "3208420934",
+  },
+  {
+    src: slider1,
+    alt: "Perfil lipidico",
+    telefono: "3174309873",
+  },
+
+  {
+    src: slider8,
+    alt: "Citologia",
+    telefono: "3208420934",
+  },
+  {
+    src: slider7,
+    alt: "Cardiologia",
+    telefono: "3174309873",
+  },
+  {
+    src: slider4,
+    alt: "Laboratorio clinico",
+    telefono: "3174309873",
+  },
+];
 ---
 
 <div class="relative w-full h-full overflow-hidden">
   <div class="relative overflow-hidden">
     <div id="slides-container" class="flex transition-transform duration-500">
-      <div class="w-full flex-shrink-0">
-        <Image
-          src={imgGeneral}
-          alt="Agenda tu Cita"
-          class="w-full h-full bg-cover bg-center"
-          widths={[721, 1080, 1560, 1920, 2260, 2560]}
-          sizes="100vw"
-        />
-      </div>
-      <div class="w-full flex-shrink-0">
-        <Image
-          src={imgGeneral2}
-          alt="Atención Dental"
-          class="w-full h-full bg-cover bg-center"
-          widths={[721, 1080, 1560, 1920, 2260, 2560]}
-          sizes="100vw"
-        />
-      </div>
-      <div class="w-full flex-shrink-0">
-        <Image
-          src={imgGeneral3}
-          alt="Laboratorio"
-          class="w-full h-full bg-cover bg-center"
-          widths={[721, 1080, 1560, 1920, 2260, 2560]}
-          sizes="100vw"
-        />
-      </div>
-      <div class="w-full flex-shrink-0">
-        <Image
-          src={imgGeneral4}
-          alt="Perfil Lípido"
-          class="w-full h-full bg-cover bg-center"
-          widths={[721, 1080, 1560, 1920, 2260, 2560]}
-          sizes="100vw"
-        />
-      </div>
+      {
+        images.map((m) => (
+          <div class="w-full flex-shrink-0">
+            <a href={`https://api.whatsapp.com/send?phone=${m.telefono}`} target="_blank" class="block w-full h-full">
+              <Image
+                src={m.src}
+                alt={m.alt}
+                class="w-full h-full bg-cover bg-center"
+                widths={[721, 1080, 1560, 1920, 2260, 2560]}
+                sizes="100vw"
+              />
+            </a>
+          </div>
+        ))
+      }
     </div>
   </div>
 
@@ -76,7 +109,7 @@ import { Image } from 'astro:assets'
   const prevButton = document.getElementById("prev");
   const nextButton = document.getElementById("next");
   let currentSlide = 0;
-  const totalSlides = 4;
+  const totalSlides = 9;
 
   function updateSlide() {
     if (slidesContainer) {
