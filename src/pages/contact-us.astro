@@ -51,11 +51,18 @@ import Chat from "@/components/common/Chat.astro";
             >
               <img src={icon2.src} alt="" class="mb-4 h-12" />
               <h5 class="font-bold text-lg mb-2">Correo Electrónico</h5>
+              <p class="mt-1">Para gestión de servicios:</p>
               <a
                 href="mailto:servicioalcliente@nordvitalips.com"
                 class="text-blue-500 hover:text-blue-700"
               >
                 servicioalcliente@nordvitalips.com
+              </a>
+              <p class="mt-2"> 
+                Para gestión jurídica:
+              </p>
+              <a href="mailto:notificacionesjudiciales@nordvitalips.com" class="text-blue-500 hover:text-blue-700">
+                notificacionesjudiciales@nordvitalips.com
               </a>
             </div>
 
@@ -97,6 +104,13 @@ import Chat from "@/components/common/Chat.astro";
               >
                 Trabaje con Nosotros
               </button>
+              <button
+                class="w-full sm:w-auto px-4 py-2 rounded-xl text-white bg-gray-500 hover:bg-gray-600 transition-colors"
+                id="pqrsfd-btn"
+              >
+                PQRSFD
+              </button>
+              
             </div>
           </div>
 
@@ -116,6 +130,12 @@ import Chat from "@/components/common/Chat.astro";
     document.addEventListener("DOMContentLoaded", function () {
       const contactanosBtn = document.getElementById("contactanos-btn");
       const escribeMensajeBtn = document.getElementById("escribe-mensaje-btn");
+      const pqrsfdBtn = document.getElementById("pqrsfd-btn");
+
+      // llevar al usuario al formulario de PQRSFD
+      pqrsfdBtn?.addEventListener("click", function () {
+        window.location.href = "/users/pqrsfd#pqrsfd-form";
+      });
 
       const formContacto = document.getElementById("form-contacto");
       const formPuestoTrabajo = document.getElementById("form-puesto-trabajo");

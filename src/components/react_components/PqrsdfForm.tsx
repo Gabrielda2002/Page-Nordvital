@@ -9,33 +9,34 @@ import icon from "@/images/AboutUs/Recurso_2.svg";
 import { useFormik } from "formik";
 
 const PqrsdfForm = () => {
-  const [standOpen, setStandOpen] = useState(false);
-
-  useEffect(() => {
-    if (standOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [standOpen]);
-
   const [departamentos, setDepartamentos] = useState<
     { departamento: string; ciudades: string[] }[]
   >([]);
   const [municipios, setMunicipios] = useState<string[]>([]);
 
   useEffect(() => {
-    // URL de la API que contiene los departamentos y municipios
     const apiURL =
       "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.json";
 
     fetch(apiURL)
       .then((response) => response.json())
       .then((data) => {
-        setDepartamentos(data); // Guardamos la data en el estado
+        setDepartamentos(data);
       })
       .catch((error) => console.error("Error al cargar los datos:", error));
-  }, []); // Se ejecuta solo una vez al montar el componente
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === "#pqrsfd-form") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      setTimeout(() => {
+        const formElement = document.getElementById("pqrsfd-form");
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+  }, []);
 
   // Maneja el cambio del departamento seleccionado
   const handleDepartamentoChange = (
@@ -151,860 +152,784 @@ const PqrsdfForm = () => {
 
   return (
     <>
-      <section className="w-[85%] md:w-[55%] mx-auto items-center text-center text-lg text-gray-500 mb-10 font-medium">
-        <p>
-          Con el fin de facilitar este proceso,
-          <strong>hemos desarrollado un formato</strong> que puede completar
-          para brindarnos información detallada sobre su caso.
-        </p>
-        <br />
-        <p>
-          Agradecemos su colaboración al utilizar esta herramienta para
-          comunicarse con nosotros. Estamos comprometidos a resolver cualquier
-          inquietud que tenga a proporcionarle un servicio de calidad.
-        </p>
-      </section>
+      <div className="px-6 md:px-8 pb-8">
+        {/* Header del formulario */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            Formulario PQRSFD
+          </h1>
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            Estamos comprometidos a resolver cualquier inquietud que tenga, para
+            proporcionarle un servicio de calidad. Por favor, complete todos los
+            campos requeridos para procesar su solicitud de manera eficiente.
+          </p>
+          <p>
+            Agradecemos su colaboración al utilizar esta herramienta para
+            comunicarse con nosotros.
+          </p>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto mt-4 rounded"></div>
+        </div>
 
-      <div
-        className="mx-4 md:mx-auto mt-5 mb-5 md:w-2/3 h-auto md:h-[180px] bg-cover bg-no-repeat rounded-[40px]"
-        style={{ backgroundImage: `url(${modal})` }}
-      >
-        <div className="card-body flex flex-col md:flex-row items-center justify-between p-6 md:p-10">
-          <div className="mv__titulo text-center md:text-left">
-            <h5 className="text-white text-3xl md:text-[32px] font-bold mb-3">
-              PQRSFD
-            </h5>
-            <p className="text-white w-full md:w-2/3">
-              Por favor, completa el formulario a continuación para ayudarnos a
-              mejorar nuestros servicios.
-            </p>
-          </div>
-          <div className="m-2">
-            <label
-              id="openModal"
-              className="cursor-pointer p-4 md:p-14"
-              onClick={() => setStandOpen(true)}
-            >
-              <img src={icon.src} alt="Icono Misión y Visión" />
-            </label>
+        {/* Indicador de progreso visual */}
+        <div className="mb-8">
+          <div className="flex items-center justify-center md:space-x-4 text-sm md:text-base  md:flex-row">
+            <div className="flex items-center">
+              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                1
+              </div>
+              <span className="ml-2 text-gray-600">Información Personal</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                2
+              </div>
+              <span className="ml-2 text-gray-600">Ubicación y Contacto</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+                3
+              </div>
+              <span className="ml-2 text-gray-600">
+                Detalles de la Solicitud
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Modal Form */}
-      {standOpen && (
-        <div
-          id="formModal"
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4`}
-        >
-          <div
-            className={`w-full max-w-5xl bg-white overflow-hidden rounded-xl shadow-2xl transform transition-transform duration-300 ${
-              standOpen
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="relative bg-white rounded-xl w-full mx-auto">
-              <div className="flex justify-end p-4">
-                <button
-                  className="text-gray-400 hover:text-red-500 text-3xl transition-colors duration-200"
-                  onClick={() => setStandOpen(false)}
-                >
-                  &times;
-                </button>
-              </div>
-
-              <div className="px-6 md:px-8 pb-8">
-                {/* Header del formulario */}
-                <div className="text-center mb-8">
-                  <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-                    Formulario PQRSFD
-                  </h1>
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Por favor, complete todos los campos requeridos para
-                    procesar su solicitud de manera eficiente.
-                  </p>
-                  <div className="w-24 h-1 bg-indigo-500 mx-auto mt-4 rounded"></div>
-                </div>
-
-                {/* Indicador de progreso visual */}
-                <div className="mb-8">
-                  <div className="flex justify-center space-x-4 text-sm">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
-                        1
-                      </div>
-                      <span className="ml-2 text-gray-600">
-                        Información Personal
-                      </span>
+        <div className="flex justify-center">
+          <div className="overflow-y-auto max-h-[70vh] max-w-4xl bg-gray-50 rounded-lg shadow-md">
+            <form
+              id="pqrsfd-form"
+              onSubmit={formik.handleSubmit}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="p-6 md:p-7 space-y-8">
+                {/* Sección 1: Información Personal */}
+                <div className="border-b border-gray-200 pb-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      1
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
-                        2
-                      </div>
-                      <span className="ml-2 text-gray-600">
-                        Ubicación y Contacto
-                      </span>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Información Personal
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="nombre"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Nombre
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        onChange={formik.handleChange}
+                        value={formik.values.nombre}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ingrese su nombre"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.nombre && formik.errors.nombre
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.nombre && formik.errors.nombre && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.nombre}
+                        </p>
+                      )}
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
-                        3
-                      </div>
-                      <span className="ml-2 text-gray-600">
-                        Detalles de la Solicitud
-                      </span>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="apellido"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Apellido
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="apellido"
+                        name="apellido"
+                        value={formik.values.apellido}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ingrese su apellido"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.apellido && formik.errors.apellido
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.apellido && formik.errors.apellido && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.apellido}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="tipo-identificacion"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Tipo de identificación
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="tipo-identificacion"
+                        name="tipoIdentificacion"
+                        value={formik.values.tipoIdentificacion}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.tipoIdentificacion &&
+                          formik.errors.tipoIdentificacion
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="" disabled>
+                          Seleccione
+                        </option>
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="CE">Cédula de Extranjería</option>
+                        <option value="PA">Pasaporte</option>
+                      </select>
+                      {formik.touched.tipoIdentificacion &&
+                        formik.errors.tipoIdentificacion && (
+                          <p className="text-sm text-red-600 flex items-center">
+                            <svg
+                              className="w-4 h-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {formik.errors.tipoIdentificacion}
+                          </p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="numero-identificacion"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Número de identificación
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="numero-identificacion"
+                        name="numeroIdentificacion"
+                        value={formik.values.numeroIdentificacion}
+                        onChange={handleNumericInput}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: 1234567890"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.numeroIdentificacion &&
+                          formik.errors.numeroIdentificacion
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.numeroIdentificacion &&
+                        formik.errors.numeroIdentificacion && (
+                          <p className="text-sm text-red-600 flex items-center">
+                            <svg
+                              className="w-4 h-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {formik.errors.numeroIdentificacion}
+                          </p>
+                        )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="fecha"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Fecha
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        value={formik.values.fecha}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.fecha && formik.errors.fecha
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.fecha && formik.errors.fecha && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.fecha}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Correo electrónico
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="ejemplo@correo.com"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.email && formik.errors.email
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.email && formik.errors.email && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
 
-                <div className="overflow-y-auto max-h-[70vh]">
-                  <form
-                    id="pqrsfd-form"
-                    onSubmit={formik.handleSubmit}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden"
-                  >
-                    <div className="p-6 md:p-8 space-y-8">
-                      {/* Sección 1: Información Personal */}
-                      <div className="border-b border-gray-200 pb-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
-                            1
-                          </div>
-                          <h2 className="text-xl font-semibold text-gray-800">
-                            Información Personal
-                          </h2>
+                {/* Sección 2: Ubicación y Contacto */}
+                <div className="border-b border-gray-200 pb-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      2
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Ubicación y Contacto
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="celular"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Número de celular
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="celular"
+                        name="celular"
+                        value={formik.values.celular}
+                        onChange={handleNumericInput}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: 3001234567"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.celular && formik.errors.celular
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.celular && formik.errors.celular && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.celular}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="fijo"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Número Fijo
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="fijo"
+                        name="fijo"
+                        value={formik.values.fijo}
+                        onChange={handleNumericInput}
+                        onBlur={formik.handleBlur}
+                        placeholder="Ej: 6012345678"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.fijo && formik.errors.fijo
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.fijo && formik.errors.fijo && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.fijo}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="departamento"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Departamento
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="departamento"
+                        name="departamento"
+                        value={formik.values.departamento}
+                        onChange={handleDepartamentoChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.departamento &&
+                          formik.errors.departamento
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="" disabled>
+                          Seleccione
+                        </option>
+                        {departamentos.map((dep) => (
+                          <option
+                            key={dep.departamento}
+                            value={dep.departamento}
+                          >
+                            {dep.departamento}
+                          </option>
+                        ))}
+                      </select>
+                      {formik.touched.departamento &&
+                        formik.errors.departamento && (
+                          <p className="text-sm text-red-600 flex items-center">
+                            <svg
+                              className="w-4 h-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {formik.errors.departamento}
+                          </p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="municipio"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Municipios
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="municipio"
+                        name="municipio"
+                        value={formik.values.municipio}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.municipio && formik.errors.municipio
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                        disabled={municipios.length === 0}
+                      >
+                        <option value="" disabled>
+                          Seleccione
+                        </option>
+                        {municipios.map((municipio) => (
+                          <option key={municipio} value={municipio}>
+                            {municipio}
+                          </option>
+                        ))}
+                      </select>
+                      {formik.touched.municipio && formik.errors.municipio && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.municipio}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="eps"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        EPS
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="eps"
+                        name="eps"
+                        value={formik.values.eps}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.eps && formik.errors.eps
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="" disabled>
+                          Seleccione
+                        </option>
+                        <option value="Nueva EPS">Nueva EPS</option>
+                        <option value="Coosalud">Coosalud</option>
+                        <option value="Compensar">Compensar</option>
+                      </select>
+                      {formik.touched.eps && formik.errors.eps && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.eps}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sección 3: Detalles de la Solicitud */}
+                <div className="pb-6">
+                  <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                      3
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      Detalles de la Solicitud
+                    </h2>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="tipo-solicitud"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Tipo de solicitud
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <select
+                        id="tipo-solicitud"
+                        name="tipoSolicitud"
+                        value={formik.values.tipoSolicitud}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.tipoSolicitud &&
+                          formik.errors.tipoSolicitud
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      >
+                        <option value="" disabled>
+                          Seleccione
+                        </option>
+                        <option value="PETICION">📝 Petición</option>
+                        <option value="QUEJA">😟 Queja</option>
+                        <option value="RECLAMO">⚠️ Reclamo</option>
+                        <option value="SUGERENCIA">💡 Sugerencia</option>
+                        <option value="FELICITACIONES">🎉 Felicitación</option>
+                      </select>
+                      {formik.touched.tipoSolicitud &&
+                        formik.errors.tipoSolicitud && (
+                          <p className="text-sm text-red-600 flex items-center">
+                            <svg
+                              className="w-4 h-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {formik.errors.tipoSolicitud}
+                          </p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="asunto"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Asunto
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="asunto"
+                        name="asunto"
+                        value={formik.values.asunto}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Escriba el asunto de su solicitud"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
+                          formik.touched.asunto && formik.errors.asunto
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.asunto && formik.errors.asunto && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.asunto}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="solicitud"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Escriba su solicitud
+                        <span className="text-red-500 ml-1">*</span>
+                      </label>
+                      <textarea
+                        id="solicitud"
+                        name="solicitud"
+                        rows={6}
+                        value={formik.values.solicitud}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Describa detalladamente su solicitud..."
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none ${
+                          formik.touched.solicitud && formik.errors.solicitud
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                      />
+                      {formik.touched.solicitud && formik.errors.solicitud && (
+                        <p className="text-sm text-red-600 flex items-center">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          {formik.errors.solicitud}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                      <div className="flex items-start">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="terminos"
+                            name="terminos"
+                            type="checkbox"
+                            required
+                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                          />
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="nombre"
-                              className="block text-sm font-medium text-gray-700"
+                        <div className="ml-3 text-sm">
+                          <label
+                            htmlFor="terminos"
+                            className="font-medium text-gray-700"
+                          >
+                            Acepto los términos y condiciones
+                            <span className="text-red-500 ml-1">*</span>
+                          </label>
+                          <p className="text-gray-600 mt-1">
+                            Al hacer clic en Enviar, usted acepta la remisión de
+                            la PQRD a NordVital IPS y autoriza el uso de sus
+                            datos personales de acuerdo con nuestra{" "}
+                            <a
+                              href="/politica-de-privacidad"
+                              className="text-indigo-600 hover:text-indigo-500 underline"
                             >
-                              Nombre
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              id="nombre"
-                              name="nombre"
-                              onChange={formik.handleChange}
-                              value={formik.values.nombre}
-                              onBlur={formik.handleBlur}
-                              placeholder="Ingrese su nombre"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.nombre && formik.errors.nombre
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.nombre && formik.errors.nombre && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.nombre}
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="apellido"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Apellido
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              id="apellido"
-                              name="apellido"
-                              value={formik.values.apellido}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              placeholder="Ingrese su apellido"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.apellido &&
-                                formik.errors.apellido
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.apellido &&
-                              formik.errors.apellido && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.apellido}
-                                </p>
-                              )}
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="tipo-identificacion"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Tipo de identificación
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <select
-                              id="tipo-identificacion"
-                              name="tipoIdentificacion"
-                              value={formik.values.tipoIdentificacion}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.tipoIdentificacion &&
-                                formik.errors.tipoIdentificacion
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            >
-                              <option value="" disabled>
-                                Seleccione
-                              </option>
-                              <option value="CC">Cédula de Ciudadanía</option>
-                              <option value="CE">Cédula de Extranjería</option>
-                              <option value="PA">Pasaporte</option>
-                            </select>
-                            {formik.touched.tipoIdentificacion &&
-                              formik.errors.tipoIdentificacion && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.tipoIdentificacion}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="numero-identificacion"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número de identificación
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              id="numero-identificacion"
-                              name="numeroIdentificacion"
-                              value={formik.values.numeroIdentificacion}
-                              onChange={handleNumericInput}
-                              onBlur={formik.handleBlur}
-                              placeholder="Ej: 1234567890"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.numeroIdentificacion &&
-                                formik.errors.numeroIdentificacion
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.numeroIdentificacion &&
-                              formik.errors.numeroIdentificacion && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.numeroIdentificacion}
-                                </p>
-                              )}
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="fecha"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Fecha
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="date"
-                              id="fecha"
-                              name="fecha"
-                              value={formik.values.fecha}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.fecha && formik.errors.fecha
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.fecha && formik.errors.fecha && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.fecha}
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="email"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Correo electrónico
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="email"
-                              id="email"
-                              name="email"
-                              value={formik.values.email}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              placeholder="ejemplo@correo.com"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.email && formik.errors.email
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.email && formik.errors.email && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.email}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Sección 2: Ubicación y Contacto */}
-                      <div className="border-b border-gray-200 pb-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
-                            2
-                          </div>
-                          <h2 className="text-xl font-semibold text-gray-800">
-                            Ubicación y Contacto
-                          </h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="celular"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número de celular
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="tel"
-                              id="celular"
-                              name="celular"
-                              value={formik.values.celular}
-                              onChange={handleNumericInput}
-                              onBlur={formik.handleBlur}
-                              placeholder="Ej: 3001234567"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.celular && formik.errors.celular
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.celular &&
-                              formik.errors.celular && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.celular}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="fijo"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Número Fijo
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="tel"
-                              id="fijo"
-                              name="fijo"
-                              value={formik.values.fijo}
-                              onChange={handleNumericInput}
-                              onBlur={formik.handleBlur}
-                              placeholder="Ej: 6012345678"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.fijo && formik.errors.fijo
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.fijo && formik.errors.fijo && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.fijo}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="departamento"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Departamento
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <select
-                              id="departamento"
-                              name="departamento"
-                              value={formik.values.departamento}
-                              onChange={handleDepartamentoChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.departamento &&
-                                formik.errors.departamento
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            >
-                              <option value="" disabled>
-                                Seleccione
-                              </option>
-                              {departamentos.map((dep) => (
-                                <option
-                                  key={dep.departamento}
-                                  value={dep.departamento}
-                                >
-                                  {dep.departamento}
-                                </option>
-                              ))}
-                            </select>
-                            {formik.touched.departamento &&
-                              formik.errors.departamento && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.departamento}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="municipio"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Municipios
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <select
-                              id="municipio"
-                              name="municipio"
-                              value={formik.values.municipio}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.municipio &&
-                                formik.errors.municipio
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                              disabled={municipios.length === 0}
-                            >
-                              <option value="" disabled>
-                                Seleccione
-                              </option>
-                              {municipios.map((municipio) => (
-                                <option key={municipio} value={municipio}>
-                                  {municipio}
-                                </option>
-                              ))}
-                            </select>
-                            {formik.touched.municipio &&
-                              formik.errors.municipio && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.municipio}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="eps"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              EPS
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <select
-                              id="eps"
-                              name="eps"
-                              value={formik.values.eps}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.eps && formik.errors.eps
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            >
-                              <option value="" disabled>
-                                Seleccione
-                              </option>
-                              <option value="Nueva EPS">Nueva EPS</option>
-                              <option value="Coosalud">Coosalud</option>
-                              <option value="Compensar">Compensar</option>
-                            </select>
-                            {formik.touched.eps && formik.errors.eps && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.eps}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Sección 3: Detalles de la Solicitud */}
-                      <div className="pb-6">
-                        <div className="flex items-center mb-6">
-                          <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
-                            3
-                          </div>
-                          <h2 className="text-xl font-semibold text-gray-800">
-                            Detalles de la Solicitud
-                          </h2>
-                        </div>
-
-                        <div className="space-y-6">
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="tipo-solicitud"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Tipo de solicitud
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <select
-                              id="tipo-solicitud"
-                              name="tipoSolicitud"
-                              value={formik.values.tipoSolicitud}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.tipoSolicitud &&
-                                formik.errors.tipoSolicitud
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            >
-                              <option value="" disabled>
-                                Seleccione
-                              </option>
-                              <option value="PETICION">📝 Petición</option>
-                              <option value="QUEJA">😟 Queja</option>
-                              <option value="RECLAMO">⚠️ Reclamo</option>
-                              <option value="SUGERENCIA">💡 Sugerencia</option>
-                              <option value="FELICITACIONES">
-                                🎉 Felicitación
-                              </option>
-                            </select>
-                            {formik.touched.tipoSolicitud &&
-                              formik.errors.tipoSolicitud && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.tipoSolicitud}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="asunto"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Asunto
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              id="asunto"
-                              name="asunto"
-                              value={formik.values.asunto}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              placeholder="Escriba el asunto de su solicitud"
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ${
-                                formik.touched.asunto && formik.errors.asunto
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.asunto && formik.errors.asunto && (
-                              <p className="text-sm text-red-600 flex items-center">
-                                <svg
-                                  className="w-4 h-4 mr-1"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                                {formik.errors.asunto}
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="space-y-2">
-                            <label
-                              htmlFor="solicitud"
-                              className="block text-sm font-medium text-gray-700"
-                            >
-                              Escriba su solicitud
-                              <span className="text-red-500 ml-1">*</span>
-                            </label>
-                            <textarea
-                              id="solicitud"
-                              name="solicitud"
-                              rows={6}
-                              value={formik.values.solicitud}
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              placeholder="Describa detalladamente su solicitud..."
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none ${
-                                formik.touched.solicitud &&
-                                formik.errors.solicitud
-                                  ? "border-red-300 bg-red-50"
-                                  : "border-gray-300 hover:border-gray-400"
-                              }`}
-                            />
-                            {formik.touched.solicitud &&
-                              formik.errors.solicitud && (
-                                <p className="text-sm text-red-600 flex items-center">
-                                  <svg
-                                    className="w-4 h-4 mr-1"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {formik.errors.solicitud}
-                                </p>
-                              )}
-                          </div>
-
-                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                            <div className="flex items-start">
-                              <div className="flex items-center h-5">
-                                <input
-                                  id="terminos"
-                                  name="terminos"
-                                  type="checkbox"
-                                  required
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                                />
-                              </div>
-                              <div className="ml-3 text-sm">
-                                <label
-                                  htmlFor="terminos"
-                                  className="font-medium text-gray-700"
-                                >
-                                  Acepto los términos y condiciones
-                                  <span className="text-red-500 ml-1">*</span>
-                                </label>
-                                <p className="text-gray-600 mt-1">
-                                  Al hacer clic en Enviar, usted acepta la
-                                  remisión de la PQRD a NordVital IPS y autoriza
-                                  el uso de sus datos personales de acuerdo con
-                                  nuestra{" "}
-                                  <a
-                                    href="/politica-de-privacidad"
-                                    className="text-indigo-600 hover:text-indigo-500 underline"
-                                  >
-                                    Política de protección de datos personales
-                                  </a>
-                                  .
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                              Política de protección de datos personales
+                            </a>
+                            .
+                          </p>
                         </div>
                       </div>
                     </div>
-
-                    {/* Footer del formulario con botón de envío */}
-                    <div className="bg-gray-50 px-6 md:px-8 py-6">
-                      <div className="flex justify-center">
-                        <button
-                          type="submit"
-                          disabled={formik.isSubmitting}
-                           
-                          className="bg-nordvital-primary hover:bg-nordvital-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-indigo-300 focus:outline-none shadow-lg"
-                        >
-                          {formik.isSubmitting ? (
-                            <div className="flex items-center">
-                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                              Enviando...
-                            </div>
-                          ) : (
-                            <div className="flex items-center">
-                              <svg
-                                className="w-5 h-5 mr-2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                                />
-                              </svg>
-                              Enviar Solicitud
-                            </div>
-                          )}
-                        </button>
-                      </div>
-                      <p className="text-center text-sm text-gray-500 mt-3">
-                        Nos comunicaremos contigo en un plazo de 15 días hábiles
-                      </p>
-                    </div>
-                  </form>
+                  </div>
                 </div>
               </div>
-            </div>
+
+              {/* Footer del formulario con botón de envío */}
+              <div className="bg-gray-50 px-6 md:px-8 py-6">
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    disabled={formik.isSubmitting}
+                    className="bg-nordvital-primary hover:bg-nordvital-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-indigo-300 focus:outline-none shadow-lg"
+                  >
+                    {formik.isSubmitting ? (
+                      <div className="flex items-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Enviando...
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                          />
+                        </svg>
+                        Enviar Solicitud
+                      </div>
+                    )}
+                  </button>
+                </div>
+                <p className="text-center text-sm text-gray-500 mt-3">
+                  Nos comunicaremos contigo en un plazo de 15 días hábiles
+                </p>
+              </div>
+            </form>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
