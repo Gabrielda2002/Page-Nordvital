@@ -27,6 +27,8 @@ jobs:
           echo "PUBLIC_BACKEND_URL=${{secrets.PUBLIC_BACKEND_URL}}" >> .env
           echo "PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS=${{secrets.PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS}}" >> .env
           echo "PUBLIC_TARGET_EMAIL_WORKUS=${{secrets.PUBLIC_TARGET_EMAIL_WORKUS}}" >> .env
+          echo "PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS_2=${{secrets.PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS_2}}" >> .env
+          echo "PUBLIC_TARGET_EMAIL_WORKUS_2=${{secrets.PUBLIC_TARGET_EMAIL_WORKUS_2}}" >> .env
 
       
       - name: Build Project

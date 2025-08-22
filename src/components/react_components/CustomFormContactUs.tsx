@@ -7,7 +7,7 @@ import axios from "axios";
 interface CustomFormProps {
   showAsunto?: boolean;
   showCV?: boolean;
-  showPrivacyPolicy?: boolean;
+  showPrivacyPolicy?: boolean;  
 }
 
 const CustomForm: React.FC<CustomFormProps> = ({
@@ -108,6 +108,38 @@ const CustomForm: React.FC<CustomFormProps> = ({
             minute: "2-digit",
           }),
         };
+
+        if (showCV === true) {
+          console.log("se ejecuta el scrpt para enviar datos al segundo correo")
+          const emailWorkUsTwo = import.meta.env.PUBLIC_TARGET_EMAIL_WORKUS_2;
+          const templateWorkUsTwo = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS_2;
+
+          const emailDataWrUsTwo = {
+          t_email: emailWorkUsTwo,
+          nombre: values.nombre,
+          apellido: values.apellido,
+          email: values.email,
+          telefono: values.telefono,
+          descripcion: values.descripcion,
+          asunto: values.asunto || "Sin asunto",
+          adjunto: fileUrl,
+          fecha_aplicacion: new Date().toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        };
+
+        await emailJs.send(
+            import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+            templateWorkUsTwo,
+            emailDataWrUsTwo,
+            import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
+        )
+
+        }
 
         await emailJs.send(
           import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
