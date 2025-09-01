@@ -78,7 +78,7 @@ const CustomForm: React.FC<CustomFormProps> = ({
             return;
           }
 
-          fileUrl = response.data.fileUrl;
+          fileUrl = response.data.access.viewUrl;
         }
 
         const emailCustom =
@@ -110,7 +110,6 @@ const CustomForm: React.FC<CustomFormProps> = ({
         };
 
         if (showCV === true) {
-          console.log("se ejecuta el scrpt para enviar datos al segundo correo")
           const emailWorkUsTwo = import.meta.env.PUBLIC_TARGET_EMAIL_WORKUS_2;
           const templateWorkUsTwo = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID_WORKUS_2;
 
