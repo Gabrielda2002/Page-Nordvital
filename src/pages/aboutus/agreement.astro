@@ -38,11 +38,13 @@ description="Conoce los convenios de Nordvital IPS con las principales EPS de Co
   </section>
       
       <!-- Acordeón de Convenios -->
-      <div class="grid md:grid-cols-3 py-4 gap-4 md:gap-6 w-[88%] mx-auto md:w-[48%]">
-        {agreements.map((agreement) => (
-          <AgreementAccordion {...agreement} />
-        ))}
-      </div>
+       <div class="flex items-center justify-center">
+         <div class=" grid md:grid-cols-4 py-4 gap-4 md:gap-6 w-full mx-3 md:w-10/12">
+           {agreements.map((agreement) => (
+             <AgreementAccordion {...agreement} />
+           ))}
+         </div>
+       </div>
   </main>
 </Layout>
 
