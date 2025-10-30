@@ -1,0 +1,87 @@
+---
+export interface ContactLine {
+  title: string;
+  value: string;
+}
+
+export interface Props {
+  id: number;
+  logo: ImageMetadata;
+  logoAlt: string;
+  logoClass?: string;
+  contactLines: ContactLine[];
+  containerClass?: string;
+}
+
+const { id, logo, logoAlt, logoClass = "w-32 md:w-40 h-auto", contactLines, containerClass = "" } = Astro.props;
+---
+
+<div class={containerClass}>
+  <div class="bg-white rounded-lg shadow-md overflow-hidden">
+    <button
+      class="accordion-button w-full p-4 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300 ease-in-out"
+      id={`accordion-button-${id}`}
+      aria-expanded="false"
+      aria-controls={`accordion-content-${id}`}
+    >
+      <div class="flex items-center justify-between w-full">
+        <img
+          src={logo.src}
+          alt={logoAlt}
+          class={logoClass}
+        />
+        <svg
+          class="w-6 h-6 text-teal-500 transform transition-transform duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+    </button>
+    <div
+      id={`accordion-content-${id}`}
+      class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      role="region"
+      aria-labelledby={`accordion-button-${id}`}
+    >
+      <div class="p-4 md:p-6 border-t border-gray-200">
+        {contactLines.map((line, index) => (
+          <div class:list={[index < contactLines.length - 1 && 'mb-4']}>
+            <h5 class="text-base md:text-lg font-semibold text-teal-700 mb-2">
+              {line.title}
+            </h5>
+            <p class="text-gray-600">{line.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos para la animación del acordeón */
+  .accordion-content {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .accordion-content.active {
+    max-height: 400px; /* Altura máxima para la animación */
+    opacity: 1;
+  }
+
+  /* Transición suave para el ícono */
+  .accordion-button svg {
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-button[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+</style>
