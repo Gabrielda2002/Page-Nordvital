@@ -30,7 +30,7 @@ import S07Img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg";
 import S07Img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp";
 
 // Cundinamarca - Ubaté
-import S08Img1 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-1.webp";
+import S08Img1 from "@/images/Sedes/Cundinamarca/ubate/image-ubate-01.jpg";
 import S08Img2 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-2.webp";
 import S08Img3 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-3.webp";
 
@@ -40,14 +40,19 @@ import S09Img2 from "@/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-2.webp";
 import S09Img3 from "@/images/Sedes/Cundinamarca/La-Mesa/SEDE-2-3.webp";
 
 // Cundinamarca - Cajicá
-import S10Img1 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-1.webp";
+import S10Img1 from "@/images/Sedes/Cundinamarca/Cajica/image-cajica-01.webp";
 import S10Img2 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-2.webp";
 import S10Img3 from "@/images/Sedes/Cundinamarca/Cajica/SEDE-3-3.webp";
 
 // Cundinamarca - La Calera
-import S11Img1 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-1.webp";
+import S11Img1 from "@/images/Sedes/Cundinamarca/La-Calera/image-calera-01.jpg";
 import S11Img2 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-2.webp";
 import S11Img3 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-3.webp";
+
+// cundinamarca - Chia
+import Chia01 from "@/images/Sedes/Cundinamarca/Chia/image-chia-01.webp"
+import Chia02 from "@/images/Sedes/Cundinamarca/Chia/image-chia-02.webp"
+import Chia03 from "@/images/Sedes/Cundinamarca/Chia/image-chia-03.webp"
 
 // Amazonas - Leticia
 import S12Img1 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-1.webp";
@@ -150,6 +155,14 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         address: "CARRERA 5 # 2A-69",
         mapLink: "https://maps.app.goo.gl/rbHQBipQYNMjoyBD9",
         images: [S11Img1, S11Img2, S11Img3]
+    },
+    {
+        id: 12,
+        department: "cundinamarca",
+        title: "Sede Chía:",
+        address: "Carrera 9 Nro. 16A-05 Barrio Osorio",
+        mapLink: "https://maps.app.goo.gl/SwjgFedHMmHcdYDu7",
+        images: [Chia01, Chia02, Chia03]
     },
     // Sede de Leticia (Amazonas)
     {
