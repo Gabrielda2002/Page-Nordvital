@@ -30,7 +30,7 @@ import S07Img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg";
 import S07Img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp";
 
 // Cundinamarca - Ubaté
-import S08Img1 from "@/images/Sedes/Cundinamarca/ubate/image-ubate-01.jpg";
+import S08Img1 from "@/images/Sedes/Cundinamarca/Ubate/image-ubate-01.jpg";
 import S08Img2 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-2.webp";
 import S08Img3 from "@/images/Sedes/Cundinamarca/Ubate/SEDE-1-3.webp";
 
