@@ -54,11 +54,6 @@ import Chia01 from "@/images/Sedes/Cundinamarca/Chia/image-chia-01.webp"
 import Chia02 from "@/images/Sedes/Cundinamarca/Chia/image-chia-02.webp"
 import Chia03 from "@/images/Sedes/Cundinamarca/Chia/image-chia-03.webp"
 
-// Amazonas - Leticia
-import S12Img1 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-1.webp";
-import S12Img2 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-2.webp";
-import S12Img3 from "@/images/Sedes/Amazonas/Leticia/SEDE-1-3.webp";
-
 export interface Headquarters {
     id: number;
     department: string;
@@ -164,15 +159,6 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         mapLink: "https://maps.app.goo.gl/SwjgFedHMmHcdYDu7",
         images: [Chia01, Chia02, Chia03]
     },
-    // Sede de Leticia (Amazonas)
-    {
-        id: 11,
-        department: "leticia",
-        title: "Sede leticia:",
-        address: "CALLE 12 # 8-55 JOSE MARIA HERNANDEZ",
-        mapLink: "https://maps.app.goo.gl/U7VrqXBMe2aWVfwg9",
-        images: [S12Img1, S12Img2, S12Img3]
-    }
 ]
 
 
@@ -185,9 +171,5 @@ export const CONTENT_TABS: ContentTab[] = [
   {
     id: "cundinamarca",
     title: "Cundinamarca",
-  },
-  {
-    id: "leticia",
-    title: "Leticia",
-  },
+  }
 ];
