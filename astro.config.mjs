@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  integrations: [tailwind(), react()],
+  integrations: [react()],
   scripts: [
     {
       src: 'https://code.jquery.com/jquery-3.6.0.min.js',
@@ -11,6 +11,9 @@ export default defineConfig({
     }
   ],
   vite: {
+    plugins: [
+      tailwindcss()
+    ],
     ssr: {
       external: ['jquery']
     }

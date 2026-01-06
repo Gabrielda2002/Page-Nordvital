@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores principales de Nordvital */
+  --color-nordvital-primary: #049ae7;
+  --color-nordvital-secondary: #6fbda7;
+  
+  /* Nordvital Teal */
+  --color-nordvital-teal-400: #5eaaa0;
+  --color-nordvital-teal-500: #14b8a6;
+  --color-nordvital-teal-600: #0d9488;
+  
+  /* Nordvital Gray */
+  --color-nordvital-gray-50: #f9fafb;
+  --color-nordvital-gray-100: #f3f4f6;
+  --color-nordvital-gray-200: #e5e7eb;
+  --color-nordvital-gray-300: #d1d5db;
+  --color-nordvital-gray-400: #9ca3af;
+  --color-nordvital-gray-500: #6b7280;
+  --color-nordvital-gray-600: #4b5563;
+  --color-nordvital-gray-700: #374151;
+  --color-nordvital-gray-800: #1f2937;
+  --color-nordvital-gray-900: #111827;
+  
+  /* Nordvital Blue */
+  --color-nordvital-blue-50: #eff6ff;
+  --color-nordvital-blue-100: #dbeafe;
+  --color-nordvital-blue-500: #3b82f6;
+  --color-nordvital-blue-600: #2563eb;
+  
+  /* Nordvital Indigo */
+  --color-nordvital-indigo-100: #e0e7ff;
+  --color-nordvital-indigo-500: #6366f1;
+  --color-nordvital-indigo-600: #4f46e5;
+  --color-nordvital-indigo-700: #4338ca;
+  
+  /* Nordvital Red */
+  --color-nordvital-red-50: #fef2f2;
+  --color-nordvital-red-300: #fca5a5;
+  --color-nordvital-red-500: #ef4444;
+  --color-nordvital-red-600: #dc2626;
+  
+  /* Nordvital Green */
+  --color-nordvital-green-500: #10b981;
+  --color-nordvital-green-700: #047857;
+  
+  /* Nordvital Sky */
+  --color-nordvital-sky-500: #0ea5e9;
+  --color-nordvital-sky-600: #0284c7;
+}

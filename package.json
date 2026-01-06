@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/jquery": "^3.5.33",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
@@ -22,11 +23,10 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-loading-skeleton": "^3.5.0",
+    "tailwindcss": "^4.1.18",
     "yup": "^1.7.1"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^6.0.2",
-    "@types/owl.carousel": "^2.3.6",
-    "tailwindcss": "^4.1.18"
+    "@types/owl.carousel": "^2.3.6"
   }
 }
