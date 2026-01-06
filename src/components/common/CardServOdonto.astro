@@ -13,7 +13,7 @@ const { title, content, icon, showIcon = true } = Astro.props;
 <div class={`grid ${showIcon ? 'grid-cols-2' : 'grid-cols-1'} shadow-xl rounded-xl p-3 border border-b`}>
     {showIcon && (
     <div class="flex items-center justify-center">
-      <img src={icon} alt={`Icon ${title}`}  class="w-[80px] md:w-[100px] h-[120px] md:h-[200px]" />
+      <img src={icon} alt={`Icon ${title}`}  class="w-20 md:w-25 h-30 md:h-50" />
     </div>
     )}
     <div>

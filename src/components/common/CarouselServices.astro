@@ -61,7 +61,7 @@ const images = [
     images.map(({ src, title, description, link }) => (
       <div class="relative overflow-hidden">
         <img src={src} alt={title} />
-        <div class="absolute top-0 left-0 w-full rounded-2xl h-full bg-gradient-to-l from-[#6fbda7] to-[#017bdedf]  opacity-0 hover:opacity-90 transition-opacity duration-300">
+        <div class="absolute top-0 left-0 w-full rounded-2xl h-full bg-linear-to-l from-nordvital-secondary to-[#017bdedf]  opacity-0 hover:opacity-90 transition-opacity duration-300">
           <div class="absolute bottom-0 left-0 w-full justify-start p-5">
             <div class="mb-2">
               <h3 class="text-white font-bold text-2xl ">{title}</h3>
@@ -70,7 +70,7 @@ const images = [
               <p class="text-white font-semibold">{description}</p>
             </div>
             <div class="grid grid-cols-2 w-full lg:w-1/2 gap-5">
-              <button class=" text-[#049ae7] bg-white px-2 py-1 rounded-md hover:bg-gray-300 trasnition-all duration-300">
+              <button class=" text-nordvital-primary bg-white px-2 py-1 rounded-md hover:bg-gray-300 trasnition-all duration-300">
                 <a href={link}>Ver Más</a>
               </button>
               <button class="px-2 py-1 bg-teal-500 rounded-md hover:bg-teal-600 trasnition-all duration-300">

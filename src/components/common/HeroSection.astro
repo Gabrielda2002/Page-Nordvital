@@ -8,7 +8,7 @@ interface Props {
 const { title, backgroundImage } = Astro.props;
 ---
 
-<section class="relative h-[400px] w-full flex items-center mb-12 bg-gray-200 overflow-hidden">
+<section class="relative h-100 w-full flex items-center mb-12 bg-gray-200 overflow-hidden">
   <Image
     src={backgroundImage}
     alt={title}
@@ -20,6 +20,6 @@ const { title, backgroundImage } = Astro.props;
     <a href="/" class="text-teal-500 font-normal bg-gray-100 p-2 min-w-max rounded-3xl inline-block">
       Inicio <span class="text-teal-500 font-semibold">&gt;{title}</span>
     </a>
-    <h1 class="text-[35px] md:text-[43px] font-normal mt-4 min-w-[375px] md:w-full">{title}</h1>
+    <h1 class="text-[35px] md:text-[43px] font-normal mt-4 min-w-93.75 md:w-full">{title}</h1>
   </section>
 </section>

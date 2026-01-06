@@ -79,7 +79,7 @@ const images = [
     <div id="slides-container" class="flex transition-transform duration-500">
       {
         images.map((m) => (
-          <div class="w-full flex-shrink-0">
+          <div class="w-full shrink-0">
             <a href={`https://api.whatsapp.com/send?phone=${m.telefono}`} target="_blank" class="block w-full h-full">
               <Image
                 src={m.src}
@@ -101,7 +101,7 @@ const images = [
   >
     <span class="text-2xl text-white">←</span>
     <span
-      class="absolute left-0 top-0 bottom-0 w-full bg-gradient-to-r from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+      class="absolute left-0 top-0 bottom-0 w-full bg-linear-to-r from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
     ></span>
   </button>
 
@@ -111,7 +111,7 @@ const images = [
   >
     <span class="text-2xl text-white">→</span>
     <span
-      class="absolute right-0 top-0 bottom-0 w-full bg-gradient-to-l from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+      class="absolute right-0 top-0 bottom-0 w-full bg-linear-to-l from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"
     ></span>
   </button>
 </div>
