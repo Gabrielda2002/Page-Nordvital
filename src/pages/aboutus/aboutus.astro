@@ -13,11 +13,11 @@ import icon from "@/images/AboutUs/Recurso_2.svg";
 import { Image } from "astro:assets";
 ---
 
-<Layout title="Servicios Médicos | Nordvital IPS - Atención médica integral" 
-  description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia." >
-
+<Layout
+  title="Servicios Médicos | Nordvital IPS - Atención médica integral"
+  description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia."
+>
   <main class="overflow-x-hidden">
-    <!-- Hero Section -->
     <HeroSection title="Quiénes Somos" backgroundImage={img} />
 
     <!-- Misión y visión -->
@@ -28,7 +28,7 @@ import { Image } from "astro:assets";
       <div
         class="flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
       >
-        <div class="text-center md:text-left"> 
+        <div class="text-center md:text-left">
           <h5 class="text-white text-2xl md:text-[38px] font-bold mb-2">
             Nuestra misión y visión
           </h5>
@@ -38,47 +38,127 @@ import { Image } from "astro:assets";
           </p>
         </div>
         <div class="mt-4 md:mt-0">
-          <label for="openModal" class="cursor-pointer md:p-14">
-            <img src={icon.src} />
+          <label for="openModal" class="cursor-pointer text-gray-200 text-base bg-nordvital-primary p-3 hover:bg-nordvital-teal-600 rounded-lg font-medium transition-colors duration-200" title="Abrir modal Misión y Visión">
+            Abrir Misión y Visión
           </label>
         </div>
       </div>
     </div>
 
-    <!-- Modal (sin cambios) -->
-    <div id="misionVisionModal" class="hidden fixed inset-0 z-50">
-      <div class="fixed inset-0 bg-black bg-opacity-50">
-        <div class="min-h-screen flex items-center justify-center">
+    <!-- Modal Misión y Visión -->
+    <div id="misionVisionModal" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-300">
+      <!-- Backdrop con blur -->
+      <div
+        class="fixed inset-0 bg-black/60 backdrop-blur-md transition-all duration-300"
+        id="modalBackdrop"
+      ></div>
+      
+      <!-- Contenedor del modal -->
+      <div class="fixed inset-0 overflow-y-auto">
+        <div class="min-h-screen flex items-center justify-center p-4">
+          <!-- Modal content -->
           <div
-            class="bg-white rounded-lg w-[92%] md:w-2/4 max-h-[70vh] overflow-y-auto"
+            id="modalContent"
+            class="relative bg-white rounded-2xl w-full max-w-3xl shadow-2xl transform scale-95 transition-all duration-300"
           >
-            <div class="flex justify-end p-2">
-              <button id="closeModalBtn" class="text-4xl hover:text-red-600">&times;</button>
+            <!-- Header del modal -->
+            <div class="sticky top-0 bg-linear-to-r from-nordvital-primary to-nordvital-teal-500 rounded-t-2xl px-6 py-4 flex items-center justify-between">
+              <h2 class="text-white text-2xl md:text-3xl font-bold flex items-center gap-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                Misión y Visión
+              </h2>
+              <button
+                id="closeModalBtn"
+                class="text-white hover:bg-white/20 rounded-full p-2 transition-colors duration-200"
+                aria-label="Cerrar modal"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
             </div>
-            <div class="p-4 md:p-8 text-[15px] md:text-lg">
-              <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-2">
-                <em>Misión: </em>
-              </h3>
-              <p class="text-justify mb-5">
-                En NORDVITAL IPS S.A.S,. somos una institución prestadora de
-                servicios de salud ambulatorios de baja y mediana complejidad
-                con presencia a nivel nacional, con capital humano integral y
-                comprometido, espacios confortables y tecnología de punta que
-                ofrece atención con altos estándares de calidad y el propósito
-                de garantizar la satisfacción a nuestros usuarios y sus
-                familias.
-              </p>
 
-              <h3 class="font-semibold text-teal-500 text-xl md:text-2xl mb-2">
-                <em>Visión: </em>
-              </h3>
-              <p class="text-justify mb-5">
-                Posicionar NORDVITAL IPS en el 2029 como una organización líder
-                en innovación, servicios de alta calidad y excelencia en la
-                atención, fortaleciendo nuestra capacidad operativa a nivel
-                nacional, siendo reconocidos por nuestros usuarios, clientes,
-                profesionales y entorno social.
-              </p>
+            <!-- Body del modal -->
+            <div class="p-6 md:p-8 space-y-8 max-h-[70vh] overflow-y-auto">
+              <!-- Misión -->
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 w-12 h-12 bg-nordvital-teal-500/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-nordvital-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-nordvital-teal-600 font-bold text-2xl md:text-3xl mb-3">
+                      Misión
+                    </h3>
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                      En NORDVITAL IPS S.A.S., somos una institución prestadora de
+                      servicios de salud ambulatorios de baja y mediana complejidad
+                      con presencia a nivel nacional, con capital humano integral y
+                      comprometido, espacios confortables y tecnología de punta que
+                      ofrece atención con altos estándares de calidad y el propósito
+                      de garantizar la satisfacción a nuestros usuarios y sus
+                      familias.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                  <div class="w-full border-t border-gray-200"></div>
+                </div>
+                <div class="relative flex justify-center">
+                  <span class="bg-white px-4">
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Visión -->
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 w-12 h-12 bg-nordvital-primary/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-nordvital-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-nordvital-primary font-bold text-2xl md:text-3xl mb-3">
+                      Visión
+                    </h3>
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                      Posicionar NORDVITAL IPS en el 2029 como una organización líder
+                      en innovación, servicios de alta calidad y excelencia en la
+                      atención, fortaleciendo nuestra capacidad operativa a nivel
+                      nacional, siendo reconocidos por nuestros usuarios, clientes,
+                      profesionales y entorno social.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer del modal (opcional) -->
+            <div class="sticky bottom-0 bg-gray-50 rounded-b-2xl px-6 py-4 border-t border-gray-200">
+              <div class="flex items-center justify-between">
+                <p class="text-sm text-gray-500">
+                  Comprometidos con tu salud
+                </p>
+                <button
+                  id="closeModalBtn2"
+                  class="px-6 py-2 cursor-pointer bg-nordvital-primary hover:bg-nordvital-teal-600 text-white rounded-lg font-medium transition-colors duration-200"
+                >
+                  Cerrar
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -92,28 +172,28 @@ import { Image } from "astro:assets";
       >
         <div class="p-4 w-full md:w-2/5 text-gray-600">
           <h1
-            class="text-primary text-3xl md:text-4xl font-normal text-[#0d6efd]"
+            class="text-nordvital-primary font-bold text-left text-3xl md:text-4xl mb-3"
           >
-            <strong>¿Quiénes somos?</strong>
-          </h1><br />
-          <p class="text-muted text-base md:text-lg">
-            <strong>NordVital IPS S.A.S.</strong> es una IPS de carácter privado
-            que ofrece servicios de atención primaria y de complejidad media a sus
-            usuarios, ya sea a través de las EPS o de manera particular.
-          </p><br />
-          <p class="text-muted text-base md:text-lg flex-col">
+            ¿Quiénes somos?
+          </h1>
+          <p class="text-base line-clamp-3 text-left mb-2">
+            <strong>NordVital IPS S.A.S.</strong> es una IPS de carácter privado que
+            ofrece servicios de atención primaria y de complejidad media a sus usuarios,
+            ya sea a través de las EPS o de manera particular.
+          </p>
+          <p class="text-base line-clamp-3 text-left mb-2">
             NordVital IPS S.A.S. En concordancia con las nuevas orientaciones y
             políticas de atención integral que se promueven a nivel nacional,
             cuenta con una política de atención basada en el <strong
               >compromiso</strong
-            > con el mejoramiento continuo de la calidad de la atención en salud
-            para todos los usuarios.
+            > con el mejoramiento continuo de la calidad de la atención en salud para
+            todos los usuarios.
           </p>
-          <div class="mt-6">
-            <h1 class="text-3xl text-teal-500 font-bold mb-4">
+          <div>
+            <h1 class="text-2xl text-teal-500 font-bold mb-2 text-left">
               Excelencia en atención
             </h1>
-            <p>
+            <p class="text-base line-clamp-4 text-left mb-2">
               Los servicios ofertados y su modalidad de atención, están basados
               en estándares de <strong>efectividad y eficiencia</strong> como respuesta
               a las necesidades de la población, para lo cual se cuenta con el mejor
@@ -149,29 +229,37 @@ import { Image } from "astro:assets";
         </div>
 
         <div class="p-4 w-full md:w-2/5">
-          <h1 class="text-3xl md:text-4xl font-normal text-teal-500 mb-5">
-            <strong><em>Nuestros valores:</em></strong>
+          <h1 class="text-3xl font-bold text-nordvital-primary mb-3 text-left">
+            Nuestros valores:
           </h1>
           <ul class="list-disc pl-5 text-gray-600">
-            <li class="text-muted text-lg mb-3">
-              <strong>Lealtad:</strong> Estamos siempre presentes y comprometidos,
-              apoyando y defendiendo los intereses de aquellos a quienes servimos
-              y con quienes trabajamos.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Lealtad:</strong> Estamos siempre presentes y comprometidos,
+                apoyando y defendiendo los intereses de aquellos a quienes servimos
+                y con quienes trabajamos.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Empatía:</strong> En NordVital IPS, valoramos y cultivamos
-              un espíritu de gratitud en cada interacción. Reconocemos y apreciamos
-              sinceramente las contribuciones y sacrificios de nuestros colegas,
-              pacientes y socios.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Empatía:</strong> En NordVital IPS, valoramos y cultivamos
+                un espíritu de gratitud en cada interacción. Reconocemos y apreciamos
+                sinceramente las contribuciones y sacrificios de nuestros colegas,
+                pacientes y socios.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Gratitud:</strong> Nos esforzamos por comprender las experiencias,
-              emociones y necesidades de los demás, y actuamos con compasión y sensibilidad
-              para brindar apoyo y cuidado genuino.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Gratitud:</strong> Nos esforzamos por comprender las experiencias,
+                emociones y necesidades de los demás, y actuamos con compasión y sensibilidad
+                para brindar apoyo y cuidado genuino.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Respeto:</strong> El respeto es fundamental en NordVital IPS,
-              tanto hacia las personas como hacia las diferencias que nos hace únicos.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Respeto:</strong> El respeto es fundamental en NordVital IPS,
+                tanto hacia las personas como hacia las diferencias que nos hace únicos.
+              </p>
             </li>
           </ul>
         </div>
@@ -181,38 +269,50 @@ import { Image } from "astro:assets";
         class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0 mb-4"
       >
         <div class="p-1 w-full md:w-2/5">
-          <h1 class="text-3xl md:text-4xl font-normal text-teal-500 mb-5">
-            <strong><em>Nuestros principios:</em></strong>
+          <h1 class="text-3xl font-bold text-nordvital-primary mb-3">
+            Nuestros principios:
           </h1>
           <ul class="list-disc pl-5 text-gray-600">
-            <li class="text-muted text-lg mb-3">
-              <strong>Amabilidad:</strong> Nos esforzamos por crear un ambiente acogedor
-              y solidario donde cada persona se sienta valorada y respetada
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Amabilidad:</strong> Nos esforzamos por crear un ambiente
+                acogedor y solidario donde cada persona se sienta valorada y respetada
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Trabajo en equipo:</strong> Valoramos la colaboración, la comunicación
-              abierta y el apoyo mutuo entre colegas, reconociendo que juntos podemos
-              lograr más de lo que podríamos individualmente.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Trabajo en equipo:</strong> Valoramos la colaboración, la
+                comunicación abierta y el apoyo mutuo entre colegas, reconociendo
+                que juntos podemos lograr más de lo que podríamos individualmente.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Liderazgo:</strong> Fomentamos el liderazgo tanto en la toma
-              de decisiones como en la acción, inspirando a otros a alcanzar su máximo
-              potencial.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Liderazgo:</strong> Fomentamos el liderazgo tanto en la toma
+                de decisiones como en la acción, inspirando a otros a alcanzar su
+                máximo potencial.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Confianza:</strong> Nos comprometemos a actuar con integridad,
-              transparencia y consistencia, ganando y manteniendo la confianza de
-              nuestros pacientes.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Confianza:</strong> Nos comprometemos a actuar con integridad,
+                transparencia y consistencia, ganando y manteniendo la confianza de
+                nuestros pacientes.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Responsabilidad:</strong> Nos esforzamos por cumplir nuestras
-              obligaciones con diligencia y ética, asumiendo la responsabilidad de
-              corregir nuestros errores y aprender de ellos.
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Responsabilidad:</strong> Nos esforzamos por cumplir nuestras
+                obligaciones con diligencia y ética, asumiendo la responsabilidad
+                de corregir nuestros errores y aprender de ellos.
+              </p>
             </li>
-            <li class="text-muted text-lg mb-3">
-              <strong>Solidaridad:</strong> En NordVital IPS, la solidaridad implica
-              un compromiso activo con el bienestar de los demás y la comunidad en
-              general
+            <li class="">
+              <p class="text-base text-left line-clamp-2">
+                <strong>Solidaridad:</strong> En NordVital IPS, la solidaridad implica
+                un compromiso activo con el bienestar de los demás y la comunidad
+                en general
+              </p>
             </li>
           </ul>
         </div>
@@ -229,25 +329,29 @@ import { Image } from "astro:assets";
       </div>
 
       <!-- Reseña histórica -->
-      <div class="text-center h-auto m-auto w-full md:w-[72%] text-gray-600">
-        <h1 class="text-[42px] font-bold text-teal-500">Reseña histórica</h1>
+      <div class="h-auto m-auto my-3 w-full md:w-4/6">
+        <h1 class="text-3xl font-bold text-nordvital-primary text-center">
+          Reseña histórica
+        </h1>
         <div class="p-4">
-          <p class="text-lg mb-3">
-            <span class="text-blue-500">NordVital</span>, anteriormente conocido
-            como Centro de Especialistas de la Visión, fue creado en
-            Barranquilla ante la necesidad de ofrecer servicios de oftalmología
-            en la ciudad de Cúcuta por parte de una importante EPS local, que
-            nos contactó debido a nuestras excelentes referencias en el manejo
-            de estos servicios.
+          <p class="text-base text-left line-clamp-2 mb-2">
+            <span class="text-blue-500 font-semibold">NordVital</span>,
+            anteriormente conocido como Centro de Especialistas de la Visión,
+            fue creado en Barranquilla ante la necesidad de ofrecer servicios de
+            oftalmología en la ciudad de Cúcuta por parte de una importante EPS
+            local, que nos contactó debido a nuestras excelentes referencias en
+            el manejo de estos servicios.
           </p>
-          <p class="mb-3">
-            Así comenzó <span class="text-blue-500">NordVital IPS</span> en Cúcuta,
-            iniciando sus operaciones el 2014. Tras un corto período de funcionamiento,
+          <p class="mb-2 text-base text-left line-clamp-2">
+            Así comenzó <span class="text-blue-500 font-semibold"
+              >NordVital IPS</span
+            > en Cúcuta, iniciando sus operaciones el 2014. Tras un corto período
+            de funcionamiento,
             <span class="text-blue-500">NordVital</span> suspendió sus actividades
             para transformarse en lo que es hoy: la mejor IPS de atención primaria
             en Cúcuta.
           </p>
-          <p class="mb-3">
+          <p class="mb-2 text-base text-left line-clamp-3">
             Preparándonos para ofrecer servicios a Nueva EPS, comenzamos
             inicialmente con Salud Vida, pocos meses antes de su liquidación,
             para luego prestar servicios a Nueva EPS en Cúcuta. Continuamos
@@ -255,15 +359,15 @@ import { Image } from "astro:assets";
             logramos establecer una colaboración con COMPENSAR EPS, abriendo
             sedes importantes en el centro del país y los alrededores de Bogotá.
           </p>
-          <p class="mb-3">
+          <p class="mb-2 text-base text-left line-clamp-2">
             Durante la apertura de la sede de Compensar en La Mesa, recibimos
             una propuesta de SANITAS EPS para ofrecer servicios en Leticia, lo
             que nos llevó a abrir una sede en 2021.
           </p>
-          <p class="mb-3">
-            Hoy, <span class="text-blue-500">NordVital</span> se proyecta como una
-            de las IPS más reconocidas y fuertes de la región, habiendo crecido y
-            evolucionado desde su origen en Cúcuta.
+          <p class="mb-2 text-base text-left line-clamp-2">
+            Hoy, <span class="text-blue-500 font-semibold">NordVital</span> se proyecta
+            como una de las IPS más reconocidas y fuertes de la región, habiendo crecido
+            y evolucionado desde su origen en Cúcuta.
           </p>
         </div>
       </div>
@@ -271,31 +375,63 @@ import { Image } from "astro:assets";
   </main>
 
   <script>
-    // Cambiar 'formModal' a 'misionVisionModal' para que coincida con el ID del modal
     const modal = document.getElementById("misionVisionModal");
-    const openButton = document.querySelector("label[for='openModal']"); // Cambiar por el selector del botón
+    const modalContent = document.getElementById("modalContent");
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const openButton = document.querySelector("label[for='openModal']");
     const closeButton = document.getElementById("closeModalBtn");
+    const closeButton2 = document.getElementById("closeModalBtn2");
 
-    const toggleModal = (event: boolean) => {
-      if (modal) {
-        if (event) {
-          modal.classList.remove("hidden");
-          document.documentElement.style.overflow = "hidden";
-          document.body.style.overflow = "hidden";
-        } else {
-          modal.classList.add("hidden");
-          document.documentElement.style.overflow = "auto";
-          document.body.style.overflow = "auto";
-        }
+    const openModal = () => {
+      if (modal && modalContent) {
+        // Mostrar el modal
+        modal.classList.remove("hidden");
+        
+        // Forzar reflow para que las transiciones funcionen
+        modal.offsetHeight;
+        
+        // Añadir clases de animación
+        modal.classList.remove("opacity-0");
+        modal.classList.add("opacity-100");
+        modalContent?.classList.remove("scale-95");
+        modalContent?.classList.add("scale-100");
+        
+        // Bloquear scroll del body
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
       }
     };
 
-    if (openButton) {
-      openButton.addEventListener("click", () => toggleModal(true));
-    }
+    const closeModal = () => {
+      if (modal && modalContent) {
+        // Remover clases de animación
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        modalContent?.classList.remove("scale-100");
+        modalContent?.classList.add("scale-95");
+        
+        // Esperar a que termine la animación antes de ocultar
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          document.documentElement.style.overflow = "auto";
+          document.body.style.overflow = "auto";
+        }, 300);
+      }
+    };
 
-    if (closeButton) {
-      closeButton.addEventListener("click", () => toggleModal(false));
-    }
+    // Event listeners
+    openButton?.addEventListener("click", openModal);
+    closeButton?.addEventListener("click", closeModal);
+    closeButton2?.addEventListener("click", closeModal);
+    
+    // Cerrar al hacer clic en el backdrop
+    modalBackdrop?.addEventListener("click", closeModal);
+    
+    // Cerrar con tecla Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
   </script>
 </Layout>
