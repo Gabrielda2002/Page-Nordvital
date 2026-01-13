@@ -53,6 +53,8 @@ import S11Img3 from "@/images/Sedes/Cundinamarca/La-Calera/SEDE-4-3.webp";
 import Chia01 from "@/images/Sedes/Cundinamarca/Chia/image-chia-01.webp"
 import Chia02 from "@/images/Sedes/Cundinamarca/Chia/image-chia-02.webp"
 import Chia03 from "@/images/Sedes/Cundinamarca/Chia/image-chia-03.webp"
+import { Map, MapPin } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 export interface Headquarters {
     id: number;
@@ -68,6 +70,7 @@ export interface Headquarters {
 interface ContentTab {
     id: string;
     title: string;
+    icon?: LucideIcon;
 }
 
 export const HEADQUARTERS_DATA: Headquarters[] = [
@@ -191,9 +194,11 @@ export const CONTENT_TABS: ContentTab[] = [
   {
     id: "cucuta",
     title: "Cúcuta",
+    icon: Map
   },
   {
     id: "cundinamarca",
     title: "Cundinamarca",
+    icon: MapPin
   }
 ];
