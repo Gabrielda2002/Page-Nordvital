@@ -17,24 +17,23 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
     <BreadCrumps title="Nuestras sedes" backgroundImage={img} />
 
     <div class="pb-5">
-      <div class="w-[90%] md:w-3/4 mx-auto mt-4 bg-transparent border-none">
+      <div class="mx-auto mt-4 bg-transparent border-none">
         <TapsContent tabs={CONTENT_TABS}>
           <div data-tab-content="cucuta">
-            {HEADQUARTERS_DATA.filter(h => h.department === "cucuta").map((h) => (
-              <Card {...h} />
-            ))}
+            {
+              HEADQUARTERS_DATA.filter((h) => h.department === "cucuta").map(
+                (h) => <Card {...h} />
+              )
+            }
           </div>
           <div data-tab-content="cundinamarca">
-            {HEADQUARTERS_DATA.filter(h => h.department === "cundinamarca").map((h) => (
-              <Card {...h} />
-            ))}
+            {
+              HEADQUARTERS_DATA.filter(
+                (h) => h.department === "cundinamarca"
+              ).map((h) => <Card {...h} />)
+            }
           </div>
-          <div data-tab-content="leticia">
-            {HEADQUARTERS_DATA.filter(h => h.department === "leticia").map((h) => (
-              <Card {...h} />
-            ))}
-          </div>
-        </TapsContent>  
+        </TapsContent>
       </div>
     </div>
   </main>
