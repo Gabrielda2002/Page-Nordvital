@@ -4,12 +4,15 @@ interface CardProps {
   address: string;
   mapLink: string;
   images: ImageMetadata[];
+  latitude: number;
+  longitude: number;
 }
 import { Image } from "astro:assets";
 import { Map, MapControls } from "./ui/map";
+import MapExt from "./react_components/MapExt";
 
 const props = Astro.props as CardProps;
-const { title = "", address = "", mapLink = "", images = [] } = props;
+const { title = "", address = "", mapLink = "", images = [], latitude, longitude } = props;
 ---
 
 <article class="w-full max-w-6xl mx-auto px-4 py-6">
@@ -101,6 +104,7 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
                 <span>{address}</span>
+                <a href={mapLink}>Link</a>
               </p>
             </div>
           </div>
@@ -110,6 +114,7 @@ const { title = "", address = "", mapLink = "", images = [] } = props;
         <div class="flex-1 min-h-62.2 relative">
           <div class="h-full w-full">
             <!-- aqui va el mapa -->
+             <MapExt lng={longitude} lat={latitude} client:load >
           </div>
         </div>
       </div>

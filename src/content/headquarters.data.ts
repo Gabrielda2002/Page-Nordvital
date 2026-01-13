@@ -61,6 +61,8 @@ export interface Headquarters {
     address: string;
     mapLink: string;
     images: ImageMetadata[];
+    latitude?: number;
+    longitude?: number;
 }
 
 interface ContentTab {
@@ -76,7 +78,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "SEDES 01:",
         address: "Calle 14A # 2E-86",
         mapLink: "https://maps.app.goo.gl/CfLihr4Zs9jLwyi79",
-        images: [S01img1, S01img2, S01img3]
+        images: [S01img1, S01img2, S01img3],
+        latitude: 7.884377881441531,
+        longitude: -72.49502889815585
     },
     {
         id: 2,
@@ -84,7 +88,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "SEDES 03:",
         address: "Calle 13A # 1E-52",
         mapLink: "https://maps.app.goo.gl/MovPiQ2E3mschyoS7",
-        images: [S03Img1, S03Img2, S03Img3]
+        images: [S03Img1, S03Img2, S03Img3],
+        latitude: 7.884311168487165,
+        longitude: -72.49709690122056
     },
     {
         id: 3,
@@ -92,7 +98,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "SEDES 04:",
         address: "Calle 15 # 2E-07",
         mapLink: "https://maps.app.goo.gl/frVt8vMnDnE4Az3o6",
-        images: [S04Img1, S04Img2, S04Img3]
+        images: [S04Img1, S04Img2, S04Img3],
+        latitude: 7.8831623112436136,
+        longitude: -72.49545126072913
     },
     {
         id: 4,
@@ -100,15 +108,19 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "SEDES 05:",
         address: "AV. 3A E # 13A-82 CAOBOS",
         mapLink: "https://maps.app.goo.gl/qeYXCAhAt7Kihwps8",
-        images: [S05Img1, S05Img2, S05Img3]
+        images: [S05Img1, S05Img2, S05Img3],
+        latitude: 7.8843952736540395,
+        longitude: -72.4939252674719
     },
     {
-        id: 5,
+        id: 5,  
         department: "cucuta",
         title: "SEDES 06:",
         address: "SEDE AV2 ESTE # 14A-10 CAOBOS",
         mapLink: "https://maps.app.goo.gl/MsU4raTfftwrrgff7",
-        images: [S06Img1, S06Img2, S06Img3]
+        images: [S06Img1, S06Img2, S06Img3],
+        latitude: 7.883771531270344,
+        longitude: -72.49578071504811
     },
     {
         id: 6,
@@ -116,7 +128,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "SEDES 07:",
         address: "CALLE 8 # 0-71 BARRIO LATINO",
         mapLink: "https://maps.app.goo.gl/MsU4raTfftwrrgff7",
-        images: [S07Img1, S07Img2, S07Img3]
+        images: [S07Img1, S07Img2, S07Img3],
+        latitude: 7.889777001722247,
+        longitude: -72.49932596258395
     },
     // Sedes de Cundinamarca
     {
@@ -125,7 +139,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "Sede Ubaté:",
         address: "CALLE 11 # 5-20 JUAN JOSE NEIRA",
         mapLink: "https://maps.app.goo.gl/CL68fh6z9HDBARhu8",
-        images: [S08Img1, S08Img2, S08Img3]
+        images: [S08Img1, S08Img2, S08Img3],
+        latitude: 5.309534857663404,
+        longitude: -73.81152648845642
     },
     {
         id: 8,
@@ -133,7 +149,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "Sede La Mesa:",
         address: "CALLE 8 # 24-67 ALVAREZ DIAZ",
         mapLink: "https://maps.app.goo.gl/Bntm8wxFXDekCtgK8",
-        images: [S09Img1, S09Img2, S09Img3]
+        images: [S09Img1, S09Img2, S09Img3],
+        latitude: 4.62917945662949,
+        longitude: -74.46615997730521
     },
     {
         id: 9,
@@ -141,7 +159,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "Sede Cajíca:",
         address: "CARRERA 7 # 2-46",
         mapLink: "https://maps.app.goo.gl/fVRix63tKta678LR6",
-        images: [S10Img1, S10Img2, S10Img3]
+        images: [S10Img1, S10Img2, S10Img3],
+        latitude: 4.917946499728211,
+        longitude: -74.02753260490353
     },
     {
         id: 10,
@@ -149,7 +169,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "Sede La Calera:",
         address: "CARRERA 5 # 2A-69",
         mapLink: "https://maps.app.goo.gl/rbHQBipQYNMjoyBD9",
-        images: [S11Img1, S11Img2, S11Img3]
+        images: [S11Img1, S11Img2, S11Img3],
+        latitude: 4.718780263725662,
+        longitude: -73.97089028413666
     },
     {
         id: 12,
@@ -157,7 +179,9 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
         title: "Sede Chía:",
         address: "Carrera 9 Nro. 16A-05 Barrio Osorio",
         mapLink: "https://maps.app.goo.gl/SwjgFedHMmHcdYDu7",
-        images: [Chia01, Chia02, Chia03]
+        images: [Chia01, Chia02, Chia03],
+        latitude: 4.865059359416426,
+        longitude: -74.05753859647155
     },
 ]
 
