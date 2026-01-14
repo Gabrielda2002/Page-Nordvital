@@ -1,5 +1,5 @@
 ---
-import iconRow from "../assets/flecha.svg?url";
+import iconRow from "../assets/flecha.svg?raw";
 
 import aboutusIcon from "../assets/icons_header/users.svg?url";
 import headquartersIcon from "../assets/icons_header/building-community.svg?url";
@@ -16,22 +16,29 @@ import closeIcon from "../assets/icons_header/x.svg?url";
 
 <nav class="relative h-full">
   <!-- boton de cerrado -->
-  
+
   <ul
-  class="flex flex-col lg:flex-row lg:space-x-4 xl:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
+    class="flex flex-col lg:flex-row lg:space-x-4 xl:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
   >
-  <button
-    id="close_menu"
-    class="lg:hidden p-2 absolute top-2 right-4 hover:bg-gray-200 rounded-md transition-colors"
-  >
-    <img src={closeIcon} alt="Menu" class="w-6 h-6" />
-  </button>
-    <li class="relative group">
+    <button
+      id="close_menu"
+      class="lg:hidden p-2 absolute top-2 right-4 hover:bg-gray-200 rounded-md transition-colors"
+    >
+      <img src={closeIcon} alt="Menu" class="w-6 h-6" />
+    </button>
+    <!-- links de navegacion -->
+    <li class="relative">
       <button
-        class="submenu-btn flex w-full justify-between items-center hover:text-teal-500 transition-colors"
+        class="submenu-btn cursor-pointer flex items-center w-full justify-between py-2 px-3 group hover:bg-nordvital-primary/50 rounded-lg transition-colors duration-300"
         data-submenu="nosotros"
       >
-        Nosotros <img src={iconRow} class="p-1 transition-transform duration-300 ease-in-out" alt="flecha" />
+        <span class="group-hover:text-gray-200 transition-colors duration-300">
+          Nosotros
+        </span>
+        <div
+          set:html={iconRow}
+          class="p-1 flex items-center transition-transform group-hover:text-gray-200 duration-300 ease-in-out"
+        />
       </button>
 
       <ul
@@ -47,7 +54,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           </a>
         </li>
         <li
-          class=" relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
+          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/aboutus/headquarters" class="flex items-center gap-2 p-3">
             <img src={headquartersIcon} alt="aboutus Icon" class="w-5 h-5" />
@@ -85,17 +92,28 @@ import closeIcon from "../assets/icons_header/x.svg?url";
     </li>
 
     <li>
-      <a href="/services" class="hover:text-teal-500 transition-colors"
-        >Servicios
+      <a
+        href="/services"
+        class="flex items-center rounded-lg hover:bg-nordvital-primary/50 py-2 px-3 group hover:text-gray-200 transition-colors duration-300"
+      >
+        <span class="group-hover:text-gray-200 transition-colors duration-300">
+          Servicios
+        </span>
       </a>
     </li>
 
-    <li class="relative group">
+    <li class="relative">
       <button
-        class="submenu-btn flex w-full justify-between items-start hover:text-teal-500 transition-colors"
+        class="submenu-btn cursor-pointer flex items-center w-full justify-between py-2 px-3 group hover:bg-nordvital-primary/50 rounded-lg transition-colors duration-300"
         data-submenu="usuarios"
       >
-        Usuarios <img src={iconRow} class="p-1 transition-transform duration-300 ease-in-out" alt="flecha" />
+        <span class="group-hover:text-gray-200 transition-colors duration-300">
+          Usuarios
+        </span>
+        <div
+          set:html={iconRow}
+          class="p-1 flex items-center transition-transform group-hover:text-gray-200 duration-300 ease-in-out"
+        />
       </button>
       <ul
         id="usuarios"
@@ -164,16 +182,23 @@ import closeIcon from "../assets/icons_header/x.svg?url";
     </li>
 
     <li>
-      <a href="/contact-us" class="hover:text-teal-500 transition-colors"
-        >Contáctenos</a
+      <a
+        href="/contact-us"
+        class="flex items-center rounded-lg hover:bg-nordvital-primary/50 py-2 px-3 group hover:text-gray-200 transition-colors duration-300"
       >
+        <span class="group-hover:text-gray-200 transition-colors duration-300">
+          Contáctenos
+        </span>
+      </a>
     </li>
   </ul>
 </nav>
 
 <style>
   .submenu {
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
   }
   .submenu.max-h-0 {
     max-height: 0;
@@ -185,27 +210,27 @@ import closeIcon from "../assets/icons_header/x.svg?url";
     opacity: 1;
     padding: 1rem;
   }
-  
+
   /* Estilos para pantallas intermedias */
   @media (min-width: 1024px) and (max-width: 1530px) {
     /* Ajustes para el contenedor principal */
     nav {
       width: 100%;
     }
-    
+
     nav > ul {
       position: relative;
       display: flex;
       justify-content: space-between;
       width: 100%;
     }
-    
+
     /* Ajustes para botones principales */
     nav > ul > li {
       position: static;
       white-space: nowrap;
     }
-    
+
     /* Ajustes para submenús */
     .submenu {
       position: absolute;
@@ -214,19 +239,19 @@ import closeIcon from "../assets/icons_header/x.svg?url";
       max-width: 450px;
       grid-template-columns: 1fr !important; /* Una columna para pantallas medianas */
     }
-    
+
     /* Ajustar posición específica para cada submenú */
     #nosotros {
       left: 0;
       right: auto;
     }
-    
+
     #usuarios {
       left: auto;
       right: 0;
     }
   }
-  
+
   @media (max-width: 1024px) {
     .submenu {
       position: relative;
