@@ -18,7 +18,14 @@ import { Image } from "astro:assets";
   description="Nordvital IPS ofrece servicios médicos completos: medicina general, especializada, odontología, laboratorio clínico, imágenes diagnósticas y programas de mantenimiento de la salud. Atención de calidad para toda la familia."
 >
   <main class="overflow-x-hidden">
-    <HeroSection title="Quiénes Somos" backgroundImage={img} />
+    <HeroSection
+      title="Quiénes Somos"
+      backgroundImage={img}
+      breadcrumb={[
+        { label: "Inicio", link: "/" },
+        { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
+      ]}
+    />
 
     <!-- Misión y visión -->
     <div
@@ -38,7 +45,11 @@ import { Image } from "astro:assets";
           </p>
         </div>
         <div class="mt-4 md:mt-0">
-          <label for="openModal" class="cursor-pointer text-gray-200 text-base bg-nordvital-primary p-3 hover:bg-nordvital-teal-600 rounded-lg font-medium transition-colors duration-200" title="Abrir modal Misión y Visión">
+          <label
+            for="openModal"
+            class="cursor-pointer text-gray-200 text-base bg-nordvital-primary p-3 hover:bg-nordvital-teal-600 rounded-lg font-medium transition-colors duration-200"
+            title="Abrir modal Misión y Visión"
+          >
             Abrir Misión y Visión
           </label>
         </div>
@@ -46,13 +57,17 @@ import { Image } from "astro:assets";
     </div>
 
     <!-- Modal Misión y Visión -->
-    <div id="misionVisionModal" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-300">
+    <div
+      id="misionVisionModal"
+      class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-300"
+    >
       <!-- Backdrop con blur -->
       <div
         class="fixed inset-0 bg-black/60 backdrop-blur-md transition-all duration-300"
         id="modalBackdrop"
-      ></div>
-      
+      >
+      </div>
+
       <!-- Contenedor del modal -->
       <div class="fixed inset-0 overflow-y-auto">
         <div class="min-h-screen flex items-center justify-center p-4">
@@ -62,10 +77,23 @@ import { Image } from "astro:assets";
             class="relative bg-white rounded-2xl w-full max-w-3xl shadow-2xl transform scale-95 transition-all duration-300"
           >
             <!-- Header del modal -->
-            <div class="sticky top-0 bg-linear-to-r from-nordvital-primary to-nordvital-teal-500 rounded-t-2xl px-6 py-4 flex items-center justify-between">
-              <h2 class="text-white text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            <div
+              class="sticky top-0 bg-linear-to-r from-nordvital-primary to-nordvital-teal-500 rounded-t-2xl px-6 py-4 flex items-center justify-between"
+            >
+              <h2
+                class="text-white text-2xl md:text-3xl font-bold flex items-center gap-3"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
                 Misión y Visión
               </h2>
@@ -74,8 +102,17 @@ import { Image } from "astro:assets";
                 class="text-white hover:bg-white/20 rounded-full p-2 transition-colors duration-200"
                 aria-label="Cerrar modal"
               >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
             </div>
@@ -85,23 +122,39 @@ import { Image } from "astro:assets";
               <!-- Misión -->
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
-                  <div class="shrink-0 w-12 h-12 bg-nordvital-teal-500/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-nordvital-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <div
+                    class="shrink-0 w-12 h-12 bg-nordvital-teal-500/10 rounded-xl flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-nordvital-teal-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h3 class="text-nordvital-teal-600 font-bold text-2xl md:text-3xl mb-3">
+                    <h3
+                      class="text-nordvital-teal-600 font-bold text-2xl md:text-3xl mb-3"
+                    >
                       Misión
                     </h3>
-                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-                      En NORDVITAL IPS S.A.S., somos una institución prestadora de
-                      servicios de salud ambulatorios de baja y mediana complejidad
-                      con presencia a nivel nacional, con capital humano integral y
-                      comprometido, espacios confortables y tecnología de punta que
-                      ofrece atención con altos estándares de calidad y el propósito
-                      de garantizar la satisfacción a nuestros usuarios y sus
-                      familias.
+                    <p
+                      class="text-gray-700 text-base md:text-lg leading-relaxed"
+                    >
+                      En NORDVITAL IPS S.A.S., somos una institución prestadora
+                      de servicios de salud ambulatorios de baja y mediana
+                      complejidad con presencia a nivel nacional, con capital
+                      humano integral y comprometido, espacios confortables y
+                      tecnología de punta que ofrece atención con altos
+                      estándares de calidad y el propósito de garantizar la
+                      satisfacción a nuestros usuarios y sus familias.
                     </p>
                   </div>
                 </div>
@@ -114,8 +167,17 @@ import { Image } from "astro:assets";
                 </div>
                 <div class="relative flex justify-center">
                   <span class="bg-white px-4">
-                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    <svg
+                      class="w-6 h-6 text-gray-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                     </svg>
                   </span>
                 </div>
@@ -124,22 +186,43 @@ import { Image } from "astro:assets";
               <!-- Visión -->
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
-                  <div class="shrink-0 w-12 h-12 bg-nordvital-primary/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-nordvital-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  <div
+                    class="shrink-0 w-12 h-12 bg-nordvital-primary/10 rounded-xl flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-nordvital-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      ></path>
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h3 class="text-nordvital-primary font-bold text-2xl md:text-3xl mb-3">
+                    <h3
+                      class="text-nordvital-primary font-bold text-2xl md:text-3xl mb-3"
+                    >
                       Visión
                     </h3>
-                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-                      Posicionar NORDVITAL IPS en el 2029 como una organización líder
-                      en innovación, servicios de alta calidad y excelencia en la
-                      atención, fortaleciendo nuestra capacidad operativa a nivel
-                      nacional, siendo reconocidos por nuestros usuarios, clientes,
-                      profesionales y entorno social.
+                    <p
+                      class="text-gray-700 text-base md:text-lg leading-relaxed"
+                    >
+                      Posicionar NORDVITAL IPS en el 2029 como una organización
+                      líder en innovación, servicios de alta calidad y
+                      excelencia en la atención, fortaleciendo nuestra capacidad
+                      operativa a nivel nacional, siendo reconocidos por
+                      nuestros usuarios, clientes, profesionales y entorno
+                      social.
                     </p>
                   </div>
                 </div>
@@ -147,11 +230,11 @@ import { Image } from "astro:assets";
             </div>
 
             <!-- Footer del modal (opcional) -->
-            <div class="sticky bottom-0 bg-gray-50 rounded-b-2xl px-6 py-4 border-t border-gray-200">
+            <div
+              class="sticky bottom-0 bg-gray-50 rounded-b-2xl px-6 py-4 border-t border-gray-200"
+            >
               <div class="flex items-center justify-between">
-                <p class="text-sm text-gray-500">
-                  Comprometidos con tu salud
-                </p>
+                <p class="text-sm text-gray-500">Comprometidos con tu salud</p>
                 <button
                   id="closeModalBtn2"
                   class="px-6 py-2 cursor-pointer bg-nordvital-primary hover:bg-nordvital-teal-600 text-white rounded-lg font-medium transition-colors duration-200"
@@ -386,16 +469,16 @@ import { Image } from "astro:assets";
       if (modal && modalContent) {
         // Mostrar el modal
         modal.classList.remove("hidden");
-        
+
         // Forzar reflow para que las transiciones funcionen
         modal.offsetHeight;
-        
+
         // Añadir clases de animación
         modal.classList.remove("opacity-0");
         modal.classList.add("opacity-100");
         modalContent?.classList.remove("scale-95");
         modalContent?.classList.add("scale-100");
-        
+
         // Bloquear scroll del body
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
@@ -409,7 +492,7 @@ import { Image } from "astro:assets";
         modal.classList.add("opacity-0");
         modalContent?.classList.remove("scale-100");
         modalContent?.classList.add("scale-95");
-        
+
         // Esperar a que termine la animación antes de ocultar
         setTimeout(() => {
           modal.classList.add("hidden");
@@ -423,10 +506,10 @@ import { Image } from "astro:assets";
     openButton?.addEventListener("click", openModal);
     closeButton?.addEventListener("click", closeModal);
     closeButton2?.addEventListener("click", closeModal);
-    
+
     // Cerrar al hacer clic en el backdrop
     modalBackdrop?.addEventListener("click", closeModal);
-    
+
     // Cerrar con tecla Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {

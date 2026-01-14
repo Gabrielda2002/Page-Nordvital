@@ -19,7 +19,10 @@ import PqrsdfForm from "@/components/react_components/PqrsdfForm";
   </head>
 
   <main class="bg-gray-100">
-    <HeroSection title="PQRSFD" backgroundImage={img} />
+    <HeroSection title="PQRSFD" backgroundImage={img} breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "PQRSFD", link: "/users/pqrsfd" }
+    ]} />
     <div
       class="container mx-auto px-1 h-auto w-full flex flex-col xl:flex-row items-center"
     >

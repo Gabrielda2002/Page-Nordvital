@@ -25,7 +25,10 @@ import Chat from "@/components/common/Chat.astro";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Contáctenos" backgroundImage={img} />
+    <HeroSection title="Contáctenos" backgroundImage={img} breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "Contáctenos", link: "/contact-us" }
+    ]} />
 
     <div class="container mx-auto px-4 py-2">
       <div class="flex flex-col lg:flex-row gap-8">

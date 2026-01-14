@@ -25,7 +25,10 @@ import { Image } from "astro:assets";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Asociación de usuarios" backgroundImage={img} />
+    <HeroSection title="Asociación de usuarios" backgroundImage={img} breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "Asociación", link: "/users/association" }
+    ]} />
 
     <div
       class="container items-center mx-auto md:px-13 h-auto w-[90%] flex flex-col xl:flex-row"

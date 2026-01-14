@@ -15,7 +15,11 @@ import FinancialYearSection from "@/components/aboutus/FinancialYearSection.astr
   </head>
 
   <main class="overflow-x-hidden">
-    <HeroSection title="Estado Financiero" backgroundImage={img} />
+    <HeroSection title="Estado Financiero" backgroundImage={img} breadcrumb={[
+      {label: "Inicio", link: "/" },
+      { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
+      { label: "Estado Financiero", link: "/aboutus/status-financiero" }
+    ]} />
 
     <section class="estados__container container mx-auto px-4 py-8">
       <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">

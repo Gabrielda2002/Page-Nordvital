@@ -14,7 +14,10 @@ import Layout from "@/layouts/Layout.astro";
 >
   <div>
     <div>
-      <HeroSection title="Política de Datos" backgroundImage={sectionImg} />
+      <HeroSection title="Política de Datos" backgroundImage={sectionImg} breadcrumb={[
+        { label: "Inicio", link: "/" },
+        { label: "Política de Datos", link: "/our-policies" }
+      ]} />
     </div>
 
     <div class="flex flex-col justify-start m-5">

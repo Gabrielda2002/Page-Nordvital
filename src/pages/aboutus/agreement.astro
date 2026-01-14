@@ -11,7 +11,12 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
 <Layout title="Convenios | Nordvital IPS - Alianzas con EPS" 
 description="Conoce los convenios de Nordvital IPS con las principales EPS de Colombia: Compensar, Nueva EPS y Coosalud. Líneas de atención y servicios disponibles para afiliados.">
 <main class="bg-gray-100 min-h-screen">
-  <HeroSection title="Convenios" backgroundImage={img} />
+  <HeroSection title="Convenios" backgroundImage={img} breadcrumb={
+  [
+    { label: "Inicio" , link: "/" },
+    { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
+    { label: "Convenios", link: "/aboutus/agreement" }
+  ]} />
   
   <!-- Descripción -->
   <section class="container mx-auto px-4 my-4 md:my-16">

@@ -14,7 +14,12 @@ import img from "@/images/AboutUs/NOSOTROS.webp?url";
   description="Accede y descarga tus resultados de laboratorio clínico de Nordvital IPS. Guía paso a paso para visualizar tus exámenes de forma segura y rápida."
 >
   <main class="bg-gray-100">
-    <BreadCrumps title="Nuestras sedes" backgroundImage={img} />
+    <BreadCrumps title="Nuestras sedes" backgroundImage={img} breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
+      { label: "Sedes", link: "/aboutus/headquarters"}
+    ]} 
+    />
 
     <div class="pb-5">
       <div class="mx-auto mt-4 bg-transparent border-none">

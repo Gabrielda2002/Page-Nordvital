@@ -13,7 +13,10 @@ import img from "@/images/Header/USUARIOS_11zon.webp?url";
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Nuestro Blog" backgroundImage={img} />
+    <HeroSection title="Nuestro Blog" backgroundImage={img} breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "Blog", link: "/users/blog" }
+    ]} />
 
     <div class="container mx-auto h-auto md:w-[45%] items-center text-center">
       <h1 class="text-4xl font-semibold text-teal-500 mb-4">

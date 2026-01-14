@@ -73,7 +73,10 @@ const serviceTabs = [
 >
   <div>
     <div>
-      <HeroSection title="Servicios" backgroundImage={img} />
+      <HeroSection title="Servicios" backgroundImage={img} breadcrumb={[
+        { label: "Inicio", link: "/" },
+        { label: "Servicios", link: "/services"}
+      ]} />
     </div>
 
     <div>
