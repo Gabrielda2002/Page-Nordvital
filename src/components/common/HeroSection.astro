@@ -1,25 +1,146 @@
 ---
 import { Image } from 'astro:assets';
+import { ChevronRight, Home } from 'lucide-react';
+
 interface Props {
   title: string;
+  subtitle?: string;
   backgroundImage: string;
+  breadcrumb?: {
+    label: string;
+    link: string;
+  }[];
+  showTitle?: boolean;
 }
 
-const { title, backgroundImage } = Astro.props;
+const { title, subtitle, backgroundImage, breadcrumb, showTitle = true } = Astro.props;
+const displayBreadcrumb = breadcrumb && breadcrumb.length > 0 ? breadcrumb : [];
 ---
 
-<section class="relative h-100 w-full flex items-center mb-12 bg-gray-200 overflow-hidden">
-  <Image
-    src={backgroundImage}
-    alt={title}
-    class="absolute inset-0 w-full h-full object-cover z-0"
-    width={1920}
-    height={400}
-  />
-  <section class="relative z-10 text-white w-1/2 m-5 md:m-40">
-    <a href="/" class="text-teal-500 font-normal bg-gray-100 p-2 min-w-max rounded-3xl inline-block">
-      Inicio <span class="text-teal-500 font-semibold">&gt;{title}</span>
-    </a>
-    <h1 class="text-[35px] md:text-[43px] font-normal mt-4 min-w-93.75 md:w-full">{title}</h1>
-  </section>
+<section 
+  class="hero-section relative w-full overflow-hidden"
+  role="banner"
+  aria-label={`Sección ${title}`}
+>
+  <!-- Imagen de fondo con overlay -->
+  <div class="hero-background absolute inset-0 z-0">
+    <Image
+      src={backgroundImage}
+      alt={`Imagen de fondo para ${title}`}
+      class="w-full h-full object-cover"
+      width={1920}
+      height={400}
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent"></div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="hero-content relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-20">
+    <div class="max-w-4xl">
+      {displayBreadcrumb.length > 0 && (
+        <nav 
+          class="breadcrumb-nav mb-6 md:mb-8" 
+          aria-label="Navegación de ruta"
+        >
+          <ol class="flex items-center gap-2 flex-wrap">
+            {displayBreadcrumb.map((item, index) => (
+              <li class="flex items-center gap-2">
+                {index > 0 && (
+                  <ChevronRight 
+                    className="w-4 h-4 text-white/60" 
+                    aria-hidden="true"
+                  />
+                )}
+                <a
+                  href={item.link}
+                  class="breadcrumb-link group flex items-center gap-2 px-3 py-1.5 
+                         text-sm md:text-base font-medium text-white/90 
+                         hover:text-white rounded-lg 
+                         hover:bg-white/10 backdrop-blur-sm
+                         transition-all duration-300 ease-out
+                         focus:outline-none focus:ring-2 focus:ring-nordvital-primary focus:ring-offset-2 focus:ring-offset-transparent"
+                  aria-current={index === displayBreadcrumb.length - 1 ? 'page' : undefined}
+                >
+                  {index === 0 && (
+                    <Home 
+                      className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" 
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span class="transition-transform duration-300 group-hover:translate-x-0.5">
+                    {item.label}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
+      <!-- Título y subtítulo -->
+      {showTitle && (
+        <div class="hero-text-content backdrop-blur-sm bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10">
+          <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
+            {title}
+          </h1>
+          {subtitle && (
+            <p class="hero-subtitle text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-2xl">
+              {subtitle}
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
 </section>
+
+<style>
+  .hero-section {
+    min-height: 280px;
+    margin-bottom: 3rem;
+    background-color: var(--color-nordvital-gray-200, #e5e7eb);
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+      min-height: 350px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-section {
+      min-height: 400px;
+    }
+  }
+
+  /* Animación sutil para el fondo */
+  .hero-background img {
+    animation: subtle-zoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes subtle-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Mejora de accesibilidad */
+  .breadcrumb-link:focus-visible {
+    outline: 2px solid var(--color-nordvital-primary, #049ae7);
+    outline-offset: 2px;
+  }
+
+  /* Optimización para motion reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-background img,
+    .breadcrumb-link,
+    .breadcrumb-link * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
