@@ -1,19 +1,21 @@
 ---
+import { Mail, MessageCircle } from "lucide-react";
+
 const contactLinks = [
   {
     href: "https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios.",
-    icon: "fab fa-whatsapp",
-    text: "(+57) 317-4309873",
+    icon: MessageCircle,
+    text: "(+57) 317-430-9873",
   },
   {
     href: "mailto:servicioalcliente@nordvitalips.com",
-    icon: "fas fa-envelope",
+    icon: Mail,
     text: "servicioalcliente@nordvitalips.com",
   },
   {
-    href: "https://www.google.com/maps/dir/7.8830885,-72.4954423//@7.8830827,-72.4955055,70m/data=!3m1!1e3?entry=ttu",
-    icon: "fas fa-map-marker-alt",
-    text: "Sede administrativa",
+    href: "/aboutus/headquarters",
+    icon: Mail,
+    text: "Nuestras sedes",
   },
 ];
 ---
@@ -26,10 +28,12 @@ const contactLinks = [
         <a
           href={link.href}
           target="_blank"
-          class="flex items-center mb-3 hover:underline transition"
+          class="flex items-center mb-3 group hover:scale-105 transition-all ease-in-out duration-300"
         >
-          <i class={`${link.icon} mr-2`} style="color: #ffffff; width: 15px; height: 15px;"></i>
+          <link.icon className="w-6 h-6 text-white group-hover:text-black transition-colors duration-300" />
+          <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">
           {link.text}
+          </span>
         </a>
       ))
     }

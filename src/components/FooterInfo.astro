@@ -1,24 +1,74 @@
-<div class="font-bold px-5 lg:px-0 space-x-9">
+---
+import medicalIcon from "../assets/icons_header/stethoscope.svg?raw";
+import helpIcon from "../assets/icons_header/help-octagon.svg?raw";
+import blogIcon from "../assets/icons_header/article.svg?raw";
+import homeIcon from "../assets/icons_header/home.svg?raw";
+
+interface footerInfo {
+  label: string;
+  href: string;
+  icon: string;
+}
+
+const FOOTER_INFO_DATA: footerInfo[] = [
+  {
+    label: "Inicio",
+    href: "/",
+    icon: homeIcon,
+  },
+  {
+    label: "Trabaja con nosotros",
+    href: "/contact-us",
+    icon: helpIcon,
+  },
+  {
+    label: "Edúcate",
+    href: "/users/blog",
+    icon: blogIcon,
+  },
+  {
+    label: "PQRSFD",
+    href: "/users/pqrsfd",
+    icon: helpIcon,
+  },
+  {
+    label: "Sarlaf y Sicof",
+    href: "/aboutus/sarlaf-sicof",
+    icon: helpIcon,
+  },
+  {
+    label: "Procedimientos Médicos",
+    href: "/users/medical-procedures",
+    icon: medicalIcon,
+  },
+];
+
+console.log(FOOTER_INFO_DATA.map((i) => i.icon));
+---
+
+<div class="font-bold px-5 lg:px-0">
   <h3
-    class="flex justify-center text-2xl py-3 lg:py-0 lg:mb-5 lg:mt-12 text-white text-start font-bold"
+    class="text-center text-2xl py-3 lg:py-0 lg:mb-5 lg:mt-12 text-white font-bold"
   >
     Información:
   </h3>
 
-  <div
-    class="grid grid-cols-2 lg:gap-2 font-normal text-[13px] place-self-center"
-  >
-    <a href="/" class="hover:underline transition">Inicio</a>
-    <a href="/contact-us" class="hover:underline transition"
-      >Trabaja con nosotros</a
-    >
-    <a href="/users/blog" class="hover:underline transition">Edúcate</a>
-    <a href="/users/pqrsfd" class="hover:underline transition">PQRSFD</a>
-    <a href="/aboutus/sarlaf-sicof" class="hover:underline transition"
-      >Sarlaf y Sicof</a
-    >
-    <a href="/users/medical-procedures" class="hover:underline transition"
-      >Procedimientos Médicos</a
-    >
+  <div class="grid grid-cols-2 font-normal place-self-center">
+    {
+      FOOTER_INFO_DATA.map((i) => (
+        <a
+          href={i.href}
+          class="flex items-center group hover:scale-105 transition-all ease-in-out duration-300 mb-3"
+        >
+          <div
+            set:html={i.icon}
+            class=" text-white w-6 h-6 group-hover:text-black transition-colors duration-300"
+          />
+          <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">
+            {i.label}
+          </span>
+        </a>
+      ))
+    }
   </div>
 </div>

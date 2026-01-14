@@ -1,8 +1,9 @@
 ---
-import instagram from '@/assets/logo_footer/brand-instagram.svg?url';
-import facebook from '@/assets/logo_footer/brand-facebook.svg?url';
-import tiktok from '@/assets/logo_footer/brand-tiktok.svg?url';
-import youtube from '@/assets/logo_footer/brand-youtube.svg?url';
+import instagram from '@/assets/logo_footer/brand-instagram.svg?raw';
+import facebook from '@/assets/logo_footer/brand-facebook.svg?raw';
+import tiktok from '@/assets/logo_footer/brand-tiktok.svg?raw';
+import youtube from '@/assets/logo_footer/brand-youtube.svg?raw';
+import { Image } from 'astro:assets';
 const socialLinks = [
   {
     href: "https://www.instagram.com/nordvital_ips/",
@@ -32,11 +33,12 @@ const socialLinks = [
 ---
 
 <div class="text-white place-items-center">
-  <h3 class="text-2xl font-bold py-3 lg:py-0 lg:mb-5 lg:mt-12">Redes sociales</h3>
+  <h3 class="text-2xl font-bold py-3 lg:py-0 lg:mb-5 lg:mt-12">Redes sociales:</h3>
   <div>
     {socialLinks.map(link => (
-      <a href={link.href} target="_blank" class="flex items-center mb-3 hover:underline transition">
-        <img src={link.src} alt={link.alt} height="25px" width="25px" /> {link.text}
+      <a href={link.href} target="_blank" class="flex items-center mb-3 group hover:scale-105 transition-all ease-in-out duration-300">
+      <div set:html={link.src} class="text-white w-6 h-6 group-hover:text-black transition-colors duration-300"></div>
+      <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">{link.text}</span>
       </a>
     ))}
   </div>
