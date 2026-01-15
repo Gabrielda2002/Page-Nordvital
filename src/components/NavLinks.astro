@@ -1,17 +1,17 @@
 ---
 import iconRow from "../assets/flecha.svg?raw";
 
-import aboutusIcon from "../assets/icons_header/users.svg?url";
-import headquartersIcon from "../assets/icons_header/building-community.svg?url";
-import contractsIcon from "../assets/icons_header/contract.svg?url";
-import statusIcon from "../assets/icons_header/coins.svg?url";
-import helpIcon from "../assets/icons_header/help-octagon.svg?url";
-import rightIcon from "../assets/icons_header/gavel.svg?url";
-import resultIcon from "../assets/icons_header/report-analytics.svg?url";
-import blogIcon from "../assets/icons_header/article.svg?url";
-import educativeIcon from "../assets/icons_header/school.svg?url";
-import medicalIcon from "../assets/icons_header/stethoscope.svg?url";
-import closeIcon from "../assets/icons_header/x.svg?url";
+import aboutusIcon from "../assets/icons_header/users.svg?raw";
+import headquartersIcon from "../assets/icons_header/building-community.svg?raw";
+import contractsIcon from "../assets/icons_header/contract.svg?raw";
+import statusIcon from "../assets/icons_header/coins.svg?raw";
+import helpIcon from "../assets/icons_header/help-octagon.svg?raw";
+import rightIcon from "../assets/icons_header/gavel.svg?raw";
+import resultIcon from "../assets/icons_header/report-analytics.svg?raw";
+import blogIcon from "../assets/icons_header/article.svg?raw";
+import educativeIcon from "../assets/icons_header/school.svg?raw";
+import medicalIcon from "../assets/icons_header/stethoscope.svg?raw";
+import closeIcon from "../assets/icons_header/x.svg?raw";
 ---
 
 <nav class="relative h-full">
@@ -24,7 +24,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
       id="close_menu"
       class="lg:hidden p-2 absolute top-2 right-4 hover:bg-gray-200 rounded-md transition-colors"
     >
-      <img src={closeIcon} alt="Menu" class="w-6 h-6" />
+      <div set:html={closeIcon} class="w-6 h-6" />
     </button>
     <!-- links de navegacion -->
     <li class="relative">
@@ -49,7 +49,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/aboutus/aboutus" class="flex items-center gap-2 p-3">
-            <img src={aboutusIcon} alt="aboutus Icon" class="w-5 h-5" />
+            <div set:html={aboutusIcon} class="w-5 h-5"></div>
             Quienes somos
           </a>
         </li>
@@ -57,7 +57,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/aboutus/headquarters" class="flex items-center gap-2 p-3">
-            <img src={headquartersIcon} alt="aboutus Icon" class="w-5 h-5" />
+            <div set:html={headquartersIcon} class="w-5 h-5"></div>
             Nuestras sedes
           </a>
         </li>
@@ -65,7 +65,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/aboutus/agreement" class="flex items-center gap-2 p-3">
-            <img src={contractsIcon} alt="aboutus Icon" class="w-5 h-5" />
+            <div set:html={contractsIcon} class="w-5 h-5"></div>
             Convenios
           </a>
         </li>
@@ -76,7 +76,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
             href="/aboutus/status-financiero"
             class="flex items-center gap-2 p-3"
           >
-            <img src={statusIcon} alt="aboutus Icon" class="w-5 h-5" />
+          <div set:html={statusIcon}></div>
             Estados financieros
           </a>
         </li>
@@ -84,7 +84,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/aboutus/sarlaf-sicof" class="flex items-center gap-2 p-3">
-            <img src={helpIcon} alt="aboutus Icon" class="w-5 h-5" />
+            <div set:html={helpIcon} class="w-5 h-5"></div>
             Sarlaf y Sicof
           </a>
         </li>
@@ -123,7 +123,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/pqrsfd" class="flex items-center gap-2 p-3">
-            <img src={helpIcon} alt="help Icon" class="w-5 h-5" />
+            <div set:html={helpIcon} class="w-5 h-5"></div>
             PQRSFD
           </a>
         </li>
@@ -131,7 +131,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/association" class="flex items-center gap-2 p-3">
-            <img src={aboutusIcon} alt="users Icon" class="w-5 h-5" />
+            <div set:html={statusIcon} class="w-5 h-5"></div>
             Asociación de usuarios
           </a>
         </li>
@@ -139,7 +139,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/rights-duties" class="flex items-center gap-2 p-3">
-            <img src={rightIcon} alt="right Icon" class="w-5 h-5" />
+            <div set:html={rightIcon} class="w-5 h-5"></div>
             Derechos y deberes
           </a>
         </li>
@@ -147,7 +147,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/blog" class="flex items-center gap-2 p-3">
-            <img src={blogIcon} alt="blog Icon" class="w-5 h-5" />
+            <div set:html={blogIcon} class="w-5 h-5"></div>
             Nuestro blog
           </a>
         </li>
@@ -155,7 +155,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/laboratorios" class="flex items-center gap-2 p-3">
-            <img src={resultIcon} alt="result Icon" class="w-5 h-5" />
+            <div set:html={resultIcon} class="w-5 h-5"></div>
             Resultado laboratorio
           </a>
         </li>
@@ -166,7 +166,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
             href="/users/medical-procedures"
             class="flex items-center gap-2 p-3"
           >
-            <img src={medicalIcon} alt="medical Icon" class="w-5 h-5" />
+          <div set:html={medicalIcon} class="w-5 h-5"></div>
             Procedimientos Médicos
           </a>
         </li>
@@ -174,7 +174,7 @@ import closeIcon from "../assets/icons_header/x.svg?url";
           class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
         >
           <a href="/users/seminar" class="flex items-center gap-2 p-3">
-            <img src={educativeIcon} alt="educative Icon" class="w-5 h-5" />
+            <div set:html={educativeIcon} class="w-5 h-5"></div>
             Seminario
           </a>
         </li>
