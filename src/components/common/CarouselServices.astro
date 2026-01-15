@@ -60,7 +60,7 @@ const images = [
   {
     images.map(({ src, title, description, link }) => (
       <div class="relative overflow-hidden">
-        <img src={src} alt={title} />
+        <Image src={src} alt={title} width={400} height={300} />
         <div class="absolute top-0 left-0 w-full rounded-2xl h-full bg-linear-to-l from-nordvital-secondary to-[#017bdedf]  opacity-0 hover:opacity-90 transition-opacity duration-300">
           <div class="absolute bottom-0 left-0 w-full justify-start p-5">
             <div class="mb-2">
@@ -96,11 +96,7 @@ const images = [
     $(".owl-carousel").owlCarousel({
       loop: true,
       margin: 10,
-      nav: true,
-      navText: [
-        "<i class='fas fa-chevron-left'></i>",
-        "<i class='fas fa-chevron-right'></i>",
-      ],
+      nav: false,
       responsive: {
         0: {
           items: 1,
