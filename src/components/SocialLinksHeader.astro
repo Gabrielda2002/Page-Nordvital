@@ -1,8 +1,8 @@
 ---
-import instagram from '@/assets/icons_header/social-media/instagram.svg?url';
-import facebook from '@/assets/icons_header/social-media/Facebook.svg?url';
-import tiktok from '@/assets/icons_header/social-media/TikTok.svg?url';
-import youtube from '@/assets/icons_header/social-media/Youtube.svg?url';
+import instagram from '@/assets/icons_header/social-media/instagram.svg?raw';
+import facebook from '@/assets/icons_header/social-media/Facebook.svg?raw';
+import tiktok from '@/assets/icons_header/social-media/TikTok.svg?raw';
+import youtube from '@/assets/icons_header/social-media/Youtube.svg?raw';
 
 const socialLinks = [
   { href: "https://www.instagram.com/nordvital_ips/", src: `${instagram}`, alt: "Instagram" },
@@ -14,8 +14,8 @@ const socialLinks = [
 
 <div class="flex justify-around w-48">
   {socialLinks.map(link => (
-    <a href={link.href} target="_blank" aria-label={link.alt}>
-      <img src={link.src} alt={link.alt} class="w-6 h-6" />
+    <a href={link.href} target="_blank" aria-label={link.alt} rel="noopener noreferrer" class="p-1 rounded-lg text-white hover:bg-gray-700 transition-colors duration-300">
+      <div set:html={link.src}></div>
     </a>
   ))}
 </div>

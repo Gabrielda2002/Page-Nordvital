@@ -7,7 +7,7 @@ import { Image } from 'astro:assets'
 import NavLinks from "./NavLinks.astro";
 import SocialLinks from "./SocialLinksHeader.astro";
 // imgs
-import iconPhone from "@/assets/icons_header/social-media/Phone.svg?url";
+import iconPhone from "@/assets/icons_header/social-media/Phone.svg?raw";
 import iconNordvital from "@/assets/icons_header/logo-header.webp";
 import menuIcon from "@/assets/icons_header/menu-2.svg?url";
 
@@ -18,8 +18,11 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
   <div class="container mx-auto lg:px-4 flex flex-col  lg:flex-row justify-between items-center lg:gap-8">
     <!-- enlace de whatsapp -->
     <div class="w-40 flex m-2">
-      <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`} target="_blank" class="text-white flex">
-        <img src={iconPhone} alt="Phone" class="w-6 h-6" /> {phoneNumber}
+      <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`} target="_blank" class="flex items-center p-1 rounded-lg group hover:bg-gray-700 transition-colors duration-300">
+        <div set:html={iconPhone} class="w-6 h-6 group-hover:text-gray-300 transition-colors duration-300" />
+        <span class="text-gray-200 group-hover:text-gray-100 transition-colors duration-300 ml-2">
+          {phoneNumber}
+        </span>
       </a>
     </div>
 
