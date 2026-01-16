@@ -16,16 +16,20 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
   </head>
 
   <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="SARLAF - SICOF" backgroundImage={img} breadcrumb={[
-      { label: "Inicio", link: "/" },
-      { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
-      { label: "SARLAF - SICOF", link: "/aboutus/sarlaf-sicof" }
-    ]} />
+    <HeroSection
+      title="SARLAF - SICOF"
+      backgroundImage={img}
+      breadcrumb={[
+        { label: "Inicio", link: "/" },
+        { label: "Sobre Nosotros", link: "/aboutus/aboutus" },
+        { label: "SARLAF - SICOF", link: "/aboutus/sarlaf-sicof" },
+      ]}
+    />
 
-    <section
-      class="font-sans md:px-20 mx-auto w-[90%] md:w-[60%] text-center text-lg text-gray-600 pb-4"
-    >
-      <p>
+    <section class="font-sans md:px-20 mx-auto w-[90%] md:w-[60%]">
+      <p
+        class="text-base text-gray-700 text-center hyphens-auto text-wrap-pretty mb-2"
+      >
         En <span class="font-bold text-sky-400">NordVital IPS SAS</span>,
         estamos dedicados a mantener una operación transparente y ética,
         alineada con las normativas legales vigentes. Nos enorgullecemos de
@@ -35,10 +39,10 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
     </section>
 
     <Accordion title="SARLAFT" id="1">
-      <div
-        class="px-4 py-2 bg-white w-full mx-auto rounded-b-2xl text-gray-600 font-sans"
-      >
-        <p>
+      <div class="px-4 py-2 bg-white w-full mx-auto rounded-b-2xl space-y-4">
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
           NORDVITAL IPS SAS elaborará mecanismos que permitan tomar las medidas
           conducentes a controlar el riesgo inherente de LA/FT/FPDM al que se ve
           expuesta, en razón de los factores de riesgo y sus riesgos asociados.
@@ -65,85 +69,92 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
           plazos y formas de ejecución en cumplimiento de las buenas prácticas
           de la administración de riesgos.
         </p>
-        <br />
-        <p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
           NORDVITAL IPS SAS como persona jurídica debidamente establecida bajo
           la normatividad legal colombiana declara que:
         </p>
-        <br />
-        <div class="cont2-acordion">
-          <p>
-            • El lavado de activos y la financiación del terrorismo son delitos
-            en los cuales las organizaciones criminales buscan dar apariencia de
-            legalidad a los recursos generados en actividades ilícitas y/o
-            contribuir económica y materialmente en actividades que afectan la
-            seguridad e integridad de las personas, respectivamente, violando el
-            orden jurídico, utilizado para ello transacciones realizadas con
-            personas naturales o empresas legalmente establecidas. De esta
-            forma, se desencadenan graves perjuicios para el estado, la
-            ciudadanía y la economía tanto de Colombia como de todos los países
-            del mundo.
-          </p>
-          <br />
-          <p>
-            • NORDVITAL IPS SAS acata irrestricta e inobjetablemente la
-            normativa relacionada con la administración del riesgo en contra del
-            lavado de activos y financiación del terrorismo que le sea
-            aplicable, expedida tanto por el legislativo como por los entes de
-            control y vigilancia del estado que correspondan.
-          </p>
-          <br />
-          <p>
-            • NORDVITAL IPS SAS apoya firmemente el esfuerzo nacional e
-            internacional en la lucha contra la criminalidad, especialmente la
-            trata de personas, narcotráfico, tráfico de armas y el terrorismo,
-            el lavado de activos, entre otros, teniendo, así mismo, la
-            obligación y compromiso de apoyar a las autoridades en la
-            identificación de actos o negocios jurídicos vinculados con el
-            LA/FT/FPDM.
-          </p><br />
-          <p>
-            • Una vez se identifique alguna operación vinculada a NORDVITAL IPS
-            SAS, con indicios de relación con actividades de LA/FT/FPDM, la
-            Corporación actúa de acuerdo con lo establecido en la normativa
-            legal aplicable, vigente para estos eventos y en sus políticas
-            internas establecidas respecto de este tema, mediante los
-            procedimientos definidos que correspondan.
-          </p><br />
-          <p>
-            • NORDVITAL IPS SAS proporciona los medios para que los mecanismos
-            establecidos con el propósito de prevenir y controlar los riesgos de
-            LA/FT/FPDM estén al alcance de todos los funcionarios y es deber de
-            estos su permanente consulta y aplicación.
-          </p><br />
-          <p>
-            • NORDVITAL IPS SAS establece relaciones o negocios con entidades
-            financieras de Colombia o del exterior que se encuentren debidamente
-            supervisadas por el órgano de control y vigilancia correspondiente,
-            que sean de reconocida trayectoria y que tengan implementados
-            mecanismos de prevención y control al LA/FT/FPDM.
-          </p>
-        </div>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • El lavado de activos y la financiación del terrorismo son delitos en
+          los cuales las organizaciones criminales buscan dar apariencia de
+          legalidad a los recursos generados en actividades ilícitas y/o
+          contribuir económica y materialmente en actividades que afectan la
+          seguridad e integridad de las personas, respectivamente, violando el
+          orden jurídico, utilizado para ello transacciones realizadas con
+          personas naturales o empresas legalmente establecidas. De esta forma,
+          se desencadenan graves perjuicios para el estado, la ciudadanía y la
+          economía tanto de Colombia como de todos los países del mundo.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • NORDVITAL IPS SAS acata irrestricta e inobjetablemente la normativa
+          relacionada con la administración del riesgo en contra del lavado de
+          activos y financiación del terrorismo que le sea aplicable, expedida
+          tanto por el legislativo como por los entes de control y vigilancia
+          del estado que correspondan.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • NORDVITAL IPS SAS apoya firmemente el esfuerzo nacional e
+          internacional en la lucha contra la criminalidad, especialmente la
+          trata de personas, narcotráfico, tráfico de armas y el terrorismo, el
+          lavado de activos, entre otros, teniendo, así mismo, la obligación y
+          compromiso de apoyar a las autoridades en la identificación de actos o
+          negocios jurídicos vinculados con el LA/FT/FPDM.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • Una vez se identifique alguna operación vinculada a NORDVITAL IPS
+          SAS, con indicios de relación con actividades de LA/FT/FPDM, la
+          Corporación actúa de acuerdo con lo establecido en la normativa legal
+          aplicable, vigente para estos eventos y en sus políticas internas
+          establecidas respecto de este tema, mediante los procedimientos
+          definidos que correspondan.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • NORDVITAL IPS SAS proporciona los medios para que los mecanismos
+          establecidos con el propósito de prevenir y controlar los riesgos de
+          LA/FT/FPDM estén al alcance de todos los funcionarios y es deber de
+          estos su permanente consulta y aplicación.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • NORDVITAL IPS SAS establece relaciones o negocios con entidades
+          financieras de Colombia o del exterior que se encuentren debidamente
+          supervisadas por el órgano de control y vigilancia correspondiente,
+          que sean de reconocida trayectoria y que tengan implementados
+          mecanismos de prevención y control al LA/FT/FPDM.
+        </p>
 
-        <div class="cont3-acordion">
-          <p>
-            Este manual de políticas y procedimientos para la prevención y
-            control del LA/FT/FPDM debe ser conocido por los administradores,
-            organismos de control y personas que intervengan en actividades que
-            sean sensibles o se presten para operaciones inusuales o
-            sospechosas.
-          </p>
-        </div>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          Este manual de políticas y procedimientos para la prevención y control
+          del LA/FT/FPDM debe ser conocido por los administradores, organismos
+          de control y personas que intervengan en actividades que sean
+          sensibles o se presten para operaciones inusuales o sospechosas.
+        </p>
       </div>
     </Accordion>
 
     <!-- Accordion Item 2 -->
     <Accordion title="SICOFT" id="2">
       <div
-        class="px-4 py-2 bg-white w-full mx-auto rounded-b-2xl text-gray-600 font-sans"
+        class="px-4 py-2 bg-white w-full mx-auto rounded-b-2xl space-y-4"
         id="accordion-body-2"
       >
-        <p class="mb-4">
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
           NORDVITAL IPS SAS se compromete a cumplir las normas y leyes
           implantadas en materia de prevención y mitigación de riesgo de
           prácticas orientadas a corrupción, opacidad y fraude con el propósito
@@ -160,33 +171,41 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
           permanente mecanismos, sistemas y controles adecuados que permita su
           prevención, detección y tratamiento.
         </p>
-        <p>En desarrollo de lo anterior se adopta lo siguiente:</p>
-        <br />
-        <div class="cont-acordion" style="padding-left: 35px;">
-          <p>
-            • La alta gerencia, funcionarios, colaboradores y/o prestadores de
-            servicio no participaran en ninguna forma práctica de corrupción,
-            opacidad o fraude, directa o indirectamente y tomara las medidas
-            necesarias para combatirlos, independientemente de cualquier forma o
-            tipología de la que se trate.
-          </p>
-          <br />
-          <p>
-            • Nordvital IPS SAS establece y promueve dentro de toda la
-            organización, una cultura institucional encaminada a fortalecer la
-            transparencia como valor y principio de toda actuación.
-          </p>
-          <br />
-          <p>
-            • Realizar las debidas diligencias para conocer adecuadamente a los
-            empleados, clientes, contrapartes y de más grupos de interés que se
-            vinculan con Nordvital IPS SAS, dando cumplimiento a los
-            procedimientos de vinculación establecidos por la Organización. •
-            Todas las denuncias asociadas a Corrupción, Opacidad y Fraude deben
-            ser reportadas por el canal de denuncias de la Línea Ética
-            establecidos.
-          </p>
-          <br />
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          En desarrollo de lo anterior se adopta lo siguiente:
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • La alta gerencia, funcionarios, colaboradores y/o prestadores de
+          servicio no participaran en ninguna forma práctica de corrupción,
+          opacidad o fraude, directa o indirectamente y tomara las medidas
+          necesarias para combatirlos, independientemente de cualquier forma o
+          tipología de la que se trate.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • Nordvital IPS SAS establece y promueve dentro de toda la
+          organización, una cultura institucional encaminada a fortalecer la
+          transparencia como valor y principio de toda actuación.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
+          • Realizar las debidas diligencias para conocer adecuadamente a los
+          empleados, clientes, contrapartes y de más grupos de interés que se
+          vinculan con Nordvital IPS SAS, dando cumplimiento a los
+          procedimientos de vinculación establecidos por la Organización. •
+          Todas las denuncias asociadas a Corrupción, Opacidad y Fraude deben
+          ser reportadas por el canal de denuncias de la Línea Ética
+          establecidos.
+        </p>
+        <p
+          class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+        >
           <p>
             • Es deber de Nordvital IPS SAS y sus empleados, asegurar y acatar,
             el cumplimiento de las disposiciones y lineamientos que prohíben la
@@ -194,35 +213,48 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
             los riesgos de Corrupción, Opacidad y Fraude, asociados a las
             actividades que se desarrollen en función del objeto social y al
             relacionamiento con los grupos de interés.
-          </p><br />
-          <p>
+          </p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • NORDVITAL IPS SAS proporciona los medios para que los mecanismos
             establecidos con el propósito de prevenir y controlar los riesgos de
             LA/FT/FPDM estén al alcance de todos los funcionarios y es deber de
             estos supermanente consulta y aplicación.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Gestionar los riesgos de Corrupción, Opacidad y Fraude, asociados
             a las actividades que se desarrollen en función del objeto social y
             al relacionamiento con los grupos de interés.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
+            • Implementar mecanismos de control que permitan mitigar los riesgos
+            de Corrupción, Opacidad y Fraude, identificados en los procesos de
+            Nordvital IPS SAS.
+          </p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Nordvital IPS SAS se abstendrá de recibir o realizar donaciones
             que no tengan un fin lícito o sobre las cuales exista la sospecha
             que servirán para encubrir conductas de Corrupción, Opacidad y
             fraude, o para obtener ventajas en los negocios de la entidad.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Todo personal de Nordvital IPS SAS se debe capacitar
             obligatoriamente en el sistema de administración de riesgos de
             corrupción, opacidad y fraude de forma anual, mediante la plataforma
             avanzada.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Se consagra el deber de los órganos de administración y de
             control, del Oficial de Cumplimiento, así como de todos los
             funcionarios, de asegurar el cumplimiento de los reglamentos
@@ -230,8 +262,9 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
             Administración del Riesgo de Corrupción, la Opacidad y Fraude -
             SICOF.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Los colaboradores de Nordvital IPS SAS deben informar de manera
             inmediata cualquier conflicto de intereses que vaya en contravía de
             los valores y principios corporativos, a fin de evitar daños y
@@ -241,8 +274,9 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
             puedan coincidir en la realización de alguna actividad conjunta
             (dualidad de interés y no conflicto).
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Los criterios de evaluación del riesgo de Corrupción, Opacidad y
             Fraude se definen de acuerdo con los controles existentes en el
             proceso al momento de la evaluación de los factores de riesgo. Para
@@ -251,57 +285,64 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
             esas consecuencias y el impacto que le acarrearía al proceso y/o
             Nordvital IPS SAS en el evento de materializarse el riesgo.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Todos los colaboradores de Nordvital IPS SAS que omitan denunciar
             situaciones que impliquen un posible riesgo de corrupción, opacidad
             y fraude, configura un incumplimiento de la presente política y
             constituye una falta grave, sujeto a acción disciplinaria por parte
             de Nordvital IPS SAS.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Nordvital IPS SAS No establecerá ningún tipo de relación
             contractual con empleados, clientes y contrapartes que aparezcan
             relacionados en las listas de verificación vinculantes con procesos
             de investigación y señales de alerta asociados a riesgo de
             Corrupción, Opacidad y Fraude.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Nordvital IPS SAS garantiza la reserva y confidencialidad frente a
             los hechos que sean denunciados; así mismo, los denunciantes que
             realicen los reportes de conductas indebidas faciliten información o
             participen en una investigación, estarán cubiertos por medidas de
             protección a represalias cuando así lo consideren.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             En tal caso, Nordvital IPS SAS verificará la pertinencia de
             implementar medidas que permitan salvaguardar la integridad del
             denunciante. (Manual línea ética).
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • No ofrecemos, aceptamos o solicitamos regalos o atenciones, si se
             entiende o parece entenderse, como una obligación o un soborno
             (Política de regalos)
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Todos los terceros y de más partes interesadas, que se vinculen
             contractualmente con Nordvital IPS SAS, serán responsables de
             proteger la información a la cual acceden y procesen, para evitar su
             perdida, alteración, destrucción o uso indebido, mediante acuerdos
             de confidencialidad.
           </p>
-          <br />
-          <p>
+          <p
+            class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+          >
             • Nordvital IPS SAS establece como canales únicos de denuncia para
             las tipologías de Corrupción, Opacidad y Fraude, Correo
             privacidad@nordvitalips.com.
           </p>
-        </div>
+        </p>
       </div>
     </Accordion>
 
@@ -317,45 +358,52 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
           class="text-blue-500 underline"
           target="_blank"
         >
-          GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1.</a
-        > Ver documento completo
+          GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1. Ver documento completo
+        </a>
       </div>
     </Accordion>
 
     <section
-      class="linea__etica py-4 md:py-6 text-left mx-auto h-auto w-[85%] md:w-[70%] text-gray-900"
+      class="linea__etica space-y-4 py-4 md:py-6 text-left mx-auto h-auto w-[85%] md:w-[70%]"
     >
-      <h2 class="text-[35px] font-semibold mb-3">Nuestra Línea Ética</h2>
+      <h2 class="text-4xl font-bold text-nordvital-primary">
+        Nuestra Línea Ética
+      </h2>
 
-      <p>
-        La Línea Ética de <span class="font-medium text-sky-500"
+      <p class="text-base text-gray-700 leading-relaxed">
+        La Línea Ética de <span class="font-bold text-nordvital-primary"
           >NORDVITAL IPS S.A.S</span
         >
-        es un espacio <em class="font-semibold">confidencial y seguro</em> para denunciar
-        cualquier situación que atente contra el Código de Ética e Integridad las
-        políticas, los principios y los valores de la compañia.
+        es un espacio <em class="font-bold text-nordvital-primary"
+          >confidencial y seguro</em
+        > para denunciar cualquier situación que atente contra el Código de Ética
+        e Integridad las políticas, los principios y los valores de la compañia.
       </p>
-      <p class="mt-4 mb-4">
+      <p class="mt-4 text-base text-gray-700 leading-relaxed">
         Nuestra línea ética está disponible las 24 horas los 365 días del año a
         través del correo electrónico{" "}
         <a
           href="mailto:Privacidad@nordvitalips.com"
-          class="text-sky-500 font-medium">Privacidad@nordvitalips.com</a
-        >. o <span class="font-semibold">nuestro número telefónico</span>
+          class="text-nordvital-primary font-medium"
+          >Privacidad@nordvitalips.com</a
+        >. o <span class="font-bold text-nordvital-primary"
+          >nuestro número telefónico</span
+        >
         <a
           href="https://api.whatsapp.com/send?phone=573176455803"
-          class="text-sky-500 font-medium">3176455803</a
+          class="text-nordvital-primary font-medium">3176455803</a
         >
       </p>
-      <p>
+      <p class="mt-4 text-base text-gray-700 leading-relaxed">
         La Línea Ética existe para prevenir y detectar hechos que puedan
         provocar pérdidas financieras, afectar la imagen de la compañia y
         deteriorar el ambiente laboral.
       </p>
 
-      <p class="mt-6">
-        <span class="text-sky-500 font-medium">NORDVITAL IPS S.A.S</span> cuenta
-        con la Línea Ética donde se podrán reportar:
+      <p class="mt-4 text-base text-gray-700 leading-relaxed">
+        <span class="text-nordvital-primary font-bold"
+          >NORDVITAL IPS S.A.S</span
+        > cuenta con la Línea Ética donde se podrán reportar:
       </p>
 
       <ul class="list-disc list-inside mt-3 text-left m-3 leading-6">
