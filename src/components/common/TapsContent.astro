@@ -5,7 +5,7 @@ interface Props {
   tabs: {
     id: string;  
     title: string;
-    icon?: LucideIcon;
+    icon?: LucideIcon | string;
   }[];
 }
 
@@ -20,7 +20,11 @@ const { tabs } = Astro.props;
         class="tab-button flex items-center gap-2 p-4 cursor-pointer rounded-t-lg transition-all duration-300"
         class:list={[{ 'active': index === 0 }]}
       >
-        {tab.icon && <tab.icon size={20} />}
+        {typeof tab.icon === "string" ? (
+          <div set:html={tab.icon}></div>
+        ) : tab.icon ? (
+          <tab.icon className="w-5 h-5" />
+        ) : null}
         <span>{tab.title}</span>
       </button>
     ))}

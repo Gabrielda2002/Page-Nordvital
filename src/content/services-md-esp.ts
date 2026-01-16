@@ -20,101 +20,101 @@ export const servicesMdEsp = [
     {
         title: 'Medicina Familiar',
         content: 'Es una especialidad médica que proporciona cuidado y atención sanitaria continua e integral a las personas y familias.',
-        icon: medFaIcon.src
+        icon: medFaIcon
     },
     {
         title: 'Medicina Interna',
         content: 'Es una especialidad médica que permite el diagnóstico y el tratamiento integral de los pacientes adultos.',
-        icon: medInIcon.src
+        icon: medInIcon
     },
     {
         title: 'Pediatria',
         content: 'La Pediatría se dedica al cuidado integral de la salud de los niños, desde el nacimiento hasta la adolescencia.',
-        icon: pediatriaIcon.src
+        icon: pediatriaIcon
     },
     {
         title: 'Cardiología',
         content: 'La Cardiología se encarga del estudio, diagnóstico y tratamiento de las enfermedades del corazón y del sistema circulatorio.',
-        icon: cardiologiaIcon.src
+        icon: cardiologiaIcon
     },
     {
         title: 'Cardiología Pediatrica',
         content: 'La Cardiología pediátrica se especializa en el diagnóstico y tratamiento de problemas cardíacos en niños.',
-        icon: cardiologiaIcon.src
+        icon: cardiologiaIcon
     },
     {
         title: 'Ginecobstetricia',
         content: 'La Ginecobstetricia se especializa en la salud femenina, abarcando el embarazo, parto y cuidados postnatales.',
-        icon: ginecobsIcon.src
+        icon: ginecobsIcon
     },
     {
         title: 'Endocrinología',
         content: 'Es el campo de la medicina que se relaciona con los sistemas que controlan las hormonas.',
-        icon: endoIcon.src
+        icon: endoIcon
     },
     {
         title: 'Endocrinología Pediátrica',
         content: 'Se dedica a evaluar y tratar a pacientes pediátricos con enfermedades endocrinas y desequilibrios hormonales.',
-        icon: endoIcon.src
+        icon: endoIcon
     },
     {
         title: 'Otorrinolaringología',
         content: 'La Otorrinolaringología se especializa en el diagnóstico y tratamiento de enfermedades del oído, nariz y garganta.',
-        icon: otoIcon.src
+        icon: otoIcon
     },
     {
         title: 'Neumología',
         content: 'Es la disciplina de la medicina que estudia las enfermedades que afectan el aparato respiratorio.',
-        icon: neuIcon.src
+        icon: neuIcon
     },
     {
         title: 'Neumología Pediátrica',
         content: 'La Neumología pediátrica se dedica al diagnóstico y tratamiento de enfermedades respiratorias en niños.',
-        icon: neuIcon.src
+        icon: neuIcon
     },
     {
         title: 'Dermatología',
         content: 'Es la disciplina de la medicina que se encarga de estudiar la estructura y función de la piel.',
-        icon: dermaIcon.src
+        icon: dermaIcon
     },
     {
         title: 'Nefrología',
         content: 'La Nefrología se encarga del estudio, diagnóstico y tratamiento de enfermedades del riñón y del sistema urinario.',
-        icon: nefroIcon.src
+        icon: nefroIcon
     },
     {
         title: 'Nefrología Pediatrica',
         content: 'La Nefrología pediátrica se especializa en el diagnóstico y tratamiento de enfermedades renales en niños.',
-        icon: nefroIcon.src
+        icon: nefroIcon
     },
     {
         title: 'Reumatología',
         content: 'La Reumatología trata enfermedades de articulaciones, músculos, huesos y tejidos conectivos para mejorar la calidad de vida del paciente.',
-        icon: reuIcon.src
+        icon: reuIcon
     },
     {
         title: 'Neurología',
         content: 'Diagnostica y trata enfermedades del sistema nervioso central y periférico, incluyendo cerebro, médula espinal, nervios y músculos.',
-        icon: neuroIcon.src
+        icon: neuroIcon
     },
     {
         title: 'Nutrición y Dieta',
         content: 'Nuestro servicio de Nutrición ofrece atención personalizada, proporcionando orientación y análisis para desarrollar un plan de acción que mejore su salud.',
-        icon: nutriIcon.src
+        icon: nutriIcon
     },
     {
         title: 'Oftalmología',
         content: 'Trata enfermedades de los ojos y tejidos cercanos, colaborando con Optometría para manejar defectos visuales y condiciones médico-quirúrgicas.',
-        icon: oftaIcon.src
+        icon: oftaIcon
     },
     {
         title: 'Infectología Pediátrica',
         content: 'Se especializa en el manejo de enfermedades pediátricas causadas por microorganismos.',
-        icon: neuroIcon.src
+        icon: neuroIcon
     },
     {
         title: 'Psicología',
         content: 'Nuestro servicio de psicología proporciona atención psicológica adaptada a las necesidades individuales de cada paciente.',
-        icon: psiIcon.src
+        icon: psiIcon
     }
 ]

@@ -12,28 +12,34 @@ import Button from "@/components/common/Button.astro";
 import CardManteSalud from "@/components/common/CardManteSalud.astro";
 
 // svg icons
-import img from "@/images/Services/SERVICIOS.jpg?url";
-import odonIcon from "@/assets/services_icons/ico-se-6.svg?url";
-import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?url";
-import labIcon from "@/assets/services_icons/ico-se-3.svg?url";
-import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png?url";
-import imgDiagIcon from "@/assets/services_icons/ico-se-5.svg?url";
-import medEspIcon from "@/assets/services_icons/icos-se-8.svg?url";
-import manSaIcon from "@/assets/services_icons/ico-se-4.svg?url";
+import img from "@/images/Services/SERVICIOS.jpg";
+import odonIcon from "@/assets/services_icons/ico-se-6.svg?raw";
+import medGeneralIcon from "@/assets/services_icons/ico-se1.svg?raw";
+import labIcon from "@/assets/services_icons/ico-se-3.svg?raw";
+import imgCardLab from "@/assets/services_icons/laboratorio/servicio__enfermeras.png";
+import imgDiagIcon from "@/assets/services_icons/ico-se-5.svg?raw";
+import medEspIcon from "@/assets/services_icons/icos-se-8.svg?raw";
+import manSaIcon from "@/assets/services_icons/ico-se-4.svg?raw";
 // odontologia icons
-import odontoIcon1 from "@/assets/services_icons/odontologia/odo-1.svg?url";
-import odontoIcon2 from "@/assets/services_icons/odontologia/odo-2.svg?url";
-import odontoIcon3 from "@/assets/services_icons/odontologia/odo-3.svg?url";
-import odontoIcon4 from "@/assets/services_icons/odontologia/odo-4.svg?url";
-import odontoIcon5 from "@/assets/services_icons/odontologia/odo-5.svg?url";
-import odontoIcon6 from "@/assets/services_icons/odontologia/odo-6.svg?url";
+import odontoIcon1 from "@/assets/services_icons/odontologia/odo-1.svg";
+import odontoIcon2 from "@/assets/services_icons/odontologia/odo-2.svg";
+import odontoIcon3 from "@/assets/services_icons/odontologia/odo-3.svg";
+import odontoIcon4 from "@/assets/services_icons/odontologia/odo-4.svg";
+import odontoIcon5 from "@/assets/services_icons/odontologia/odo-5.svg";
+import odontoIcon6 from "@/assets/services_icons/odontologia/odo-6.svg";
 
 // img mantenimiento de la salud
-import manIcon1 from "@/assets/services_icons/manteSalud/mant-1.svg?url";
-import manIcon2 from "@/assets/services_icons/manteSalud/mant-2.svg?url";
-import Chat from "@/components/common/Chat.astro";
+import manIcon1 from "@/assets/services_icons/manteSalud/mant-1.svg";
+import manIcon2 from "@/assets/services_icons/manteSalud/mant-2.svg";
+import { Image } from "astro:assets";
 
-const serviceTabs = [
+interface Tab {
+  id: string;
+  title: string;
+  icon?: string;
+}
+
+const serviceTabs: Tab[] = [
   {
     id: "medicina-general",
     title: "Medicina General",
@@ -89,11 +95,7 @@ const serviceTabs = [
             >
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center w-fit">
-                  <img
-                    src={medGeneralIcon}
-                    alt="medicina general icon"
-                    class="w-5 h-5 mx-2"
-                  />
+                  <div set:html={medGeneralIcon}></div>
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
 
@@ -125,11 +127,7 @@ const serviceTabs = [
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] lg:gap-5">
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center">
-                  <img
-                    src={medGeneralIcon}
-                    alt="medicina general icon"
-                    class="w-5 h-5 mx-2"
-                  />
+                  <div set:html={odonIcon}></div>
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
                 <h4 class="text-2xl font-bold mb-3">Odontología</h4>
@@ -213,11 +211,7 @@ const serviceTabs = [
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center">
-                  <img
-                    src={medGeneralIcon}
-                    alt="laboratorio clinico icon"
-                    class="w-5 h-5 mx-2"
-                  />
+                  <div set:html={labIcon}></div>
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
                 <h4 class="font-bold text-2xl mb-3">Laboratorio Clinico</h4>
@@ -305,10 +299,12 @@ const serviceTabs = [
                 <Button title="Ver más" url="/users/laboratorios" />
               </div>
               <div class="lg:flex hidden justify-center items-center">
-                <img
+                <Image
                   src={imgCardLab}
                   alt="img card laboratorio"
                   class="w-109.5 h-106"
+                  widths={[300, 600, 900]}
+                  sizes="(min-width: 1420px) 37.53vw, (min-width: 780px) calc(3.55vw + 455px), (min-width: 400px) calc(100vw - 24px), calc(16.25vw + 294px)"
                 />
               </div>
             </div>
@@ -321,11 +317,7 @@ const serviceTabs = [
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center">
-                  <img
-                    src={medGeneralIcon}
-                    alt="medicina general icon"
-                    class="w-5 h-5 mx-2"
-                  />
+                  <div set:html={medEspIcon}></div>
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
                 <h4 class="font-bold text-2xl mb-3">Medicina Especializada</h4>
@@ -382,11 +374,7 @@ const serviceTabs = [
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
               <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                 <div class="flex items-center">
-                  <img
-                    src={medGeneralIcon}
-                    alt="medicina general icon"
-                    class="w-5 h-5 mx-2"
-                  />
+                  <div set:html={imgDiagIcon}></div>
                   <p class="text-xl text-teal-500">Servicio</p>
                 </div>
 
@@ -442,11 +430,7 @@ const serviceTabs = [
                 <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
                   <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
                     <div class="flex items-center">
-                      <img
-                        src={medGeneralIcon}
-                        alt="medicina general icon"
-                        class="w-5 h-5 mx-2"
-                      />
+                      <div set:html={manSaIcon}></div>
                       <p class="text-xl text-teal-500">Servicio</p>
                     </div>
 
