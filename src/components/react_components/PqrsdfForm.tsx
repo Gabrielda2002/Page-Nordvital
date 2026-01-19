@@ -152,18 +152,18 @@ const PqrsdfForm = () => {
 
   return (
     <>
-      <div className="px-6 md:px-8 pb-8">
+      <div className="px-6 md:px-8 pb-8 pt-12 bg-gray-100 flex flex-col items-center">
         {/* Header del formulario */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+        <div className="flex flex-col space-y-4 text-center items-center w-3xl">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
             Formulario PQRSFD
           </h1>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+          <p className="text-base text-justify text-gray-700 leading-relaxed">
             Estamos comprometidos a resolver cualquier inquietud que tenga, para
             proporcionarle un servicio de calidad. Por favor, complete todos los
             campos requeridos para procesar su solicitud de manera eficiente.
           </p>
-          <p>
+          <p className="text-base text-justify text-gray-700 leading-relaxed">
             Agradecemos su colaboración al utilizar esta herramienta para
             comunicarse con nosotros.
           </p>
@@ -875,7 +875,7 @@ const PqrsdfForm = () => {
                             la PQRD a NordVital IPS y autoriza el uso de sus
                             datos personales de acuerdo con nuestra{" "}
                             <a
-                              href="/politica-de-privacidad"
+                              href="/data-policy"
                               className="text-indigo-600 hover:text-indigo-500 underline"
                             >
                               Política de protección de datos personales
