@@ -79,10 +79,14 @@ const serviceTabs: Tab[] = [
 >
   <div>
     <div>
-      <HeroSection title="Servicios" backgroundImage={img} breadcrumb={[
-        { label: "Inicio", link: "/" },
-        { label: "Servicios", link: "/services"}
-      ]} />
+      <HeroSection
+        title="Servicios"
+        backgroundImage={img}
+        breadcrumb={[
+          { label: "Inicio", link: "/" },
+          { label: "Servicios", link: "/services" },
+        ]}
+      />
     </div>
 
     <div>
@@ -93,18 +97,24 @@ const serviceTabs: Tab[] = [
             <div
               class="servicio__item-dscpn grid grid-cols-1 lg:grid-cols-[70%_30%] lg:gap-5"
             >
-              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+              <div class="space-y-4">
                 <div class="flex items-center w-fit">
-                  <div set:html={medGeneralIcon}></div>
-                  <p class="text-xl text-teal-500">Servicio</p>
+                  <div set:html={medGeneralIcon} />
+                  <p class="text-xl text-nordvital-secondary font-semibold">
+                    Servicio
+                  </p>
                 </div>
 
-                <h4 class="font-bold text-2xl mb-3">Medicina General</h4>
-                <p class="mb-3">
+                <h4 class="font-bold text-2xl">Medicina General</h4>
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   La medicina general representa el primer nivel de atención
                   médica.
                 </p>
-                <p>
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Los médicos y médicas generales son profesionales con
                   preparación académica para la prevención, detección,
                   tratamiento y seguimiento de enfermedades agudas y crónicas.
@@ -125,14 +135,18 @@ const serviceTabs: Tab[] = [
         <div data-tab-content="odontologia">
           <div class="servicio__item-container">
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] lg:gap-5">
-              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+              <div class="space-y-4">
                 <div class="flex items-center">
-                  <div set:html={odonIcon}></div>
-                  <p class="text-xl text-teal-500">Servicio</p>
+                  <div set:html={odonIcon} />
+                  <p class="text-xl text-nordvital-secondary font-semibold">
+                    Servicio
+                  </p>
                 </div>
-                <h4 class="text-2xl font-bold mb-3">Odontología</h4>
+                <h4 class="text-2xl font-bold">Odontología</h4>
 
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   La atención de consulta externa en odontología general,
                   incluye consultas iniciales y de control, esta enfocada en la
                   atención preventiva y curativa, realizando el tratamiento
@@ -140,7 +154,9 @@ const serviceTabs: Tab[] = [
                   bucal y brindando bienestar.
                 </p>
 
-                <p>
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   La atención por odontología general, comienza con la fase de
                   higiene oral, en el cual se realiza el tratamiento preventivo
                   incluyendo educación en salud oral y según los hallazgos se
@@ -153,53 +169,41 @@ const serviceTabs: Tab[] = [
               </div>
             </div>
 
-            <div>
-              <h3 class="text-3xl font-bold text-center mb-8">Te Ofrecemos:</h3>
+            <div class="space-x-4">
+              <h3 class="text-3xl font-bold text-center">Te Ofrecemos:</h3>
               <div
-                class="grid grid-cols-1  lg:grid-cols-3 justify-center m-auto  items-center gap-7 w-[105%] md:w-[75%]"
+                class="grid grid-cols-1 lg:grid-cols-3 justify-center m-auto items-center gap-7 w-[105%] md:w-[75%]"
               >
-                <div>
-                  <CardServOdonto
-                    title="Cirugía maxilofacial"
-                    icon={odontoIcon1}
-                    content="Es una especialidad quirúrgica que se enfoca en el diagnóstico y tratamiento de infecciones relacionadas con la boca, mandíbula y estructuras faciales."
-                  />
-                </div>
-                <div>
-                  <CardServOdonto
-                    title="Cirugía oral"
-                    icon={odontoIcon2}
-                    content="Hace referencia a cualquier procedimiento quirúrgico en la boca y la mandíbula o en las áreas circundantes."
-                  />
-                </div>
-                <div>
-                  <CardServOdonto
-                    title="Rehabilitación oral"
-                    icon={odontoIcon3}
-                    content="Se encarga de restaurar la función y la estética de la boca mediante tratamientos como prótesis dentales, implantes y otros procedimientos."
-                  />
-                </div>
-                <div>
-                  <CardServOdonto
-                    title="Periodoncia"
-                    icon={odontoIcon4}
-                    content="Es el diagnóstico, tratamiento y prevención de enfermedades que afectan las encías y las estructuras de soporte de los dientes."
-                  />
-                </div>
-                <div>
-                  <CardServOdonto
-                    title="Odontología General"
-                    icon={odontoIcon5}
-                    content="Abarca el diagnóstico, tratamiento y prevención de enfermedades bucales comunes."
-                  />
-                </div>
-                <div>
-                  <CardServOdonto
-                    title="Endodoncia"
-                    icon={odontoIcon6}
-                    content="Es la especialidad de la odontología que se centra en el tratamiento de los conductos radiculares."
-                  />
-                </div>
+                <CardServOdonto
+                  title="Cirugía maxilofacial"
+                  icon={odontoIcon1}
+                  content="Es una especialidad quirúrgica que se enfoca en el diagnóstico y tratamiento de infecciones relacionadas con la boca, mandíbula y estructuras faciales."
+                />
+                <CardServOdonto
+                  title="Cirugía oral"
+                  icon={odontoIcon2}
+                  content="Hace referencia a cualquier procedimiento quirúrgico en la boca y la mandíbula o en las áreas circundantes."
+                />
+                <CardServOdonto
+                  title="Rehabilitación oral"
+                  icon={odontoIcon3}
+                  content="Se encarga de restaurar la función y la estética de la boca mediante tratamientos como prótesis dentales, implantes y otros procedimientos."
+                />
+                <CardServOdonto
+                  title="Periodoncia"
+                  icon={odontoIcon4}
+                  content="Es el diagnóstico, tratamiento y prevención de enfermedades que afectan las encías y las estructuras de soporte de los dientes."
+                />
+                <CardServOdonto
+                  title="Odontología General"
+                  icon={odontoIcon5}
+                  content="Abarca el diagnóstico, tratamiento y prevención de enfermedades bucales comunes."
+                />
+                <CardServOdonto
+                  title="Endodoncia"
+                  icon={odontoIcon6}
+                  content="Es la especialidad de la odontología que se centra en el tratamiento de los conductos radiculares."
+                />
               </div>
             </div>
           </div>
@@ -209,13 +213,17 @@ const serviceTabs: Tab[] = [
         <div data-tab-content="laboratorio-clinico">
           <div class="servicio__item-container">
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
-              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+              <div class="space-y-4">
                 <div class="flex items-center">
-                  <div set:html={labIcon}></div>
-                  <p class="text-xl text-teal-500">Servicio</p>
+                  <div set:html={labIcon} />
+                  <p class="text-xl text-nordvital-secondary font-semibold">
+                    Servicio
+                  </p>
                 </div>
                 <h4 class="font-bold text-2xl mb-3">Laboratorio Clinico</h4>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   En NordVital IPS, entendemos que la precisión y la rapidez en
                   los resultados de los análisis clínicos son esenciales para un
                   diagnóstico médico efectivo y un tratamiento adecuado. Nuestro
@@ -224,7 +232,9 @@ const serviceTabs: Tab[] = [
                   realice con los más altos estándares de calidad y utilizando
                   tecnología de punta.
                 </p>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Contamos con un equipo de profesionales altamente capacitados
                   y dedicados, cuyo objetivo principal es brindar un servicio
                   confiable y seguro. Nuestra infraestructura está diseñada para
@@ -281,18 +291,22 @@ const serviceTabs: Tab[] = [
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div class="flex flex-col justify-center items-start">
-                <h4 class="text-2xl font-bold mb-3">
+              <div class="flex flex-col justify-center items-start space-y-4">
+                <h4 class="text-2xl font-bold">
                   ¡Obtén tus Resultados de Laboratorio con <span
-                    class="text-teal-500">Nordvital IPS</span
+                    class="text-nordvital-secondary">Nordvital IPS</span
                   >!
                 </h4>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Tu salud es nuestra prioridad. Ahora puedes acceder a tus
                   resultados de laboratorio de manera rápida y segura desde la
                   comodidad de tu hogar.
                 </p>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Simplemente ingresa a nuestro portal en línea y obtén toda la
                   información que necesitas al instante.
                 </p>
@@ -315,13 +329,17 @@ const serviceTabs: Tab[] = [
         <div data-tab-content="medicina-especializada">
           <div class="servicio__item-containe r">
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
-              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+              <div class="space-y-">
                 <div class="flex items-center">
-                  <div set:html={medEspIcon}></div>
-                  <p class="text-xl text-teal-500">Servicio</p>
+                  <div set:html={medEspIcon} />
+                  <p class="text-xl text-nordvital-secondary font-semibold">
+                    Servicio
+                  </p>
                 </div>
-                <h4 class="font-bold text-2xl mb-3">Medicina Especializada</h4>
-                <p class="mb-3">
+                <h4 class="font-bold text-2xl">Medicina Especializada</h4>
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Nordvital IPS tiene un modelo de atención basado en la
                   medicina familiar fundamentado en el abordaje integral del
                   paciente desde los aspectos biológicos, psicológicos y
@@ -331,7 +349,9 @@ const serviceTabs: Tab[] = [
                   proceso de atención y asegura la pertinencia de las remisiones
                   a otros niveles de atención.
                 </p>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   En este espacio encontrarás nuestras especialidades y
                   subespecialidades médicas enfocadas en la alta complejidad.
                   Nuestro enfoque integral involucra a un equipo
@@ -372,20 +392,26 @@ const serviceTabs: Tab[] = [
         <div data-tab-content="imagenes-diagnosticas">
           <div class="servicio__item-container">
             <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
-              <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+              <div class="space-y-4">
                 <div class="flex items-center">
-                  <div set:html={imgDiagIcon}></div>
-                  <p class="text-xl text-teal-500">Servicio</p>
+                  <div set:html={imgDiagIcon} />
+                  <p class="text-xl text-nordvital-secondary font-semibold">
+                    Servicio
+                  </p>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-3">Imágenes Diagnósticas</h3>
-                <p class="mb-3">
+                <h3 class="text-2xl font-bold">Imágenes Diagnósticas</h3>
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   La complementación terapéutica es un apoyo esencial tanto para
                   la atención médica como odontológica, ya que proporciona
                   herramientas y recursos adicionales que facilitan un
                   diagnóstico preciso y una intervención efectiva.
                 </p>
-                <p class="mb-3">
+                <p
+                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                >
                   Este proceso incluye una variedad de ayudas paraclínicas,
                   tales como exámenes de laboratorio, estudios de imagen,
                   pruebas de función y otros métodos de evaluación que son
@@ -428,27 +454,35 @@ const serviceTabs: Tab[] = [
             <div>
               <div>
                 <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
-                  <div class="mb-3 mt-3 lg:mt-0 lg:mb-0">
+                  <div class="space-y-4">
                     <div class="flex items-center">
-                      <div set:html={manSaIcon}></div>
-                      <p class="text-xl text-teal-500">Servicio</p>
+                      <div set:html={manSaIcon} />
+                      <p class="text-xl text-nordvital-secondary font-semibold">
+                        Servicio
+                      </p>
                     </div>
 
-                    <h4 class="font-bold text-2xl mb-3">
+                    <h4 class="font-bold text-2xl">
                       Mantenimiento de la Salud
                     </h4>
-                    <p class="mb-3">
+                    <p
+                      class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                    >
                       El nuevo Modelo de Atención en Salud hace énfasis en las
                       actividades de promoción de la salud y prevención de la
                       enfermedad.
                     </p>
-                    <p class="mb-3">
+                    <p
+                      class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                    >
                       Por esta razón, Nordvital IPS cuenta con estrategias de
                       educación, cultura, adopción de estilos de vida saludables
                       y concienciación dirigidas a la población, incluyendo a
                       usuarios, familias y la sociedad en general.
                     </p>
-                    <p class="mb-3">
+                    <p
+                      class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                    >
                       Dentro de los programas de Promoción y Prevención (P&P) se
                       incluyen actividades de acompañamiento, orientación y
                       capacitaciones prácticas sobre alimentación sana,
@@ -462,9 +496,7 @@ const serviceTabs: Tab[] = [
                 </div>
 
                 <div>
-                  <h4 class="text-3xl font-bold text-center mb-8">
-                    Te ofrecemos:
-                  </h4>
+                  <h4 class="text-3xl font-bold text-center">Te ofrecemos:</h4>
                   <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 h-full">
                     <div>
                       <CardManteSalud
@@ -473,27 +505,33 @@ const serviceTabs: Tab[] = [
                         description="Conjunto de procedimientos y servicios coordinados y diseñados para garantizar el cuidado integral de las mujeres embarazadas y sus recién nacidos"
                         image={manIcon1}
                       >
-                        <li>Atención para el cuidado preconcepcional.</li>
-                        <li>Interrupción voluntaria del embarazo.</li>
-                        <li>Atención para el cuidado prenatal.</li>
-                        <li>
-                          Atención en salud para la valoracion, promocion y
-                          apoyo de la lactancia materna.
-                        </li>
-                        <li>
-                          Curso de preparación para la maternidad y la
-                          paternidad.
-                        </li>
-                        <li>Atención en salud bucal.</li>
-                        <li>
-                          Atención para la promoción de la alimentación y
-                          nutrición.
-                        </li>
-                        <li>Atención del puerperio.</li>
-                        <li>Atención para el cuidado recién nacido.</li>
-                        <li>Atención para el seguimiento al recién nacido.</li>
-                        <li>Educación para la salud.</li>
-                        <li>Servicio de Vacunación.</li>
+                        <ul
+                          class="list-disc list-inside space-y-2 text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                        >
+                          <li>Atención para el cuidado preconcepcional.</li>
+                          <li>Interrupción voluntaria del embarazo.</li>
+                          <li>Atención para el cuidado prenatal.</li>
+                          <li>
+                            Atención en salud para la valoracion, promocion y
+                            apoyo de la lactancia materna.
+                          </li>
+                          <li>
+                            Curso de preparación para la maternidad y la
+                            paternidad.
+                          </li>
+                          <li>Atención en salud bucal.</li>
+                          <li>
+                            Atención para la promoción de la alimentación y
+                            nutrición.
+                          </li>
+                          <li>Atención del puerperio.</li>
+                          <li>Atención para el cuidado recién nacido.</li>
+                          <li>
+                            Atención para el seguimiento al recién nacido.
+                          </li>
+                          <li>Educación para la salud.</li>
+                          <li>Servicio de Vacunación.</li>
+                        </ul>
                       </CardManteSalud>
                     </div>
                     <div>
@@ -503,37 +541,45 @@ const serviceTabs: Tab[] = [
                         description="Se refiere a las actividades y medidas destinadas prevenir enfermedades, detectar problemas de salud en etapas tempranas y promover una vida saludable."
                         image={manIcon2}
                       >
-                        <li>
-                          Atención en salud por pediatria, medicina general o
-                          familiar, y enfermería para la primera infancia.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general, pediatria o
-                          medicina familiar, y enfermería para la infancia.
-                        </li>
-                        <li>Servicio de Vacunación.</li>
-                        <li>
-                          Atención en salud por medicina general o familiar y
-                          enfermería para la adolescencia.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general o familiar para
-                          la juventud.
-                        </li>
-                        <li>
-                          Atención en salud por medicina general o familiar para
-                          la vejez.
-                        </li>
-                        <li>Detección temprana de cáncer de cuello uterino.</li>
-                        <li>Detección temprana de cáncer de mama.</li>
-                        <li>Detección temprana de cancer de prostata.</li>
-                        <li>Detección temprana de cáncer de colon y recto.</li>
-                        <li>
-                          Atención para la planificación familiar y la
-                          anticoncepción.
-                        </li>
-                        <li>Fortificación con micronutrientes en polvo.</li>
-                        <li>Educación y comunicación para la salud.</li>
+                        <ul
+                          class="list-disc list-inside space-y-2 text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
+                        >
+                          <li>
+                            Atención en salud por pediatria, medicina general o
+                            familiar, y enfermería para la primera infancia.
+                          </li>
+                          <li>
+                            Atención en salud por medicina general, pediatria o
+                            medicina familiar, y enfermería para la infancia.
+                          </li>
+                          <li>Servicio de Vacunación.</li>
+                          <li>
+                            Atención en salud por medicina general o familiar y
+                            enfermería para la adolescencia.
+                          </li>
+                          <li>
+                            Atención en salud por medicina general o familiar
+                            para la juventud.
+                          </li>
+                          <li>
+                            Atención en salud por medicina general o familiar
+                            para la vejez.
+                          </li>
+                          <li>
+                            Detección temprana de cáncer de cuello uterino.
+                          </li>
+                          <li>Detección temprana de cáncer de mama.</li>
+                          <li>Detección temprana de cancer de prostata.</li>
+                          <li>
+                            Detección temprana de cáncer de colon y recto.
+                          </li>
+                          <li>
+                            Atención para la planificación familiar y la
+                            anticoncepción.
+                          </li>
+                          <li>Fortificación con micronutrientes en polvo.</li>
+                          <li>Educación y comunicación para la salud.</li>
+                        </ul>
                       </CardManteSalud>
                     </div>
                   </div>

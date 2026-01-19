@@ -24,13 +24,13 @@ const { title, description, image, uniqueId } = Astro.props;
         loading="lazy"
       />
     </div>
-    <div>
-      <h4 class="text-2xl font-bold text-start mb-3">
+    <div class="space-y-4">
+      <h4 class="text-2xl font-bold text-start">
         {title}
       </h4>
-      <p>
+      <p class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed">
         {description}
-        <div class="flex justify-center items-center mt-5">
+        <div class="flex justify-center items-center">
           <button
             data-target=`content-${uniqueId}`
             class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"

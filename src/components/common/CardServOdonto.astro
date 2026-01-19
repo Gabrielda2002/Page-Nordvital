@@ -12,7 +12,7 @@ const { title, content, icon, showIcon = true } = Astro.props;
 ---
 
 
-<div class={`grid ${showIcon ? 'grid-cols-2' : 'grid-cols-1'} shadow-xl rounded-xl p-3 border border-b`}>
+<div class={`grid ${showIcon ? 'grid-cols-2' : 'grid-cols-1'} shadow-xl rounded-xl p-3 border border-b bg-gray-100 h-48`}>
     {showIcon && (
     <div class="flex items-center justify-center">
       <Image
@@ -25,11 +25,11 @@ const { title, content, icon, showIcon = true } = Astro.props;
       />
     </div>
     )}
-    <div>
-        <h5 class="text-xl font-bold text-teal-500 mb-3 ">
+    <div class=" flex flex-col overflow-hidden  h-full space-y-4">
+        <h5 class="text-xl font-bold text-nordvital-secondary">
           {title}
         </h5>
-        <p>
+        <p class="text-base flex-1 text-gray-700 overflow-y-auto leading-relaxed hyphens-auto text-wrap-pretty">
             {content}
         </p>
     </div>
