@@ -34,8 +34,7 @@ const { title, id } = Astro.props;
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M19 9l-7 7-7-7"
-          ></path>
+          d="M19 9l-7 7-7-7"></path>
       </svg>
     </button>
     <div
@@ -43,16 +42,8 @@ const { title, id } = Astro.props;
       class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-b-lg"
       aria-labelledby={`accordion-button-${id}`}
     >
-      <div class="p-4 text-gray-600">
+      <div class="space-y-4 text-gray-700 p-4 bg-gray-200">
         <slot />
-        <!-- {
-                    isMarkdown ? (
-                        <Fragment set:html={htmlContent}/>
-                    
-                    ):(
-                        content
-                    )
-                } -->
       </div>
     </div>
   </div>

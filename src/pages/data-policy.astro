@@ -13,28 +13,31 @@ import docPdf from "@/pdf/politicas-datos/POLITICA_DE_DATOS.pdf?url";
   title="Política de Tratamiento de Datos Personales | Nordvital IPS"
   description="Conoce nuestra política de protección y tratamiento de datos personales en Nordvital IPS. Cumplimos con la Ley 1581 de 2012 y el Decreto 1377 de 2013 para garantizar la privacidad y seguridad de tu información."
 >
-  <div>
-    <div>
-      <HeroSection
-        title="Política de Tratamiento de Datos Personales"
-        backgroundImage={sectionImg}
-        breadcrumb={[
-          { label: "Inicio", link: "/" },
-          { label: "Política de Tratamiento de Datos Personales", link: "/data-policy" }
-        ]}
-      />
-    </div>
-    <div class="flex flex-col justify-start m-5">
-      <h4 class="font-bold text-3xl">
-        Política de Tratamiento de Datos Personales
-      </h4>
-      <p class="mb-4">
-        En <span class="text-nordvital-primary font-bold"> NORDVITAL IPS SAS</span>,
-        reconocemos la importancia de proteger la privacidad y confidencialidad
-        de los datos personales. En cumplimiento de la Ley 1581 de 2012 y el
-        Decreto 1377 de 2013, adoptamos una política para garantizar un manejo
-        responsable y seguro de la información personal.
-      </p>
+    <HeroSection
+      title="Política de Tratamiento de Datos Personales"
+      backgroundImage={sectionImg}
+      breadcrumb={[
+        { label: "Inicio", link: "/" },
+        {
+          label: "Política de Tratamiento de Datos Personales",
+          link: "/data-policy",
+        },
+      ]}
+    />
+    <div class="flex flex-col justify-center items-center m-5">
+      <div class="flex flex-col items-center w-1/2 space-y-4">
+        <h4 class="font-bold text-4xl text-nordvital-primary">
+          Política de Tratamiento de Datos Personales
+        </h4>
+        <p class="text-base text-justify text-gray-700 leading-relaxed">
+          En <span class="text-nordvital-primary font-bold">
+            NORDVITAL IPS SAS</span
+          >, reconocemos la importancia de proteger la privacidad y
+          confidencialidad de los datos personales. En cumplimiento de la Ley
+          1581 de 2012 y el Decreto 1377 de 2013, adoptamos una política para
+          garantizar un manejo responsable y seguro de la información personal.
+        </p>
+      </div>
 
       <Accordion title="Política de datos" id="1">
         <div class="">
@@ -114,5 +117,4 @@ import docPdf from "@/pdf/politicas-datos/POLITICA_DE_DATOS.pdf?url";
         </div>
       </Accordion>
     </div>
-  </div>
 </Layout>
