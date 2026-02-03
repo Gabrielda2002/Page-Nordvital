@@ -1,8 +1,11 @@
 ## Gestión de Tareas
-- **Sistema de tareas:** Todas las tareas del proyecto se gestionan en Notion
-- **Base de datos:** "Seguimiento de tareas" (https://www.notion.so/1c2e88ee9bde80c4aa11f50a91f3a858)
-- **Responsable principal:** Gabriel Duarte (ID: 1bdd872b-594c-81f7-9e75-000297f4be7a)
-- **Cuando el usuario mencione "tareas":** Usar automáticamente el MCP de Notion para crear, listar o actualizar tareas
+- **Sistemas de tareas:** Todas las tareas se gestionan en **Notion Y ClickUp** (ambos sistemas en paralelo)
+- **Base de datos Notion:** "Seguimiento de tareas" (https://www.notion.so/1c2e88ee9bde80c4aa11f50a91f3a858)
+- **ClickUp:** Carpeta "Desarrollos" > Lista "List" (ID: 901325027947)
+- **Responsable principal:** Gabriel Duarte
+  - Notion ID: 1bdd872b-594c-81f7-9e75-000297f4be7a
+  - ClickUp ID: 112072972 (email: programacion@nordvitalips.com)
+- **Cuando el usuario mencione "tareas":** Preguntar si desea crear en Notion, ClickUp o AMBOS
 - **Convención de nombres:** El título de la tarea debe incluir un prefijo según el tipo:
   - `feat:` para Feature
   - `fix:` para Bug
@@ -10,17 +13,30 @@
   - `maintenance:` para Maintenance
   - `document:` para Documentation
   - Ejemplo: "refactor: mejorar lógica de autenticación"
-- **Estructura de tareas:**
-  - Nombre de tarea (título con prefijo según tipo)
-  - Descripción (detallada)
-  - Estado: Sin empezar | En curso | Retrasada | Listo
-  - Prioridad: Alta | Media | Baja
-  - Nivel de esfuerzo: Pequeño | Media | Grande
-  - Tipo Tarea: Feature | Bug | Refactor | Maintenance | Documentation
-  - Módulo: Backend | Frontend | database | servidor (multi-select)
-  - Tiempo Estimado (horas)
-  - Responsable (persona)
-  - Fecha límite (date)
+
+### Estructura de Tareas (Sintaxis unificada Notion/ClickUp)
+
+#### **Campos obligatorios:**
+- **Nombre de tarea:** Título con prefijo según tipo (feat:, fix:, refactor:, etc.)
+- **Descripción:** Descripción detallada de la tarea
+- **Estado:** 
+  - Notion: Sin empezar | En curso | Retrasada | Listo
+  - ClickUp: EN ESPERA | PENDIENTE | EN PROCESO | COMPLETADO | EN REVISION | ACEPTADO
+- **Prioridad:**
+  - Notion: Alta | Media | Baja
+  - ClickUp: Baja | Normal | Alta | Urgente
+- **Responsable:** Gabriel Duarte (por defecto)
+- **Fecha límite:** Fecha en formato YYYY-MM-DD
+
+#### **Campos opcionales:**
+- **Tiempo Estimado:** Duración en horas
+- **Tags/Etiquetas:** Tags relevantes para la tarea
+- **Fecha de inicio:** Fecha en formato YYYY-MM-DD
+
+#### **Campos específicos de Notion (no en ClickUp):**
+- **Nivel de esfuerzo:** Pequeño | Media | Grande
+- **Tipo Tarea:** Feature | Bug | Refactor | Maintenance | Documentation
+- **Módulo:** Backend | Frontend | database | servidor (multi-select)
 
 ### Separación de Tareas
 - **Principio de Responsabilidad Única:** Cada tarea debe tener UN solo propósito claro
