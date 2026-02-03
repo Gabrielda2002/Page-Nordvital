@@ -18,7 +18,7 @@ import img from "@/images/Header/USUARIOS_11zon.webp";
       { label: "Blog", link: "/users/blog" }
     ]} />
 
-    <div class="container mx-auto h-auto md:w-[45%] items-center text-center">
+    <div class="container mx-auto h-auto md:w-[65%] items-center text-center">
       <h1 class="text-4xl font-semibold text-teal-500 mb-4">
         <em>Bienvenidos a nuestro blog</em>
       </h1>
@@ -31,8 +31,34 @@ import img from "@/images/Header/USUARIOS_11zon.webp";
       </p>
     </div>
 
-    <section></section>
-    <div class="w-[95%] mx-auto">
+    <!-- VIDEO  -->
+    <div class="w-full h-auto py-10">
+      <div class="text-center">
+        <h4 class="text-3xl font-semibold text-teal-500">
+          Conoce NordVital IPS
+        </h4>
+        <p class="mt-1 mb-2 w-[65%] mx-auto">
+          Descubre cómo transformamos la experiencia médica.
+        </p>
+      </div>
+      <div class="w-[65%] mx-auto">
+        <video 
+          id="blogVideo"
+          class="w-full rounded"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+        >
+          <source src="/src/videos/Presentación Proyecto de Medicina Moderno Azul.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="w-[65%] mx-auto my-8">
+      <div class="border-t border-gray-300 pt-8"></div>
+    </div>
+
+    <div class="w-[95%] mx-auto mt-10 mb-10">
       <!-- CARDS ITEM  -->
       <script
         src="https://static.elfsight.com/platform/platform.js"
