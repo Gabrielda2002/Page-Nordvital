@@ -2,6 +2,7 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
+import videoSrc from "@/assets/videos/Presentación-Proyecto-de-Medicina-Moderno-Azul.mp4";
 ---
 
 <Layout title="Blog">
@@ -12,63 +13,105 @@ import img from "@/images/Header/USUARIOS_11zon.webp";
     />
   </head>
 
-  <main class="overflow-x-hidden bg-gray-100">
-    <HeroSection title="Nuestro Blog" backgroundImage={img} breadcrumb={[
-      { label: "Inicio", link: "/" },
-      { label: "Blog", link: "/users/blog" }
-    ]} />
+  <main class="overflow-x-hidden bg-gray-100 my-4">
+    <HeroSection
+      title="Nuestro Blog"
+      backgroundImage={img}
+      breadcrumb={[
+        { label: "Inicio", link: "/" },
+        { label: "Blog", link: "/users/blog" },
+      ]}
+    />
 
-    <div class="container mx-auto h-auto md:w-[65%] items-center text-center">
-      <h1 class="text-4xl font-semibold text-teal-500 mb-4">
-        <em>Bienvenidos a nuestro blog</em>
-      </h1>
-      <hr />
-      <p class="mt-4 mb-8 w-[90%] mx-auto">
-        Aquí encontrarás información valiosa sobre salud y bienestar, consejos
-        prácticos y novedades de <span>NordVital IPS</span>. Nuestro objetivo es
-        acompañarte en el camino hacia una vida más saludable. ¡Gracias por
-        visitarnos!
-      </p>
-    </div>
-
-    <!-- VIDEO  -->
-    <div class="w-full h-auto py-10">
-      <div class="text-center">
-        <h4 class="text-3xl font-semibold text-teal-500">
-          Conoce NordVital IPS
-        </h4>
-        <p class="mt-1 mb-2 w-[65%] mx-auto">
-          Descubre cómo transformamos la experiencia médica.
-        </p>
+    <div class="w-full space-y-12">
+      <!-- Sección de bienvenida -->
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl font-bold text-nordvital-secondary mb-6 animate-fade-in">
+            <em>Bienvenidos a nuestro blog</em>
+          </h1>
+          <p class="text-base text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            Aquí encontrarás información valiosa sobre salud y bienestar, consejos
+            prácticos y novedades de <span class="font-semibold text-nordvital-primary">NordVital IPS</span>. Nuestro objetivo
+            es acompañarte en el camino hacia una vida más saludable. ¡Gracias por
+            visitarnos!
+          </p>
+        </div>
       </div>
-      <div class="w-[65%] mx-auto">
-        <video 
-          id="blogVideo"
-          class="w-full rounded"
-          controls
-          muted
-          playsinline
-          preload="metadata"
-        >
-          <source src="/src/videos/Presentación Proyecto de Medicina Moderno Azul.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-    <div class="w-[65%] mx-auto my-8">
-      <div class="border-t border-gray-300 pt-8"></div>
-    </div>
 
-    <div class="w-[95%] mx-auto mt-10 mb-10">
-      <!-- CARDS ITEM  -->
-      <script
-        src="https://static.elfsight.com/platform/platform.js"
-        data-use-service-core
-        defer></script>
-      <div
-        class="elfsight-app-2c7518a4-0e81-4c90-8d3c-6dbfcd8cc1ca"
-        data-elfsight-app-lazy
-      >
+      <!-- Sección de video -->
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-linear-to-r from-nordvital-primary to-nordvital-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+            <div class="relative bg-white p-3 rounded-2xl shadow-xl">
+              <video
+                id="blogVideo"
+                class="w-full rounded-xl shadow-lg"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de contenido del blog -->
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Últimas Publicaciones
+            </h2>
+            <p class="text-gray-700 max-w-2xl mx-auto">
+              Explora nuestros artículos más recientes y mantente informado sobre temas de salud
+            </p>  
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-4 md:p-8 hover:shadow-2xl transition-shadow duration-300">
+            <script
+              src="https://static.elfsight.com/platform/platform.js"
+              data-use-service-core
+              defer></script>
+            <div
+              class="elfsight-app-2c7518a4-0e81-4c90-8d3c-6dbfcd8cc1ca"
+              data-elfsight-app-lazy
+            >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
+  
+  <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out;
+    }
+
+    /* Mejora el estilo del video */
+    video::-webkit-media-controls-panel {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    }
+
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </Layout>
