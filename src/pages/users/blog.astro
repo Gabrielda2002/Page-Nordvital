@@ -3,6 +3,7 @@ import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
 import videoSrc from "@/assets/videos/Presentación-Proyecto-de-Medicina-Moderno-Azul.mp4";
+import videoPoster from "@/assets/videos/Portada.png"
 ---
 
 <Layout title="Blog">
@@ -52,6 +53,8 @@ import videoSrc from "@/assets/videos/Presentación-Proyecto-de-Medicina-Moderno
                 muted
                 playsinline
                 preload="metadata"
+                preload="auto"
+                poster={videoPoster.src}
               >
                 <source src={videoSrc} type="video/mp4" />
               </video>
