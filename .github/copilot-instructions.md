@@ -1,64 +1,106 @@
-## Gestión de Tareas
-- **Sistemas de tareas:** Todas las tareas se gestionan en **Notion Y ClickUp** (ambos sistemas en paralelo)
-- **Base de datos Notion:** "Seguimiento de tareas" (https://www.notion.so/1c2e88ee9bde80c4aa11f50a91f3a858)
-- **ClickUp:** Carpeta "Desarrollos" > Lista "List" (ID: 901325027947)
-- **Responsable principal:** Gabriel Duarte
-  - Notion ID: 1bdd872b-594c-81f7-9e75-000297f4be7a
-  - ClickUp ID: 112072972 (email: programacion@nordvitalips.com)
-- **Cuando el usuario mencione "tareas":** Preguntar si desea crear en Notion, ClickUp o AMBOS
-- **Convención de nombres:** El título de la tarea debe incluir un prefijo según el tipo:
-  - `feat:` para Feature
-  - `fix:` para Bug
-  - `refactor:` para Refactor
-  - `maintenance:` para Maintenance
-  - `document:` para Documentation
-  - Ejemplo: "refactor: mejorar lógica de autenticación"
+# NordVital IPS — Directrices del Proyecto
 
-### Estructura de Tareas (Sintaxis unificada Notion/ClickUp)
+## Stack Tecnológico
 
-#### **Campos obligatorios:**
-- **Nombre de tarea:** Título con prefijo según tipo (feat:, fix:, refactor:, etc.)
-- **Descripción:** Descripción detallada de la tarea
-- **Estado:** 
-  - Notion: Sin empezar | En curso | Retrasada | Listo
-  - ClickUp: EN ESPERA | PENDIENTE | EN PROCESO | COMPLETADO | EN REVISION | ACEPTADO
-- **Prioridad:**
-  - Notion: Alta | Media | Baja
-  - ClickUp: Baja | Normal | Alta | Urgente
-- **Responsable:** Gabriel Duarte (por defecto)
-- **Fecha límite:** Fecha en formato YYYY-MM-DD
+- **Framework**: Astro v5 con integración React v19
+- **Estilos**: Tailwind CSS v4 via `@tailwindcss/vite` + variables CSS custom en `src/styles/variables.css`
+- **Formularios**: Formik + Yup (validación) + EmailJS (envío)
+- **Mapas**: MapLibre GL
+- **Tipado**: TypeScript en modo estricto (`astro/tsconfigs/strict`)
+- **Alias de rutas**: `@/*` → `src/*`
 
-#### **Campos opcionales:**
-- **Tiempo Estimado:** Duración en horas
-- **Tags/Etiquetas:** Tags relevantes para la tarea
-- **Fecha de inicio:** Fecha en formato YYYY-MM-DD
+## Idioma
 
-#### **Campos específicos de Notion (no en ClickUp):**
-- **Nivel de esfuerzo:** Pequeño | Media | Grande
-- **Tipo Tarea:** Feature | Bug | Refactor | Maintenance | Documentation
-- **Módulo:** Backend | Frontend | database | servidor (multi-select)
+- Todo el contenido, comentarios de código y mensajes al usuario deben estar en **español**.
+- El atributo `lang` del HTML debe ser `"es"` (no `"en"`).
 
-### Separación de Tareas
-- **Principio de Responsabilidad Única:** Cada tarea debe tener UN solo propósito claro
-- **Cuándo separar en múltiples tareas:**
-  - Cuando los cambios combinan diferentes tipos (ej: fix + refactor)
-  - Cuando afectan diferentes capas o módulos independientes (ej: frontend + backend)
-  - Cuando una parte puede completarse independientemente de la otra
-  - Cuando el tiempo estimado total supera las 2 horas
-  - Cuando los cambios tienen diferentes niveles de prioridad
-- **Criterios de separación:**
-  - **fix + refactor:** SIEMPRE separar. El fix soluciona un problema, el refactor mejora el código
-  - **feat + refactor:** Separar si el refactor no es esencial para la feature
-  - **múltiples features:** Separar cada feature en su propia tarea
-  - **cambios en múltiples módulos:** Separar por módulo si son independientes
-- **Ejemplo de separación correcta:**
-  - ❌ MAL: "fix: mejorar visualización de títulos y refactorizar modelo de datos"
-  - ✅ BIEN: 
-    - Tarea 1: "fix: mejorar visualización de títulos largos en tarjetas"
-    - Tarea 2: "refactor: migrar nomenclatura del modelo a inglés"
-- **Acción al detectar múltiples responsabilidades:** 
-  - Analizar los cambios realizados con get_changed_files
-  - Identificar diferentes tipos de cambios (fix, refactor, feat)
-  - Crear una tarea separada para cada tipo de cambio
-  - Documentar claramente qué archivos y cambios corresponden a cada tarea
-  - Mantener tareas enfocadas y con estimaciones realistas (< 2 horas cada una)
+## Arquitectura
+
+- **Páginas**: Enrutamiento basado en archivos en `src/pages/`. Cada página usa `Layout.astro`.
+- **Componentes Astro** (`src/components/`): Presentacionales, usan `<slot>`, props tipadas con `interface Props`.
+- **Componentes React** (`src/components/react_components/`): Solo para interactividad compleja (formularios, mapas). Usar `client:idle` o `client:visible` en vez de `client:load` cuando el componente no es above-the-fold.
+- **Datos**: Archivos TypeScript en `src/content/` con interfaces exportadas y arrays constantes tipados.
+- **Estilos**: Usar utilidades Tailwind. Variables custom en `src/styles/variables.css`. Función `cn()` de `@/lib/utils` para merge de clases.
+
+## Convenciones de Código
+
+### Nombrado de Archivos
+- Componentes Astro/React: **PascalCase** (`HeroSection.astro`, `CustomFormContactUs.tsx`)
+- Archivos de datos: **kebab-case** (`agreements.data.ts`, `services-md-esp.ts`)
+- Páginas: **kebab-case** (`contact-us.astro`, `rights-duties.astro`)
+
+### Componentes Astro
+```astro
+---
+import { Image } from 'astro:assets';
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "NordVital IPS" } = Astro.props;
+---
+<section><!-- markup --></section>
+<style>/* scoped styles */</style>
+```
+
+### Componentes React (Formularios)
+- Usar `useFormik` + `Yup.object()` para validación
+- Variables de entorno con prefijo `PUBLIC_` via `import.meta.env`
+- Manejo de errores con estados de UI (NO `alert()`)
+- Labels con `htmlFor` asociado al `id` del input
+
+### TypeScript
+- Siempre tipar props con `interface Props`
+- No usar `any` — usar tipos específicos o `unknown` con narrowing
+- Importar tipos con `import type { ... }` para tree-shaking
+- Tipar arrays de datos: `export const data: MyInterface[] = [...]`
+
+### Estilos
+- Colores del tema: `nordvital-primary` (#049ae7), `nordvital-secondary` (#6fbda7)
+- Gradiente: `bg-gradient-to-l from-nordvital-secondary to-nordvital-primary`
+- Responsive mobile-first: base → `md:` → `lg:`
+- Respetar `prefers-reduced-motion: reduce` en animaciones
+
+### Accesibilidad
+- HTML semántico: `<nav>`, `<main>`, `<section>`, `<article>`
+- Tabs: usar `role="tablist"`, `role="tab"`, `role="tabpanel"`, `aria-selected`
+- Modales: usar `<dialog>` o `role="dialog"` con `aria-modal="true"` y focus trap
+- Imágenes: siempre `alt` descriptivo (vacío solo si es decorativa)
+- Formularios: `<label htmlFor="id">` en cada campo
+
+### Imágenes
+- Usar `<Image>` de `astro:assets` — nunca `<img>` directo
+- Above-the-fold: `loading="eager"` + `fetchpriority="high"`
+- Resto: `loading="lazy"` (default)
+- Formatos: preferir `.webp`
+
+## Comandos
+
+```bash
+pnpm dev      # Servidor de desarrollo
+pnpm build    # Build de producción
+pnpm preview  # Preview del build
+```
+
+## Tareas Pendientes del Proyecto
+
+### Prioridad Alta
+1. **Corregir `lang="en"` a `lang="es"`** en `src/layouts/Layout.astro`
+2. **Completar `AboutUs.astro`** — actualmente solo tiene un placeholder `<div>List</div>`
+3. **Eliminar `console.log` de debug** en `src/components/FooterInfo.astro`
+4. **Reemplazar `alert()` por UI de error** en formularios React (PqrsdfForm, FormRegisterParticipant)
+5. **Agregar labels accesibles** a todos los campos de formularios (`htmlFor` + `id`)
+
+### Prioridad Media
+6. **Renombrar componentes con typos**: `Corousel` → `Carousel`, `CorouselInfiity` → `CarouselInfinity`, `TapsContent` → `TabsContent`, `TapsServices` → `TabsServices`
+7. **Centralizar datos hardcodeados** — extraer números de teléfono, emails y URLs repetidos a un archivo `src/content/contact-info.data.ts`
+8. **Mejorar accesibilidad de tabs** — agregar roles ARIA (`tablist`, `tab`, `tabpanel`) en `TapsContent.astro` y `TapsServices.astro`
+9. **Mejorar accesibilidad de modales** — usar `<dialog>` con focus trap en `aboutus.astro`
+10. **Cambiar `client:load` a `client:idle`/`client:visible`** en formularios que no están above-the-fold
+
+### Prioridad Baja
+11. **Eliminar dependencia de jQuery** — reemplazar Owl Carousel con carousel nativo CSS/Astro
+12. **Eliminar tipos `any`** en `PqrsdfForm.tsx` y otros formularios
+13. **Agregar manejo de errores/timeout** para fetch externo en PqrsdfForm (API de Colombia)
+14. **Agregar paginación** en vistas de lista (blog, PQRSFD) si crecen
+15. **Auditar contraste de colores** — verificar WCAG AA en texto blanco sobre fondos teal/primary
