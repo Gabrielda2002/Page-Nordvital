@@ -9,10 +9,15 @@ import slider7 from "@/assets/Imgs_carousel/slider7.webp";
 import slider8 from "@/assets/Imgs_carousel/slider8.webp";
 import slider10 from "@/assets/Imgs_carousel/slider10.webp";
 import slider12 from "@/assets/Imgs_carousel/slider12.webp";
+import slider13 from "@/assets/Imgs_carousel/slider13.webp";
 
 import { Image } from "astro:assets";
 
 const images = [
+  {
+    src: slider13,
+    alt: "Nueva sede",
+  },
   {
     src: slider12,
     alt: "Nueva sede",
@@ -43,12 +48,6 @@ const images = [
     alt: "Perfil lipidico",
     telefono: "3174309873",
   },
-
-  {
-    src: slider8,
-    alt: "Citologia",
-    telefono: "3208420934",
-  },
   {
     src: slider7,
     alt: "Cardiologia",
@@ -68,7 +67,7 @@ const images = [
       {
         images.map((m) => (
           <div class="w-full shrink-0">
-            <a href={`https://api.whatsapp.com/send?phone=${m.telefono}`} target="_blank" class="block w-full h-full">
+            <a href={`${m.telefono ? 'https://api.whatsapp.com/send?phone=' + m.telefono : '#'}`} target={`${m.telefono ? '_blank' : '_self'}`} class="block w-full h-full">
               <Image
                 src={m.src}
                 alt={m.alt}
