@@ -36,8 +36,46 @@ import dictamenRevisorFiscal2020 from '@/pdf/2020/DICTAMEN-DEL-REVISOR-FISCAL.pd
 import notasEstados2020 from '@/pdf/2020/NOTAS-A-LOS-ESTADOS-FINANCIEROS-2020.pdf';
 import estadoGanancias2020 from '@/pdf/2020/ESTADO-GANANCIAS-PERDIDAS-2020.pdf';
 
+// PDF 2025
+import dictament2025 from '@/pdf/2025/DICTAMEN-REVISOR-FISCAL-NORDVITAL-IPS-2025.pdf';
+import cambiosPatrimonio2025 from '@/pdf/2025/ESTADO-DE-CAMBIOS-EN-EL-PATRIMONIO-2025.pdf';
+import cambioFlujo2025 from '@/pdf/2025/ESTADO-DE-FLUJO-DE-EFECTIVO-2025.pdf';
+import gananciasYPerdidas2025 from '@/pdf/2025/ESTADO-DE-GANANCIAS-Y-PERDIDAS-2025.pdf';
+import situacionFinanciera2025 from '@/pdf/2025/ESTADO-DE-SITUACION-FNANCIERA-2025.pdf';
+import notasFinancieras2025 from '@/pdf/2025/NOTAS-ESTADOS-FINANCIEROS-2025.pdf';
+
 // Datos de estados financieros por año
 export const financialStatusData = [
+
+  {
+    year: 2025,
+    documents:[
+      {
+        name: "Dictamen revisor fiscal nordvital ips sas 2025",
+        file: dictament2025,
+      },
+      {
+        name: "Estado cambios en el patrimonio nordvital ips sas 2025", 
+        file: cambiosPatrimonio2025,
+      },
+      {
+        name: "Estado flujo de efectivo nordvital ips sas 2025",
+        file: cambioFlujo2025,
+      },
+      {
+        name: "Estado ganancias y perdidas nordvital ips sas 2025",
+        file: gananciasYPerdidas2025, 
+      },
+      {
+        name: "Estado situacion financiera nordvital ips sas 2025",
+        file: situacionFinanciera2025,
+      },
+      {
+        name: "Notas financieras nordvital ips sas 2025",
+        file: notasFinancieras2025,
+      },
+    ]
+  },
   {
     year: 2024,
     documents: [
