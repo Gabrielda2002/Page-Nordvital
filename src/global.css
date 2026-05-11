@@ -1,55 +1,98 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* === NORDVITAL FONTS === */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/QUICKSAND-LIGHT.TTF') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/QUICKSAND-BOOK.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/QUICKSAND-BOLD.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/QUICKSAND-VARIABLEFONT_WGHT.TTF') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gnuolane';
+  src: url('/fonts/GNUOLANE_RG.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Signature';
+  src: url('/fonts/AMOSTELYSIGNATURE.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Colores principales de Nordvital */
-  --color-nordvital-primary: #049ae7;
-  --color-nordvital-secondary: #6fbda7;
+  /* === NORDVITAL BRAND - Libro de marca === */
+  
+  /* Verde Salud - Color primario (confianza, salud) */
+  --color-nv-verde-salud: #007E79;
+  --color-nv-verde-salud-light: #009A94;
+  --color-nv-verde-salud-dark: #005E5A;
+  
+  /* Verde Turquesa - Acentos y highlights */
+  --color-nv-turquesa: #00B3A0;
+  --color-nv-turquesa-light: #33C5B5;
+  --color-nv-turquesa-dark: #008F80;
+  
+  /* Azul Principal - Links e información */
+  --color-nv-azul: #0079C4;
+  --color-nv-azul-light: #3A9DD6;
+  --color-nv-azul-dark: #005A94;
+  
+  /* Azul Claro - Hover states */
+  --color-nv-azul-claro: #049AE7;
+  --color-nv-azul-claro-light: #4DB5ED;
+  --color-nv-azul-claro-dark: #0279B8;
+  
+  /* Rojo CTA - Botones de acción y alertas */
+  --color-nv-rojo-cta: #ED3237;
+  --color-nv-rojo-cta-light: #F0565A;
+  --color-nv-rojo-cta-dark: #C42026;
+  
+  /* Gris Oscuro - Textos secundarios */
+  --color-nv-gris: #565658;
+  --color-nv-gris-light: #8A8A8C;
+  --color-nv-gris-dark: #3A3A3C;
+  
+  /* Azul Oscuro - Encabezados y énfasis */
+  --color-nv-azul-oscuro: #31406D;
+  --color-nv-azul-oscuro-light: #4A5A8A;
+  --color-nv-azul-oscuro-dark: #1E2848;
 
-  /* Nordvital Teal */
-  --color-nordvital-teal-400: #5eaaa0;
-  --color-nordvital-teal-500: #14b8a6;
-  --color-nordvital-teal-600: #0d9488;
+  /* === LEGACY (mantener compatibilidad) === */
+  --color-nordvital-primary: #007E79;
+  --color-nordvital-secondary: #00B3A0;
 
-  /* Nordvital Gray */
-  --color-nordvital-gray-50: #f9fafb;
-  --color-nordvital-gray-100: #f3f4f6;
-  --color-nordvital-gray-200: #e5e7eb;
-  --color-nordvital-gray-300: #d1d5db;
-  --color-nordvital-gray-400: #9ca3af;
-  --color-nordvital-gray-500: #6b7280;
-  --color-nordvital-gray-600: #4b5563;
-  --color-nordvital-gray-700: #374151;
-  --color-nordvital-gray-800: #1f2937;
-  --color-nordvital-gray-900: #111827;
-
-  /* Nordvital Blue */
-  --color-nordvital-blue-50: #eff6ff;
-  --color-nordvital-blue-100: #dbeafe;
-  --color-nordvital-blue-500: #3b82f6;
-  --color-nordvital-blue-600: #2563eb;
-
-  /* Nordvital Indigo */
-  --color-nordvital-indigo-100: #e0e7ff;
-  --color-nordvital-indigo-500: #6366f1;
-  --color-nordvital-indigo-600: #4f46e5;
-  --color-nordvital-indigo-700: #4338ca;
-
-  /* Nordvital Red */
-  --color-nordvital-red-50: #fef2f2;
-  --color-nordvital-red-300: #fca5a5;
-  --color-nordvital-red-500: #ef4444;
-  --color-nordvital-red-600: #dc2626;
-
-  /* Nordvital Green */
-  --color-nordvital-green-500: #10b981;
-  --color-nordvital-green-700: #047857;
-
-  /* Nordvital Sky */
-  --color-nordvital-sky-500: #0ea5e9;
-  --color-nordvital-sky-600: #0284c7;
+  /* === TYPOGRAPHY === */
+  --font-quicksand: 'Quicksand', sans-serif;
+  --font-gnuolane: 'Gnuolane', sans-serif;
+  --font-signature: 'Signature', cursive;
 }
 
 @theme inline {
@@ -168,6 +211,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-quicksand);
   }
   .maplibregl-popup-content {
     @apply bg-transparent! shadow-none! p-0! rounded-none!;
