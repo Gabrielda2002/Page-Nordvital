@@ -5,6 +5,8 @@ import Accordion from "@/components/common/Accordion.astro";
 import img from "@/images/Sarlaf-Sicof/BANNER-SARLAF-SICOF.webp";
 
 import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v1.pdf?url";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 ---
 
 <Layout title="SARLAF - SICOF">
@@ -25,19 +27,6 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
         { label: "SARLAF - SICOF", link: "/aboutus/sarlaf-sicof" },
       ]}
     />
-
-    <section class="font-sans md:px-20 mx-auto w-[90%] md:w-[60%]">
-      <p
-        class="text-base text-gray-700 text-center hyphens-auto text-wrap-pretty mb-2"
-      >
-        En <span class="font-bold text-sky-400">NordVital IPS SAS</span>,
-        estamos dedicados a mantener una operación transparente y ética,
-        alineada con las normativas legales vigentes. Nos enorgullecemos de
-        promover una cultura de integridad y responsabilidad en todas nuestras
-        actividades y relaciones comerciales.
-      </p>
-    </section>
-
     <Accordion title="SARLAFT" id="1">
       <div class="px-4 py-2 bg-white w-full mx-auto rounded-b-2xl space-y-4">
         <p
@@ -366,11 +355,11 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
     <section
       class="linea__etica space-y-4 py-4 md:py-6 text-left mx-auto h-auto w-[85%] md:w-[70%]"
     >
-      <h2 class="text-4xl font-bold text-nordvital-primary">
+      <H level={2} align="left">
         Nuestra Línea Ética
-      </h2>
+      </H>
 
-      <p class="text-base text-gray-700 leading-relaxed">
+      <P align="left" clamp={2}>
         La Línea Ética de <span class="font-bold text-nordvital-primary"
           >NORDVITAL IPS S.A.S</span
         >
@@ -378,33 +367,33 @@ import pdf from "@/pdf/sarlaft-sicoft/GE-N-001 CODIGO DE ETICA Y BUEN GOBIERNO v
           >confidencial y seguro</em
         > para denunciar cualquier situación que atente contra el Código de Ética
         e Integridad las políticas, los principios y los valores de la compañia.
-      </p>
-      <p class="mt-4 text-base text-gray-700 leading-relaxed">
+      </P>
+      <P align="left" clamp={2}>
         Nuestra línea ética está disponible las 24 horas los 365 días del año a
         través del correo electrónico{" "}
         <a
           href="mailto:Privacidad@nordvitalips.com"
           class="text-nordvital-primary font-medium"
-          >Privacidad@nordvitalips.com</a
-        >. o <span class="font-bold text-nordvital-primary"
+          >privacidad@nordvitalips.com</a
+        >. o <span class="font-bold font-gnuolane text-nordvital-primary"
           >nuestro número telefónico</span
         >
         <a
           href="https://api.whatsapp.com/send?phone=573176455803"
-          class="text-nordvital-primary font-medium">3176455803</a
+          class="text-nv-azul font-semibold underline">3176455803</a
         >
-      </p>
-      <p class="mt-4 text-base text-gray-700 leading-relaxed">
+      </P>
+      <P align="left" clamp={2}>
         La Línea Ética existe para prevenir y detectar hechos que puedan
         provocar pérdidas financieras, afectar la imagen de la compañia y
         deteriorar el ambiente laboral.
-      </p>
+      </P>
 
-      <p class="mt-4 text-base text-gray-700 leading-relaxed">
+      <P clamp={2} align="left">
         <span class="text-nordvital-primary font-bold"
           >NORDVITAL IPS S.A.S</span
         > cuenta con la Línea Ética donde se podrán reportar:
-      </p>
+      </P>
 
       <ul class="list-disc list-inside mt-3 text-left m-3 leading-6">
         <li>Violación de la ley y de las regulaciones.</li>

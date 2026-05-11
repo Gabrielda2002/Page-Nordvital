@@ -1,6 +1,6 @@
 ---
-// Props: year (número), documents (array de objetos { name, file })
 import pdfIcon from '@/images/pdf_icon.svg';
+import H from '../ui/H.astro';
 
 interface Props {
   year: number;
@@ -19,10 +19,10 @@ const hasMoreDocs = documents.length > 4;
 <section class="estados__item bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
   <div class="nav__estado">
     <div class="flex items-center mb-6">
-      <h1 class="text-3xl font-bold text-blue-800 relative px-4 py-2 rounded-md bg-gray-50">
+      <H level={1} size="xl" color="emphasis" class="relative px-4 py-2 bg-gray-50 rounded-md">
         {year}
-        <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
-      </h1>
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-nv-azul-claro rounded-full"></span>
+      </H>
     </div>
     
     <ul class="space-y-4 doc-list">

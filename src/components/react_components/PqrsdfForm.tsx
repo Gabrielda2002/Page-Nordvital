@@ -155,15 +155,15 @@ const PqrsdfForm = () => {
       <div className="px-6 md:px-8 pb-8 pt-12 bg-gray-100 flex flex-col items-center">
         {/* Header del formulario */}
         <div className="flex flex-col space-y-4 text-center items-center w-3xl">
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
+          <h1 className="text-2xl md:text-4xl font-bold text-nordvital-primary font-gnuolane">
             Formulario PQRSFD
           </h1>
-          <p className="text-base text-justify text-gray-700 leading-relaxed">
+          <p className="text-base font-quicksand text-justify text-gray-700 leading-relaxed">
             Estamos comprometidos a resolver cualquier inquietud que tenga, para
             proporcionarle un servicio de calidad. Por favor, complete todos los
             campos requeridos para procesar su solicitud de manera eficiente.
           </p>
-          <p className="text-base text-justify text-gray-700 leading-relaxed">
+          <p className="text-base font-quicksand text-justify text-gray-700 leading-relaxed">
             Agradecemos su colaboración al utilizar esta herramienta para
             comunicarse con nosotros.
           </p>
@@ -172,21 +172,21 @@ const PqrsdfForm = () => {
 
         {/* Indicador de progreso visual */}
         <div className="mb-8">
-          <div className="flex items-center justify-center md:space-x-4 text-sm md:text-base  md:flex-row">
+          <div className="flex items-center justify-center md:space-x-4 text-sm font-quicksand md:text-base  md:flex-row">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
                 1
               </div>
               <span className="ml-2 text-gray-600">Información Personal</span>
             </div>
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
                 2
               </div>
               <span className="ml-2 text-gray-600">Ubicación y Contacto</span>
             </div>
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nordvital-primary text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
                 3
               </div>
               <span className="ml-2 text-gray-600">
@@ -206,10 +206,10 @@ const PqrsdfForm = () => {
                 {/* Sección 1: Información Personal */}
                 <div className="border-b border-gray-200 pb-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
                       1
                     </div>
-                    <h2 className="text-xl font-semibold text-gray-800">
+                    <h2 className="text-xl font-semibold font-gnuolane text-nordvital-secondary">
                       Información Personal
                     </h2>
                   </div>
@@ -472,7 +472,7 @@ const PqrsdfForm = () => {
                 {/* Sección 2: Ubicación y Contacto */}
                 <div className="border-b border-gray-200 pb-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
                       2
                     </div>
                     <h2 className="text-xl font-semibold text-gray-800">
@@ -713,7 +713,7 @@ const PqrsdfForm = () => {
                 {/* Sección 3: Detalles de la Solicitud */}
                 <div className="pb-6">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
                       3
                     </div>
                     <h2 className="text-xl font-semibold text-gray-800">

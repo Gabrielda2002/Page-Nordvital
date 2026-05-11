@@ -1,7 +1,7 @@
 ---
-// Importa las imágenes que vas a usar
-
 import { Image } from "astro:assets";
+import H from '../ui/H.astro';
+import P from '../ui/P.astro';
 import imgLaboratorio from "@/assets/Imgs_carousel/carousel_infinito/LABORATORIO.webp?url";
 import imgMediGeneral from "@/assets/Imgs_carousel/carousel_infinito/medicinaGeneral.webp?url";
 import imgApoyoTera from "@/assets/Imgs_carousel/carousel_infinito/terapiasFisicas1.webp?url";
@@ -64,10 +64,14 @@ const images = [
         <div class="absolute top-0 left-0 w-full rounded-2xl h-full bg-linear-to-l from-nordvital-secondary to-[#017bdedf]  opacity-0 hover:opacity-90 transition-opacity duration-300">
           <div class="absolute bottom-0 left-0 w-full justify-start p-5">
             <div class="mb-2">
-              <h3 class="text-white font-bold text-2xl ">{title}</h3>
+              <H level={3} size="lg" color="white">
+                {title}
+              </H>
             </div>
             <div class="mb-2">
-              <p class="text-white font-semibold">{description}</p>
+              <P size="base" color="white" class="font-semibold">
+                {description}
+              </P>
             </div>
             <div class="grid grid-cols-2 w-full lg:w-1/2 gap-5">
               <button class=" text-nordvital-primary bg-white px-2 py-1 rounded-md hover:bg-gray-300 trasnition-all duration-300">

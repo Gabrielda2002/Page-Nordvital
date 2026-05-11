@@ -29,6 +29,13 @@ No lint, typecheck, or test scripts exist in `package.json`.
 ## Environment variables
 All prefixed `PUBLIC_` (Astro convention). See `.env.example` for full list. Real values committed in `.env` (EmailJS keys, target emails, backend URL).
 
+## Typography system (Tailwind classes)
+- **`font-quicksand`**: Body text, paragraphs, descriptions (default for `p`, labels, form text)
+- **`font-gnuolane`**: Headings, titles, section headers (h1-h6, hero titles)
+- **`font-signature`**: Decorative signatures, special effects (only for artistic elements)
+
+CSS variables ya definidas en `global.css` líneas 93-95.
+
 ## Dependencies worth noting
 - **Formik + Yup** for form validation + **EmailJS** for sending (`@emailjs/browser`)
 - **MapLibre GL** (`maplibre-gl`) for maps

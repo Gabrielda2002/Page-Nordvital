@@ -1,6 +1,8 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
 import videoSrc from "@/assets/videos/Presentación-Proyecto-de-Medicina-Moderno-Azul.mp4";
 import videoPoster from "@/assets/videos/Portada.png"
@@ -28,15 +30,15 @@ import videoPoster from "@/assets/videos/Portada.png"
       <!-- Sección de bienvenida -->
       <div class="container mx-auto px-4 md:px-8">
         <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-4xl font-bold text-nordvital-secondary mb-6 animate-fade-in">
+          <H level={1} size="xl" color="secondary" class="mb-6 animate-fade-in">
             <em>Bienvenidos a nuestro blog</em>
-          </h1>
-          <p class="text-base text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          </H>
+          <P leading="relaxed" class="max-w-3xl mx-auto">
             Aquí encontrarás información valiosa sobre salud y bienestar, consejos
-            prácticos y novedades de <span class="font-semibold text-nordvital-primary">NordVital IPS</span>. Nuestro objetivo
+            prácticos y novedades de <span class="font-semibold text-nv-verde-salud">NordVital IPS</span>. Nuestro objetivo
             es acompañarte en el camino hacia una vida más saludable. ¡Gracias por
             visitarnos!
-          </p>
+          </P>
         </div>
       </div>
 
@@ -67,12 +69,12 @@ import videoPoster from "@/assets/videos/Portada.png"
       <div class="container mx-auto px-4 md:px-8">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Últimas Publicaciones
-            </h2>
-            <p class="text-gray-700 max-w-2xl mx-auto">
-              Explora nuestros artículos más recientes y mantente informado sobre temas de salud
-            </p>  
+<H level={2} size="lg" color="emphasis" class="mb-4">
+            Últimas Publicaciones
+          </H>
+          <P color="muted" class="max-w-2xl mx-auto">
+            Explora nuestros artículos más recientes y mantente informado sobre temas de salud
+          </P>
           </div>
           
           <div class="bg-white rounded-2xl shadow-lg p-4 md:p-8 hover:shadow-2xl transition-shadow duration-300">

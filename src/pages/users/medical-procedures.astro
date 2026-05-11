@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
 
 ///images
@@ -47,44 +49,42 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
         <div class="flex items-center cont-medicina contCuatro">
           <img src={icon.src} alt="" class="h-11" />
 
-          <h6 class="text-2xl ml-2"><em>Procedimientos Médicos</em></h6>
+          <H level={6} size="lg" color="emphasis" class="ml-2"><em>Procedimientos Médicos</em></H>
         </div>
 
         <div class="medicina mt-6 mb-2">
-          <h2 class="text-3xl font-semibold mb-2">
+          <H level={2} size="md" class="mb-2">
             Guía para Realizar Procedimientos médicos según su tratamiento
-          </h2>
-          <p>
+          </H>
+          <P>
             Para facilitar el correcto procedimiento a los diferentes exámenes,
             hemos creado una guía que explica detalladamente cómo realizar los
             distintos exámenes de laboratorio. Para visualizar el documento siga
             el paso a paso descrito a continuación.
-          </p><br />
-          <p>
-            <h5 class="text-xl font-semibold">
-              Pasos para visualizar las imagenes:
-            </h5>
-            <ul class="p-2">
-              <li>
-                1. Haga clic en el enlace que se encuentra a continuación.
-              </li>
-              <li>
-                2. Lea y visualice detenidamente todos los pasos para que haga
-                uso del correcto procedimiento.
-              </li>
-              <li>
-                3. Cada imagen tiene la opción de poder salir de la misma por
-                fuera de esta.
-              </li>
-            </ul>
-            <br />
-          </p>
+          </P><br />
+          <H level={5} size="md">
+            Pasos para visualizar las imagenes:
+          </H>
+          <ul class="p-2">
+            <li>
+              1. Haga clic en el enlace que se encuentra a continuación.
+            </li>
+            <li>
+              2. Lea y visualice detenidamente todos los pasos para que haga
+              uso del correcto procedimiento.
+            </li>
+            <li>
+              3. Cada imagen tiene la opción de poder salir de la misma por
+              fuera de esta.
+            </li>
+          </ul>
+          <br />
         </div>
 
         <div id="misionVisionModal" class="inset-0 z-50">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             <div class="modal-body mv__contenido space-y-4">
-              <h5 class="text-xl font-semibold">Ecografías:</h5>
+              <H level={5} size="md">Ecografías:</H>
               <ul class="space-y-2 m-5 list-disc">
                 <li>
                   <a href={modal1} class="text-blue-600 hover:underline"
@@ -130,7 +130,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
             </div>
 
             <div class="space-y-4">
-              <h5 class="text-xl font-semibold">Tomografías:</h5>
+              <H level={5} size="md">Tomografías:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal9} class="text-blue-600 hover:underline"
@@ -139,7 +139,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">Imagenología:</h5>
+              <H level={5} size="md">Imagenología:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal10} class="text-blue-600 hover:underline"
@@ -148,7 +148,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">Toma de Citología:</h5>
+              <H level={5} size="md">Toma de Citología:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal11} class="text-blue-600 hover:underline"
@@ -157,7 +157,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">Lavado de Oidos:</h5>
+              <H level={5} size="md">Lavado de Oidos:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal12} class="text-blue-600 hover:underline"
@@ -168,7 +168,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
             </div>
 
             <div class="space-y-4">
-              <h5 class="text-xl font-semibold">Prueba de Esfuerzo:</h5>
+              <H level={5} size="md">Prueba de Esfuerzo:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal13} class="text-blue-600 hover:underline"
@@ -177,9 +177,9 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">
+              <H level={5} size="md">
                 Ecocardiograma Estrés con Ejercicio:
-              </h5>
+              </H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal14} class="text-blue-600 hover:underline"
@@ -188,7 +188,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">Holter del Ritmo:</h5>
+              <H level={5} size="md">Holter del Ritmo:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal15} class="text-blue-600 hover:underline"
@@ -199,7 +199,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
             </div>
 
             <div class="space-y-4">
-              <h5 class="text-xl font-semibold">Colposcopia:</h5>
+              <H level={5} size="md">Colposcopia:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal16} class="text-blue-600 hover:underline"
@@ -208,7 +208,7 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
                 </li>
               </ul>
 
-              <h5 class="text-xl font-semibold">Electrocardiograma:</h5>
+              <H level={5} size="md">Electrocardiograma:</H>
               <ul class="space-y-2 list-disc m-5">
                 <li>
                   <a href={modal17} class="text-blue-600 hover:underline"
@@ -219,13 +219,13 @@ import icon from "@/images/Usuarios/Modales/icon.svg";
             </div>
 
             <div class="col-span-full mb-8 text-start">
-              <p class="text-lg">
+              <P size="lg">
                 Si tiene alguna pregunta o necesita asistencia adicional, por
                 favor no duden en contactarnos Estamos <a
                   href="/contact-us"
                   class="text-blue-600 hover:underline">aquí</a
                 > para ayudarles en todo lo que necesitan.
-              </p>
+              </P>
             </div>
           </div>
         </div>

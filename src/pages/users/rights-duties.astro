@@ -1,6 +1,8 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 
 //images
 import img from "@/images/Header/USUARIOS_11zon.webp";
@@ -50,21 +52,21 @@ import { Image } from "astro:assets";
       />
 
       <div class="text-start w-[90%] md:w-2/3 mt-4 md:mt-0 md:pl-4">
-        <h1 class="text-4xl text-teal-500">
+        <H level={1} size="xl" color="secondary">
           <strong>Conozca sus deberes y derechos</strong>
-        </h1>
+        </H>
 
-        <p class="text-gray-800 text-lg mt-4">
-          En <span class="text-sky-600">NordVital IPS</span>, nos comprometemos
+        <P size="lg" class="mt-4">
+          En <span class="text-nv-azul">NordVital IPS</span>, nos comprometemos
           a ofrecer una atención de salud integral y de alta calidad, respetando
           siempre los derechos fundamentales de nuestros usuarios.
-        </p>
+        </P>
 
-        <p class="text-gray-800 text-lg mt-4">
+        <P size="lg" class="mt-4">
           Consideramos esencial que cada persona conozca sus derechos y deberes
           como usuario de nuestros servicios para garantizar una relación basada
           en la confianza, el respeto mutuo y la transparencia.
-        </p>
+        </P>
       </div>
     </div>
 

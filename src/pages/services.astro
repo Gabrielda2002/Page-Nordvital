@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import ContactServices from "@/components/content/ContactServices.astro";
 import TapsContent from "@/components/common/TapsContent.astro";
 import CardServOdonto from "@/components/common/CardServOdonto.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 
 // content
 import { servicesMdEsp } from "@/content/services-md-esp";
@@ -100,28 +102,24 @@ const serviceTabs: Tab[] = [
               <div class="space-y-4">
                 <div class="flex items-center w-fit">
                   <div set:html={medGeneralIcon} />
-                  <p class="text-xl text-nordvital-secondary font-semibold">
+                  <P size="lg" color="secondary" class="font-semibold">
                     Servicio
-                  </p>
+                  </P>
                 </div>
 
-                <h4 class="font-bold text-2xl">Medicina General</h4>
-                <p
-                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <H level={4} size="lg">Medicina General</H>
+                <P align="justify" leading="relaxed" hyphens>
                   La medicina general representa el primer nivel de atención
                   médica.
-                </p>
-                <p
-                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                </P>
+                <P align="justify" leading="relaxed" hyphens>
                   Los médicos y médicas generales son profesionales con
                   preparación académica para la prevención, detección,
                   tratamiento y seguimiento de enfermedades agudas y crónicas.
                   Tienen la capacidad de resolver problemas de salud de forma
                   transversal y de decidir la derivación a especialistas cuando
                   una patología se descompensa o lo requiere.
-                </p>
+                </P>
               </div>
 
               <div>
@@ -138,15 +136,13 @@ const serviceTabs: Tab[] = [
               <div class="space-y-4">
                 <div class="flex items-center">
                   <div set:html={odonIcon} />
-                  <p class="text-xl text-nordvital-secondary font-semibold">
+                  <P size="lg" color="secondary" class="font-semibold">
                     Servicio
-                  </p>
+                  </P>
                 </div>
-                <h4 class="text-2xl font-bold">Odontología</h4>
+                <H level={4} size="lg">Odontología</H>
 
-                <p
-                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <P align="justify" leading="relaxed" hyphens>
                   La atención de consulta externa en odontología general,
                   incluye consultas iniciales y de control, esta enfocada en la
                   atención preventiva y curativa, realizando el tratamiento
@@ -154,15 +150,13 @@ const serviceTabs: Tab[] = [
                   bucal y brindando bienestar.
                 </p>
 
-                <p
-                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <P align="justify" leading="relaxed" hyphens>
                   La atención por odontología general, comienza con la fase de
                   higiene oral, en el cual se realiza el tratamiento preventivo
                   incluyendo educación en salud oral y según los hallazgos se
                   realiza tratamiento integral con la participación de
                   especialistas si el caso lo requiere.
-                </p>
+                </P>
               </div>
               <div class="mb-3 lg:mb-0">
                 <ContactServices />
@@ -170,7 +164,7 @@ const serviceTabs: Tab[] = [
             </div>
 
             <div class="space-x-4">
-              <h3 class="text-3xl font-bold text-center">Te Ofrecemos:</h3>
+              <H level={3} size="lg" align="center">Te Ofrecemos:</H>
               <div
                 class="grid grid-cols-1 lg:grid-cols-3 justify-center m-auto items-center gap-7 w-[105%] md:w-[75%]"
               >
@@ -216,14 +210,12 @@ const serviceTabs: Tab[] = [
               <div class="space-y-4">
                 <div class="flex items-center">
                   <div set:html={labIcon} />
-                  <p class="text-xl text-nordvital-secondary font-semibold">
+                  <P size="lg" color="secondary" class="font-semibold">
                     Servicio
-                  </p>
+                  </P>
                 </div>
-                <h4 class="font-bold text-2xl mb-3">Laboratorio Clinico</h4>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <H level={4} size="lg" class="mb-3">Laboratorio Clinico</H>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   En NordVital IPS, entendemos que la precisión y la rapidez en
                   los resultados de los análisis clínicos son esenciales para un
                   diagnóstico médico efectivo y un tratamiento adecuado. Nuestro
@@ -231,17 +223,15 @@ const serviceTabs: Tab[] = [
                   excelencia y la innovación, garantizando que cada prueba se
                   realice con los más altos estándares de calidad y utilizando
                   tecnología de punta.
-                </p>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                </P>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   Contamos con un equipo de profesionales altamente capacitados
                   y dedicados, cuyo objetivo principal es brindar un servicio
                   confiable y seguro. Nuestra infraestructura está diseñada para
                   optimizar cada etapa del proceso, desde la recolección de
                   muestras hasta la entrega de resultados, asegurando así la
                   comodidad y tranquilidad de nuestros pacientes.
-                </p>
+                </P>
               </div>
               <div class="mb-3 lg:mb-0">
                 <ContactServices />
@@ -292,14 +282,12 @@ const serviceTabs: Tab[] = [
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div class="flex flex-col justify-center items-start space-y-4">
-                <h4 class="text-2xl font-bold">
+                <H level={4} size="md">
                   ¡Obtén tus Resultados de Laboratorio con <span
-                    class="text-nordvital-secondary">Nordvital IPS</span
+                    class="text-nv-turquesa">Nordvital IPS</span
                   >!
-                </h4>
-                <p
-                  class="text-base text-gray-700 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                </H>
+                <P align="justify" leading="relaxed" hyphens>
                   Tu salud es nuestra prioridad. Ahora puedes acceder a tus
                   resultados de laboratorio de manera rápida y segura desde la
                   comodidad de tu hogar.
@@ -332,14 +320,12 @@ const serviceTabs: Tab[] = [
               <div class="space-y-">
                 <div class="flex items-center">
                   <div set:html={medEspIcon} />
-                  <p class="text-xl text-nordvital-secondary font-semibold">
+                  <P size="lg" color="secondary" class="font-semibold">
                     Servicio
-                  </p>
+                  </P>
                 </div>
-                <h4 class="font-bold text-2xl">Medicina Especializada</h4>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <H level={4} size="lg">Medicina Especializada</H>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   Nordvital IPS tiene un modelo de atención basado en la
                   medicina familiar fundamentado en el abordaje integral del
                   paciente desde los aspectos biológicos, psicológicos y
@@ -348,16 +334,14 @@ const serviceTabs: Tab[] = [
                   prevención de la enfermedad. Este enfoque hace eficiente el
                   proceso de atención y asegura la pertinencia de las remisiones
                   a otros niveles de atención.
-                </p>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                </P>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   En este espacio encontrarás nuestras especialidades y
                   subespecialidades médicas enfocadas en la alta complejidad.
                   Nuestro enfoque integral involucra a un equipo
                   multidisciplinario de profesionales en áreas de la salud,
                   apoyados por la más avanzada tecnología.
-                </p>
+                </P>
               </div>
 
               <div class="mb-3 lg:mb-0">
@@ -395,29 +379,25 @@ const serviceTabs: Tab[] = [
               <div class="space-y-4">
                 <div class="flex items-center">
                   <div set:html={imgDiagIcon} />
-                  <p class="text-xl text-nordvital-secondary font-semibold">
+                  <P size="lg" color="secondary" class="font-semibold">
                     Servicio
-                  </p>
+                  </P>
                 </div>
 
-                <h3 class="text-2xl font-bold">Imágenes Diagnósticas</h3>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                <H level={3} size="lg">Imágenes Diagnósticas</H>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   La complementación terapéutica es un apoyo esencial tanto para
                   la atención médica como odontológica, ya que proporciona
                   herramientas y recursos adicionales que facilitan un
                   diagnóstico preciso y una intervención efectiva.
-                </p>
-                <p
-                  class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed"
-                >
+                </P>
+                <P align="justify" leading="relaxed" hyphens class="mb-3">
                   Este proceso incluye una variedad de ayudas paraclínicas,
                   tales como exámenes de laboratorio, estudios de imagen,
                   pruebas de función y otros métodos de evaluación que son
                   cruciales para confirmar los diagnósticos iniciales realizados
                   por los profesionales de la salud.
-                </p>
+                </P>
               </div>
               <div>
                 <ContactServices />
@@ -425,9 +405,9 @@ const serviceTabs: Tab[] = [
             </div>
 
             <div>
-              <h4 class="text-3xl font-bold text-center mt-7 mb-8">
+              <H level={4} size="lg" align="center" class="mt-7 mb-8">
                 Te ofrecemos:
-              </h4>
+              </H>
               <div
                 class="grid grid-cols-1 lg:grid-cols-[30%_30%_30%] md:w-[75%] w-full gap-6 justify-center mx-auto"
               >
@@ -455,11 +435,31 @@ const serviceTabs: Tab[] = [
               <div>
                 <div class="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-5">
                   <div class="space-y-4">
-                    <div class="flex items-center">
+<div class="flex items-center">
                       <div set:html={manSaIcon} />
-                      <p class="text-xl text-nordvital-secondary font-semibold">
+                      <P size="lg" color="secondary" class="font-semibold">
                         Servicio
-                      </p>
+                      </P>
+                    </div>
+                    <H level={4} size="lg">Mantenimiento de la Salud</H>
+                    <P align="justify" leading="relaxed" hyphens class="mb-3">
+                      El nuevo Modelo de Atención en Salud hace énfasis en las
+                      actividades de promoción de la salud y prevención de la
+                      enfermedad.
+                    </P>
+                    <P align="justify" leading="relaxed" hyphens class="mb-3">
+                      Por esta razón, Nordvital IPS cuenta con estrategias de
+                      educación, cultura, adopción de estilos de vida saludables
+                      y concienciación dirigidas a la población, incluyendo a
+                      usuarios, familias y la sociedad en general.
+                    </P>
+                    <P align="justify" leading="relaxed" hyphens class="mb-3">
+                      Dentro de los programas de Promoción y Prevención (P&P) se
+                      incluyen actividades de acompañamiento, orientación y
+                      capacitaciones prácticas sobre alimentación sana,
+                      ejercicio adecuado, asistencia, manejo de medicamentos y
+                      controles médicos.
+                    </P>
                     </div>
 
                     <h4 class="font-bold text-2xl">
@@ -496,7 +496,7 @@ const serviceTabs: Tab[] = [
                 </div>
 
                 <div>
-                  <h4 class="text-3xl font-bold text-center">Te ofrecemos:</h4>
+                  <H level={4} size="lg" align="center">Te ofrecemos:</H>
                   <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 h-full">
                     <div>
                       <CardManteSalud

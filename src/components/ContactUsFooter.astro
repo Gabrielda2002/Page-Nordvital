@@ -1,5 +1,6 @@
 ---
 import { Mail, MessageCircle } from "lucide-react";
+import H from './ui/H.astro';
 
 const contactLinks = [
   {
@@ -18,10 +19,11 @@ const contactLinks = [
     text: "Nuestras sedes",
   },
 ];
+
 ---
 
 <div class="text-gray-100 place-items-center">
-  <h3 class="text-2xl text-white font-bold py-3 lg:py-0 lg:mb-5 lg:mt-12 text-center">Contáctanos:</h3>
+  <H level={3} size="lg" color="white" align="center" class="py-3 lg:py-0 lg:mb-5 lg:mt-12">Contáctanos:</H>
   <div class="items-center text-sm">
     {
       contactLinks.map((link) => (

@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 import img from "@/images/Usuarios/Seminario/seminari_1.webp";
 import icon from "@/images/Usuarios/Seminario/webinar.svg";
 ---
@@ -30,25 +32,25 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
       <div class="space-y-6">
         <div class="flex items-center space-x-3">
           <img src={icon.src} alt="" class="h-8 md:h-11" />
-          <h6 class="text-xl md:text-2xl text-gray-600">
+          <H level={6} size="md" color="muted">
             <em>Seminario | Generando Conciencia</em>
-          </h6>
+          </H>
         </div>
 
         <div class="space-y-6 text-gray-600">
-          <h2 class="text-2xl md:text-3xl font-semibold">
+          <H level={2} size="md">
             Guía para Realizar la descarga del Certificado
-          </h2>
+          </H>
 
-          <p class="text-base md:text-lg">
+          <P size="lg">
             Para facilitar la correcta descarga del certificado, hemos creado
             una guía que explica detalladamente cómo realizarla.
-          </p>
+          </P>
 
           <div class="space-y-4">
-            <h5 class="text-lg md:text-xl font-medium">
+            <H level={5} size="md">
               Pasos para descargar el Certificado:
-            </h5>
+            </H>
             <ol class="space-y-2 pl-4">
               <li class="text-base md:text-lg">
                 1. Ingrese su número de identificación en el campo <b>Buscar</b
@@ -113,13 +115,13 @@ import icon from "@/images/Usuarios/Seminario/webinar.svg";
             </div>
           </div>
 
-          <p class="text-base md:text-lg mt-8">
+<P size="lg" class="mt-8">
             Si tiene alguna pregunta o necesita asistencia adicional, por favor
             no dude en contactarnos. Estamos <a
               class="text-blue-500 hover:text-blue-600"
               href="/contact-us">aquí</a
-            > para ayudarles en todo lo que necesiten.
-          </p>
+            > para ayudarles en todo lo que necesites.
+          </P>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import Pqr from "@/components/TabPqrsfd.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import HeroSection from "@/components/common/HeroSection.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 
 // images
 import img from "@/images/Header/USUARIOS_11zon.webp";
@@ -26,18 +28,18 @@ import PqrsdfForm from "@/components/react_components/PqrsdfForm";
     <div
       class="container mx-auto px-1 h-auto w-full flex flex-col xl:flex-row items-center"
     >
-      <div class="rounded-3xl p-8 w-full lg:w-[90%] space-y-4">
-        <h1 class="text-4xl font-bold text-nordvital-primary">PQRSFD</h1>
-        <p class="text-gray-700 text-base text-justify leading-relaxed hyphens-auto text-wrap-pretty">
+<div class="rounded-3xl p-8 w-full lg:w-[90%] space-y-4">
+        <H level={1} size="xl" color="primary">PQRSFD</H>
+        <P align="justify" leading="relaxed" hyphens>
           Valoramos su opinión y estamos comprometidos en ofrecer el mejor
           servicio a nuestros usuarios. En NordVital IPS, nos esforzamos cada
           día por mejorar y brindar la atención que usted merece.
-        </p>
-        <p class="text-gray-700 text-base text-justify leading-relaxed hyphens-auto text-wrap-pretty">
+        </P>
+        <P align="justify" leading="relaxed" hyphens>
           Por favor, comparta sus peticiones, quejas, reclamos, sugerencias y
           felicitaciones con nosotros. Su voz es fundamental para ayudarnos a
           crecer y adaptarnos a sus necesidades.
-        </p>
+        </P>
       </div>
       <div class="w-full lg:w-1/2 h-2/3">
         <Image

@@ -1,0 +1,69 @@
+---
+export interface Props {
+  size?: "sm" | "base" | "lg" | "xl";
+  color?: "foreground" | "muted" | "primary" | "secondary" | "white";
+  align?: "left" | "center" | "right" | "justify";
+  leading?: "normal" | "relaxed" | "loose";
+  clamp?: number;
+  hyphens?: boolean;
+  class?: string;
+}
+
+const {
+  size = "base",
+  color = "muted",
+  align = "left",
+  leading = "relaxed",
+  clamp,
+  hyphens = false,
+  class: className = "",
+} = Astro.props;
+
+const sizeClasses = {
+  sm: "text-sm",
+  base: "text-base",
+  lg: "text-lg",
+  xl: "text-xl",
+};
+
+const colorClasses = {
+  foreground: "text-foreground",
+  muted: "text-gray-700",
+  primary: "text-nv-verde-salud",
+  secondary: "text-nv-turquesa",
+  white: "text-white",
+};
+
+const alignClasses = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+
+const leadingClasses = {
+  normal: "leading-normal",
+  relaxed: "leading-relaxed",
+  loose: "leading-loose",
+};
+
+const clampClass = clamp ? `line-clamp-${clamp}` : "";
+const hyphensClass = hyphens ? "hyphens-auto" : "";
+
+const classes = [
+  'font-quicksand',
+  sizeClasses[size],
+  colorClasses[color],
+  alignClasses[align],
+  leadingClasses[leading],
+  clampClass,
+  hyphensClass,
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<p class={classes}>
+  <slot />
+</p>

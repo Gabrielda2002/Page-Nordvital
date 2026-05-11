@@ -1,5 +1,6 @@
 ---
 import wh from "@/images/WhatsApp/Whatsapp.gif"
+import H from '../ui/H.astro';
 ---
 
 <link
@@ -23,7 +24,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
   </button>
 
   <div class="mb-6">
-    <h3 class="text-xl md:text-2xl min-w-max font-bold mb-2">¡Agenda tu cita ahora! 🎉</h3>
+    <H level={3} size="lg" color="white" class="mb-2">¡Agenda tu cita ahora! 🎉</H>
     <a
       href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
       target="_blank"
@@ -34,7 +35,7 @@ import wh from "@/images/WhatsApp/Whatsapp.gif"
   </div>
 
   <div>
-    <h3 class="text-xl md:text-2xl font-bold mb-2">¿Buscas tus resultados? 🔍</h3>
+    <H level={3} size="lg" color="white" class="mb-2">¿Buscas tus resultados? 🔍</H>
     <a
       href="https://api.whatsapp.com/send?phone=573008564510&text=Resultados Laboratorio Nordvital IPS"
       target="_blank"

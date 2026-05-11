@@ -2,6 +2,8 @@
 import Chat from "@/components/common/Chat.astro";
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "@/components/common/HeroSection.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
 
 //icons
@@ -34,57 +36,55 @@ import pdfLab from "@/pdf/Laboratorio/Instructivo-resultados-laboratorios.pdf?ur
         <div class="flex items-center cont-medicina contCuatro">
           <img src={icon.src} alt="" class="h-11" />
 
-          <h6 class="text-2xl ml-2"><em>Resultados Laboratorio</em></h6>
+          <H level={6} size="lg" color="emphasis" class="ml-2"><em>Resultados Laboratorio</em></H>
         </div>
 
         <div class="medicina mt-6 mb-10">
-          <h2 class="text-3xl font-semibold mb-2">
+          <H level={2} size="md" class="mb-2">
             Guía para Descargar Resultados de Laboratorio
-          </h2>
-          <p>
+          </H>
+          <P>
             Para facilitar el acceso a sus resultados de laboratorio, hemos
             creado una guía que explica detalladamente cómo utilizar la
             plataforma.
-          </p><br />
-          <p>
+          </P><br />
+          <P>
             Para visualizar el documento siga el paso a paso descrito a
             continuación.
-          </p><br />
-          <p>
-            <h5 class="text-xl font-semibold">Pasos para visualizar el PDF:</h5>
-            <ul class="p-2">
-              <li>
-                1. Haga clic en el enlace que se encuentra a continuación.
-              </li>
-              <li>
-                2. Enlace:
-                <a href={pdfLab} target="_blank" class="text-blue-500">
-                  Ver instructivo
-                </a>
-              </li>
-              <li>
-                3. Lea y visualice detenidamente todos los pasos para que haga
-                uso de la pagina correctamente.
-              </li>
-              <li>
-                4. Para descargar sus resultados, haga clic
-                <a
-                  href="https://hemonet.com/lisnordvital/paciente"
-                  target="_blank"
-                  class="text-blue-500"
-                >
-                  Aqui
-                </a>
-              </li>
-            </ul>
-            <br />
-            <p>
-              Si tiene alguna pregunta o necesita asistencia adicional, por
-              favor no duden en contactarnos. Estamos
-              <a href="/contact-us" class="text-blue-500"> aquí </a> para ayudarles
-              en todo lo que necesiten.
-            </p>
-          </p>
+          </P><br />
+          <h5 class="text-xl font-semibold">Pasos para visualizar el PDF:</h5>
+          <ul class="p-2">
+            <li>
+              1. Haga clic en el enlace que se encuentra a continuación.
+            </li>
+            <li>
+              2. Enlace:
+              <a href={pdfLab} target="_blank" class="text-blue-500">
+                Ver instructivo
+              </a>
+            </li>
+            <li>
+              3. Lea y visualice detenidamente todos los pasos para que haga
+              uso de la pagina correctamente.
+            </li>
+            <li>
+              4. Para descargar sus resultados, haga clic
+              <a
+                href="https://hemonet.com/lisnordvital/paciente"
+                target="_blank"
+                class="text-blue-500"
+              >
+                Aqui
+              </a>
+            </li>
+          </ul>
+          <br />
+          <P>
+            Si tiene alguna pregunta o necesita asistencia adicional, por
+            favor no duden en contactarnos. Estamos
+            <a href="/contact-us" class="text-blue-500"> aquí </a> para ayudarles
+            en todo lo que necesiten.
+          </P>
         </div>
       </div>
     </div>

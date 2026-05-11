@@ -1,22 +1,25 @@
 ---
 import iconContact from "@/assets/services_icons/ico-se2.svg?url";
+import H from '../ui/H.astro';
+import P from '../ui/P.astro';
+
 ---
 
 <div class="max-w-96.75 max-h-109.25 mt-4 md:mt-0">
   <div class="shadow-xl rounded-xl border border-b p-5 space-y-4">
-    <h5 class="text-2xl font-bold mb-3 text-teal-500">Contáctenos</h5>
+    <H level={5} size="lg" color="secondary" class="mb-3">Contáctenos</H>
     <hr class="border border-black/50" />
-    <p class="text-base text-justify text-gray-700 leading-relaxed">
+    <P align="justify" leading="relaxed">
       Contamos con
       <span class="font-bold">atención 12 horas</span>
       al día (De 7:00 a.m. a 7:00 p.m.), en nuestro
       <span class="font-bold">servicio de cita prioritaria</span>
       para niños, adolescente, adulto y adulto mayor.
-    </p>
-    <p class="text-base text-justify text-gray-700 leading-relaxed">
+    </P>
+    <P align="justify" leading="relaxed">
       En nuestro servicio de consulta institucional, tenemos horarios según la
       agenda de citas.
-    </p>
+    </P>
     <hr class="border border-black/50" />
 
     <div class="grid grid-cols-[80%_20%] mt-3 mb-3">

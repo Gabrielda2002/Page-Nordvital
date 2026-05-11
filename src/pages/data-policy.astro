@@ -1,6 +1,8 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "@/layouts/Layout.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 
 //img
 import sectionImg from "@/images/AboutUs/NOSOTROS.webp";
@@ -26,22 +28,22 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
   />
   <div class="flex flex-col justify-center items-center m-5">
     <div class="flex flex-col items-center w-1/2 space-y-4">
-      <h4 class="font-bold text-4xl text-nordvital-primary">
+      <H level={4} size="2xl" color="primary">
         Política de Tratamiento de Datos Personales
-      </h4>
-      <p class="text-base text-justify text-gray-700 leading-relaxed">
-        En <span class="text-nordvital-primary font-bold">
+      </H>
+      <P align="justify" leading="relaxed">
+        En <span class="font-bold text-nv-verde-salud">
           NORDVITAL IPS SAS</span
         >, reconocemos la importancia de proteger la privacidad y
         confidencialidad de los datos personales. En cumplimiento de la Ley 1581
         de 2012 y el Decreto 1377 de 2013, adoptamos una política para
         garantizar un manejo responsable y seguro de la información personal.
-      </p>
+      </P>
     </div>
 
     <Accordion title="Política de datos" id="1">
       <div class="">
-        <h4 class="font-bold text-xl">Propósito:</h4>
+        <H level={4} size="md">Propósito:</H>
         <ul class="list-disc ml-5 mb-3">
           <li>Proteger la privacidad y derechos de los titulares.</li>
           <li>
@@ -58,15 +60,15 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
           </li>
         </ul>
 
-        <h4 class="font-bold text-xl">Ámbito de Aplicación:</h4>
-        <p class="mb-3">
+        <H level={4} size="md">Ámbito de Aplicación:</H>
+        <P class="mb-3">
           Aplica a todas las personas cuyos datos sean tratados por NORDVITAL
           IPS, incluyendo pacientes, empleados, proveedores y contratistas. Se
           cubren actividades como recolección, almacenamiento, uso, transmisión
           y supresión de datos, bajo normativas locales e internacionales.
-        </p>
+        </P>
 
-        <h4 class="font-bold text-xl">Derechos de los Titulares:</h4>
+        <H level={4} size="md">Derechos de los Titulares:</H>
         <ul class="list-disc ml-5 mb-3">
           <li>Conocer, actualizar y rectificar sus datos.</li>
           <li>Solicitar prueba de autorización para el tratamiento.</li>
@@ -79,7 +81,7 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
           </li>
         </ul>
 
-        <h4 class="font-bold text-xl">Deberes de NORDVITAL IPS SAS:</h4>
+        <H level={4} size="md">Deberes de NORDVITAL IPS SAS:</H>
         <ul class="list-disc ml-5 mb-3">
           <li>Garantizar la seguridad y confidencialidad de los datos.</li>
           <li>
@@ -92,27 +94,27 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
           </li>
         </ul>
 
-        <h4 class="text-xl font-bold">Mecanismos de Autorización:</h4>
-        <p class="mb-3">
+        <H level={4} size="md">Mecanismos de Autorización:</H>
+        <P class="mb-3">
           La autorización para el tratamiento de datos puede ser otorgada de
           forma escrita, telefónica o digital, asegurando siempre que los
           titulares estén informados sobre el uso de su información.
-        </p>
+        </P>
 
-        <h3 class="text-xl font-bold">Finalidades del Tratamiento:</h3>
+        <H level={3} size="md">Finalidades del Tratamiento:</H>
         <ul class="list-disc ml-5 mb-3">
           <li>Comunicar servicios ofrecidos y novedades.</li>
           <li>Cumplir obligaciones legales y contractuales.</li>
           <li>Realizar evaluaciones de calidad y estudios internos.</li>
         </ul>
 
-        <p class="mb-3">
+        <P class="mb-3">
           Para más información, consulta nuestra política completa en <a
             href={docPdf}
-            class="font-bold text-nordvital-primary"
+            class="font-bold text-nv-verde-salud"
             target="_blank">Tratamiento de datos personales</a
           >.
-        </p>
+        </P>
       </div>
     </Accordion>
   </div>

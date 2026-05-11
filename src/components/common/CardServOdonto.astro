@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import H from '../ui/H.astro';
+import P from '../ui/P.astro';
 
 interface Props {
     title: string;
@@ -26,11 +28,11 @@ const { title, content, icon, showIcon = true } = Astro.props;
     </div>
     )}
     <div class=" flex flex-col overflow-hidden  h-full space-y-4">
-        <h5 class="text-xl font-bold text-nordvital-secondary">
+        <H level={5} size="md" color="secondary">
           {title}
-        </h5>
-        <p class="text-base flex-1 text-gray-700 overflow-y-auto leading-relaxed hyphens-auto text-wrap-pretty">
+        </H>
+        <P leading="relaxed" hyphens class="flex-1 overflow-y-auto">
             {content}
-        </p>
+        </P>
     </div>
   </div>

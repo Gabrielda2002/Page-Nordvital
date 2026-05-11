@@ -2,6 +2,8 @@
 import { ChevronRight, Home } from 'lucide-react';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import H from '../ui/H.astro';
+import P from '../ui/P.astro';
 
 interface Props {
   title: string;
@@ -83,13 +85,13 @@ const displayBreadcrumb = breadcrumb && breadcrumb.length > 0 ? breadcrumb : [];
       <!-- Título y subtítulo -->
       {showTitle && (
         <div class="hero-text-content backdrop-blur-sm bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10">
-          <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
+          <H level={1} size="3xl" color="white" class="mb-3 md:mb-4">
             {title}
-          </h1>
+          </H>
           {subtitle && (
-            <p class="hero-subtitle text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-2xl">
+            <P size="lg" color="white" class="max-w-2xl opacity-90">
               {subtitle}
-            </p>
+            </P>
           )}
         </div>
       )}

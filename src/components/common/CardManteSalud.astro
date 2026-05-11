@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
+import H from '../ui/H.astro';
+import P from '../ui/P.astro';
 
 interface Props {
   title: string;
@@ -25,21 +27,21 @@ const { title, description, image, uniqueId } = Astro.props;
       />
     </div>
     <div class="space-y-4">
-      <h4 class="text-2xl font-bold text-start">
+      <H level={4} size="lg" color="emphasis">
         {title}
-      </h4>
-      <p class="text-base text-gray-700 mb-3 text-justify hyphens-auto text-wrap-pretty leading-relaxed">
+      </H>
+      <P align="justify" leading="relaxed" hyphens class="mb-3">
         {description}
         <div class="flex justify-center items-center">
           <button
-            data-target=`content-${uniqueId}`
+            data-target={`content-${uniqueId}`}
             class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
           >
              <span class="text-show">Ver más</span>
              <span class="text-hide hidden">Ver Menos</span>
           </button>
         </div>
-      </p>
+      </P>
     </div>
   </div>
   <div

@@ -2,6 +2,8 @@
 import HeroSection from "@/components/common/HeroSection.astro";
 import AgreementAccordion from "@/components/common/AgreementAccordion.astro";
 import Layout from "../../layouts/Layout.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 import { agreements } from "@/content/agreements.data";
 
 //Images
@@ -21,23 +23,23 @@ description="Conoce los convenios de Nordvital IPS con las principales EPS de Co
   <!-- Descripción -->
   <section class="container mx-auto px-4 my-4 md:my-16">
     <div class="w-[93%] md:w-[90%] mx-auto">
-      <h2 class="text-nordvital-primary font-bold text-4xl md:text-5xl mb-2 md:mb-6">
+      <H level={2} size="xl" color="primary" class="mb-2 md:mb-6">
         EN NORDVITAL IPS
-      </h2>
+      </H>
       <div class="space-y-4 text-base md:text-lg">
-        <p class="text-justify hyphens-auto text-wrap-pretty text-base text-gray-700 leading-relaxed line-clamp-2">
+        <P align="justify" hyphens clamp={2} leading="relaxed">
           Nos enorgullece ofrecer una amplia gama de servicios médicos de alta
           calidad a nuestros pacientes. Para garantizar un acceso integral a
           la atención médica, hemos establecido convenios con varias Entidades
           promotoras de salud (EPS) líderes en el país.
-        </p>
-        <p class="text-justify hyphens-auto text-wrap-pretty text-base text-gray-700 leading-relaxed line-clamp-2">
+        </P>
+        <P align="justify" hyphens clamp={2} leading="relaxed">
           Nuestros convenios con EPS nos permiten brindar atención médica
           especializada a los afiliados de estas entidades, garantizando un
           proceso de atención eficiente y sin contratiempos. Trabajamos en
           estrecha colaboración con nuestras EPS asociadas para ofrecer
           servicios médicos de primera calidad.
-        </p>
+        </P>
       </div>
     </div>
   </section>

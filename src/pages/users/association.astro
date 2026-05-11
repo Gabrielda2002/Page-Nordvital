@@ -1,6 +1,8 @@
 ---
 import HeroSection from "@/components/common/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
 
 //images
 import img from "@/images/Header/USUARIOS_11zon.webp";
@@ -34,27 +36,27 @@ import { Image } from "astro:assets";
       class="container items-center mx-auto md:px-13 h-auto w-[90%] flex flex-col xl:flex-row"
     >
       <div class="rounded-3xl p-1 mb-4 w-full text-xl">
-        <h1 class="text-4xl font-bold text-teal-500 mb-4">
+        <H level={1} size="xl" color="secondary" class="mb-4">
           La asociación de usuarios
-        </h1>
-        <h3><em class="text-2xl">¿Qué es?</em></h3><br />
-        <p class="text-gray-600 mb-4">
+        </H>
+        <H level={3} size="lg"><em>¿Qué es?</em></H><br />
+        <P color="muted" class="mb-4">
           La Junta de Usuarios en <span>NordVital IPS</span> es un órgano fundamental
           para asegurar que los servicios de salud prestados por la institución se
           ajusten a las necesidades y expectativas de sus usuarios.
-        </p>
-        <p class="text-gray-600">
+        </P>
+        <P color="muted">
           Este cuerpo consultivo y veedor está compuesto por representantes
           elegidos democráticamente entre la comunidad de usuarios, y su
           principal función es actuar como enlace entre los usuarios y la
           administración de la IPS.
-        </p>
-        <p class="text-gray-600">
+        </P>
+        <P color="muted">
           La Asociación de Usuarios tiene un papel clave en la representación de
           las inquietudes, quejas y sugerencias de los usuarios, garantizando
           así que sus voces sean escuchadas y tenidas en cuenta en la toma de
           decisiones relacionadas con la prestación de servicios de salud.
-        </p>
+        </P>
       </div>
 
       <div class="w-[90%] md:w-2/3 h-auto">
@@ -67,13 +69,9 @@ import { Image } from "astro:assets";
       </div>
     </div>
 
-    <div
-      class="mx-auto text-center text-teal-500 text-[30px] md:text-4xl font-semibold w-[80%] lg:w-[30%] leading-8 md:leading-10 mt-10"
-    >
-      <h1>
-        Principales funciones de una junta de usuarios en <em>NordVital IPS</em>
-      </h1>
-    </div>
+    <H level={1} size="lg" color="secondary" align="center" class="w-[80%] lg:w-[30%] leading-8 md:leading-10 mt-10 mx-auto">
+          Principales funciones de una junta de usuarios en <em>NordVital IPS</em>
+        </H>
 
     <div class="py-8">
       <section
@@ -83,54 +81,54 @@ import { Image } from "astro:assets";
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico1.src} alt="Participación" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Participación en la Planificación y Evaluación
-          </p>
+          </P>
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico2.src} alt="Representación" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Representación de los Usuarios
-          </p>
+          </P>
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico3.src} alt="Mediación" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Mediación de Conflictos
-          </p>
+          </P>
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico4.src} alt="Educación" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Educación y Sensibilización
-          </p>
+          </P>
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico5.src} alt="Control" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Control Social
-          </p>
+          </P>
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 p-6 border border-gray-200 hover:border-sky-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
         >
           <img src={ico6.src} alt="Promoción" class="w-16 h-16 mb-4" />
-          <p class="text-center text-xl font-semibold text-gray-800">
+          <P size="lg" color="emphasis" align="center">
             Promoción de Derechos y Deberes
-          </p>
+          </P>
         </div>
       </section>
     </div>

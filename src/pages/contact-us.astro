@@ -6,11 +6,12 @@ import MessageFormCotactUs from "@/components/react_components/MessageFormContac
 import WorkUsForm from "@/components/react_components/WorkUsForm";
 
 //icons
-import icon1 from "@/images/Contactanos/sede.svg";
 import icon2 from "@/images/Contactanos/correo.svg";
 import icon3 from "@/images/Contactanos/contacto.svg";
 import icon4 from "@/images/Contactanos/horario.svg";
-import Chat from "@/components/common/Chat.astro";
+import H from "@/components/ui/H.astro";
+import { Clock, Mail, Map, MapPin, Phone } from "lucide-react";
+import P from "@/components/ui/P.astro";
 ---
 
 <Layout
@@ -38,33 +39,36 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img src={icon1.src} alt="" class="mb-4 h-12" />
-              <h5 class="font-bold text-lg mb-2">Sede Administrativa</h5>
-              <a
-                href="https://www.google.com/maps/"
-                target="_blank"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                Ubicación
-              </a>
+              <MapPin className="mb-4 h-12 w-12 text-nv-turquesa" />
+              <H level={5}>Sede Administrativa</H>
+              <div class="flex items-center gap-2 mt-1">
+                <Map className="h-6 w-6 text-nv-turquesa"/>
+                <a
+                  href="https://maps.app.goo.gl/KLWrQo7caN8dcdpZ6"
+                  target="_blank"
+                  class="text-nv-azul-claro transition-colors duration-300 underline hover:text-nv-azul-claro-dark"
+                >
+                  Ubicación
+                </a>
+              </div>
             </div>
 
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img src={icon2.src} alt="" class="mb-4 h-12" />
-              <h5 class="font-bold text-lg mb-2">Correo Electrónico</h5>
-              <p class="mt-1">Para gestión de servicios:</p>
+              <Mail className="mb-4 h-12 w-12 text-nv-turquesa" />
+              <H level={5} class="mb-2">Correo Electrónico</H>
+              <P class="mt-1">Para gestión de servicios:</P>
               <a
                 href="mailto:servicioalcliente@nordvitalips.com"
-                class="text-blue-500 hover:text-blue-700"
+                class="text-blue-500 hover:text-blue-700 transition-colors duration-300 underline"
               >
                 servicioalcliente@nordvitalips.com
               </a>
-              <p class="mt-2"> 
+              <P class="mt-2"> 
                 Para gestión jurídica:
-              </p>
-              <a href="mailto:notificacionesjudiciales@nordvitalips.com" class="text-blue-500 hover:text-blue-700">
+              </P>
+              <a href="mailto:notificacionesjudiciales@nordvitalips.com" class="text-blue-500 hover:text-blue-700 transition-colors duration-300 underline">
                 notificacionesjudiciales@nordvitalips.com
               </a>
             </div>
@@ -72,20 +76,20 @@ import Chat from "@/components/common/Chat.astro";
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img src={icon3.src} alt="" class="mb-4 h-12" />
-              <h5 class="font-bold text-lg mb-2">Contacto</h5>
-              <p>(+57) 3174309873</p>
+              <Phone className="mb-4 h-12 w-12 text-nv-turquesa" />
+              <H level={5}>Contacto</H>
+              <P>(+57) 3174309873</P>
             </div>
 
             <div
               class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
             >
-              <img src={icon4.src} alt="" class="mb-4 h-12" />
-              <h5 class="font-bold text-lg mb-2">Horarios De Atención</h5>
-              <h6 class="font-semibold">Lunes a viernes</h6>
-              <p class="mb-2">6:00 am - 6:30 pm</p>
-              <h6 class="font-semibold">Sábados</h6>
-              <p>8:00 am - 12:00 pm</p>
+              <Clock className="mb-4 h-12 w-12 text-nv-turquesa" />
+              <H level={5}>Horarios De Atención</H>
+              <H level={6}>Lunes a viernes</H>
+              <P class="mb-2">6:00 am - 6:30 pm</P>
+              <H level={6}>Sábados</H>
+              <P>8:00 am - 12:00 pm</P>
             </div>
           </div>
         </div>

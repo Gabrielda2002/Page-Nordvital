@@ -1,4 +1,7 @@
 ---
+import H from './ui/H.astro';
+import P from './ui/P.astro';
+
 const tabs = [
   {
     id: "peticion",
@@ -20,7 +23,7 @@ const tabs = [
     id: "reclamo",
     label: "Reclamo",
     content:
-      "Permítame ofrecerle claridad sobre lo que implica un “reclamo”. Es una solicitud o queja formal hecha en relación a un servicio que no cumplió con las expectativas o acuerdos previos",
+      "Permítame ofrecerle claridad sobre lo que implica un \"reclamo\". Es una solicitud o queja formal hecha en relación a un servicio que no cumplió con las expectativas o acuerdos previos",
     content2:
       "Esto puede incluir un servicio no cumplido o una atención inadecuada a una solicitud. Es un medio de expresar los propios requisitos y asegurar que se proporcione el servicio al cliente adecuado. En caso de experimentar una situación así, le agradecemos que aproveche la oportunidad para hacer valer sus derechos sin dudarlo.",
   },
@@ -30,7 +33,7 @@ const tabs = [
     content:
       "Es una propuesta constructiva presentada con el objetivo de mejorar la calidad de un servicio, transacción o proceso. Es una herramienta efectiva que nos ayuda a identificar áreas de mejora y optimizar la experiencia general para evitar la repetición de mejorar de nuestros usuarios. Por lo tanto, su opinión es muy importante para la nosotros.",
     content2:
-      "Le animo a compartir sus valiosas sugerencias, para que podamos trabajar juntos hacia nuestro objetivo común de brindar un servicio ejemplar a todos nuestros usuarios.",
+      "Le animo a compartir sus valiosas sugerencias, para que podamos trabajar juntos hacia nuestro objetivo común de brindar un servicio exemplar a todos nuestros usuarios.",
   },
   {
     id: "felicitaciones",
@@ -50,11 +53,11 @@ const tabs = [
         tabs.map((tab) => (
           <button
             data-tab={tab.id}
-            class="w-full text-center px-6 py-4 bg-slate-200 
+            class="w-full font-quicksand text-center px-6 py-4 bg-slate-200 
                 text-gray-700 font-medium last:mb-0
-                hover:bg-slate-100 hover:text-teal-600 
-                data-[active=true]:bg-teal-500 data-[active=true]:text-white data-[active=true]:shadow-md
-                 border border-gray-200 hover:border-teal-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500"
+                hover:bg-nv-verde-salud-light hover:text-white
+                data-[active=true]:bg-nv-verde-salud data-[active=true]:text-white data-[active=true]:shadow-md
+                 border border-gray-200 hover:border-teal-400 rounded-lg shadow-lg hover:shadow-lg hover:shadow-nv-verde-salud-dark transition-all duration-300 cursor-pointer"
           >
             {tab.label}
           </button>
@@ -72,10 +75,10 @@ const tabs = [
             id={`content-${tab.id}`}
             class="hidden data-[active=true]:block space-y-6 animate-fadeIn"
           >
-            <h2 class="text-3xl font-bold text-teal-600 mb-4">{tab.label}</h2>
+            <H level={2} class="text-3xl font-bold text-teal-600 mb-4">{tab.label}</H>
             <div class="text-gray-700 space-y-6 leading-relaxed">
-              <p>{tab.content}</p>
-              {tab.content2 && <p>{tab.content2}</p>}
+              <P>{tab.content}</P>
+              {tab.content2 && <P>{tab.content2}</P>}
             </div>
           </div>
         ))
