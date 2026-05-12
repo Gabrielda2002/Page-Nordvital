@@ -4,32 +4,29 @@ import SocialLinks from "./SocialLinksFooter.astro";
 import FooterInfo from "./FooterInfo.astro";
 
 import logoNordvital from "../assets/logo_footer/Nordvital-icon-white.svg?raw";
-
-import { Image } from "astro:assets";
 ---
 
-<footer>
-  <div class="bg-nordvital-primary text-white grid grid-cols-1 lg:grid-cols-4 lg:gap-5">
-    <div class="flex justify-start">
-      <div
-        set:html={logoNordvital}
-        class="w-20 h-20 m-2 lg:m-12"
-      />
-    </div>
+<footer class="font-quicksand">
+  <div class="h-1 bg-gradient-to-r from-nv-verde-salud to-nv-turquesa"></div>
 
-    <FooterInfo />
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:col-span-2 lg:gap-5 mt-6 lg:mt-0">
+  <div class="bg-gray-50 text-gray-700">
+    <div class="container mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="flex items-start justify-center lg:justify-start">
+        <div set:html={logoNordvital} class="w-20 h-20 lg:w-24 lg:h-24 brightness-0 opacity-60" />
+      </div>
+      <FooterInfo />
       <ContactLinks />
-
       <SocialLinks />
     </div>
   </div>
-  <hr />
-  <div class="bg-nordvital-primary text-white font-semibold text-sm text-center">
-    <div class="p-5 grid grid-cols-3">
-      <a href="/our-policies" class="mr-10">Términos y condiciones</a>
-      <a href="/our-policies" class="text-center">Nordvital - Todos los derechos reservados &#169 {new Date().getFullYear()}</a>
-      <a href="/data-policy" class="ml-10">Tratamiento de datos</a>
+
+  <div class="bg-white border-t border-gray-100">
+    <div class="container mx-auto px-6 py-6 text-center text-sm text-gray-500 font-medium">
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-3">
+        <a href="/our-policies" class="hover:text-nv-verde-salud transition-colors duration-300">Términos y condiciones</a>
+        <a href="/data-policy" class="hover:text-nv-verde-salud transition-colors duration-300">Tratamiento de datos</a>
+      </div>
+      <p>Nordvital IPS &mdash; Todos los derechos reservados &copy; {new Date().getFullYear()}</p>
     </div>
   </div>
 </footer>

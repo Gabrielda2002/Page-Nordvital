@@ -1,6 +1,5 @@
 ---
 import { Mail, MessageCircle } from "lucide-react";
-import H from './ui/H.astro';
 
 const contactLinks = [
   {
@@ -19,25 +18,22 @@ const contactLinks = [
     text: "Nuestras sedes",
   },
 ];
-
 ---
 
-<div class="text-gray-100 place-items-center">
-  <H level={3} size="lg" color="white" align="center" class="py-3 lg:py-0 lg:mb-5 lg:mt-12">Contáctanos:</H>
-  <div class="items-center text-sm">
-    {
-      contactLinks.map((link) => (
-        <a
-          href={link.href}
-          target="_blank"
-          class="flex items-center mb-3 group hover:scale-105 transition-all ease-in-out duration-300"
-        >
-          <link.icon className="w-6 h-6 text-white group-hover:text-black transition-colors duration-300" />
-          <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">
-          {link.text}
-          </span>
-        </a>
-      ))
-    }
+<div>
+  <h3 class="text-nv-azul-oscuro font-bold text-lg mb-4">
+    Contáctanos
+  </h3>
+  <div class="space-y-3">
+    {contactLinks.map((link) => (
+      <a
+        href={link.href}
+        target="_blank"
+        class="flex items-center gap-2 text-sm text-gray-600 hover:text-nv-verde-salud transition-colors duration-300 group"
+      >
+        <link.icon className="w-4 h-4 shrink-0 text-nv-verde-salud opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+        <span class="group-hover:translate-x-0.5 transition-transform duration-300">{link.text}</span>
+      </a>
+    ))}
   </div>
 </div>

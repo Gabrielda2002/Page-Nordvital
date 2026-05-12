@@ -11,57 +11,69 @@ import iconPhone from "@/assets/icons_header/social-media/Phone.svg?raw";
 import iconNordvital from "@/assets/icons_header/Nordvital-icon.svg?raw";
 import menuIcon from "@/assets/icons_header/menu-2.svg?url";
 
-
 ---
 
-<header class="bg-teal-500 font-sans text-white font-semibold">
-  <div class="container mx-auto lg:px-4 flex flex-col  lg:flex-row justify-between items-center lg:gap-8">
-    <!-- enlace de whatsapp -->
-    <div class="w-40 flex m-2">
-      <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`} target="_blank" class="flex items-center p-1 rounded-lg group hover:bg-gray-700 transition-colors duration-300">
-        <div set:html={iconPhone} class="w-6 h-6 group-hover:text-gray-300 transition-colors duration-300" />
-        <span class="text-gray-200 group-hover:text-gray-100 transition-colors duration-300 ml-2">
-          {phoneNumber}
-        </span>
+<header class="bg-linear-to-r from-nv-verde-salud to-[#0a8f89] font-quicksand text-white font-semibold shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between py-2 lg:py-0">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center shrink-0" aria-label="Inicio">
+        <div set:html={iconNordvital} class="w-20 lg:w-36 brightness-0 invert" />
       </a>
-    </div>
 
-    <div class="flex items-center">
-      <p>Bienvenidos a Nordvital IPS</p>
-    </div>
+      <!-- NavLinks + phone + social (desktop inline, mobile overlay) -->
+      <div id="menu_movil" class="lg:flex lg:flex-1 lg:items-center lg:justify-between lg:ml-6 fixed lg:relative inset-0 lg:inset-auto bg-nv-verde-salud lg:bg-transparent z-50 lg:z-auto overflow-y-auto lg:overflow-visible flex-col lg:flex-row">
+        <!-- Mobile: header bar with logo + close -->
+        <div class="flex items-center justify-between p-4 border-b border-white/10 lg:hidden w-full">
+          <a href="/" aria-label="Inicio">
+            <div set:html={iconNordvital} class="w-28 brightness-0 invert" />
+          </a>
+          <button
+            id="close_menu"
+            class="p-2 hover:bg-white/15 rounded-lg transition-colors"
+            aria-label="Cerrar menu"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
 
-    <!-- links de redes -->
+        <!-- NavLinks -->
+        <div class="flex-1 md:flex items-center justify-start md:justify-center ">
+          <NavLinks />
+        </div>  
 
-    <div class="hidden lg:block">
-      <SocialLinks />
-    </div>
-  </div>
-
-  <!-- el navbar -->
-  <div class="bg-gray-100 font-sans text-gray-900">
-    <div class="container mx-auto px-0 md:px-7">
-      <div class="flex  items-center p-3 gap-8">
-        <a href="/" class="flex items-center" aria-label="Inicio">
-          <div set:html={iconNordvital} class="w-20 lg:w-40 shrink-0" />
-        </a>
-  
-        <!-- boton movil menu -->
-         <button
-          id="button_movil"
-          class="lg:hidden p-2 hover:bg-gray-200 rounded-md transition-colors ml-auto"
-          aria-label="Abrir menu"
-         >
-          <img src={menuIcon} alt="Menu" class="w-6 h-6" />
-         </button>
-  
-        <!-- links dentro del navbar -->
-         <div id="menu_movil" class="hidden lg:block fixed lg:relative top-0 right-0 h-screen lg:h-auto w-full lg:w-auto bg-white lg:bg-transparent z-50">
-          <NavLinks/>
+        <!-- Phone + Social (desktop) -->
+        <div class="flex items-center gap-3 p-4 lg:p-0">
+          <a
+            href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`}
+            target="_blank"
+            class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg hover:bg-white/15 transition-colors duration-300 group"
+          >
+            <div set:html={iconPhone} class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            <span class="text-sm text-white/90 group-hover:text-white transition-colors duration-300">
+              {phoneNumber}
+            </span>
+          </a>
+          <div class="hidden lg:block">
+            <SocialLinks />
+          </div>
         </div>
       </div>
+
+      <!-- Mobile menu button (outside overlay) -->
+      <button
+        id="button_movil"
+        class="lg:hidden p-2 hover:bg-white/15 rounded-lg transition-colors ml-auto"
+        aria-label="Abrir menu"
+      >
+        <img src={menuIcon} alt="Menu" class="w-6 h-6 brightness-0 invert" />
+      </button>
     </div>
   </div>
-</header> 
+</header>
 
 <script>
   const menuButton = document.getElementById("button_movil");
@@ -69,102 +81,94 @@ import menuIcon from "@/assets/icons_header/menu-2.svg?url";
   const body = document.body;
 
   menuButton?.addEventListener("click", () => {
-    menuMovil?.classList.toggle("hidden");
-    body.style.overflow = menuMovil?.classList.contains("hidden") ? "auto" : "hidden";
+    menuMovil?.classList.toggle("menu-open");
+    body.style.overflow = menuMovil?.classList.contains("menu-open") ? "hidden" : "auto";
+  });
+
+  const closeMenu = document.getElementById("close_menu");
+  closeMenu?.addEventListener("click", () => {
+    menuMovil?.classList.remove("menu-open");
+    body.style.overflow = "auto";
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 1024) {
-      menuMovil?.classList.add("hidden");
+      menuMovil?.classList.remove("menu-open");
       body.style.overflow = "auto";
     }
-  });
-  // cerrar el menu movil
-  const closeMenu = document.getElementById("close_menu");
-  closeMenu?.addEventListener("click", () => {
-    menuMovil?.classList.add("hidden");
-    body.style.overflow = "auto";
   });
 
   const submenuBtn = document.querySelectorAll(".submenu-btn");
 
   submenuBtn.forEach((btn) => {
     btn.addEventListener("click", (event) => {
-      event.stopPropagation(); // Evitar que el evento de clic se propague a los enlaces
+      event.stopPropagation();
       const submenuId = btn.getAttribute("data-submenu");
       const submenu = document.getElementById(submenuId as string);
-      const arrow = btn.querySelector("img");
+      const arrow = btn.querySelector(".arrow-icon");
 
-      if (window.innerWidth < 1024) {
-        // Solo ejecutar en móvil
-        if (submenu?.classList.contains("max-h-0")) {
-          submenu.classList.remove("max-h-0", "opacity-0", "pointer-events-none");
-          submenu.classList.add("expanded");
-          arrow?.style.setProperty("transform", "rotate(180deg)");
-        } else {
-          submenu?.classList.add("max-h-0", "opacity-0");
-          submenu?.classList.remove("expanded");
-          arrow?.style.setProperty("transform", "rotate(0deg)");
+      // Cerrar otros submenús
+      document.querySelectorAll(".submenu").forEach((menu) => {
+        if (menu.id !== submenuId) {
+          menu.classList.remove("expanded");
+          const otherArrow = document.querySelector(
+            `[data-submenu="${menu.id}"] .arrow-icon`
+          ) as HTMLElement;
+          otherArrow?.style.setProperty("transform", "rotate(0deg)");
         }
+      });
 
-        // Cerrar otros submenús
-        document.querySelectorAll(".submenu").forEach((menu) => {
-          if (menu.id !== submenuId) {
-            menu.classList.add("max-h-0", "opacity-0");
-            menu.classList.remove("expanded");
-            const otherArrow = document.querySelector(
-              `[data-submenu="${menu.id}"] img`
-            ) as HTMLImageElement;
-            otherArrow?.style.setProperty("transform", "rotate(0deg)");
-          }
-        });
-      } else {
+      // Toggle submenú actual
+      submenu?.classList.toggle("expanded");
+      arrow?.style.setProperty(
+        "transform",
+        submenu?.classList.contains("expanded") ? "rotate(180deg)" : "rotate(0deg)"
+      );
 
-        // ? cerrar menus abiertos
-        document.querySelectorAll(".submenu").forEach((menu) => {
-          if (menu.id !== submenuId) {
-            menu.classList.add("max-h-0", "opacity-0", "pointer-events-none");
-            menu.classList.remove("expanded");
-            const otherArrow = document.querySelector(
-              `[data-submenu="${menu.id}"] img`
-            ) as HTMLImageElement;
-            otherArrow?.style.setProperty("transform", "rotate(0deg)");
-          }
-        });
-
-        // cerrar cuando se haga clic fuera del menu
-        document.addEventListener("click", (event) => {
-          if (!btn.contains(event.target as Node)) {
-            submenu?.classList.add("max-h-0", "opacity-0", "pointer-events-none");
+      // Cerrar al hacer clic fuera (solo desktop)
+      if (window.innerWidth >= 1025) {
+        const closeHandler = (e: Event) => {
+          if (!btn.contains(e.target as Node) && !submenu?.contains(e.target as Node)) {
             submenu?.classList.remove("expanded");
             arrow?.style.setProperty("transform", "rotate(0deg)");
+            document.removeEventListener("click", closeHandler);
           }
-        });
-
-        // alternar el estado del submenu
-        submenu?.classList.toggle("max-h-0");
-        submenu?.classList.toggle("opacity-0");
-        submenu?.classList.toggle("pointer-events-none");
-        submenu?.classList.toggle("expanded");
-        arrow?.style.setProperty("transform", submenu?.classList.contains("max-h-0") ? "rotate(0deg)" : "rotate(180deg)");
+        };
+        setTimeout(() => document.addEventListener("click", closeHandler), 0);
       }
     });
-  });
-
-  // Inicializar todos los items con hover habilitado
-  document.querySelectorAll(".group").forEach((item) => {
-    item.classList.add("hover-enabled");
   });
 </script>
 
 <style>
+  /* ── Mobile overlay animation ── */
   #menu_movil {
-    transition: transform 0.3s ease-in-out;
-  }
-  #menu_movil.hidden {
     transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s ease;
   }
-  #menu_movil:not(.hidden) {
+  #menu_movil.menu-open {
     transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── Desktop: no animation, always visible ── */
+  @media (min-width: 1025px) {
+    #menu_movil {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  /* ── Arrow rotation for submenu buttons ── */
+  .submenu-btn .arrow-icon {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
   }
 </style>
+

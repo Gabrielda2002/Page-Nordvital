@@ -1,17 +1,74 @@
 ---
 interface Props {
-  title: string;
   url?: string;
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "danger";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  fullWidth?: boolean;
+  customIcon?: string;
+  target?: "_blank" | "_self";
 }
 
-const { title, url = "#" } = Astro.props;
+const {
+  url = "#",
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  customIcon,
+  target = "_self",
+} = Astro.props;
+
+const variants = {
+  primary:
+    "bg-gradient-to-r from-nv-verde-salud to-nv-turquesa text-white shadow-lg shadow-nv-verde-salud/30 hover:shadow-xl hover:shadow-nv-verde-salud/40 hover:translate-y-[-2px] hover:scale-[1.02]",
+  secondary:
+    "bg-gradient-to-r from-nv-azul to-nv-azul-claro text-white shadow-lg shadow-nv-azul/30 hover:shadow-xl hover:shadow-nv-azul/40 hover:translate-y-[-2px] hover:scale-[1.02]",
+  outline:
+    "bg-transparent border-2 border-nv-verde-salud text-nv-verde-salud hover:bg-nv-verde-salud hover:text-white hover:shadow-lg hover:shadow-nv-verde-salud/20 hover:translate-y-[-2px]",
+  ghost:
+    "bg-transparent text-nv-verde-salud hover:bg-nv-verde-salud/10 hover:translate-y-[-1px]",
+  danger: "bg-nv-rojo-cta text-white shadow-lg shadow-nv-rojo-cta/30 hover:shadow-xl hover:translate-y-[-2px]",
+};
+
+const sizes = {
+  xs: "px-2 py-1 text-xs",
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-5 py-2.5 text-base",
+  lg: "px-7 py-3 text-lg",
+  xl: "px-9 py-4 text-xl",
+  "2xl": "px-12 py-5 text-2xl",
+};
+
+const sizeClass = sizes[size] || sizes.md;
+const hasIcon = !!customIcon;
 ---
 
 <button
   type="button"
-  class="bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
+  class:list={[
+    "relative overflow-hidden rounded-xl font-semibold transition-all duration-300 ease-out active:scale-[0.98]",
+    variants[variant],
+    sizeClass,
+    fullWidth && "w-full",
+    "group",
+  ]}
 >
-  <a href={url} target="_blank">
-    {title}
+  <a
+    href={url}
+    target={target}
+    rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    class:list={["flex justify-center items-center", hasIcon && "gap-2"]}
+  >
+    {
+      customIcon && (
+        <span
+          class="transition-transform duration-300 group-hover:-translate-y-0.5"
+          set:html={customIcon}
+        />
+      )
+    }
+    <span class="relative z-10"><slot /></span>
   </a>
+  <div
+    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+  ></div>
 </button>

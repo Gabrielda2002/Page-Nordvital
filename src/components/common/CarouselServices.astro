@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import H from '../ui/H.astro';
 import P from '../ui/P.astro';
+import Button from "@/components/common/Button.astro";
 import imgLaboratorio from "@/assets/Imgs_carousel/carousel_infinito/LABORATORIO.webp?url";
 import imgMediGeneral from "@/assets/Imgs_carousel/carousel_infinito/medicinaGeneral.webp?url";
 import imgApoyoTera from "@/assets/Imgs_carousel/carousel_infinito/terapiasFisicas1.webp?url";
@@ -13,81 +14,89 @@ const images = [
   {
     src: `${imgMediGeneral}`,
     title: "Medicina General",
-    description:
-      "Explora nuestra atención completa en medicina general. Nuestro equipo médico altamente capacitado está comprometido a brindarte cuidado personalizado.",
-    link: "/services",
+    description: "Nuestro equipo médico altamente capacitado está comprometido a brindarte cuidado personalizado.",
+    gradient: "from-nv-verde-salud to-nv-turquesa",
   },
   {
     src: `${imgOdonto}`,
     title: "Odontología",
-    description:
-      "Encuentra soluciones a tus necesidades médicas únicas con nuestro servicio de Medicina Especializada. Dianosticos precisos y tratamientos avanzados.",
-    link: "/services",
+    description: "Diagnósticos precisos y tratamientos avanzados para tu salud bucal.",
+    gradient: "from-nv-azul to-nv-azul-claro",
   },
   {
     src: `${imgApoyoTera}`,
-    title: "Apoyo terapéutico",
-    description:
-      "Recibe el apoyo necesario para tu recuperación con nuestro servicio de Apoyo Terapéutico. Terapias físicas, ocupacionales y emocionales disponibles.",
-    link: "/services",
+    title: "Apoyo Terapéutico",
+    description: "Terapias físicas, ocupacionales y emocionales para tu recuperación.",
+    gradient: "from-nv-turquesa to-nv-verde-salud",
   },
   {
     src: `${imgMtnmSalud}`,
-    title: "Mantenimiento de la salud",
-    description:
-      "Prioriza tu bienestar con nuestro servicio de Mantenimiento de Salud. Ofrecemos chequeos médicos completos y asesoramiento en hábitos saludables.",
-    link: "/services",
+    title: "Mantenimiento de la Salud",
+    description: "Chequeos médicos completos y asesoramiento en hábitos saludables.",
+    gradient: "from-nv-azul-oscuro to-nv-azul",
   },
   {
     src: `${imgMdEpecializada}`,
-    title: "Medicina especializada",
-    description:
-      "Encuentra soluciones a tus necesidades médicas únicas con nuestro servicio de Medicina Especializada. Dianosticos precisos y tratamientos avanzados.",
-    link: "/services",
+    title: "Medicina Especializada",
+    description: "Soluciones a tus necesidades médicas con diagnósticos precisos.",
+    gradient: "from-nv-verde-salud to-nv-azul",
   },
   {
     src: `${imgLaboratorio}`,
     title: "Laboratorio",
-    description:
-      "Resultados precisos y confiables con nuestro servicio de Laboratorio. Amplia gama de pruebas médicas para diagnostico y seguimiento.",
-    link: "/services",
+    description: "Resultados precisos y confiables para diagnóstico y seguimiento.",
+    gradient: "from-nv-turquesa to-nv-azul-oscuro",
   },
 ];
+
+const whatsappIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.017l-1.415 5.121a1 1 0 0 0 1.225 1.225l5.121-1.415A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.5 12.5c-.188 0-.375-.016-.559-.048-1.214-.22-2.283-1.073-3.01-2.24-.727-1.168-.996-2.566-.757-3.94.12-.688.376-1.327.732-1.863.356-.536.823-.963 1.341-1.238.518-.275 1.104-.42 1.692-.42.202 0 .403.016.602.048.2.032.39.088.567.168a1.2 1.2 0 0 1 .47.472c.08.176.136.372.168.567.032.2.048.4.048.602 0 .588-.145 1.174-.42 1.692-.275.518-.702.985-1.238 1.341-.536.356-1.175.612-1.863.732-1.374.24-2.772.03-3.94-.757-1.168-.727-2.02-1.796-2.24-3.01-.032-.184-.048-.37-.048-.559 0-.202.016-.403.048-.602.032-.2.088-.39.168-.567a1.2 1.2 0 0 1 .472-.47c.176-.08.372-.136.567-.168.2-.032.4-.048.602-.048z"/></svg>`;
 ---
 
 <div class="owl-carousel owl-theme">
-
   {
-    images.map(({ src, title, description, link }) => (
-      <div class="relative overflow-hidden">
-        <Image src={src} alt={title} width={400} height={300} />
-        <div class="absolute top-0 left-0 w-full rounded-2xl h-full bg-linear-to-l from-nordvital-secondary to-[#017bdedf]  opacity-0 hover:opacity-90 transition-opacity duration-300">
-          <div class="absolute bottom-0 left-0 w-full justify-start p-5">
-            <div class="mb-2">
-              <H level={3} size="lg" color="white">
+    images.map(({ src, title, description, gradient }) => (
+      <div class="relative group overflow-hidden rounded-2xl">
+        <Image
+          src={src}
+          alt={title}
+          width={400}
+          height={350}
+          class="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div class:list={["absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent", gradient]} />
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="mb-3">
+              <H level={3} size="lg" class="text-white font-bold drop-shadow-lg">
                 {title}
               </H>
             </div>
-            <div class="mb-2">
-              <P size="base" color="white" class="font-semibold">
+            <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <P size="sm" class="text-white/90">
                 {description}
               </P>
             </div>
-            <div class="grid grid-cols-2 w-full lg:w-1/2 gap-5">
-              <button class=" text-nordvital-primary bg-white px-2 py-1 rounded-md hover:bg-gray-300 trasnition-all duration-300">
-                <a href={link}>Ver Más</a>
-              </button>
-              <button class="px-2 py-1 bg-teal-500 rounded-md hover:bg-teal-600 trasnition-all duration-300">
-                <a
-                  href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
-                  target="_blank"
-                  class="text-white"
-                >
-                  Agendar cita
-                </a>
-              </button>
+            <div class="flex flex-wrap gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+              <Button url="/services" variant="outline" size="sm" customIcon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`}>
+                Ver más
+              </Button>
+              <Button
+                url="https://api.whatsapp.com/send?phone=573174309873"
+                variant="primary"
+                size="sm"
+                customIcon={whatsappIcon}
+                target="_blank"
+              >
+                Agendar
+              </Button>
             </div>
           </div>
+        </div>
+        <div class="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-50 group-hover:scale-100">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.017l-1.415 5.121a1 1 0 0 0 1.225 1.225l5.121-1.415A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
         </div>
       </div>
     ))
@@ -95,20 +104,23 @@ const images = [
 </div>
 
 <script>
-  // Inicializar Owl Carousel cuando el documento esté listo
   $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
       loop: true,
-      margin: 10,
+      margin: 20,
       nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
       responsive: {
         0: {
           items: 1,
         },
-        600: {
+        768: {
           items: 2,
         },
-        1400: {
+        1024: {
           items: 3,
         },
       },

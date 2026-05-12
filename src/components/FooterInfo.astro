@@ -4,71 +4,35 @@ import helpIcon from "../assets/icons_header/help-octagon.svg?raw";
 import blogIcon from "../assets/icons_header/article.svg?raw";
 import homeIcon from "../assets/icons_header/home.svg?raw";
 
-interface footerInfo {
+interface FooterInfoItem {
   label: string;
   href: string;
   icon: string;
 }
 
-const FOOTER_INFO_DATA: footerInfo[] = [
-  {
-    label: "Inicio",
-    href: "/",
-    icon: homeIcon,
-  },
-  {
-    label: "Trabaja con nosotros",
-    href: "/contact-us",
-    icon: helpIcon,
-  },
-  {
-    label: "Edúcate",
-    href: "/users/blog",
-    icon: blogIcon,
-  },
-  {
-    label: "PQRSFD",
-    href: "/users/pqrsfd",
-    icon: helpIcon,
-  },
-  {
-    label: "Sarlaf y Sicof",
-    href: "/aboutus/sarlaf-sicof",
-    icon: helpIcon,
-  },
-  {
-    label: "Procedimientos Médicos",
-    href: "/users/medical-procedures",
-    icon: medicalIcon,
-  },
+const FOOTER_INFO_DATA: FooterInfoItem[] = [
+  { label: "Inicio", href: "/", icon: homeIcon },
+  { label: "Trabaja con nosotros", href: "/contact-us", icon: helpIcon },
+  { label: "Edúcate", href: "/users/blog", icon: blogIcon },
+  { label: "PQRSFD", href: "/users/pqrsfd", icon: helpIcon },
+  { label: "Sarlaf y Sicof", href: "/aboutus/sarlaf-sicof", icon: helpIcon },
+  { label: "Procedimientos Médicos", href: "/users/medical-procedures", icon: medicalIcon },
 ];
-
-console.log(FOOTER_INFO_DATA.map((i) => i.icon));
 ---
 
-<div class="font-bold px-5 lg:px-0">
-  <h3
-    class="text-center text-2xl py-3 lg:py-0 lg:mb-5 lg:mt-12 text-white font-bold"
-  >
-    Información:
+<div>
+  <h3 class="text-nv-azul-oscuro font-bold text-lg mb-4">
+    Información
   </h3>
-
-  <div class="grid grid-cols-2 font-normal place-self-center">
-    {
-      FOOTER_INFO_DATA.map((i) => (
-        <a
-          href={i.href}
-          class="flex items-center group hover:scale-105 transition-all ease-in-out duration-300 mb-3"
-        >
-          <div
-            set:html={i.icon}
-            class=" text-white w-6 h-6 group-hover:text-black transition-colors duration-300"
-          />
-          <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">
-            {i.label}
-          </span>
-        </a>
-      ))
-    }
+  <div class="grid grid-cols-2 gap-y-2.5">
+    {FOOTER_INFO_DATA.map((item) => (
+      <a
+        href={item.href}
+        class="flex items-center gap-2 text-sm text-gray-600 hover:text-nv-verde-salud transition-colors duration-300 group"
+      >
+        <span set:html={item.icon} class="inline-flex items-center justify-center w-4 h-4 shrink-0 text-nv-verde-salud opacity-70 group-hover:opacity-100 transition-opacity duration-300 [&>svg]:w-full [&>svg]:h-full" />
+        <span class="group-hover:translate-x-0.5 transition-transform duration-300">{item.label}</span>
+      </a>
+    ))}
   </div>
 </div>

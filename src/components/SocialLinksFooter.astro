@@ -3,45 +3,28 @@ import instagram from '@/assets/logo_footer/brand-instagram.svg?raw';
 import facebook from '@/assets/logo_footer/brand-facebook.svg?raw';
 import tiktok from '@/assets/logo_footer/brand-tiktok.svg?raw';
 import youtube from '@/assets/logo_footer/brand-youtube.svg?raw';
-import { Image } from 'astro:assets';
-import H from './ui/H.astro';
 
 const socialLinks = [
-  {
-    href: "https://www.instagram.com/nordvital_ips/",
-    src: `${instagram}`,
-    alt: "Instagram",
-    text: "@IPS Nordvital",
-  },
-  {
-    href: "https://www.facebook.com/Nordvitaloficial/?locale=es_LA",
-    src: `${facebook}`,
-    alt: "Facebook",
-    text: "@Nordvital1",
-  },
-  {
-    href: "https://www.tiktok.com/@nordvital1",
-    src: `${tiktok}`,
-    alt: "TikTok",
-    text: "@nordvital1",
-  },
-  {
-    href: "https://www.youtube.com/@NordvitalIPS",
-    src: `${youtube}`,
-    alt: "YouTube",
-    text: "@NordvitalIPS",
-  },
+  { href: "https://www.instagram.com/nordvital_ips/", src: instagram, alt: "Instagram", text: "@IPS Nordvital" },
+  { href: "https://www.facebook.com/Nordvitaloficial/?locale=es_LA", src: facebook, alt: "Facebook", text: "@Nordvital1" },
+  { href: "https://www.tiktok.com/@nordvital1", src: tiktok, alt: "TikTok", text: "@nordvital1" },
+  { href: "https://www.youtube.com/@NordvitalIPS", src: youtube, alt: "YouTube", text: "@NordvitalIPS" },
 ];
-
 ---
 
-<div class="text-white place-items-center">
-  <H level={3} size="lg" color="white" class="py-3 lg:py-0 lg:mb-5 lg:mt-12">Redes sociales:</H>
-  <div>
-    {socialLinks.map(link => (
-      <a href={link.href} target="_blank" class="flex items-center mb-3 group hover:scale-105 transition-all ease-in-out duration-300">
-      <div set:html={link.src} class="text-white w-6 h-6 group-hover:text-black transition-colors duration-300"></div>
-      <span class="text-sm ml-2 group-hover:text-black transition-colors duration-300">{link.text}</span>
+<div>
+  <h3 class="text-nv-azul-oscuro font-bold text-lg mb-4">
+    Redes sociales
+  </h3>
+  <div class="space-y-3">
+    {socialLinks.map((link) => (
+      <a
+        href={link.href}
+        target="_blank"
+        class="flex items-center gap-2 text-sm text-gray-600 hover:text-nv-verde-salud transition-colors duration-300 group"
+      >
+        <span set:html={link.src} class="inline-flex items-center justify-center w-4 h-4 shrink-0 text-nv-verde-salud opacity-70 group-hover:opacity-100 transition-opacity duration-300 [&>svg]:w-full [&>svg]:h-full" />
+        <span class="group-hover:translate-x-0.5 transition-transform duration-300">{link.text}</span>
       </a>
     ))}
   </div>

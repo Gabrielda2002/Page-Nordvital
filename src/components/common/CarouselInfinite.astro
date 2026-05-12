@@ -1,0 +1,90 @@
+---
+import servicio1 from "@/assets/services_icons/medEsp/servicio-1.svg?raw";
+import servicio2 from "@/assets/services_icons/medEsp/servicio-2.svg?raw";
+import servicio3 from "@/assets/services_icons/medEsp/servicio-3.svg?raw";
+import servicio4 from "@/assets/services_icons/medEsp/servicio-4.svg?raw";
+import servicio6 from "@/assets/services_icons/medEsp/servicio-6.svg?raw";
+import servicio7 from "@/assets/services_icons/medEsp/servicio-7.svg?raw";
+import servicio9 from "@/assets/services_icons/medEsp/servicio-9.svg?raw";
+import servicio10 from "@/assets/services_icons/medEsp/servicio-10.svg?raw";
+import servicio11 from "@/assets/services_icons/medEsp/servicio-11.svg?raw";
+import servicio12 from "@/assets/services_icons/medEsp/servicio-12.svg?raw";
+
+interface CarouselInfiniteItem {
+  icon: string;
+  label: string;
+  gradient: string;
+}
+
+const processIcon = (icon: string) => icon
+  .replace(/fill="[^"]*"/g, 'fill="currentColor"')
+  .replace(/class="[^"]*"/g, "")
+  .replace(/\swidth="[^"]*"/g, '')
+  .replace(/\sheight="[^"]*"/g, '')
+  .replace(/<svg/, '<svg class="w-full h-full"');
+
+const carouselInfinite: CarouselInfiniteItem[] = [
+  { icon: processIcon(servicio1), label: "Medicina General", gradient: "from-nv-verde-salud to-nv-turquesa" },
+  { icon: processIcon(servicio2), label: "Odontología", gradient: "from-nv-azul to-nv-azul-claro" },
+  { icon: processIcon(servicio3), label: "Pediatría", gradient: "from-nv-turquesa to-nv-verde-salud" },
+  { icon: processIcon(servicio4), label: "Ginecología", gradient: "from-nv-azul-oscuro to-nv-azul" },
+  { icon: processIcon(servicio6), label: "Oftalmología", gradient: "from-nv-turquesa to-nv-azul-claro" },
+  { icon: processIcon(servicio7), label: "Dermatología", gradient: "from-nv-azul to-nv-verde-salud" },
+  { icon: processIcon(servicio9), label: "Psicología", gradient: "from-nv-azul-oscuro to-nv-turquesa" },
+  { icon: processIcon(servicio10), label: "Nutrición", gradient: "from-nv-verde-salud to-nv-azul-oscuro" },
+  { icon: processIcon(servicio11), label: "Ortopedia", gradient: "from-nv-turquesa to-nv-verde-salud" },
+  { icon: processIcon(servicio12), label: "Laboratorio", gradient: "from-nv-azul to-nv-azul-oscuro" },
+];
+---
+
+<div class="relative w-full overflow-hidden py-6">
+  <div class="flex gap-6 animate-scroll" id="carousel-container">
+    {
+      carouselInfinite.map((item) => (
+        <div class="group shrink-0">
+          <div class="relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-md border border-white/40 shadow-lg shadow-nv-verde-salud/10 transition-all duration-500 hover:shadow-xl hover:shadow-nv-verde-salud/20 hover:-translate-y-1">
+            <div class:list={["absolute inset-0 bg-linear-to-br opacity-90", item.gradient]} />
+            <div class="relative p-5 flex items-center gap-4">
+              <div class="w-9 h-9 rounded-lg bg-white/30 flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <span class="text-white w-6 h-6" set:html={item.icon} />
+              </div>
+              <span class="text-base font-semibold text-nv-azul-oscuro whitespace-nowrap">
+                {item.label}
+              </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-white/40 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+
+  #carousel-container:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  const container = document.getElementById("carousel-container");
+  if (container) {
+    const items = container.innerHTML;
+    container.innerHTML = items + items;
+  }
+</script>

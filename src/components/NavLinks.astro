@@ -11,257 +11,150 @@ import resultIcon from "../assets/icons_header/report-analytics.svg?raw";
 import blogIcon from "../assets/icons_header/article.svg?raw";
 import educativeIcon from "../assets/icons_header/school.svg?raw";
 import medicalIcon from "../assets/icons_header/stethoscope.svg?raw";
-import closeIcon from "../assets/icons_header/x.svg?raw";
+
+const navItems = [
+  {
+    label: "Nosotros",
+    submenuId: "nosotros",
+    items: [
+      { href: "/aboutus/aboutus", icon: aboutusIcon, label: "Quienes somos" },
+      { href: "/aboutus/headquarters", icon: headquartersIcon, label: "Nuestras sedes" },
+      { href: "/aboutus/agreement", icon: contractsIcon, label: "Convenios" },
+      { href: "/aboutus/status-financiero", icon: statusIcon, label: "Estados financieros" },
+      { href: "/aboutus/sarlaf-sicof", icon: helpIcon, label: "Sarlaf y Sicof" },
+    ],
+  },
+  { label: "Servicios", href: "/services" },
+  {
+    label: "Usuarios",
+    submenuId: "usuarios",
+    items: [
+      { href: "/users/pqrsfd", icon: helpIcon, label: "PQRSFD" },
+      { href: "/users/association", icon: statusIcon, label: "Asociación de usuarios" },
+      { href: "/users/rights-duties", icon: rightIcon, label: "Derechos y deberes" },
+      { href: "/users/blog", icon: blogIcon, label: "Nuestro blog" },
+      { href: "/users/laboratorios", icon: resultIcon, label: "Resultado laboratorio" },
+      { href: "/users/medical-procedures", icon: medicalIcon, label: "Procedimientos Médicos" },
+      { href: "/users/seminar", icon: educativeIcon, label: "Seminario" },
+    ],
+  },
+  { label: "Contáctenos", href: "/contact-us" },
+];
 ---
 
-<nav class="relative h-full">
-  <!-- boton de cerrado -->
-
-  <ul
-    class="flex flex-col lg:flex-row lg:space-x-4 xl:space-x-8 space-y-4 lg:space-y-0 p-6 lg:p-0 w-full justify-between"
-  >
-    <button
-      id="close_menu"
-      class="lg:hidden p-2 absolute top-2 right-4 hover:bg-gray-200 rounded-md transition-colors"
-    >
-      <div set:html={closeIcon} class="w-6 h-6" />
-    </button>
-    <!-- links de navegacion -->
-    <li class="relative">
-      <button
-        class="submenu-btn cursor-pointer flex items-center w-full justify-between py-2 px-3 group hover:bg-nordvital-primary/50 rounded-lg transition-colors duration-300"
-        data-submenu="nosotros"
-      >
-        <span class="group-hover:text-gray-200 transition-colors duration-300">
-          Nosotros
-        </span>
-        <div
-          set:html={iconRow}
-          class="p-1 flex items-center transition-transform group-hover:text-gray-200 duration-300 ease-in-out"
-        />
-      </button>
-
-      <ul
-        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden opacity-0 pointer-events-none bg-gray-50 w-full lg:w-125 lg:-ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0 lg:p-4 rounded-md shadow-lg top-full transition-all duration-300"
-        id="nosotros"
-      >
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/aboutus/aboutus" class="flex items-center gap-2 p-3">
-            <div set:html={aboutusIcon} class="w-5 h-5"></div>
-            Quienes somos
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/aboutus/headquarters" class="flex items-center gap-2 p-3">
-            <div set:html={headquartersIcon} class="w-5 h-5"></div>
-            Nuestras sedes
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/aboutus/agreement" class="flex items-center gap-2 p-3">
-            <div set:html={contractsIcon} class="w-5 h-5"></div>
-            Convenios
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
+<nav class="relative h-full lg:h-auto">
+  <ul class="flex flex-col lg:flex-row lg:space-x-4 xl:space-x-8 space-y-2 lg:space-y-0 p-4 lg:p-0 w-full justify-between">
+    {navItems.map((item) => (
+      <li class:list={["relative", { "": item.submenuId }]}>
+        {item.submenuId ? (
+          <>
+            <button
+              class="submenu-btn cursor-pointer flex items-center w-full justify-between py-2 px-3 group hover:bg-white/15 rounded-lg transition-colors duration-300"
+              data-submenu={item.submenuId}
+            >
+              <span class="group-hover:text-white transition-colors duration-300">
+                {item.label}
+              </span>
+              <div
+                set:html={iconRow}
+                class="p-1 flex items-center transition-transform group-hover:text-white duration-300 ease-in-out arrow-icon"
+              />
+            </button>
+            <ul
+              class="submenu absolute w-full lg:w-125 lg:-ml-4 font-normal z-50 rounded-md shadow-lg top-full overflow-hidden"
+              id={item.submenuId}
+            >
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-2 lg:p-4">
+                {item.items?.map((sub) => (
+                  <li class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors">
+                    <a href={sub.href} class="flex items-center gap-2 p-3">
+                      <div set:html={sub.icon} class="w-5 h-5 shrink-0" />
+                      {sub.label}
+                    </a>
+                  </li>
+                ))}
+              </div>
+            </ul>
+          </>
+        ) : (
           <a
-            href="/aboutus/status-financiero"
-            class="flex items-center gap-2 p-3"
+            href={item.href}
+            class="flex items-center rounded-lg hover:bg-white/15 py-2 px-3 group hover:text-white transition-colors duration-300"
           >
-          <div set:html={statusIcon}></div>
-            Estados financieros
+            <span class="group-hover:text-white transition-colors duration-300">
+              {item.label}
+            </span>
           </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/aboutus/sarlaf-sicof" class="flex items-center gap-2 p-3">
-            <div set:html={helpIcon} class="w-5 h-5"></div>
-            Sarlaf y Sicof
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li>
-      <a
-        href="/services"
-        class="flex items-center rounded-lg hover:bg-nordvital-primary/50 py-2 px-3 group hover:text-gray-200 transition-colors duration-300"
-      >
-        <span class="group-hover:text-gray-200 transition-colors duration-300">
-          Servicios
-        </span>
-      </a>
-    </li>
-
-    <li class="relative">
-      <button
-        class="submenu-btn cursor-pointer flex items-center w-full justify-between py-2 px-3 group hover:bg-nordvital-primary/50 rounded-lg transition-colors duration-300"
-        data-submenu="usuarios"
-      >
-        <span class="group-hover:text-gray-200 transition-colors duration-300">
-          Usuarios
-        </span>
-        <div
-          set:html={iconRow}
-          class="p-1 flex items-center transition-transform group-hover:text-gray-200 duration-300 ease-in-out"
-        />
-      </button>
-      <ul
-        id="usuarios"
-        class="submenu absolute max-h-0 lg:max-h-none overflow-hidden opacity-0 pointer-events-none bg-gray-50 w-full lg:w-125 lg:-ml-4 font-normal z-50 grid grid-cols-1 lg:grid-cols-2 gap-2 p-0 lg:p-4 rounded-md shadow-lg top-full transition-all duration-300"
-      >
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/pqrsfd" class="flex items-center gap-2 p-3">
-            <div set:html={helpIcon} class="w-5 h-5"></div>
-            PQRSFD
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/association" class="flex items-center gap-2 p-3">
-            <div set:html={statusIcon} class="w-5 h-5"></div>
-            Asociación de usuarios
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/rights-duties" class="flex items-center gap-2 p-3">
-            <div set:html={rightIcon} class="w-5 h-5"></div>
-            Derechos y deberes
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/blog" class="flex items-center gap-2 p-3">
-            <div set:html={blogIcon} class="w-5 h-5"></div>
-            Nuestro blog
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/laboratorios" class="flex items-center gap-2 p-3">
-            <div set:html={resultIcon} class="w-5 h-5"></div>
-            Resultado laboratorio
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a
-            href="/users/medical-procedures"
-            class="flex items-center gap-2 p-3"
-          >
-          <div set:html={medicalIcon} class="w-5 h-5"></div>
-            Procedimientos Médicos
-          </a>
-        </li>
-        <li
-          class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors"
-        >
-          <a href="/users/seminar" class="flex items-center gap-2 p-3">
-            <div set:html={educativeIcon} class="w-5 h-5"></div>
-            Seminario
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li>
-      <a
-        href="/contact-us"
-        class="flex items-center rounded-lg hover:bg-nordvital-primary/50 py-2 px-3 group hover:text-gray-200 transition-colors duration-300"
-      >
-        <span class="group-hover:text-gray-200 transition-colors duration-300">
-          Contáctenos
-        </span>
-      </a>
-    </li>
+        )}
+      </li>
+    ))}
   </ul>
 </nav>
 
 <style>
   .submenu {
-    transition:
-      max-height 0.3s ease-in-out,
-      opacity 0.3s ease-in-out;
-  }
-  .submenu.max-h-0 {
     max-height: 0;
     opacity: 0;
-    padding: 0;
+    pointer-events: none;
+    background: var(--color-gray-50, #f9fafb);
+    color: var(--color-gray-900, #111827);
+    transition:
+      max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
   .submenu.expanded {
-    max-height: 500px;
+    max-height: 700px;
     opacity: 1;
-    padding: 1rem;
+    pointer-events: auto;
   }
 
-  /* Estilos para pantallas intermedias */
+  @media (min-width: 1025px) {
+    .submenu {
+      max-height: none;
+      overflow: visible;
+      transform: translateY(-6px);
+    }
+    .submenu.expanded {
+      transform: translateY(0);
+    }
+  }
+
   @media (min-width: 1024px) and (max-width: 1530px) {
-    /* Ajustes para el contenedor principal */
-    nav {
-      width: 100%;
-    }
-
-    nav > ul {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    /* Ajustes para botones principales */
-    nav > ul > li {
-      position: static;
-      white-space: nowrap;
-    }
-
-    /* Ajustes para submenús */
+    nav { width: 100%; }
+    nav > ul { position: relative; display: flex; justify-content: space-between; width: 100%; }
+    nav > ul > li { position: static; white-space: nowrap; }
     .submenu {
       position: absolute;
       width: auto !important;
       min-width: 300px;
       max-width: 450px;
-      grid-template-columns: 1fr !important; /* Una columna para pantallas medianas */
     }
-
-    /* Ajustar posición específica para cada submenú */
-    #nosotros {
-      left: 0;
-      right: auto;
-    }
-
-    #usuarios {
-      left: auto;
-      right: 0;
-    }
+    #nosotros { left: 0; right: auto; }
+    #usuarios { left: auto; right: 0; }
   }
 
   @media (max-width: 1024px) {
     .submenu {
       position: relative;
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.9);
     }
-    .submenu.expanded {
-      max-height: 500px;
-      opacity: 1;
+    .submenu > div {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+    }
+    .submenu > div > li {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .submenu > div > li a {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .submenu > div > li:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .submenu > div > li:hover a {
+      color: #fff;
     }
   }
 </style>
