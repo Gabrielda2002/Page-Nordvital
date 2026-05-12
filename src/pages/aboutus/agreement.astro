@@ -21,7 +21,7 @@ description="Conoce los convenios de Nordvital IPS con las principales EPS de Co
   ]} />
   
   <!-- Descripción -->
-  <section class="container mx-auto px-4 my-4 md:my-16">
+  <section class="container mx-auto px-4 my-4 md:my-16" data-aos="fade-up" data-aos-duration="1000">
     <div class="w-[93%] md:w-[90%] mx-auto">
       <H level={2} size="xl" color="primary" class="mb-2 md:mb-6">
         EN NORDVITAL IPS
@@ -45,7 +45,7 @@ description="Conoce los convenios de Nordvital IPS con las principales EPS de Co
   </section>
       
       <!-- Acordeón de Convenios -->
-       <div class="flex items-center justify-center">
+       <div class="flex items-center justify-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
          <div class=" grid md:grid-cols-4 py-4 gap-4 md:gap-6 w-full mx-3 md:w-8/12 lg:w-7/12">
            {agreements.map((agreement) => (
              <AgreementAccordion {...agreement} />

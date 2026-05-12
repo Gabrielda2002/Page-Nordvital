@@ -21,7 +21,7 @@ import FinancialYearSection from "@/components/aboutus/FinancialYearSection.astr
       { label: "Estados Financieros", link: "/aboutus/status-financiero" }
     ]} />
 
-    <section class="estados__container container mx-auto px-4 py-8">
+    <section class="estados__container container mx-auto px-4 py-8" data-aos="fade-up" data-aos-duration="1000">
       <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">
         {financialStatusData.map(({ year, documents }) => (
           <FinancialYearSection year={year} documents={documents} />

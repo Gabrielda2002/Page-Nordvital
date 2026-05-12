@@ -58,6 +58,15 @@ const { title, description = "Servicios de salud de alta calidad" } =
       type="module"
       src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"
     ></script>
+    <!-- AOS - Animate On Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    ></script>
   </head>
 </html>
 <body class="overflow-x-hidden">
@@ -68,6 +77,19 @@ const { title, description = "Servicios de salud de alta calidad" } =
     <Chat />
   </main>
   <Footer />
+
+  <!-- AOS Initialization -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50,
+        disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      });
+    });
+  </script>
 </body>
 
 <style>
