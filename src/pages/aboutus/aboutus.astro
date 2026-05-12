@@ -13,6 +13,7 @@ import visionIcon from "@/images/AboutUs/eye.svg?raw";
 import missionIcon from "@/images/AboutUs/badge-check.svg?raw";
 
 import { Image } from "astro:assets";
+import { PRINCIPLES } from "@/content/about-us";
 ---
 
 <Layout
@@ -305,33 +306,7 @@ import { Image } from "astro:assets";
             </H>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {
-                [
-                  {
-                    title: "Amabilidad",
-                    desc: "Crear un ambiente acogedor donde cada persona se sienta valorada",
-                  },
-                  {
-                    title: "Trabajo en equipo",
-                    desc: "Colaboración, comunicación abierta y apoyo mutuo",
-                  },
-                  {
-                    title: "Liderazgo",
-                    desc: "Inspirar a otros a alcanzar su máximo potencial",
-                  },
-                  {
-                    title: "Confianza",
-                    desc: "Actuar con integridad, transparencia y consistencia",
-                  },
-                  {
-                    title: "Responsabilidad",
-                    desc: "Cumplir obligaciones con diligencia y ética",
-                  },
-                  {
-                    title: "Solidaridad",
-                    desc: "Compromiso activo con el bienestar de los demás",
-                  },
-                ].map((item, index) => (
+              {PRINCIPLES.map((item, index) => (
                   <div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-8 h-8 rounded-lg bg-nv-verde-salud/10 flex items-center justify-center shrink-0">
                       <span class="text-nv-verde-salud text-sm font-bold">

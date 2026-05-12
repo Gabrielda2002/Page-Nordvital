@@ -1,20 +1,25 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
   url?: string;
   variant?: "primary" | "secondary" | "outline" | "ghost" | "danger";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   fullWidth?: boolean;
   customIcon?: string;
   target?: "_blank" | "_self";
+  class?: string;
 }
 
 const {
-  url = "#",
+  url,
   variant = "primary",
   size = "md",
   fullWidth = false,
   customIcon,
   target = "_self",
+  class: className,
+  ...rest
 } = Astro.props;
 
 const variants = {
@@ -26,7 +31,8 @@ const variants = {
     "bg-transparent border-2 border-nv-verde-salud text-nv-verde-salud hover:bg-nv-verde-salud hover:text-white hover:shadow-lg hover:shadow-nv-verde-salud/20 hover:translate-y-[-2px]",
   ghost:
     "bg-transparent text-nv-verde-salud hover:bg-nv-verde-salud/10 hover:translate-y-[-1px]",
-  danger: "bg-nv-rojo-cta text-white shadow-lg shadow-nv-rojo-cta/30 hover:shadow-xl hover:translate-y-[-2px]",
+  danger:
+    "bg-nv-rojo-cta text-white shadow-lg shadow-nv-rojo-cta/30 hover:shadow-xl hover:translate-y-[-2px]",
 };
 
 const sizes = {
@@ -38,37 +44,51 @@ const sizes = {
   "2xl": "px-12 py-5 text-2xl",
 };
 
-const sizeClass = sizes[size] || sizes.md;
+const baseClasses = [
+  "relative overflow-hidden rounded-xl font-semibold transition-all duration-300 ease-out active:scale-[0.98]",
+  variants[variant],
+  sizes[size] || sizes.md,
+  fullWidth && "w-full",
+  "group",
+  className,
+];
+
 const hasIcon = !!customIcon;
+const contentClasses = ["flex justify-center items-center", hasIcon && "gap-2"];
 ---
 
-<button
-  type="button"
-  class:list={[
-    "relative overflow-hidden rounded-xl font-semibold transition-all duration-300 ease-out active:scale-[0.98]",
-    variants[variant],
-    sizeClass,
-    fullWidth && "w-full",
-    "group",
-  ]}
->
-  <a
-    href={url}
-    target={target}
-    rel={target === "_blank" ? "noopener noreferrer" : undefined}
-    class:list={["flex justify-center items-center", hasIcon && "gap-2"]}
-  >
-    {
-      customIcon && (
+{
+  url ? (
+    <a
+      href={url}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      class:list={[...baseClasses, contentClasses]}
+      {...rest}
+    >
+      {customIcon && (
         <span
           class="transition-transform duration-300 group-hover:-translate-y-0.5"
           set:html={customIcon}
         />
-      )
-    }
-    <span class="relative z-10"><slot /></span>
-  </a>
-  <div
-    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
-  ></div>
-</button>
+      )}
+      <span class="relative z-10">
+        <slot />
+      </span>
+      <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+    </a>
+  ) : (
+    <button class:list={baseClasses} {...rest}>
+      {customIcon && (
+        <span
+          class="transition-transform duration-300 group-hover:-translate-y-0.5"
+          set:html={customIcon}
+        />
+      )}
+      <span class="relative z-10">
+        <slot />
+      </span>
+      <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+    </button>
+  )
+}

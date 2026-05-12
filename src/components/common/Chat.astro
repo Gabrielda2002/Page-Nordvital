@@ -1,49 +1,130 @@
 ---
-import wh from "@/images/WhatsApp/Whatsapp.gif"
-import H from '../ui/H.astro';
+import { MessageCircle, X } from "lucide-react";
 ---
 
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-/>
-
 <div id="whatsappContainer" class="fixed bottom-6 right-6 z-50">
-  <img src={wh.src} class="w-24 h-24 transition-all duration-300 transform cursor-pointer" alt="" id="whatsappButton">
+  <!-- Botón principal con animación -->
+  <div 
+    class="group relative cursor-pointer"
+    id="whatsappButton"
+  >
+    <!-- Efecto de onda pulsante -->
+    <div class="absolute inset-0 rounded-full bg-nv-verde-salud/30 animate-ping"></div>
+    <div class="absolute inset-0 rounded-full bg-nv-turquesa/20 animate-pulse"></div>
+    
+    <!-- Botón principal -->
+    <div class="relative w-16 h-16 md:w-18 md:h-18 rounded-full bg-linear-to-br from-nv-verde-salud to-nv-turquesa shadow-lg shadow-nv-verde-salud/30 flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-nv-turquesa/40">
+      <MessageCircle className="w-8 h-8 md:w-9 md:h-9 text-white" strokeWidth={2.5} />
+      
+      <!-- Badge de notificación -->
+      <div class="absolute -top-1 -right-1 w-5 h-5 bg-nv-rojo-cta rounded-full flex items-center justify-center shadow-md">
+        <span class="text-[10px] text-white font-bold">2</span>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Popup de opciones -->
 <div
   id="notificacion"
-  class="fixed bottom-24 right-6 w-72 md:w-83.75 bg-linear-to-br from-teal-400 to-sky-500 text-white rounded-lg shadow-xl p-4 h-56 hidden transition-all duration-300 transform opacity-0 mb-4 z-50"
+  class="fixed bottom-28 right-6 w-72 md:w-80 hidden z-50 transform transition-all duration-500 opacity-0 translate-y-4 scale-95"
 >
-  <button
-    id="closeButton"
-    class="absolute top-2 right-2 text-white hover:text-red-500"
-  >
-    <i class="fas fa-times-circle text-xl"></i>
-  </button>
+  <div class="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-xl shadow-nv-azul-oscuro/20 overflow-hidden">
+    <!-- Header con gradiente -->
+    <div class="bg-linear-to-br from-nv-verde-salud to-nv-turquesa p-4 pb-3">
+      <button
+        id="closeButton"
+        class="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 hover:text-nv-rojo-cta transition-all duration-200"
+      >
+        <X className="w-4 h-4" />
+      </button>
+      
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+        <span class="text-sm text-white/90 font-medium">En línea</span>
+      </div>
+      <h3 class="text-lg font-gnuolane font-bold text-white">¡Hola! 👋</h3>
+      <p class="text-sm text-white/85 font-quicksand">¿Cómo podemos ayudarte?</p>
+    </div>
 
-  <div class="mb-6">
-    <H level={3} size="lg" color="white" class="mb-2">¡Agenda tu cita ahora! 🎉</H>
-    <a
-      href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
-      target="_blank"
-      class="block w-full bg-white hover:bg-slate-100 text-gray-600 text-center py-2 px-4 rounded-full font-bold transition-colors duration-200 transform hover:scale-105"
-    >
-      Agendar cita
-    </a>
-  </div>
+    <!-- Opciones -->
+    <div class="p-4 space-y-3">
+      <!-- Agendar cita -->
+      <a
+        href="https://api.whatsapp.com/send?phone=573174309873&text=Hola sean bienvenidos a Nordvital ips, una ips comprometida con sus usuarios."
+        target="_blank"
+        class="group flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+      >
+        <div class="w-10 h-10 rounded-lg bg-nv-turquesa/20 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-nv-turquesa" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="text-sm font-semibold text-gray-700 group-hover:text-nv-turquesa transition-colors">Agendar cita</h4>
+          <p class="text-xs text-white/60 font-quicksand">Reserva tu atención</p>
+        </div>
+        <svg class="w-4 h-4 text-white/40 group-hover:text-white/70 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
 
-  <div>
-    <H level={3} size="lg" color="white" class="mb-2">¿Buscas tus resultados? 🔍</H>
-    <a
-      href="https://api.whatsapp.com/send?phone=573008564510&text=Resultados Laboratorio Nordvital IPS"
-      target="_blank"
-      class="block w-full bg-white hover:bg-slate-100 text-gray-600 text-center py-2 px-4 rounded-full font-bold transition-colors duration-200 transform hover:scale-105"
-    >
-      Resultados Laboratorio
-    </a>
+      <!-- Resultados laboratorio -->
+      <a
+        href="https://api.whatsapp.com/send?phone=573008564510&text=Resultados Laboratorio Nordvital IPS"
+        target="_blank"
+        class="group flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]"
+      >
+        <div class="w-10 h-10 rounded-lg bg-nv-verde-salud/20 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-nv-verde-salud" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.5 2h-15A1.5 1.5 0 003 3.5v17A1.5 1.5 0 004.5 22h15a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0019.5 2zM15 14H9v-2h6v2zm2-4H7V8h10v2z"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="text-sm font-semibold text-gray-700 group-hover:text-nv-verde-salud transition-colors">Resultados Lab</h4>
+          <p class="text-xs text-white/60 font-quicksand">Consulta tus exámenes</p>
+        </div>
+        <svg class="w-4 h-4 text-white/40 group-hover:text-white/70 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-4 pb-4">
+      <div class="flex items-center justify-center gap-2 text-xs text-white/40">
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span>NordVital IPS - Atención humanizada</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <script src="/src/scripts/Chat.js"></script>
+
+<style>
+  /* Animación de pulso lento para el botón */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  /* Optimización para motion reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ping,
+    .animate-pulse,
+    .animate-pulse-slow {
+      animation: none !important;
+    }
+  }
+</style>

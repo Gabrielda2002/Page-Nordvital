@@ -33,13 +33,13 @@ const { title, description, image, uniqueId } = Astro.props;
       <P align="justify" leading="relaxed" hyphens class="mb-3">
         {description}
         <div class="flex justify-center items-center">
-          <button
+          <Button
             data-target={`content-${uniqueId}`}
-            class="show-more bg-teal-500 max-w-28 text-white rounded-xl px-2.5 py-1.5 text-center text-sm md:text-base hover:bg-teal-600 transition-colors"
+            class="show-more"
           >
              <span class="text-show">Ver más</span>
              <span class="text-hide hidden">Ver Menos</span>
-          </button>
+          </Button>
         </div>
       </P>
     </div>
