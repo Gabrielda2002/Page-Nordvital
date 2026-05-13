@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /seminary/
+
+Sitemap: https://nordvitalips.com/sitemap.xml
