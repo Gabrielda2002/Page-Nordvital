@@ -213,6 +213,24 @@
     @apply bg-background text-foreground;
     font-family: var(--font-quicksand);
   }
+
+  /* === TYPOGRAPHY IMPROVEMENTS === */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-gnuolane);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  h1 {
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h2 {
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
   .maplibregl-popup-content {
     @apply bg-transparent! shadow-none! p-0! rounded-none!;
   }
