@@ -4,9 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import H from "@/components/ui/H.astro";
 import P from "@/components/ui/P.astro";
 
-//img
 import sectionImg from "@/images/AboutUs/NOSOTROS.webp";
-import Accordion from "@/components/common/Accordion.astro";
 
 import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
 ---
@@ -27,7 +25,7 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
     ]}
   />
   <div class="flex flex-col justify-center items-center m-5">
-    <div class="flex flex-col items-center w-1/2 space-y-4" data-aos="fade-up" data-aos-duration="1000">
+    <div class="flex flex-col w-3/4 space-y-4" data-aos="fade-up" data-aos-duration="1000">
       <H level={4} size="2xl" color="primary">
         Política de Tratamiento de Datos Personales
       </H>
@@ -39,83 +37,59 @@ import docPdf from "@/pdf/politicas-datos/POLITICA-DE-DATOS.pdf?url";
         de 2012 y el Decreto 1377 de 2013, adoptamos una política para
         garantizar un manejo responsable y seguro de la información personal.
       </P>
+
+      <H level={4} size="md" color="secondary">Propósito</H>
+      <ul class="list-disc ml-8 mb-3 space-y-1">
+        <li><P align="justify">Proteger la privacidad y derechos de los titulares.</P></li>
+        <li><P align="justify">Asegurar que los datos se recolecten y procesen con consentimiento y fines legítimos.</P></li>
+        <li><P align="justify">Implementar medidas para evitar accesos no autorizados o usos indebidos.</P></li>
+        <li><P align="justify">Garantizar a los titulares derechos como acceso, rectificación, cancelación y oposición.</P></li>
+      </ul>
+
+      <H level={4} size="md" color="secondary">Ámbito de Aplicación</H>
+      <P align="justify" leading="relaxed">
+        Aplica a todas las personas cuyos datos sean tratados por NORDVITAL
+        IPS, incluyendo pacientes, empleados, proveedores y contratistas. Se
+        cubren actividades como recolección, almacenamiento, uso, transmisión
+        y supresión de datos, bajo normativas locales e internacionales.
+      </P>
+
+      <H level={4} size="md" color="secondary">Derechos de los Titulares</H>
+      <ul class="list-disc ml-8 mb-3 space-y-1">
+        <li><P align="justify">Conocer, actualizar y rectificar sus datos.</P></li>
+        <li><P align="justify">Solicitar prueba de autorización para el tratamiento.</P></li>
+        <li><P align="justify">Revocar el consentimiento y solicitar la supresión de datos cuando no se cumplan principios legales.</P></li>
+        <li><P align="justify">Presentar quejas ante la Superintendencia de Industria y Comercio.</P></li>
+      </ul>
+
+      <H level={4} size="md" color="secondary">Deberes de NORDVITAL IPS SAS</H>
+      <ul class="list-disc ml-8 mb-3 space-y-1">
+        <li><P align="justify">Garantizar la seguridad y confidencialidad de los datos.</P></li>
+        <li><P align="justify">Usar los datos solo con autorización y para las finalidades comunicadas.</P></li>
+        <li><P align="justify">Implementar controles de seguridad para evitar adulteraciones o accesos no autorizados.</P></li>
+      </ul>
+
+      <H level={4} size="md" color="secondary">Mecanismos de Autorización</H>
+      <P align="justify" leading="relaxed">
+        La autorización para el tratamiento de datos puede ser otorgada de
+        forma escrita, telefónica o digital, asegurando siempre que los
+        titulares estén informados sobre el uso de su información.
+      </P>
+
+      <H level={4} size="md" color="secondary">Finalidades del Tratamiento</H>
+      <ul class="list-disc ml-8 mb-3 space-y-1">
+        <li><P align="justify">Comunicar servicios ofrecidos y novedades.</P></li>
+        <li><P align="justify">Cumplir obligaciones legales y contractuales.</P></li>
+        <li><P align="justify">Realizar evaluaciones de calidad y estudios internos.</P></li>
+      </ul>
+
+      <P align="justify" leading="relaxed">
+        Para más información, consulta nuestra política completa en <a
+          href={docPdf}
+          class="font-bold text-nv-verde-salud"
+          target="_blank">Tratamiento de datos personales</a
+        >.
+      </P>
     </div>
-
-    <Accordion title="Política de datos" id="1" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-      <div class="">
-        <H level={4} size="md">Propósito:</H>
-        <ul class="list-disc ml-5 mb-3">
-          <li>Proteger la privacidad y derechos de los titulares.</li>
-          <li>
-            Asegurar que los datos se recolecten y procesen con consentimiento y
-            fines legítimos.
-          </li>
-          <li>
-            Implementar medidas para evitar accesos no autorizados o usos
-            indebidos.
-          </li>
-          <li>
-            Garantizar a los titulares derechos como acceso, rectificación,
-            cancelación y oposición.
-          </li>
-        </ul>
-
-        <H level={4} size="md">Ámbito de Aplicación:</H>
-        <P class="mb-3">
-          Aplica a todas las personas cuyos datos sean tratados por NORDVITAL
-          IPS, incluyendo pacientes, empleados, proveedores y contratistas. Se
-          cubren actividades como recolección, almacenamiento, uso, transmisión
-          y supresión de datos, bajo normativas locales e internacionales.
-        </P>
-
-        <H level={4} size="md">Derechos de los Titulares:</H>
-        <ul class="list-disc ml-5 mb-3">
-          <li>Conocer, actualizar y rectificar sus datos.</li>
-          <li>Solicitar prueba de autorización para el tratamiento.</li>
-          <li>
-            Revocar el consentimiento y solicitar la supresión de datos cuando
-            no se cumplan principios legales.
-          </li>
-          <li>
-            Presentar quejas ante la Superintendencia de Industria y Comercio.
-          </li>
-        </ul>
-
-        <H level={4} size="md">Deberes de NORDVITAL IPS SAS:</H>
-        <ul class="list-disc ml-5 mb-3">
-          <li>Garantizar la seguridad y confidencialidad de los datos.</li>
-          <li>
-            Usar los datos solo con autorización y para las finalidades
-            comunicadas.
-          </li>
-          <li>
-            Implementar controles de seguridad para evitar adulteraciones o
-            accesos no autorizados.
-          </li>
-        </ul>
-
-        <H level={4} size="md">Mecanismos de Autorización:</H>
-        <P class="mb-3">
-          La autorización para el tratamiento de datos puede ser otorgada de
-          forma escrita, telefónica o digital, asegurando siempre que los
-          titulares estén informados sobre el uso de su información.
-        </P>
-
-        <H level={3} size="md">Finalidades del Tratamiento:</H>
-        <ul class="list-disc ml-5 mb-3">
-          <li>Comunicar servicios ofrecidos y novedades.</li>
-          <li>Cumplir obligaciones legales y contractuales.</li>
-          <li>Realizar evaluaciones de calidad y estudios internos.</li>
-        </ul>
-
-        <P class="mb-3">
-          Para más información, consulta nuestra política completa en <a
-            href={docPdf}
-            class="font-bold text-nv-verde-salud"
-            target="_blank">Tratamiento de datos personales</a
-          >.
-        </P>
-      </div>
-    </Accordion>
   </div>
 </Layout>
