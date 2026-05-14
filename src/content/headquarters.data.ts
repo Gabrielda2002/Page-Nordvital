@@ -75,20 +75,20 @@ interface ContentTab {
 
 export const HEADQUARTERS_DATA: Headquarters[] = [
     // Sedes de Cúcuta
-    {
-        id: 1,
-        department: "cucuta",
-        title: "SEDES 01:",
-        address: "Calle 14A # 2E-86",
-        mapLink: "https://maps.app.goo.gl/CfLihr4Zs9jLwyi79",
-        images: [S01img1, S01img2, S01img3],
-        latitude: 7.884377881441531,
-        longitude: -72.49502889815585
-    },
+    // {
+    //     id: 1,
+    //     department: "cucuta",
+    //     title: "Sede 01:",
+    //     address: "Calle 14A # 2E-86",
+    //     mapLink: "https://maps.app.goo.gl/CfLihr4Zs9jLwyi79",
+    //     images: [S01img1, S01img2, S01img3],
+    //     latitude: 7.884377881441531,
+    //     longitude: -72.49502889815585
+    // },
     {
         id: 2,
         department: "cucuta",
-        title: "SEDES 03:",
+        title: "Sede 03:",
         address: "Calle 13A # 1E-52",
         mapLink: "https://maps.app.goo.gl/MovPiQ2E3mschyoS7",
         images: [S03Img1, S03Img2, S03Img3],
@@ -98,7 +98,7 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
     {
         id: 3,
         department: "cucuta",
-        title: "SEDES 04:",
+        title: "Sede 04:",
         address: "Calle 15 # 2E-07",
         mapLink: "https://maps.app.goo.gl/frVt8vMnDnE4Az3o6",
         images: [S04Img1, S04Img2, S04Img3],
@@ -108,7 +108,7 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
     {
         id: 4,
         department: "cucuta",
-        title: "SEDES 05:",
+        title: "Sede 05:",
         address: "AV. 3A E # 13A-82 CAOBOS",
         mapLink: "https://maps.app.goo.gl/qeYXCAhAt7Kihwps8",
         images: [S05Img1, S05Img2, S05Img3],
@@ -118,7 +118,7 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
     {
         id: 5,  
         department: "cucuta",
-        title: "SEDES 06:",
+        title: "Sede 06:",
         address: "SEDE AV2 ESTE # 14A-10 CAOBOS",
         mapLink: "https://maps.app.goo.gl/MsU4raTfftwrrgff7",
         images: [S06Img1, S06Img2, S06Img3],
@@ -128,7 +128,7 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
     {
         id: 6,
         department: "cucuta",
-        title: "SEDES 07:",
+        title: "Sede 07:",
         address: "CALLE 8 # 0-71 BARRIO LATINO",
         mapLink: "https://maps.app.goo.gl/MsU4raTfftwrrgff7",
         images: [S07Img1, S07Img2, S07Img3],

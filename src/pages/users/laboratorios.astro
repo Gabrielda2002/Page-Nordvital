@@ -5,16 +5,20 @@ import HeroSection from "@/components/common/HeroSection.astro";
 import H from "@/components/ui/H.astro";
 import P from "@/components/ui/P.astro";
 import img from "@/images/Header/USUARIOS_11zon.webp";
-
-//icons
 import icon from "@/images/Usuarios/Resultados-laboratorio/iconLabo.svg";
+import { Image } from "astro:assets";
+import step2Img from "@/assets/laboratorio/step_2.png";
+import step3Img from "@/assets/laboratorio/step_3.png";
+import step4Img from "@/assets/laboratorio/step_4.png";
+import step5Img from "@/assets/laboratorio/step_5.png";
+import step52Img from "@/assets/laboratorio/step_5.1.png";
 
-import pdfLab from "@/pdf/Laboratorio/Instructivo-resultados-laboratorios.pdf?url";
+const whatsappLabUrl = "https://api.whatsapp.com/send?phone=573008564510&text=Resultados Laboratorio Nordvital IPS";
 ---
 
 <Layout
   title="Resultados de Laboratorio | Nordvital IPS"
-  description="Accede y descarga tus resultados de laboratorio clínico de Nordvital IPS. Guía paso a paso para visualizar tus exámenes de forma segura y rápida."
+  description="Solicite y obtenga sus resultados de laboratorio clínico de Nordvital IPS de manera fácil y segura por WhatsApp. Guía paso a paso para acceder a sus exámenes."
 >
   <head>
     <link
@@ -26,65 +30,127 @@ import pdfLab from "@/pdf/Laboratorio/Instructivo-resultados-laboratorios.pdf?ur
   <main class="overflow-x-hidden bg-gray-100">
     <HeroSection title="Resultados Laboratorio" backgroundImage={img} breadcrumb={[
       { label: "Inicio", link: "/" },
-    { label: "Resultados Laboratorio", link: "/users/laboratorios" }
+      { label: "Resultados Laboratorio", link: "/users/laboratorios" }
     ]} />
 
-    <div
-      class="w-[90%] md:w-2/3 flex mx-auto items-center justify-cente text-gray-600"
-    >
+    <div class="w-[90%] md:w-2/3 flex mx-auto items-center justify-center text-gray-600">
       <div class="conttres">
         <div class="flex items-center cont-medicina contCuatro">
           <img src={icon.src} alt="" class="h-11" />
-
           <H level={6} size="lg" color="emphasis" class="ml-2"><em>Resultados Laboratorio</em></H>
         </div>
 
         <div class="medicina mt-6 mb-10">
-          <H level={2} size="md" class="mb-2">
-            Guía para Descargar Resultados de Laboratorio
-          </H>
-          <P>
-            Para facilitar el acceso a sus resultados de laboratorio, hemos
-            creado una guía que explica detalladamente cómo utilizar la
-            plataforma.
-          </P><br />
-          <P>
-            Para visualizar el documento siga el paso a paso descrito a
-            continuación.
-          </P><br />
-          <h5 class="text-xl font-semibold">Pasos para visualizar el PDF:</h5>
-          <ul class="p-2">
-            <li>
-              1. Haga clic en el enlace que se encuentra a continuación.
-            </li>
-            <li>
-              2. Enlace:
-              <a href={pdfLab} target="_blank" class="text-blue-500">
-                Ver instructivo
-              </a>
-            </li>
-            <li>
-              3. Lea y visualice detenidamente todos los pasos para que haga
-              uso de la pagina correctamente.
-            </li>
-            <li>
-              4. Para descargar sus resultados, haga clic
-              <a
-                href="https://hemonet.com/lisnordvital/paciente"
-                target="_blank"
-                class="text-blue-500"
-              >
-                Aqui
-              </a>
-            </li>
-          </ul>
-          <br />
-          <P>
-            Si tiene alguna pregunta o necesita asistencia adicional, por
-            favor no duden en contactarnos. Estamos
-            <a href="/contact-us" class="text-blue-500"> aquí </a> para ayudarles
-            en todo lo que necesiten.
+          <P class="mb-6">
+            Estimado(a) paciente,
           </P>
+          <P class="mb-6">
+            Pensando en su comodidad, seguridad y rapidez en la entrega de la
+            información, hemos habilitado un canal digital que le permitirá
+            solicitar y obtener sus resultados de laboratorio de manera fácil y
+            segura, sin necesidad de desplazarse.
+          </P>
+
+          <H level={2} size="md" color="primary" class="mb-4 mt-8">
+            ¿Cómo solicitar sus resultados?
+          </H>
+          <P class="mb-4">
+            Para acceder a sus resultados de laboratorio clínico, debe seguir los
+            siguientes pasos:
+          </P>
+
+          <H level={3} size="sm" color="emphasis" class="mb-2 mt-6">
+            1. Ingresar a WhatsApp
+          </H>
+          <P class="mb-4">
+            Acceda al enlace o número de WhatsApp proporcionado por la institución
+            de salud. Este canal funciona como un asistente virtual disponible
+            para usted.
+          </P>
+
+          <H level={3} size="sm" color="emphasis" class="mb-2 mt-6">
+            2. Iniciar la conversación
+          </H>
+          <P class="mb-4">
+            Una vez dentro del chat, el sistema le dará la bienvenida y le
+            mostrará un menú de opciones. Seleccione la opción relacionada con
+            "ver resultados".
+          </P>
+          <Image src={step2Img} alt="Paso 2: Iniciar la conversación" class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4" />
+
+          <H level={3} size="sm" color="emphasis" class="mb-2 mt-6">
+            3. Acepte nuestra política de tratamientos personales
+          </H>
+          <Image src={step3Img} alt="Paso 3: Aceptar política de tratamientos personales" class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4" />
+
+          <H level={3} size="sm" color="emphasis" class="mb-2 mt-6">
+            4. Validación de identidad
+          </H>
+          <P class="mb-2">
+            Con el fin de proteger su información personal y cumplir con las
+            normas de confidencialidad, el sistema habilitará un formulario que
+            contiene la siguiente información:
+          </P>
+          <ul class="list-disc pl-6 mb-2 font-quicksand text-gray-700">
+            <li>Tipo y número de documento</li>
+            <li>Otros datos de verificación</li>
+          </ul>
+          <P class="mb-4">
+            Una vez registrado el formulario, haga clic en el botón de envío.
+          </P>
+          <Image src={step4Img} alt="Paso 4: Validación de identidad" class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4" />
+
+          <H level={3} size="sm" color="emphasis" class="mb-2 mt-6">
+            5. Consulta y descarga de resultados
+          </H>
+          <P class="mb-2">
+            Después de validar su identidad, el sistema le mostrará los
+            resultados disponibles.
+          </P>
+          <Image src={step5Img} alt="Paso 5: Consulta y descarga de resultados" class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4" />
+          <P class="mb-2">
+            Digite el número dependiendo de la opción que desee descargar.
+          </P>
+          <P class="mb-6">
+            Al seleccionar esta opción, podrá visualizar y descargar su
+            resultado en formato digital (PDF) directamente en su dispositivo.
+          </P>
+          <Image src={step52Img} alt="Paso 5: Consulta y descarga de resultados" class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4" />
+
+          <H level={2} size="md" color="primary" class="mb-4 mt-8">
+            Beneficios de este sistema
+          </H>
+          <ul class="list-disc pl-6 mb-2 font-quicksand text-gray-700">
+            <li>Acceso a sus resultados las 24 horas del día</li>
+            <li>Mayor rapidez en la entrega de la información</li>
+            <li>Evita desplazamientos innecesarios</li>
+            <li>Protección de sus datos personales mediante validación segura</li>
+            <li>Canal fácil de usar desde su celular o computador</li>
+          </ul>
+
+          <H level={2} size="md" color="primary" class="mb-4 mt-8">
+            Recomendaciones importantes
+          </H>
+          <ul class="list-disc pl-6 mb-6 font-quicksand text-gray-700">
+            <li>Asegúrese de ingresar correctamente sus datos para evitar errores en la consulta.</li>
+            <li>Mantenga la confidencialidad de su información personal.</li>
+            <li>Recuerde que los resultados deben ser revisados por su médico tratante para una adecuada interpretación.</li>
+          </ul>
+
+          <P class="mt-6">
+            Para descargar sus laboratorios, haga clic en el enlace de WhatsApp
+            de laboratorio proporcionado por la institución de salud:
+          </P>
+          <div class="mt-4 mb-10">
+            <a
+              href={whatsappLabUrl}
+              target="_blank"
+              class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-quicksand font-semibold px-6 py-3 rounded-lg transition-colors"
+            >
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              Acceder a Resultados de Laboratorio
+            </a>
+          </div>
         </div>
       </div>
     </div>

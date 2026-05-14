@@ -66,10 +66,10 @@ const navItems = [
             >
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-2 lg:p-4">
                 {item.items?.map((sub) => (
-                  <li class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors">
+                    <li class="relative border hover:bg-gray-200 hover:text-teal-500 rounded-md transition-colors whitespace-normal break-words">
                     <a href={sub.href} class="flex items-center gap-2 p-3">
                       <div set:html={sub.icon} class="w-5 h-5 shrink-0" />
-                      {sub.label}
+                      <span class="text-balance">{sub.label}</span>
                     </a>
                   </li>
                 ))}
@@ -127,8 +127,8 @@ const navItems = [
     .submenu {
       position: absolute;
       width: auto !important;
-      min-width: 300px;
-      max-width: 450px;
+      min-width: 280px;
+      max-width: min(90vw, 400px);
     }
     #nosotros { left: 0; right: auto; }
     #usuarios { left: auto; right: 0; }

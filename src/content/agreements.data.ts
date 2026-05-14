@@ -23,7 +23,7 @@ export const agreements: Agreement[] = [
         id: 1,
         logo: compensar,
         logoAlt: "Logo Compensar",
-        logoClass: "w-32 md:w-40 h-12",
+        logoClass: "max-h-full w-auto object-contain",
         contactLines: [
             {
                 title: "Línea de atención: Cundinamarca",
@@ -35,7 +35,7 @@ export const agreements: Agreement[] = [
         id: 2,
         logo: coosalud,
         logoAlt: "Logo Coosalud",
-        logoClass: "w-32 md:w-40 h-12",
+        logoClass: "max-h-full w-auto object-contain",
         contactLines: [
             {
                 title: "Línea de atención:",
@@ -52,7 +52,7 @@ export const agreements: Agreement[] = [
         id: 3,
         logo: NuevaEps,
         logoAlt: "Logo Nueva EPS",
-        logoClass: "w-32 md:w-40 h-12",
+        logoClass: "max-h-full w-auto object-contain",
         contactLines: [
             {
                 title: "Línea de atención fija:",
@@ -69,7 +69,7 @@ export const agreements: Agreement[] = [
         id: 4,
         logo: famisanar,
         logoAlt: "Logo Famisanar",
-        logoClass: "w-32 md:w-40 h-12",
+        logoClass: "max-h-full w-auto object-contain",
         contactLines: [
             {
                 title: "Línea de atención:",
