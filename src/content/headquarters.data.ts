@@ -25,8 +25,8 @@ import S06Img2 from "@/images/Sedes/Cucuta/Sede 5/SEDE-5-2.webp";
 import S06Img3 from "@/images/Sedes/Cucuta/Sede 5/SEDE-5-3.webp";
 
 // Cúcuta - Sede 6
-import S07Img1 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-1.png";
-import S07Img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.jpg";
+import S07Img1 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp";
+import S07Img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.webp";
 import S07Img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp";
 
 // Cundinamarca - Ubaté
@@ -159,7 +159,7 @@ export const HEADQUARTERS_DATA: Headquarters[] = [
     {
         id: 9,
         department: "cundinamarca",
-        title: "Sede Cajíca:",
+        title: "Sede Cajicá:",
         address: "CARRERA 7 # 2-46",
         mapLink: "https://maps.app.goo.gl/fVRix63tKta678LR6",
         images: [S10Img1, S10Img2, S10Img3],

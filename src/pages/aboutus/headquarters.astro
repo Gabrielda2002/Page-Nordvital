@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import BreadCrumps from "@/components/common/HeroSection.astro";
-import TapsContent from "@/components/common/TapsContent.astro";
+import TabsContent from "@/components/common/TabsContent.astro";
 import { CONTENT_TABS, HEADQUARTERS_DATA } from "@/content/headquarters.data";
 
 // Images
@@ -23,7 +23,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
 
     <div class="pb-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
       <div class="mx-auto mt-4 bg-transparent border-none">
-        <TapsContent tabs={CONTENT_TABS}>
+        <TabsContent tabs={CONTENT_TABS}>
           <div data-tab-content="cucuta">
             {
               HEADQUARTERS_DATA.filter((h) => h.department === "cucuta").map(
@@ -38,7 +38,7 @@ import img from "@/images/AboutUs/NOSOTROS.webp";
               ).map((h) => <Card {...h} />)
             }
           </div>
-        </TapsContent>
+        </TabsContent>
       </div>
     </div>
   </main>

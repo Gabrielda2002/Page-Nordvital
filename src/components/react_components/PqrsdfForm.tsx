@@ -174,19 +174,19 @@ const PqrsdfForm = () => {
         <div className="mb-8">
           <div className="flex items-center justify-center md:space-x-4 text-sm font-quicksand md:text-base  md:flex-row">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold">
                 1
               </div>
               <span className="ml-2 text-gray-600">Información Personal</span>
             </div>
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold">
                 2
               </div>
               <span className="ml-2 text-gray-600">Ubicación y Contacto</span>
             </div>
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-nv-rojo-cta-dark text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold">
                 3
               </div>
               <span className="ml-2 text-gray-600">
@@ -206,7 +206,7 @@ const PqrsdfForm = () => {
                 {/* Sección 1: Información Personal */}
                 <div className="border-b border-gray-200 pb-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold mr-3">
                       1
                     </div>
                     <h2 className="text-xl font-semibold font-gnuolane text-nordvital-secondary">
@@ -472,7 +472,7 @@ const PqrsdfForm = () => {
                 {/* Sección 2: Ubicación y Contacto */}
                 <div className="border-b border-gray-200 pb-8">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold mr-3">
                       2
                     </div>
                     <h2 className="text-xl font-semibold text-gray-800">
@@ -713,7 +713,7 @@ const PqrsdfForm = () => {
                 {/* Sección 3: Detalles de la Solicitud */}
                 <div className="pb-6">
                   <div className="flex items-center mb-6">
-                    <div className="w-8 h-8 bg-nv-rojo-cta-light text-indigo-600 rounded-full flex items-center justify-center font-semibold mr-3">
+                    <div className="w-8 h-8 bg-nv-azul-claro-dark text-white rounded-full flex items-center justify-center font-semibold mr-3">
                       3
                     </div>
                     <h2 className="text-xl font-semibold text-gray-800">

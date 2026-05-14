@@ -1,15 +1,23 @@
 ---
-import Pqr from "@/components/TabPqrsfd.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import HeroSection from "@/components/common/HeroSection.astro";
 import H from "@/components/ui/H.astro";
 import P from "@/components/ui/P.astro";
+import TabsContent from "@/components/common/TabsContent.astro";
+import PqrsdfForm from "@/components/react_components/PqrsdfForm";
 
 // images
 import img from "@/images/Header/USUARIOS_11zon.webp";
 import Images from "@/images/Header/2147900168_11zon.webp";
-import PqrsdfForm from "@/components/react_components/PqrsdfForm";
+
+const pqrsTabs = [
+  { id: "peticion", title: "Petición" },
+  { id: "queja", title: "Queja" },
+  { id: "reclamo", title: "Reclamo" },
+  { id: "sugerencia", title: "Sugerencia" },
+  { id: "felicitaciones", title: "Felicitaciones" },
+];
 ---
 
 <Layout title="PQRSFD | Nordvital IPS - Peticiones y Sugerencias" description="Envía tus peticiones, quejas, reclamos, sugerencias y felicitaciones a Nordvital IPS. Tu opinión nos ayuda a mejorar.">
@@ -30,7 +38,7 @@ import PqrsdfForm from "@/components/react_components/PqrsdfForm";
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-<div class="rounded-3xl p-8 w-full lg:w-[90%] space-y-4">
+      <div class="rounded-3xl p-8 w-full lg:w-[90%] space-y-4">
         <H level={2} size="xl" color="primary">PQRSFD</H>
         <P align="justify" leading="relaxed" hyphens>
           Valoramos su opinión y estamos comprometidos en ofrecer el mejor
@@ -54,7 +62,44 @@ import PqrsdfForm from "@/components/react_components/PqrsdfForm";
       </div>
     </div>
 
-    <Pqr />
+    <TabsContent tabs={pqrsTabs}>
+      <div data-tab-content="peticion">
+        <H level={2}>Petición</H>
+        <div class=" space-y-6">
+          <P>Una petición es una solicitud que haces en nombre de ti mismo, de otra persona o de un grupo.</P>
+          <P>Las personas usan las peticiones para solicitar cosas como derechos, servicios, información o documentos. El objetivo es obtener una respuesta oportuna y significativa.</P>
+        </div>
+      </div>
+      <div data-tab-content="queja">
+        <H level={2}>Queja</H>
+        <div class=" space-y-6">
+          <P>Una queja es una forma de proporcionar retroalimentación acerca del servicio de un trabajador gubernamental. Es una herramienta útil que da a todos nuestros usuarios la oportunidad de expresar cualquier inconveniente que hayan tenido con respecto a la calidad de nuestro servicio, el trato o el respeto recibido.</P>
+          <P>Con tu ayuda, las autoridades competentes pueden abordar estas preocupaciones y trabajar para mejorar sus servicios. Así que, si has tenido una mala experiencia, no dudes en presentar una queja. ¡Tus comentarios podrían ser el catalizador del cambio positivo!</P>
+        </div>
+      </div>
+      <div data-tab-content="reclamo">
+        <H level={2}>Reclamo</H>
+        <div class=" space-y-6">
+          <P>Un reclamo es una solicitud o queja formal hecha en relación a un servicio que no cumplió con las expectativas o acuerdos previos.</P>
+          <P>Esto puede incluir un servicio no cumplido o una atención inadecuada a una solicitud. Es un medio de expresar los propios requisitos y asegurar que se proporcione el servicio al cliente adecuado. En caso de experimentar una situación así, le agradecemos que aproveche la oportunidad para hacer valer sus derechos sin dudarlo.</P>
+        </div>
+      </div>
+      <div data-tab-content="sugerencia">
+        <H level={2}>Sugerencia</H>
+        <div class=" space-y-6">
+          <P>Es una propuesta constructiva presentada con el objetivo de mejorar la calidad de un servicio, transacción o proceso. Es una herramienta efectiva que nos ayuda a identificar áreas de mejora y optimizar la experiencia general para evitar la repetición de mejorar de nuestros usuarios. Por lo tanto, su opinión es muy importante para la nosotros.</P>
+          <P>Le animo a compartir sus valiosas sugerencias, para que podamos trabajar juntos hacia nuestro objetivo común de brindar un servicio exemplar a todos nuestros usuarios.</P>
+        </div>
+      </div>
+      <div data-tab-content="felicitaciones">
+        <H level={2}>Felicitaciones</H>
+        <div class=" space-y-6">
+          <P>Las felicitaciones son expresiones de reconocimiento y satisfacción por parte de los usuarios respecto a los servicios prestados por NordVital IPS.</P>
+          <P>Pueden destacar la buena atención recibida, el profesionalismo del personal o cualquier aspecto positivo de la experiencia del usuario. Las felicitaciones no solo motivan al equipo, sino que también resaltan las buenas prácticas que deben mantenerse.</P>
+        </div>
+      </div>
+    </TabsContent>
+
     <PqrsdfForm client:load />
   </main>
 </Layout>
