@@ -11,6 +11,8 @@ import CarouselHero from "@/components/common/CarouselHero.astro";
 import CorouselInfinite from "@/components/common/CarouselInfinite.astro";
 import Button from "@/components/common/Button.astro";
 import { Map } from "@/components/ui/map";
+import PopupInfo from "@/components/common/PopupInfo.astro";
+import popImg from "@/assets/pop_img.webp";
 
 // img card headquarter
 import img1 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp";
@@ -22,6 +24,15 @@ import img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp";
   title="Nordvital IPS | Servicios médicos de calidad en Colombia"
   description="Nordvital IPS ofrece servicios médicos de alta calidad, con 11 sedes habilitadas y atención personalizada. Consulta médica, especialistas y más."
 >
+  <PopupInfo
+    image={popImg}
+    imageAlt="Renovación de la Junta Directiva de la Asociación de Usuarios - 10 de julio de 2026"
+    title="Renovación de la Junta Directiva de la Asociación de Usuarios"
+    storageKey="nv-popup-junta-2026"
+    durationDays={7}
+    delayMs={1500}
+  />
+
   <div>
     <div>
       <CarouselHero />
