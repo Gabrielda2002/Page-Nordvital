@@ -6,9 +6,6 @@ import MessageFormCotactUs from "@/components/react_components/MessageFormContac
 import WorkUsForm from "@/components/react_components/WorkUsForm";
 
 //icons
-import icon2 from "@/images/Contactanos/correo.svg";
-import icon3 from "@/images/Contactanos/contacto.svg";
-import icon4 from "@/images/Contactanos/horario.svg";
 import H from "@/components/ui/H.astro";
 import { Clock, Mail, Map, MapPin, Phone } from "lucide-react";
 import P from "@/components/ui/P.astro";
@@ -33,63 +30,96 @@ import P from "@/components/ui/P.astro";
 
     <div class="container mx-auto px-4 py-2">
       <div class="flex flex-col lg:flex-row gap-8">
-        {/* Info Cards Section */}
+        <!-- Info Cards Section -->
         <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Sede Administrativa -->
             <div
-              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+              class="group p-6 bg-white rounded-xl shadow-md border border-slate-200 hover:border-nv-turquesa hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <MapPin className="mb-4 h-12 w-12 text-nv-turquesa" />
-              <H level={5}>Sede Administrativa</H>
-              <div class="flex items-center gap-2 mt-1">
-                <Map className="h-6 w-6 text-nv-turquesa"/>
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-nv-turquesa/10 mb-4 group-hover:bg-nv-turquesa/20 transition-colors">
+                <MapPin className="h-6 w-6 text-nv-turquesa" />
+              </div>
+              <H level={5} size="md" color="emphasis">Sede Administrativa</H>
+              <div class="flex items-center gap-2 mt-3">
+                <Map className="h-4 w-4 text-nv-turquesa shrink-0" />
                 <a
                   href="https://maps.app.goo.gl/KLWrQo7caN8dcdpZ6"
                   target="_blank"
-                  class="text-nv-azul-claro transition-colors duration-300 underline hover:text-nv-azul-claro-dark"
+                  class="text-sm font-medium text-nv-azul-claro transition-colors duration-300 underline underline-offset-2 hover:text-nv-azul-claro-dark"
                 >
-                  Ubicación
+                  Ver ubicación en Google Maps
                 </a>
               </div>
             </div>
 
+            <!-- Correo Electrónico -->
             <div
-              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+              class="group p-6 bg-white rounded-xl shadow-md border border-slate-200 hover:border-nv-turquesa hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <Mail className="mb-4 h-12 w-12 text-nv-turquesa" />
-              <H level={5} class="mb-2">Correo Electrónico</H>
-              <P class="mt-1">Para gestión de servicios:</P>
-              <a
-                href="mailto:servicioalcliente@nordvitalips.com"
-                class="text-blue-500 hover:text-blue-700 transition-colors duration-300 underline"
-              >
-                servicioalcliente@nordvitalips.com
-              </a>
-              <P class="mt-2"> 
-                Para gestión jurídica:
-              </P>
-              <a href="mailto:notificacionesjudiciales@nordvitalips.com" class="text-blue-500 hover:text-blue-700 transition-colors duration-300 underline">
-                notificacionesjudiciales@nordvitalips.com
-              </a>
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-nv-turquesa/10 mb-4 group-hover:bg-nv-turquesa/20 transition-colors">
+                <Mail className="h-6 w-6 text-nv-turquesa" />
+              </div>
+              <H level={5} size="md" color="emphasis">Correo Electrónico</H>
+              <div class="mt-3 space-y-3">
+                <div>
+                  <P size="sm">Para gestión de servicios:</P>
+                  <a
+                    href="mailto:servicioalcliente@nordvitalips.com"
+                    class="text-sm text-nv-azul-claro hover:text-nv-azul-claro-dark transition-colors duration-300 underline underline-offset-2 break-all"
+                  >
+                    servicioalcliente@nordvitalips.com
+                  </a>
+                </div>
+                <div>
+                  <P size="sm">Para gestión jurídica:</P>
+                  <a
+                    href="mailto:notificacionesjudiciales@nordvitalips.com"
+                    class="text-sm text-nv-azul-claro hover:text-nv-azul-claro-dark transition-colors duration-300 underline underline-offset-2 break-all"
+                  >
+                    notificacionesjudiciales@nordvitalips.com
+                  </a>
+                </div>
+              </div>
             </div>
 
+            <!-- Contacto -->
             <div
-              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+              class="group p-6 bg-white rounded-xl shadow-md border border-slate-200 hover:border-nv-turquesa hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <Phone className="mb-4 h-12 w-12 text-nv-turquesa" />
-              <H level={5}>Contacto</H>
-              <P>(+57) 3174309873</P>
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-nv-turquesa/10 mb-4 group-hover:bg-nv-turquesa/20 transition-colors">
+                <Phone className="h-6 w-6 text-nv-turquesa" />
+              </div>
+              <H level={5} size="md" color="emphasis">Contacto</H>
+              <div class="mt-3 flex items-center gap-2">
+                <Phone className="h-4 w-4 text-nv-turquesa shrink-0" />
+                <a
+                  href="tel:+573174309873"
+                  class="text-lg font-semibold text-nv-azul-oscuro hover:text-nv-turquesa transition-colors duration-300"
+                >
+                  (+57) 3174309873
+                </a>
+              </div>
             </div>
 
+            <!-- Horarios de Atención -->
             <div
-              class="p-6 bg-white rounded-lg shadow-lg border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+              class="group p-6 bg-white rounded-xl shadow-md border border-slate-200 hover:border-nv-turquesa hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <Clock className="mb-4 h-12 w-12 text-nv-turquesa" />
-              <H level={5}>Horarios De Atención</H>
-              <H level={6}>Lunes a viernes</H>
-              <P class="mb-2">6:00 am - 6:30 pm</P>
-              <H level={6}>Sábados</H>
-              <P>8:00 am - 12:00 pm</P>
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-nv-turquesa/10 mb-4 group-hover:bg-nv-turquesa/20 transition-colors">
+                <Clock className="h-6 w-6 text-nv-turquesa" />
+              </div>
+              <H level={5} size="md" color="emphasis">Horarios De Atención</H>
+              <div class="mt-3 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-quicksand font-semibold text-nv-azul-oscuro">Lunes a viernes</span>
+                  <span class="text-sm font-quicksand text-gray-600">6:00 am - 6:30 pm</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-quicksand font-semibold text-nv-azul-oscuro">Sábados</span>
+                  <span class="text-sm font-quicksand text-gray-600">8:00 am - 12:00 pm</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
