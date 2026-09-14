@@ -3,27 +3,31 @@
 
 interface Props {
   title: string;
-  // content: string;
   id: string;
+  fullWidth?: boolean;
   // isMarkdown?: boolean;
 }
 
-const { title, id } = Astro.props;
+const { title, id, fullWidth = false } = Astro.props;
 
-// const htmlContent = isMarkdown ? marked(content) : content;
+const widthClasses = fullWidth ? "w-full" : "w-[90%] md:w-[70%]";
+
 ---
 
 <div
-  class="accordion mt-5 items-center w-[90%] md:w-[70%] mx-auto bg-linear-to-l from-nordvital-secondary to-[#017bdedf] rounded-3xl"
+  class:list={[
+    "accordion mt-5 items-center mx-auto bg-nv-verde-salud-light transition-colors duration-400",
+    widthClasses,
+  ]}
 >
   <div class="mb-4 w-full">
     <button
-      class="w-full flex justify-between items-center p-4 rounded-t-lg focus:outline-none"
+      class="accordion-button w-full flex justify-between items-center gap-4 p-4 rounded-t-lg text-left focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       id={`accordion-button-${id}`}
       aria-expanded="false"
       aria-controls={`accordion-content-${id}`}
     >
-      <span class="font-bold text-white font-gnuolane">{title}</span>
+      <span class="font-bold text-white font-quicksand">{title}</span>
       <svg
         class="w-5 h-5 transition-transform duration-300"
         fill="white"
@@ -39,7 +43,7 @@ const { title, id } = Astro.props;
     </button>
     <div
       id={`accordion-content-${id}`}
-      class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-b-lg"
+      class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white rounded-b-lg"
       aria-labelledby={`accordion-button-${id}`}
     >
       <div class="space-y-4 text-gray-700 p-4 bg-gray-200">
@@ -80,3 +84,21 @@ const { title, id } = Astro.props;
     setupAccordion(id);
   });
 </script>
+
+<style>
+  /* El contenido colapsado queda oculto para teclado y lectores de pantalla */
+  .accordion-content {
+    visibility: hidden;
+  }
+
+  .accordion-button[aria-expanded="true"] + .accordion-content {
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .accordion-content,
+    .accordion-button svg {
+      transition: none;
+    }
+  }
+</style>

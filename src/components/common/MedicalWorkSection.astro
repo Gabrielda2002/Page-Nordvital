@@ -1,0 +1,92 @@
+---
+import { ArrowRight } from "lucide-react";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
+import Button from "@/components/common/Button.astro";
+import ServiceCardGrid from "@/components/common/ServiceCardGrid.astro";
+import {
+  medicalWorkIntro,
+  medicalWorkServices,
+} from "@/content/medical-work.data";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+const serviceCount = medicalWorkServices.length;
+---
+
+<section
+  aria-label="Medicina laboral para empresas"
+  class:list={[
+    "relative overflow-hidden rounded-3xl mx-auto w-11/12 mb-20 px-6 py-12 md:px-10 md:py-16 bg-linear-to-b from-nv-turquesa/10 via-white to-nv-verde-salud/10",
+    className,
+  ]}
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  <div class="relative z-10">
+    <div class="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+      <div
+        class="mb-4 inline-flex items-center gap-2 rounded-full border border-nv-turquesa/25 bg-nv-turquesa/10 px-4 py-2"
+      >
+        <span class="w-2 h-2 rounded-full bg-nv-turquesa animate-pulse"></span>
+        <span class="text-sm font-medium uppercase tracking-wider text-nv-turquesa">
+          {medicalWorkIntro.eyebrow}
+        </span>
+      </div>
+
+      <H level={2} size="2xl" align="center" class="mb-4">
+        Tu aliado en salud para tu{" "}
+        <span
+          class="bg-linear-to-r from-nv-verde-salud to-nv-turquesa bg-clip-text text-transparent"
+        >
+          empresa
+        </span>
+      </H>
+
+      <P size="lg" align="center" class="text-nv-gris">
+        {medicalWorkIntro.subtitle}
+      </P>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <ServiceCardGrid linkMode="page" />
+
+      <li
+        class="h-full"
+        data-aos="fade-up"
+        data-aos-duration="700"
+        data-aos-delay={serviceCount * 60}
+      >
+        <a
+          href="/medicina-laboral"
+          class="group flex h-full flex-col justify-between gap-4 rounded-2xl bg-linear-to-br from-nv-verde-salud to-nv-turquesa p-5 text-white shadow-lg shadow-nv-verde-salud/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nv-azul-oscuro"
+        >
+          <span class="font-gnuolane text-lg font-bold leading-snug">
+            Conoce nuestra oferta de Medicina Laboral
+          </span>
+          <span
+            class="inline-flex items-center gap-2 text-sm font-semibold text-white/90"
+          >
+            Ver todos los servicios
+            <ArrowRight
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+      <Button url="/medicina-laboral" variant="primary" size="lg">
+        Conocer Medicina Laboral
+      </Button>
+      <Button url="/contact-us" variant="outline" size="lg">
+        Solicitar información
+      </Button>
+    </div>
+  </div>
+</section>

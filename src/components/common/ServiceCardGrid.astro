@@ -1,0 +1,57 @@
+---
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
+import {
+  medicalWorkServices,
+  type MedicalWorkService,
+} from "@/content/medical-work.data";
+import { serviceIcons } from "@/lib/medical-work-icons";
+
+interface Props {
+  services?: MedicalWorkService[];
+  /** "anchor": enlace interno #id con js-service-link (misma página). "page": enlace a /medicina-laboral#id */
+  linkMode?: "anchor" | "page";
+}
+
+const { services = medicalWorkServices, linkMode = "anchor" } = Astro.props;
+---
+
+{
+  services.map((service, index) => {
+    const Icon = serviceIcons[service.icon];
+    const href =
+      linkMode === "page"
+        ? `/medicina-laboral#${service.id}`
+        : `#${service.id}`;
+    const linkClass = `${linkMode === "anchor" ? "js-service-link " : ""}mt-auto text-sm font-semibold text-nv-verde-salud transition-colors duration-300 hover:text-nv-turquesa`;
+
+    return (
+      <li
+        class="h-full"
+        data-aos="fade-up"
+        data-aos-duration="700"
+        data-aos-delay={index * 60}
+      >
+        <div class="group flex h-full flex-col gap-4 rounded-2xl border border-nv-verde-salud/15 bg-white p-6 shadow-sm hover:-translate-y-1 hover:border-nv-turquesa/50 hover:shadow-lg transition-all duration-300">
+          <span
+            class="flex h-12 w-12 items-center justify-center rounded-xl bg-nv-verde-salud/10 text-nv-verde-salud transition-colors duration-300 group-hover:bg-nv-turquesa/15 group-hover:text-nv-turquesa"
+            aria-hidden="true"
+          >
+            <Icon className="w-6 h-6" strokeWidth={1.75} />
+          </span>
+
+          <H level={3}>{service.title}</H>
+
+          <P clamp={2}>
+            {service.tagline}
+          </P>
+
+          <a href={href} class={linkClass}>
+            Ver detalles
+            <span class="sr-only">: {service.title}</span>
+          </a>
+        </div>
+      </li>
+    );
+  })
+}

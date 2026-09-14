@@ -1,0 +1,355 @@
+---
+import { Check, MessageCircle, Send } from "lucide-react";
+
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/common/HeroSection.astro";
+import Accordion from "@/components/common/Accordion.astro";
+import WhyChooseUs from "@/components/common/WhyChooseUs.astro";
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
+import Button from "@/components/common/Button.astro";
+import ServiceCardGrid from "@/components/common/ServiceCardGrid.astro";
+
+import {
+  medicalWorkAllies,
+  medicalWorkContact,
+  medicalWorkCta,
+  medicalWorkIntro,
+  medicalWorkServices,
+} from "@/content/medical-work.data";
+
+import heroImage from "@/images/Services/SERVICIOS.jpg";
+import { Image } from "astro:assets";
+
+const [introParagraph, introClosing] = medicalWorkIntro.paragraphs;
+
+const processSteps = [
+  "Prevención",
+  "Evaluación",
+  "Diagnóstico",
+  "Acompañamiento",
+];
+---
+
+<Layout
+  title="Medicina Laboral para Empresas | Nordvital IPS"
+  description="Medicina laboral para empresas: exámenes médicos ocupacionales, salud visual, laboratorio clínico, odontología, fisioterapia, diagnóstico por imágenes, cardiología y vacunación. Tu aliado en salud para tu empresa."
+>
+  <HeroSection
+    title="Medicina Laboral"
+    subtitle="Tu aliado en salud para tu empresa. Cuidamos la salud de tu equipo e impulsamos el bienestar de tu empresa."
+    backgroundImage={heroImage}
+    breadcrumb={[
+      { label: "Inicio", link: "/" },
+      { label: "Servicios", link: "/services" },
+      { label: "Medicina Laboral", link: "/medicina-laboral" },
+    ]}
+  />
+
+  <!-- ? introducción -->
+  <section
+    aria-label="Medicina laboral para empresas"
+    class="relative mx-auto mb-20 w-11/12"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
+    <div
+      class="grid grid-cols-1 items-start gap-x-10 gap-y-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]"
+    >
+      <div
+        class="inline-flex w-fit items-center gap-2 rounded-full border border-nv-turquesa/25 bg-nv-turquesa/10 px-4 py-2 lg:col-start-1 lg:row-start-1"
+      >
+        <span class="h-2 w-2 rounded-full bg-nv-turquesa animate-pulse"></span>
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-nv-turquesa"
+          >{medicalWorkIntro.eyebrow}</span
+        >
+      </div>
+
+      <H
+        level={2}
+        size="2xl"
+        color="emphasis"
+        class="lg:col-start-1 lg:row-start-2"
+      >
+        Tu aliado en salud para tu{" "}
+        <span
+          class="bg-linear-to-r from-nv-verde-salud to-nv-turquesa bg-clip-text text-transparent"
+          >empresa</span
+        >
+      </H>
+
+      <P size="lg" class="text-nv-gris lg:col-start-1 lg:row-start-3">
+        {medicalWorkIntro.subtitle}
+      </P>
+
+      <div
+        class="flex flex-col gap-5 lg:col-start-2 lg:row-start-2 lg:row-span-3"
+      >
+        <P align="justify" leading="relaxed" hyphens class="text-nv-gris">
+          {introParagraph}
+        </P>
+
+        <div
+          class="rounded-2xl border-l-4 border-nv-turquesa bg-nv-turquesa/5 px-5 py-4"
+        >
+          <P size="lg" class="font-semibold text-nv-azul-oscuro">
+            {introClosing}
+          </P>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <Button url="/contact-us" variant="primary" size="md">
+            Solicitar información
+          </Button>
+          <Button
+            url={medicalWorkContact.whatsapp}
+            variant="outline"
+            size="md"
+            target="_blank"
+            customIcon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.017l-1.415 5.121a1 1 0 0 0 1.225 1.225l5.121-1.415A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>`}
+          >
+            Contáctanos
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ? pasos del acompañamiento -->
+  <section
+    aria-label="Cómo acompañamos a tu empresa"
+    class="mx-auto mb-20 w-11/12"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-delay="100"
+  >
+    <ul class="grid grid-cols-2 gap-3 md:grid-cols-4" role="list">
+      {
+        processSteps.map((step, index) => (
+          <li class="flex items-center gap-3 rounded-2xl border border-nv-verde-salud/15 bg-white px-4 py-4 shadow-sm">
+            <span
+              class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-nv-verde-salud to-nv-turquesa font-gnuolane text-sm font-bold text-white"
+              aria-hidden="true"
+            >
+              {index + 1}
+            </span>
+            <span class="font-quicksand font-semibold text-nv-azul-oscuro">
+              {step}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- ? resumen de servicios -->
+  <section
+    aria-label="Nuestros servicios de medicina laboral"
+    class="mx-auto mb-20 w-11/12"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
+    <div class="mb-10 max-w-3xl text-center">
+      <H level={2} size="2xl" align="left" class="mb-4">
+        Nuestros{" "}
+        <span
+          class="bg-linear-to-r from-nv-verde-salud to-nv-turquesa bg-clip-text text-transparent"
+          >servicios</span
+        >
+      </H>
+      <P align="left" clamp={2}>
+        Soluciones de salud para tu empresa y tu equipo, en un solo lugar.
+        Explora cada servicio para conocer su alcance.
+      </P>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+      <ServiceCardGrid />
+    </ul>
+  </section>
+
+  <!-- ? detalle de servicios -->
+  <section
+    aria-label="Detalle de los servicios de medicina laboral"
+    class="mx-auto mb-20 w-11/12"
+  >
+    <div class="mx-auto mb-8 max-w-3xl text-center">
+      <H level={2} size="2xl" align="center" class="mb-4">
+        Conoce el detalle de cada{" "}
+        <span
+          class="bg-linear-to-r from-nv-verde-salud to-nv-turquesa bg-clip-text text-transparent"
+          >servicio</span
+        >
+      </H>
+      <P align="center" class="text-nv-gris">
+        Abre cada sección para consultar la información completa de nuestros
+        servicios.
+      </P>
+    </div>
+
+    {
+      medicalWorkServices.map((service) => (
+        <div id={service.id}>
+          <Accordion title={service.title} id={service.id}>
+            <div class="space-y-4">
+              <P
+                size="lg"
+                align="justify"
+                leading="relaxed"
+                hyphens
+                class="border-l-4 border-nv-turquesa pl-4 font-semibold text-nv-azul-oscuro"
+              >
+                {service.tagline}
+              </P>
+
+              {service.paragraphs.map((paragraph) => (
+                <P align="justify" leading="relaxed" hyphens>
+                  {paragraph}
+                </P>
+              ))}
+
+              {service.listTitle && service.list && (
+                <div class="space-y-3">
+                  <H level={4} size="sm" color="emphasis">
+                    {service.listTitle}
+                  </H>
+                  <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {service.list.map((item) => (
+                      <li class="flex items-start gap-2 font-quicksand text-gray-700">
+                        <Check
+                          className="mt-1 h-4 w-4 shrink-0 text-nv-verde-salud"
+                          aria-hidden="true"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {(service.itemsTitle || service.items) && (
+                <div class="space-y-4">
+                  {service.itemsTitle && (
+                    <H level={4} size="sm" color="emphasis">
+                      {service.itemsTitle}
+                    </H>
+                  )}
+                  <dl class="space-y-4">
+                    {(service.items ?? []).map((item) => (
+                      <div class="rounded-xl bg-white p-4 shadow-sm">
+                        <dt class="mb-1 font-gnuolane font-bold text-nv-azul-oscuro">
+                          {item.title}
+                        </dt>
+                        <dd class="font-quicksand text-gray-700">
+                          {item.text}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              )}
+
+              {service.closing && (
+                <P
+                  size="lg"
+                  class="rounded-xl bg-nv-turquesa/10 px-4 py-3 font-semibold text-nv-azul-oscuro"
+                >
+                  {service.closing}
+                </P>
+              )}
+            </div>
+          </Accordion>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- ? aliados -->
+  <section
+    aria-label="Empresas y aliados que confían en nosotros"
+    class="mx-auto mb-20 w-11/12"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
+    <div class="mx-auto mb-10 max-w-3xl text-center">
+      <H level={2} size="2xl" align="center" class="mb-4">
+        {medicalWorkAllies.title}
+      </H>
+
+      <P align="center" class="text-nv-gris">
+        {medicalWorkAllies.description}
+      </P>
+    </div>
+
+    <H level={3} size="sm" align="center" color="muted" class="mb-5">
+      {medicalWorkAllies.listTitle}
+    </H>
+
+    <ul class="flex flex-wrap justify-center gap-4">
+      {
+        medicalWorkAllies.names.map((name) => (
+          <Image
+            src={name.icon}
+            alt={name.alt}
+            class="w-32 h-32 object-contain"
+            widths={[64, 128, 256]}
+            sizes="128px"
+            loading="lazy"
+          />
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- ? razones para elegirnos -->
+  <WhyChooseUs />
+</Layout>
+
+<script>
+  (() => {
+    const SCROLL_OFFSET = 96;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    function openService(targetId: string, smooth: boolean) {
+      const wrapper = document.getElementById(targetId);
+      if (!wrapper) return;
+
+      const collapsed = wrapper.querySelector<HTMLButtonElement>(
+        'button[aria-expanded="false"]',
+      );
+      collapsed?.click();
+
+      const top =
+        wrapper.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET;
+
+      window.scrollTo({
+        top,
+        behavior: smooth && !reduceMotion ? "smooth" : "auto",
+      });
+    }
+
+    document.querySelectorAll(".js-service-link").forEach((l) => {
+      l.addEventListener("click", (e) => {
+        const id = l.getAttribute("href")?.slice(1);
+        if (!id || !document.getElementById(id)) return;
+
+        e.preventDefault();
+        openService(id, true);
+        history.replaceState(null, "", `#${id}`);
+      });
+    });
+
+    window.addEventListener("load", () => {
+      const id = window.location.hash.slice(1);
+      if (id) openService(id, false);
+    });
+
+    window.addEventListener("hashchange", () => {
+      const id = window.location.hash.slice(1);
+      if (id) openService(id, true);
+    });
+  })();
+</script>

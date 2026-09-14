@@ -1,0 +1,159 @@
+---
+import H from "@/components/ui/H.astro";
+import P from "@/components/ui/P.astro";
+import {
+  medicalWorkContact,
+  medicalWorkCta,
+  medicalWorkReasons,
+} from "@/content/medical-work.data";
+import { reasonIcons } from "@/lib/medical-work-icons";
+import Button from "./Button.astro";
+
+interface Props {
+  /** Encabezado superior de la sección. */
+  eyebrow?: string;
+  /** Título principal de la sección. */
+  title?: string;
+  class?: string;
+}
+
+const {
+  eyebrow = "¿Por que elegirnos?",
+  title = "¿Por qué elegir NordVital IPS?",
+  class: className = "",
+} = Astro.props;
+---
+
+<section
+  aria-label="Razones para elegir NordVital IPS"
+  class:list={[
+    "relative overflow-hidden mx-auto px-6 py-12 md:px-10 md:py-16",
+    "bg-linear-to-br from-nv-azul-oscuro via-nv-verde-salud-dark to-nv-azul-oscuro-dark",
+    className,
+  ]}
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  <!-- Elementos decorativos -->
+  <div
+    class="pointer-events-none absolute -top-24 -right-16 w-72 h-72 rounded-full bg-nv-turquesa/20 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-28 -left-20 w-80 h-80 rounded-full bg-nv-azul-claro/15 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-4"
+      >
+        <span class="w-2 h-2 rounded-full bg-nv-turquesa animate-pulse"></span>
+        <span class="text-sm font-medium text-white/90">{eyebrow}</span>
+      </div>
+      <H level={2} size="2xl" color="white" align="center" class="mb-4">
+        {title}
+      </H>
+      <P color="white" align="center" class="text-white/75">
+        Cinco razones para confiar el cuidado de la salud de tu equipo a
+        NordVital IPS.
+      </P>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        medicalWorkReasons.map((reason, index) => {
+          const Icon = reasonIcons[reason.icon];
+          return (
+            <li
+              class="h-full"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={index * 80}
+            >
+              <div class="relative h-full rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:border-nv-turquesa/50 hover:bg-white/10">
+                <span
+                  class="absolute top-5 right-5 font-gnuolane text-xs tracking-[0.2em] text-white/25"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-nv-turquesa/15 text-nv-turquesa-light"
+                  aria-hidden="true"
+                >
+                  <Icon className="w-6 h-6" strokeWidth={1.75} />
+                </div>
+
+                <H level={3} size="sm" color="white" class="mb-2">
+                  {reason.title}
+                </H>
+                <P size="sm" color="white" class="text-white/75">
+                  {reason.text}
+                </P>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <section class="mt-11">
+      <div
+        class="pointer-events-none absolute -top-20 -left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -bottom-24 -right-10 h-72 w-72 rounded-full bg-nv-azul-claro/20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative z-10 mx-auto max-w-3xl">
+        <H level={2} size="2xl" color="white" align="center" class="mb-5">
+          {medicalWorkCta.title}
+        </H>
+
+        {
+          medicalWorkCta.paragraphs.map((paragraph) => (
+            <P color="white" align="center" class="mb-2 text-white/90">
+              {paragraph}
+            </P>
+          ))
+        }
+
+        <div class="my-8 flex flex-col items-center gap-2">
+          <p
+            class="font-gnuolane text-sm font-bold uppercase tracking-[0.25em] text-white/80"
+          >
+            {medicalWorkCta.contactLabel}
+          </p>
+          <p class="font-gnuolane text-2xl font-bold text-white">
+            {medicalWorkCta.brand}
+          </p>
+          <p class="font-quicksand text-white/85">
+            {medicalWorkCta.brandTagline}
+          </p>
+        </div>
+
+        <div class="flex flex-col justify-center gap-3 sm:flex-row">
+          <Button url="/contact-us" variant="primary" size="lg">
+            Solicitar información
+          </Button>
+          <Button
+            url={medicalWorkContact.whatsapp}
+            variant="secondary"
+            size="lg"
+            target="_blank"
+          >
+            Whatsapp
+          </Button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
