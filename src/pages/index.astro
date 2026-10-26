@@ -17,12 +17,35 @@ import WhyChooseUs from "@/components/common/WhyChooseUs.astro";
 import img1 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-1.webp";
 import img2 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-2.webp";
 import img3 from "@/images/Sedes/Cucuta/Sede 6/SEDE-6-3.webp";
+
+// popup edicto
+import PopupInfo from "@/components/common/PopupInfo.astro";
+import edictoP1 from "@/assets/edicto/edicto-p1.webp";
+import edictoP2 from "@/assets/edicto/edicto-p2.webp";
 ---
 
 <Layout
   title="Nordvital IPS | Servicios médicos de calidad en Colombia"
   description="Nordvital IPS ofrece servicios médicos de alta calidad, con 11 sedes habilitadas y atención personalizada. Consulta médica, especialistas y más."
 >
+  <PopupInfo
+    title="Edicto 1 - Aviso a posibles beneficiarios"
+    storageKey="nv-popup-edicto-ruiz-2026"
+    durationDays={7}
+    delayMs={1500}
+    images={[
+      {
+        src: edictoP1,
+        alt: "Edicto 1 - Página 1: Convocatoria a posibles beneficiarios de trabajadora fallecida",
+        label: "Página 1"
+      },
+      {
+        src: edictoP2,
+        alt: "Edicto 1 - Página 2: Radicación electrónica, finalidades y firma de representante legal",
+        label: "Página 2"
+      }
+    ]}
+  />
 
   <div>
     <div>

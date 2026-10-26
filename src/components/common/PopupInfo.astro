@@ -2,28 +2,46 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
+export interface PopupImageItem {
+  src: ImageMetadata;
+  alt: string;
+  label?: string;
+}
+
 interface Props {
-  image: ImageMetadata;
-  imageAlt: string;
   title: string;
+  images?: PopupImageItem[];
+  // Retrocompatibilidad para imagen única
+  image?: ImageMetadata;
+  imageAlt?: string;
   storageKey?: string;
   durationDays?: number;
   delayMs?: number;
 }
 
 const {
-  image,
-  imageAlt,
   title,
-  storageKey = 'nv-popup-junta-2026',
+  images: imagesProp,
+  image,
+  imageAlt = '',
+  storageKey = 'nv-popup-edicto-ruiz-2026',
   durationDays = 7,
   delayMs = 1500,
 } = Astro.props;
+
+// Normalizar la lista de imágenes para soportar tanto `images` como `image`
+const imagesList: PopupImageItem[] = imagesProp && imagesProp.length > 0
+  ? imagesProp
+  : image
+    ? [{ src: image, alt: imageAlt || title, label: 'Página 1' }]
+    : [];
+
+const hasMultiple = imagesList.length > 1;
 ---
 
 <div
   id="popup-info"
-  class="hidden fixed inset-0 z-[60] flex items-center justify-center p-4"
+  class="hidden fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4"
   role="dialog"
   aria-modal="true"
   aria-labelledby="popup-title"
@@ -31,6 +49,7 @@ const {
   data-storage-key={storageKey}
   data-duration-days={String(durationDays)}
   data-delay-ms={String(delayMs)}
+  data-total-slides={String(imagesList.length)}
 >
   <!-- Backdrop -->
   <div
@@ -41,40 +60,151 @@ const {
   <!-- Card -->
   <div
     id="popup-info-card"
-    class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden flex flex-col transition-all duration-300 scale-95 opacity-0 motion-reduce:transition-none"
+    class="relative bg-white rounded-2xl shadow-2xl max-w-lg sm:max-w-2xl md:max-w-3xl lg:max-w-4xl w-full max-h-[96vh] overflow-hidden flex flex-col transition-all duration-300 scale-95 opacity-0 motion-reduce:transition-none border border-gray-100"
   >
     <!-- Header -->
-    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-      <h2 id="popup-title" class="sr-only text-lg font-semibold text-gray-800">{title}</h2>
-      <span aria-hidden="true"></span>
-      <button
-        id="popup-info-close"
-        type="button"
-        class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
-        aria-label="Cerrar"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/>
-        </svg>
-      </button>
+    <div class="px-4 py-3 border-b border-gray-100 flex flex-col gap-2.5 bg-white">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-nv-verde-salud/10 text-nv-verde-salud shrink-0" aria-hidden="true">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </span>
+          <h2 id="popup-title" class="text-sm sm:text-base font-bold text-nv-azul-oscuro font-gnuolane tracking-wide truncate">
+            {title}
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          {hasMultiple && (
+            <span
+              id="popup-page-counter"
+              class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-nv-verde-salud/10 text-nv-verde-salud font-quicksand"
+              aria-live="polite"
+            >
+              1 / {imagesList.length}
+            </span>
+          )}
+
+          <!-- Zoom Toggle Button -->
+          <button
+            id="popup-zoom-toggle"
+            type="button"
+            class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
+            aria-label="Ampliar imagen"
+            title="Ampliar o reducir zoom"
+          >
+            <!-- Zoom in icon -->
+            <svg id="popup-zoom-in-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+            </svg>
+            <!-- Zoom out icon -->
+            <svg id="popup-zoom-out-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"/>
+            </svg>
+          </button>
+
+          <!-- Close button -->
+          <button
+            id="popup-info-close"
+            type="button"
+            class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors cursor-pointer"
+            aria-label="Cerrar comunicado"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Segmented Tabs for Multiple Pages -->
+      {hasMultiple && (
+        <div class="flex items-center gap-1.5 p-1 bg-gray-100/90 rounded-xl" role="tablist" aria-label="Páginas del comunicado">
+          {imagesList.map((item, index) => (
+            <button
+              type="button"
+              role="tab"
+              data-tab-index={index}
+              aria-selected={index === 0 ? "true" : "false"}
+              class={`popup-tab flex-1 py-1.5 px-3 rounded-lg text-xs sm:text-sm font-medium font-quicksand transition-all cursor-pointer ${
+                index === 0
+                  ? "bg-white text-nv-verde-salud shadow-xs font-bold"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-white/50"
+              }`}
+            >
+              {item.label || `Página ${index + 1}`}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
 
-    <!-- Image -->
-    <div class="relative flex-1 overflow-y-auto">
-      <Image
-        src={image}
-        alt={imageAlt}
-        class="w-full h-auto object-contain"
-        widths={[400, 600, 800]}
-        sizes="(min-width: 768px) 28rem, 90vw"
-        loading="eager"
-        fetchpriority="high"
-      />
+    <!-- Viewer / Slides Container -->
+    <div class="relative flex-1 overflow-hidden bg-gray-100/60 min-h-[350px]">
+      <!-- Track -->
+      <div
+        id="popup-slides-track"
+        class="flex w-full h-full transition-transform duration-300 ease-out select-none"
+        aria-roledescription="carousel"
+      >
+        {imagesList.map((item, index) => (
+          <div
+            class="popup-slide w-full shrink-0 max-h-[72vh] sm:max-h-[78vh] overflow-y-auto flex flex-col items-center p-2 sm:p-4 scroll-smooth"
+            role="tabpanel"
+            aria-label={item.label || `Página ${index + 1}`}
+            data-slide-index={index}
+          >
+            <!-- Zoomable image container -->
+            <div
+              class="popup-image-wrapper relative w-full max-w-2xl lg:max-w-3xl mx-auto flex flex-col items-center transition-transform duration-200 origin-top cursor-zoom-in"
+              title="Haz clic para ampliar o reducir"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                class="w-full h-auto object-contain rounded-lg shadow-sm border border-gray-200/90 bg-white"
+                widths={[600, 800, 1024, 1200]}
+                sizes="(min-width: 1024px) 52rem, (min-width: 768px) 46rem, 95vw"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchpriority={index === 0 ? "high" : "auto"}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Floating Navigation Arrows -->
+      {hasMultiple && (
+        <>
+          <button
+            id="popup-nav-prev"
+            type="button"
+            aria-label="Página anterior"
+            class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-gray-700 hover:text-nv-verde-salud shadow-md flex items-center justify-center transition-all opacity-0 pointer-events-none hover:scale-105 active:scale-95 cursor-pointer disabled:opacity-0 disabled:pointer-events-none z-10"
+          >
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button
+            id="popup-nav-next"
+            type="button"
+            aria-label="Página siguiente"
+            class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-gray-700 hover:text-nv-verde-salud shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer disabled:opacity-0 disabled:pointer-events-none z-10"
+          >
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </>
+      )}
     </div>
 
     <!-- Footer -->
-    <div class="px-4 py-3 border-t border-gray-100 flex items-center justify-between gap-3 bg-gray-50/50">
-      <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer select-none font-quicksand">
+    <div class="px-4 py-3 border-t border-gray-100 flex items-center justify-between gap-3 bg-gray-50/70">
+      <label class="flex items-center gap-2 text-xs sm:text-sm text-gray-700 cursor-pointer select-none font-quicksand">
         <input
           id="popup-info-checkbox"
           type="checkbox"
@@ -82,13 +212,28 @@ const {
         />
         <span>No volver a mostrar</span>
       </label>
-      <button
-        id="popup-info-accept"
-        type="button"
-        class="px-4 py-2 rounded-lg bg-nv-verde-salud text-white text-sm font-semibold hover:bg-nv-verde-salud-dark transition-colors font-quicksand"
-      >
-        Entendido
-      </button>
+
+      <div class="flex items-center gap-2">
+        {hasMultiple && (
+          <button
+            id="popup-info-step-btn"
+            type="button"
+            class="px-3.5 py-1.5 rounded-lg border border-nv-verde-salud/40 text-nv-verde-salud hover:bg-nv-verde-salud/10 text-xs sm:text-sm font-semibold transition-colors font-quicksand flex items-center gap-1 cursor-pointer"
+          >
+            <span>Página 2</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        )}
+        <button
+          id="popup-info-accept"
+          type="button"
+          class="px-4 py-1.5 rounded-lg bg-nv-verde-salud text-white text-xs sm:text-sm font-semibold hover:bg-nv-verde-salud-dark transition-colors font-quicksand cursor-pointer shadow-xs"
+        >
+          Entendido
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -102,10 +247,26 @@ const {
     const card = document.getElementById('popup-info-card');
     const closeBtn = document.getElementById('popup-info-close');
     const acceptBtn = document.getElementById('popup-info-accept');
+    const stepBtn = document.getElementById('popup-info-step-btn');
     const checkbox = document.getElementById('popup-info-checkbox');
-    const storageKey = popup.getAttribute('data-storage-key');
+    const zoomToggle = document.getElementById('popup-zoom-toggle');
+    const zoomInIcon = document.getElementById('popup-zoom-in-icon');
+    const zoomOutIcon = document.getElementById('popup-zoom-out-icon');
+
+    const storageKey = popup.getAttribute('data-storage-key') || 'nv-popup-edicto-ruiz-2026';
     const durationDays = parseInt(popup.getAttribute('data-duration-days') || '7', 10);
     const delayMs = parseInt(popup.getAttribute('data-delay-ms') || '1500', 10);
+    const totalSlides = parseInt(popup.getAttribute('data-total-slides') || '1', 10);
+
+    const track = document.getElementById('popup-slides-track');
+    const tabs = Array.from(popup.querySelectorAll('.popup-tab'));
+    const prevBtn = document.getElementById('popup-nav-prev');
+    const nextBtn = document.getElementById('popup-nav-next');
+    const pageCounter = document.getElementById('popup-page-counter');
+    const imageWrappers = Array.from(popup.querySelectorAll('.popup-image-wrapper'));
+
+    let currentSlide = 0;
+    let isZoomed = false;
 
     function shouldShow() {
       try {
@@ -118,9 +279,111 @@ const {
       }
     }
 
+    function toggleZoom(force) {
+      isZoomed = typeof force === 'boolean' ? force : !isZoomed;
+
+      imageWrappers.forEach((wrapper) => {
+        if (isZoomed) {
+          wrapper.classList.add('scale-[1.35]', 'sm:scale-[1.4]', 'my-10', 'cursor-zoom-out');
+          wrapper.classList.remove('cursor-zoom-in');
+        } else {
+          wrapper.classList.remove('scale-[1.35]', 'sm:scale-[1.4]', 'my-10', 'cursor-zoom-out');
+          wrapper.classList.add('cursor-zoom-in');
+        }
+      });
+
+      if (zoomInIcon && zoomOutIcon) {
+        if (isZoomed) {
+          zoomInIcon.classList.add('hidden');
+          zoomOutIcon.classList.remove('hidden');
+        } else {
+          zoomInIcon.classList.remove('hidden');
+          zoomOutIcon.classList.add('hidden');
+        }
+      }
+    }
+
+    // Toggle zoom on button or clicking images
+    zoomToggle?.addEventListener('click', () => toggleZoom());
+    imageWrappers.forEach((wrapper) => {
+      wrapper.addEventListener('click', () => toggleZoom());
+    });
+
+    function updateSlideUI() {
+      if (track) {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      // Reset zoom on slide change to avoid disorienting user
+      if (isZoomed) {
+        toggleZoom(false);
+      }
+
+      // Reset scroll position of current slide to top
+      const currentSlideEl = popup.querySelector(`[data-slide-index="${currentSlide}"]`);
+      if (currentSlideEl) {
+        currentSlideEl.scrollTop = 0;
+      }
+
+      // Update tabs
+      tabs.forEach((tab, idx) => {
+        const isSelected = idx === currentSlide;
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        if (isSelected) {
+          tab.classList.add('bg-white', 'text-nv-verde-salud', 'shadow-xs', 'font-bold');
+          tab.classList.remove('text-gray-600', 'hover:bg-white/50');
+        } else {
+          tab.classList.remove('bg-white', 'text-nv-verde-salud', 'shadow-xs', 'font-bold');
+          tab.classList.add('text-gray-600', 'hover:bg-white/50');
+        }
+      });
+
+      // Update counter
+      if (pageCounter) {
+        pageCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      }
+
+      // Update prev/next arrows
+      if (prevBtn) {
+        if (currentSlide === 0) {
+          prevBtn.classList.add('opacity-0', 'pointer-events-none');
+          prevBtn.disabled = true;
+        } else {
+          prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+          prevBtn.disabled = false;
+        }
+      }
+
+      if (nextBtn) {
+        if (currentSlide === totalSlides - 1) {
+          nextBtn.classList.add('opacity-0', 'pointer-events-none');
+          nextBtn.disabled = true;
+        } else {
+          nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+          nextBtn.disabled = false;
+        }
+      }
+
+      // Update contextual step button
+      if (stepBtn) {
+        if (currentSlide < totalSlides - 1) {
+          stepBtn.classList.remove('hidden');
+          const nextLabel = tabs[currentSlide + 1]?.textContent?.trim() || `Página ${currentSlide + 2}`;
+          stepBtn.innerHTML = `<span>${nextLabel}</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
+        } else {
+          stepBtn.classList.add('hidden');
+        }
+      }
+    }
+
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlide = index;
+      updateSlideUI();
+    }
+
     function show() {
       if (!popup || !backdrop || !card) return;
-      // No mostrar si el loader aún está visible
       if (document.getElementById('global-loader')) return;
 
       popup.classList.remove('hidden');
@@ -128,11 +391,11 @@ const {
       document.body.style.overflow = 'hidden';
       closeBtn?.focus();
 
-      // Trigger animations
       requestAnimationFrame(() => {
         backdrop.classList.remove('opacity-0');
         card.classList.remove('opacity-0', 'scale-95');
       });
+      updateSlideUI();
     }
 
     function hide(save) {
@@ -156,27 +419,80 @@ const {
       }
     }
 
-    function onClose(save) {
-      hide(save);
-    }
+    // Tabs click
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', function() {
+        const idx = parseInt(tab.getAttribute('data-tab-index') || '0', 10);
+        goToSlide(idx);
+      });
+    });
 
-    // Event listeners
-    closeBtn?.addEventListener('click', function() {
-      onClose(true);
+    // Prev / Next click
+    prevBtn?.addEventListener('click', function() {
+      goToSlide(currentSlide - 1);
     });
-    acceptBtn?.addEventListener('click', function() {
-      onClose(true);
+    nextBtn?.addEventListener('click', function() {
+      goToSlide(currentSlide + 1);
     });
-    backdrop?.addEventListener('click', function() {
-      onClose(true);
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !popup.classList.contains('hidden')) {
-        onClose(true);
+
+    // Step button click
+    stepBtn?.addEventListener('click', function() {
+      if (currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
       }
     });
 
-    // Show after delay
+    // Touch swipe support (only when not zoomed to allow horizontal panning)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track?.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track?.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      if (!isZoomed) {
+        handleSwipe();
+      }
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 45) {
+        if (diff > 0 && currentSlide < totalSlides - 1) {
+          goToSlide(currentSlide + 1);
+        } else if (diff < 0 && currentSlide > 0) {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (popup.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') {
+        hide(true);
+      } else if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    });
+
+    // Event listeners for close
+    closeBtn?.addEventListener('click', function() {
+      hide(true);
+    });
+    acceptBtn?.addEventListener('click', function() {
+      hide(true);
+    });
+    backdrop?.addEventListener('click', function() {
+      hide(true);
+    });
+
+    // Auto-show after delay
     if (shouldShow()) {
       setTimeout(show, delayMs);
     }
